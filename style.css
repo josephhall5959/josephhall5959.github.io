@@ -28,10 +28,15 @@ body {
 a { color: var(--accent); }
 a:hover { text-decoration-thickness: 2px; }
 
-header { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
-.portrait { margin: 0; max-width: 190px; }
-.portrait figcaption { font-size: 0.72rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.35; }
-.headshot { border-radius: 6px; max-width: 170px; height: auto; }
+header { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+.portrait { margin: 0; max-width: 300px; flex-shrink: 0; }
+.portrait figcaption { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; line-height: 1.35; }
+.headshot { border-radius: 8px; width: 100%; max-width: 280px; height: auto; }
+@media (max-width: 640px) {
+  header { justify-content: center; text-align: center; }
+  .portrait { max-width: 85%; }
+  .headshot { max-width: 100%; }
+}
 h1 { margin: 0 0 0.25rem; font-size: 2rem; letter-spacing: 0.01em; }
 .role { margin: 0 0 0.6rem; color: var(--muted); }
 .quicklinks a { margin-right: 1rem; white-space: nowrap; }
