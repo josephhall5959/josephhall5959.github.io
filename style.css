@@ -29,6 +29,8 @@ a { color: var(--accent); }
 a:hover { text-decoration-thickness: 2px; }
 
 header { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+.portrait { margin: 0; max-width: 190px; }
+.portrait figcaption { font-size: 0.72rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.35; }
 .headshot { border-radius: 6px; max-width: 170px; height: auto; }
 h1 { margin: 0 0 0.25rem; font-size: 2rem; letter-spacing: 0.01em; }
 .role { margin: 0 0 0.6rem; color: var(--muted); }
