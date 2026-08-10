@@ -1,0 +1,71 @@
+:root {
+  --ink: #1a1a1a;
+  --muted: #555;
+  --accent: #8a3324;      /* brick — quiet academic accent */
+  --rule: #ddd;
+  --bg: #fdfcfa;
+  --note-bg: #f3efe9;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8e6e3;
+    --muted: #a8a49e;
+    --accent: #e0876f;
+    --rule: #3a3a3a;
+    --bg: #191919;
+    --note-bg: #242220;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+  max-width: 44rem;
+  font: 1.05rem/1.6 Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+a { color: var(--accent); }
+a:hover { text-decoration-thickness: 2px; }
+
+header { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+.headshot { border-radius: 6px; max-width: 170px; height: auto; }
+h1 { margin: 0 0 0.25rem; font-size: 2rem; letter-spacing: 0.01em; }
+.role { margin: 0 0 0.6rem; color: var(--muted); }
+.quicklinks a { margin-right: 1rem; white-space: nowrap; }
+
+.ai-note {
+  margin: 1.75rem 0;
+  padding: 0.85rem 1rem;
+  background: var(--note-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.95rem;
+}
+
+h2 {
+  margin: 2.2rem 0 0.8rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.3rem;
+}
+.paper { margin-bottom: 1.8rem; }
+.paper h3 { margin: 0 0 0.2rem; font-size: 1.12rem; }
+.byline { margin: 0 0 0.2rem; color: var(--muted); }
+.award { margin: 0 0 0.2rem; font-size: 0.92rem; }
+.links { margin: 0.1rem 0 0.3rem; font-size: 0.97rem; }
+.repro-note { font-size: 0.92rem; color: var(--muted); margin: 0.4rem 0 0; }
+details { margin: 0.3rem 0 0; }
+summary { cursor: pointer; color: var(--muted); }
+details p { font-size: 0.95rem; margin: 0.5rem 0 0; }
+ul.wip { padding-left: 1.2rem; }
+ul.wip li { margin-bottom: 0.6rem; }
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.88rem;
+  color: var(--muted);
+}

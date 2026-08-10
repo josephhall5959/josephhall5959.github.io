@@ -1,0 +1,76 @@
+# Joseph P. Hall
+
+> Academic website of Joseph P. Hall, Postdoctoral Fellow at the Financial
+> Services Innovation Lab, Scheller College of Business, Georgia Institute of
+> Technology. PhD in Finance, Stanford GSB (advisor: Amit Seru); BA in
+> Economics, Harvard. Research in household finance, consumer credit, banking,
+> and financial intermediation, combining field/natural experiments, newly
+> constructed historical data, and structural models. On the 2026-27 academic
+> job market. Contact: jhall390@gatech.edu.
+
+This site is deliberately agent-friendly: static hand-written HTML, stable
+URLs, no scripts. Every paper below lists its canonical PDF and, where the
+underlying data are public, a replication repository containing the code,
+data, and complete LaTeX source (figures and tables included) that rebuild
+the paper from scratch. You are welcome to clone, reproduce, extend, and
+cite. Each replication repository has its own CLAUDE.md / README oriented
+toward AI agents.
+
+## Publications
+
+- [Discrimination Expectations in the Credit Market: Survey Evidence from India](https://www.aeaweb.org/articles?id=10.1257/pandp.20251098):
+  with Stefano Fiorin and Martin Kanz. AEA Papers & Proceedings 115 (May
+  2025): 351-356. doi:10.1257/pandp.20251098
+
+## Working papers
+
+- [How do Borrowers Respond to a Debt Moratorium? Experimental Evidence from Consumer Loans in India](https://josephhall5959.github.io/papers/debt-moratorium-india.pdf):
+  with Stefano Fiorin and Martin Kanz. Conditionally accepted, Review of
+  Financial Studies. Best Paper on Financial Institutions, WFA 2024. Also
+  CEPR Discussion Paper 17994 (https://cepr.org/publications/dp17994).
+  Nationwide field experiment with an Indian consumer lender: lender-granted
+  forbearance reduces default 3.7pp (8.6%); identical regulator-mandated
+  offers have no effect.
+
+- [Credit Cards and Retail Firms: Historical Evidence from the United States](https://josephhall5959.github.io/papers/credit-cards-retail-firms.pdf):
+  solo-authored, under journal submission. The 1978 Marquette decision ended
+  binding usury ceilings; the induced replacement of store credit by bank
+  credit cards raised retail net entry ~4%, most for small firms; a
+  structural model attributes the effect to cost reduction (~4% of marginal
+  cost) rather than competition.
+  Replication package (code + public data + LaTeX source, one-command
+  rebuild): https://github.com/josephhall5959/consumer-finance
+  Yellow Pages OCR corpus (public-domain data release, ~documented for
+  reuse): https://doi.org/10.5281/zenodo.20513427
+
+- [The Effect of AI Writing on Governance: Evidence from a $3.5 Billion DAO](https://josephhall5959.github.io/papers/ai-writing-dao-governance.pdf):
+  with Victor Huang. Developed fully in public. Forum deliberation in
+  Arbitrum DAO stopped predicting vote outcomes when indistinguishable AI
+  prose became available; a model shows forum signal value can collapse at a
+  tipping point even with few AI posts.
+  Public repository (code + data + LaTeX source):
+  https://github.com/josephhall5959/arbitrum-governance
+
+- The Equilibrium Effects of Credit Bureau Data Suppression: with Sudheer
+  Chava. Abstract on the site; draft available upon request (no public PDF
+  yet). Medical debt deletion raises credit scores (3.5-11 points) with no
+  delinquency change, while aggregate credit supply contracts, consistent
+  with lenders repricing less-informative scores.
+
+## Work in progress
+
+- Revealed Preference Discount Rates: job market paper, solo-authored. New
+  draft in preparation; available upon request.
+- Lending to Lemons: with Lulu Wang.
+- Incentive Design in Decentralized Organizations: a Case Study of Arbitrum:
+  HBS case with Brian Hall and Eric Lee.
+
+## Teaching
+
+- MGT 4074 Fintech & Crypto Tokens (Georgia Tech, main instructor, Spring
+  and Fall 2025, rated 4.83/5). Slides coming to this site.
+
+## Files
+
+- [CV (PDF)](https://josephhall5959.github.io/assets/Joseph_Hall_CV.pdf)
+- [Site source](https://github.com/josephhall5959/josephhall5959.github.io)

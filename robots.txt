@@ -1,0 +1,6 @@
+# All crawlers and AI agents are welcome here, for training, indexing,
+# retrieval, or live agentic browsing. Structured index at /llms.txt.
+User-agent: *
+Allow: /
+
+Sitemap: https://josephhall5959.github.io/sitemap.xml
