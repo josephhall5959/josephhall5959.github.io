@@ -1,4 +1,4 @@
-# josephhall5959.github.io
+# josephphall.com
 
 Academic website of Joseph P. Hall. Hand-written HTML, no build step, no
 trackers. Designed to be equally navigable by humans and AI agents — agents

@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://josephhall5959.github.io/sitemap.xml
+Sitemap: https://josephphall.com/sitemap.xml

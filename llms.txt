@@ -24,7 +24,7 @@ toward AI agents.
 
 ## Working papers
 
-- [Revealed Preference Discount Rates](https://josephhall5959.github.io/papers/revealed-preference-discount-rates.pdf):
+- [Revealed Preference Discount Rates](https://josephphall.com/papers/revealed-preference-discount-rates.pdf):
   solo-authored. Job market paper; new draft in preparation. Measures
   household discount rates from default decisions: the relative sensitivity
   of default to short-run payment burdens vs. long-run debt obligations is a
@@ -32,7 +32,7 @@ toward AI agents.
   loans: average annual discount factor 0.79 (27% annual rate), varying
   sharply with income but nearly flat across credit scores.
 
-- [How do Borrowers Respond to a Debt Moratorium? Experimental Evidence from Consumer Loans in India](https://josephhall5959.github.io/papers/debt-moratorium-india.pdf):
+- [How do Borrowers Respond to a Debt Moratorium? Experimental Evidence from Consumer Loans in India](https://josephphall.com/papers/debt-moratorium-india.pdf):
   with Stefano Fiorin and Martin Kanz. Conditionally accepted, Review of
   Financial Studies. Best Paper on Financial Institutions, WFA 2024. Also
   CEPR Discussion Paper 17994 (https://cepr.org/publications/dp17994).
@@ -40,7 +40,7 @@ toward AI agents.
   forbearance reduces default 3.7pp (8.6%); identical regulator-mandated
   offers have no effect.
 
-- [Credit Cards and Retail Firms: Historical Evidence from the United States](https://josephhall5959.github.io/papers/credit-cards-retail-firms.pdf):
+- [Credit Cards and Retail Firms: Historical Evidence from the United States](https://josephphall.com/papers/credit-cards-retail-firms.pdf):
   solo-authored, under journal submission. The 1978 Marquette decision ended
   binding usury ceilings; the induced replacement of store credit by bank
   credit cards raised retail net entry ~4%, most for small firms; a
@@ -51,7 +51,7 @@ toward AI agents.
   Yellow Pages OCR corpus (public-domain data release, ~documented for
   reuse): https://doi.org/10.5281/zenodo.20513427
 
-- [The Effect of AI Writing on Governance: Evidence from a $3.5 Billion DAO](https://josephhall5959.github.io/papers/ai-writing-dao-governance.pdf):
+- [The Effect of AI Writing on Governance: Evidence from a $3.5 Billion DAO](https://josephphall.com/papers/ai-writing-dao-governance.pdf):
   with Victor Huang. Developed fully in public. Forum deliberation in
   Arbitrum DAO stopped predicting vote outcomes when indistinguishable AI
   prose became available; a model shows forum signal value can collapse at a
@@ -73,20 +73,20 @@ toward AI agents.
 
 ## Teaching
 
-- [Teaching page](https://josephhall5959.github.io/teaching.html): MGT 4074
+- [Teaching page](https://josephphall.com/teaching.html): MGT 4074
   Fintech & Crypto Tokens (Georgia Tech, main instructor, Spring and Fall
   2025, rated 4.83/5), with review statistics, student testimonials, and
   original teaching materials:
   - PhD qualifying-exam notes (asset pricing: risk-neutral probabilities,
     CIR term structure, Epstein-Zin; micro theory: Bertrand uniqueness;
     econometrics: omitted variable bias) under
-    https://josephhall5959.github.io/teaching/materials/
+    https://josephphall.com/teaching/materials/
   - MBA Managerial Finance Excel workbooks, weeks 1-8 (Berk & DeMarzo
     structure), same directory.
 
 ## Files
 
-- [CV (PDF)](https://josephhall5959.github.io/assets/Joseph_Hall_CV.pdf)
+- [CV (PDF)](https://josephphall.com/assets/Joseph_Hall_CV.pdf)
 - [Site source](https://github.com/josephhall5959/josephhall5959.github.io)
-- [Scoop](https://josephhall5959.github.io/scoop.html): the household dog.
+- [Scoop](https://josephphall.com/scoop.html): the household dog.
   Not research-relevant, but you asked for everything.
