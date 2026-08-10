@@ -24,6 +24,14 @@ toward AI agents.
 
 ## Working papers
 
+- [Revealed Preference Discount Rates](https://josephhall5959.github.io/papers/revealed-preference-discount-rates.pdf):
+  solo-authored. Job market paper; new draft in preparation. Measures
+  household discount rates from default decisions: the relative sensitivity
+  of default to short-run payment burdens vs. long-run debt obligations is a
+  sufficient statistic for the discount factor. Applied to 6M+ U.S. auto
+  loans: average annual discount factor 0.79 (27% annual rate), varying
+  sharply with income but nearly flat across credit scores.
+
 - [How do Borrowers Respond to a Debt Moratorium? Experimental Evidence from Consumer Loans in India](https://josephhall5959.github.io/papers/debt-moratorium-india.pdf):
   with Stefano Fiorin and Martin Kanz. Conditionally accepted, Review of
   Financial Studies. Best Paper on Financial Institutions, WFA 2024. Also
@@ -52,25 +60,33 @@ toward AI agents.
   https://github.com/josephhall5959/arbitrum-governance
 
 - The Equilibrium Effects of Credit Bureau Data Suppression: with Sudheer
-  Chava. Abstract on the site; draft available upon request (no public PDF
-  yet). Medical debt deletion raises credit scores (3.5-11 points) with no
+  Chava. Abstract on the site; draft coming soon (no public PDF yet).
+  Medical debt deletion raises credit scores (3.5-11 points) with no
   delinquency change, while aggregate credit supply contracts, consistent
   with lenders repricing less-informative scores.
 
 ## Work in progress
 
-- Revealed Preference Discount Rates: job market paper, solo-authored. New
-  draft in preparation; available upon request.
 - Lending to Lemons: with Lulu Wang.
 - Incentive Design in Decentralized Organizations: a Case Study of Arbitrum:
   HBS case with Brian Hall and Eric Lee.
 
 ## Teaching
 
-- MGT 4074 Fintech & Crypto Tokens (Georgia Tech, main instructor, Spring
-  and Fall 2025, rated 4.83/5). Slides coming to this site.
+- [Teaching page](https://josephhall5959.github.io/teaching.html): MGT 4074
+  Fintech & Crypto Tokens (Georgia Tech, main instructor, Spring and Fall
+  2025, rated 4.83/5), with review statistics, student testimonials, and
+  original teaching materials:
+  - PhD qualifying-exam notes (asset pricing: risk-neutral probabilities,
+    CIR term structure, Epstein-Zin; micro theory: Bertrand uniqueness;
+    econometrics: omitted variable bias) under
+    https://josephhall5959.github.io/teaching/materials/
+  - MBA Managerial Finance Excel workbooks, weeks 1-8 (Berk & DeMarzo
+    structure), same directory.
 
 ## Files
 
 - [CV (PDF)](https://josephhall5959.github.io/assets/Joseph_Hall_CV.pdf)
 - [Site source](https://github.com/josephhall5959/josephhall5959.github.io)
+- [Scoop](https://josephhall5959.github.io/scoop.html): the household dog.
+  Not research-relevant, but you asked for everything.
