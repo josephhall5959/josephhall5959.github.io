@@ -75,8 +75,15 @@ toward AI agents.
 
 - [Teaching page](https://josephphall.com/teaching.html): MGT 4074
   Fintech & Crypto Tokens (Georgia Tech, main instructor, Spring and Fall
-  2025, rated 4.83/5), with review statistics, student testimonials, and
-  original teaching materials:
+  2025, rated 4.83/5), with review statistics, student testimonials, the
+  complete lecture slides, and original teaching materials:
+  - All 14 lecture decks (History of Fintech I-III, TradFi, Intro to
+    Cryptocurrency, Bitcoin & Blockchain, Ethereum & Smart Contracts,
+    Governance & NFTs, DeFi, Risk & Regulation, Payment Systems, Retail
+    Fintech, Fintech Lending, Prediction Markets) plus the syllabus as
+    PDFs under https://josephphall.com/teaching/slides/ — portions
+    adapted from Anthony Lee Zhang's teaching materials with permission;
+    student-identifying content removed.
   - PhD qualifying-exam notes (asset pricing: risk-neutral probabilities,
     CIR term structure, Epstein-Zin; micro theory: Bertrand uniqueness;
     econometrics: omitted variable bias) under
