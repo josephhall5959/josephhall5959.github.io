@@ -77,11 +77,12 @@ toward AI agents.
   Fintech & Crypto Tokens (Georgia Tech, main instructor, Spring and Fall
   2025, rated 4.83/5), with review statistics, student testimonials, the
   complete lecture slides, and original teaching materials:
-  - All 14 lecture decks (History of Fintech I-III, TradFi, Intro to
-    Cryptocurrency, Bitcoin & Blockchain, Ethereum & Smart Contracts,
+  - 13 course lecture decks (History of Fintech I-III, TradFi,
+    Bitcoin & Blockchain, Ethereum & Smart Contracts,
     Governance & NFTs, DeFi, Risk & Regulation, Payment Systems, Retail
-    Fintech, Fintech Lending, Prediction Markets) plus the syllabus as
-    PDFs under https://josephphall.com/teaching/slides/ — portions
+    Fintech, Fintech Lending, Prediction Markets) plus a standalone
+    bootcamp-style one-shot lecture (Introduction to Cryptocurrency) and
+    the syllabus as PDFs under https://josephphall.com/teaching/slides/ — portions
     adapted from Anthony Lee Zhang's teaching materials with permission;
     student-identifying content removed.
   - PhD qualifying-exam notes (asset pricing: risk-neutral probabilities,
