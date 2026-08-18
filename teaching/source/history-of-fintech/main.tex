@@ -1,0 +1,893 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+%\documentclass[10pt]{beamer}
+\documentclass[aspectratio=169]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+
+%\setbeamertemplate{headline}
+%{%
+% \begin{beamercolorbox}{section in head/foot}
+%\vskip1pt\insertnavigation{\textwidth}{}{}\vskip2pt
+%  \end{beamercolorbox}
+%}
+
+
+%\setbeamercolor{frametitle}{bg=cyan}
+\setbeamercolor{section in head/foot}{bg=lightgray} %set the top navigation bar background color
+\setbeamertemplate{footline}[frame number] % set frame page number only
+\usepackage{appendixnumberbeamer} % total will not include appendix frame numbers 
+
+\beamertemplatenavigationsymbolsempty
+
+
+
+\usepackage{graphicx} % Allows including images
+% graphicx also allows for resizebox
+% graphicx also allows for \scalebox
+\usepackage{caption}
+\usepackage{subcaption} % packgage for subcaption in subfigures
+% The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
+\usepackage{bm} % make bold math symbols
+\usefonttheme{professionalfonts}
+%\usepackage{newtxtext,newtxmath} % for professional fond to load a Times Roman clone
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{adjustbox} % allows adjustbox
+\usepackage{amsmath}  
+\usepackage{amsfonts}
+\usepackage{hyperref} % package for hyper link
+
+% the following hypersetup makes link blue
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+
+
+\usepackage{float} % make the table H effective
+\restylefloat{table}
+\usepackage{color, colortbl}
+\usepackage{booktabs} % package for tex professional table
+\usepackage{mathtools} % package for \coloneqq
+\usepackage{multirow} % multirow for intuition page.
+
+
+% make pdf dark mode
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0,0,0} %black
+%\color[rgb]{0.5,0.5,0.5} %grey
+
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+
+\usepackage{tikz} % graph in latex
+\usetikzlibrary{positioning,arrows.meta} %tikz diagram
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest} %this setting allow node to go to the correct place
+\usepgfplotslibrary{fillbetween}
+
+% use the tikz external library to cache tikz drawings
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
+
+
+%\bibliography{bibliography}
+%\usepackage[american]{babel}
+%\usepackage{csquotes}
+%\usepackage[style=apa]{biblatex}
+%\DeclareLanguageMapping{american}{american-apa}
+%\addbibresource{References.bib}
+
+\usepackage{natbib} % package for citation
+
+
+%\usepackage{subfigure} % subfigure package
+%\captionsetup[subfigure]{labelformat=empty}
+% The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
+
+%\usepackage{natbib} % package for citation
+
+% define a comment line that does nothing to hide content
+\newcommand{\comment}[1]{}
+\newcommand{\lnb}[1]{%
+  \ln\left(#1\right)%
+}
+
+\renewcommand{\baselinestretch}{1.0} %  scales the default interline space to 1.0 its default value. 
+
+% define a comment that can scale the equation 
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+%Use ALZ's shortcuts, including the very useful \bi and \m 
+\input{mydefs.tex}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Fintech and Crypto Tokens]{\huge{Fintech and Crypto Tokens} \\
+\vspace{6mm}
+\small{MGT 4074, Fall 2025}
+} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+
+%\subtitle{Presentation to Shanghai International Studies University}
+
+
+\author[Joseph Hall]{Joseph Hall} % Your name
+\institute[GT]{Georgia Institute of Technology} % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+ % Your institution for the title page
+ % Your email address
+ 
+\date{Monday, August 18, 2025} 
+ % Date, can be changed to a custom date if without date
+
+
+
+%---------------------------------------------------------------------------
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%-----------------------------------------------
+
+
+
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+%\section*{Introduction}
+% When I comment the introduction section, fewer sections show up in navigation
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+
+
+\section{Class Expectations}
+
+\begin{frame}
+\frametitle{Roadmap: Class Expectations, Class Material}
+
+\vspace{-2mm}
+
+
+\begin{itemize}
+    \medskip 
+    \item Class Expectations
+    \begin{itemize}
+        \item Quizzes and Homeworks
+        \smallskip 
+        \item Class Participation
+        \smallskip 
+        \item Midterms 
+        \smallskip 
+        \item Final Project 
+        \smallskip 
+        \item Study Groups
+    \end{itemize}
+    \medskip 
+    \item History of Financial Technology
+    \begin{itemize}
+        \item What is Money? 
+        \smallskip 
+        \item What is Credit? 
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{-5mm}
+
+\end{frame}
+
+
+\begin{frame}{There is No Curve for This Class}
+
+\begin{itemize}
+    \item Every student can earn an A \pause 
+    \item Every student can earn an F \pause 
+    \item (Apply the Intermediate Value Theorem) \pause  
+    \item You are collaborators, not competitors 
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Quizzes and Homeworks}
+
+\begin{itemize}
+    \item Required Readings and Homeworks will be distributed on Canvas 
+    \begin{itemize}
+        \item Your first reading is due on Wednesday 8/20!
+    \end{itemize}
+    \item Quizzes will be distributed at the start of class, without warning, at my discretion 
+    \item Homeworks will be posted at least 7 days before they are due 
+    \item Expect $\sim 5$ quizzes and $\sim 5$ homeworks 
+    \item Lowest Quiz score will be dropped
+
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Attendance}
+
+Your attendance is required to earn class participation, and to take quizzes and midterms 
+
+\vfill 
+The University Attendance Policy gives conditions for excused absences. I will not exercise any discretion to approve absences outside of this policy. It is your responsibility to be present and earn your grade. 
+
+\vfill 
+
+\textbf{Laptops and Phones are Strictly Banned in This Classroom}
+    
+\end{frame}
+
+\begin{frame}{Class Participation}
+
+Full class participation grade requires that you have a \textbf{net positive impact} on class discussions
+
+\vfill 
+
+Example of \textbf{postive impact}:
+
+\begin{quote}
+    Joe, you said [fact from the slides], but the reading said [fact which seems contradictory], how do you reconcile those two facts? 
+\end{quote}
+(this is productive!) \pause 
+
+\vfill 
+
+Example of \textbf{zero impact}:
+
+\begin{quote}
+    My cousin from Athens once got his leg stuck in a lawnmower 
+\end{quote} 
+(this is irrelevant) \pause 
+
+\vfill 
+
+Example of \textbf{negative impact}:
+
+\begin{quote}
+    My classmate [name] is dumb and smelly 
+\end{quote}
+(this is rude) 
+    
+\end{frame}
+
+\begin{frame}{Class Participation}
+
+My mantra regarding questions: \newline 
+
+\begin{quote}
+    There are no stupid questions, \\
+    rather, one becomes stupid by not asking questions
+\end{quote} 
+
+If you ask a question that reveals you haven't understood anything in this class (or anything in life) up to this point, that is a \emph{good} thing -- we can identify the problem and correct the misperceptions! 
+    
+\end{frame}
+
+
+\begin{frame}{Midterms}
+    There will be two midterms testing the material covered on the slides. 
+
+    They will be multiple choice or short response only. 
+
+    They will not require writing long essays. 
+
+    They will be in person, closed-book, and handwritten. 
+
+    The questions will come from the slides and readings.
+
+    \textbf{bolded} or \emph{italicized} words and phrases are likely to appear on the exams. 
+\end{frame}
+
+
+\begin{frame}{Final Project}
+
+There will be a final project with two options: you may defend a mini-thesis or design a smart contract. The smart contract option will involve programming in a new language called ``Solidity'', a Javascript-like language used for smart contracts in Ethereum. 
+
+Up to 3 members may comprise a group, with escalating expectations depending on the number of group members. When you form a group, you will sign a contract detailing division of labor. Each member will submit a statement along with the final project comparing their team members' contribution to the contract. I will interrogate each group member during the presentation about the details underlying their contribution to ensure that these statements are accurate. 
+
+Group members who do not contribute, or who I find have lied to me about division of labor, will receive a 0. 
+
+More details will be given at a later time. 
+
+There is no final exam. The course will be over before Thanksgiving. 
+    
+\end{frame}
+
+
+\begin{frame}{Study Groups}
+
+I highly recommend you form study groups and meet regularly outside of class to prepare for quizzes and exams. \\  
+
+If you would like me to assign you to a random study group, please fill out this scheduling form by Wednesday: 
+
+\begin{center}
+    \hyperlink{https://www.when2meet.com/?31699294-rcYcw}{https://www.when2meet.com/?31699294-rcYcw}
+\end{center}
+
+I will try to assign you to a group with common availability to meet and study. If I assign you a group and you do not get along with them (or if they ghost you), please let me know and I will (quietly) assign you another group (i.e., you can ghost them back). \\
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents
+\end{frame}
+%------------------------------------------------
+% insert table of contents before each section or subsection
+%------------------------------------------------
+%\AtBeginSection[]
+\AtBeginSubsection[]
+{
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents[currentsection,currentsubsection]
+%\tableofcontents[currentsection]
+\end{frame}
+}
+%------------------------------------------------
+\section{History of Financial Technology}
+%--------------------------------------------------------------------
+
+\begin{frame}{What is ``Financial Technology''?}
+
+In this class, ``Financial Technologies'' are physical and social processes that determine the limitations of the two financial prerequisites for modern business: 
+
+\begin{itemize}
+    \item Money: How value can be stored, denominated, and transferred
+    \item Credit: How investment contracts can be written and enforced
+\end{itemize}
+
+Naturally, limitations change over time with technological breakthroughs and changes in social institutions
+    
+\end{frame}
+
+
+
+\subsection{What is Money?}
+%------------------------------------------------
+
+\begin{frame}{What Is Money?}
+
+    Money fulfills three roles in an economy: 
+    \begin{itemize}
+        \item A Store of Value \textcolor{red}{(Implies hard to counterfeit)}
+        \item A Medium of Exchange \textcolor{red}{(Ownership can change)} 
+        \item A Unit of Account \textcolor{red}{(Units to list prices)}
+    \end{itemize}
+    What ingredients are \textbf{necessary} to enable something to fulfill these roles? 
+    
+        \vfill \pause 
+        
+    \begin{center}
+            \huge Scarcity + Coordination = Money 
+    \end{center}
+\vfill 
+    Any specific form of money is called a \textbf{currency}
+    
+\end{frame}
+
+\begin{frame}{What Problem does Money Solve?}
+
+\pause 
+Money solves the \textbf{``double coincidence of wants''} problem (what does that mean?) \pause 
+
+\begin{center}
+    \includegraphics[width = .8\textwidth]{dcow.png}
+\end{center}
+
+Without money, trade requires that I want what you have, \textbf{and} that you have what I want (a ``double coincidence of wants'') 
+   
+\end{frame}
+
+
+\begin{frame}{Enforcing Scarcity: Specie}
+
+It is obvious to use as money something that is naturally scarce, called \textbf{specie}, historically gold or silver 
+\bi 
+\m \textbf{Coinage}, shaping specie into standardized denominations, made money much more convenient to use 
+\m Coinage is vulnerable to \textbf{Clipping}: the practice of shaving small amounts of metal off the edges of coins \pause 
+\m Sir Isaac Newton was appointed to Warden of the Royal Mint in 1696 and invented the practice of ridged indents into the sides of coins to prevent clipping  
+\ei 
+\end{frame}
+
+
+\begin{frame}{Enforcing Scarcity: Minting}
+
+
+\textbf{Minting}: Monopolizing a minting technique which is hard to counterfeit 
+
+\bi 
+\m Creates \textbf{seignorage} revenue for the mint owner \pause  
+\m Non-counterfeitability must be easily \textbf{verifiable!} \pause 
+\m Modern governments rely on \textbf{fiat} to enforce coordination when minting paper money \pause 
+\m The US Secret Service was originally created as an anti-counterfeiting unit 
+\m \textbf{Cryptography} is a verifiable anti-counterfeiting technology using \textbf{no specie} and backed by \textbf{no fiat} -- scarcity and coordination are all you need!
+\ei 
+
+
+
+\end{frame}
+
+\begin{frame}{Example of \textbf{verifiably} counterfeit-proof money}
+
+
+\begin{columns}[] 
+\begin{column}{.7\textwidth}
+\hfill 
+\begin{center}
+    \includegraphics[scale = 0.3]{Figure/2-Figure3-1.png}
+\end{center}
+
+\end{column}
+
+\begin{column}{.1\textwidth}
+\vfill 
+ \hyperlink{https://www.semanticscholar.org/paper/Singapore-Dollar-Recognition-Using-ORB-Feature-on-Nugraha-Irawan/e4893dfc513eb6a4602c54686039306c2dda37ee}{Source}
+\end{column}%
+
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Old-Fashioned Minting: The Blank (``Specie'')}
+    \centering
+    \includegraphics[height = .8\textheight]{minting_1.jpeg}
+\end{frame}
+
+\begin{frame}{Old-Fashioned Minting: The Upper Die}
+    \centering
+    \includegraphics[height = .8\textheight]{minting_2.jpeg}
+\end{frame}
+\begin{frame}{Old-Fashioned Minting: The Lower Die}
+    \centering
+    \includegraphics[height = .8\textheight]{minting_3.jpeg}
+\end{frame}
+\begin{frame}{Old-Fashioned Minting: The Application of Force}
+    \centering
+    \includegraphics[height = .8\textheight]{minting_4.jpeg}
+\end{frame}
+\begin{frame}{Old-Fashioned Minting: The Result}
+    \centering
+    \includegraphics[height = .8\textheight]{minting_5.jpeg}
+\end{frame}
+
+
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{``Convenience'' is Not Necessary}
+
+\vspace{-5mm}
+%-----------------------------------------------
+\begin{figure}[H]
+    \resizebox{5.8in}{2.8in}{%
+    %\resizebox{\textwidth}{!}{%
+    \includegraphics[]{Figure/RS1077_IMG_9172.jpg}
+    } %end of resizebox
+%-----------------------------------------------
+% Figure setting: caption and label
+%-----------------------------------------------
+%\caption{}
+%\label{fig:ModelIntuition_Graphs}
+\end{figure}
+%-----------------------------------------------
+
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}{The Yappese ``Rai Stones''}
+\begin{quote}
+        There is a story—or possibly a legend—about a large stone that fell off a raft during a storm. After it sank, there was no need for the stone itself to be on hand; everybody knew it existed and to whom it belonged. It was still a functioning rai even at the bottom of the sea—like gold tucked away in an underground vault.
+\end{quote}
+\flushright Source: \hyperlink{https://www.bankofcanadamuseum.ca/2024/07/rai-big-money/}{Bank of Canada}
+
+\pause \vfill 
+
+\bi 
+\m All you need is a book (a ``ledger'')... if your economy is small enough everyone can write in the same book... or if IT is good enough that everyone can access the book! \pause
+\m In 2025, it is expected that input / output of the book must be very fast. VISA approves 15,000 transactions per second worldwide with zero downtime. The theoretical maximum for bitcoin is seven. 
+\ei 
+
+
+\end{frame}
+
+
+
+\begin{frame}{Desirable features of a currency:}
+
+\bi 
+\m \textbf{Convenience}: Easy to transfer 
+\bi
+\m The Mongols used paper money as early as 1227, 701 years before the United States did. Transaction costs are sensitive to weight when you run the world's largest land empire and coordinate using horses \pause 
+\m \textbf{Standard denominations} abrogate the need for measurement scales for every transaction \pause 
+\ei
+\m \textbf{Price Stability}
+\bi 
+\m Entrepreneurship is safer when future prices are known today \pause 
+\m Savings are not eroded too fast \pause 
+\m Fiat currency (printed by a government, enforced only by law) vulnerable to inflation if policymakers abuse \emph{seignorage}, the profit from owning the money printer 
+\ei 
+\m \textbf{Fungibility}: Any unit of currency is identical to any other \pause 
+\bi 
+\m Helps with use as \emph{unit of account}
+\m ``Bi-metallic standard'' was used historically but proved unworkable
+\ei 
+\ei
+\end{frame}
+
+
+
+\begin{frame}{Price Stability}
+
+\textbf{Price Stability} requires that the money supply grow \emph{in proportion to the economy}
+
+\pause 
+
+\textbf{The Quantity Identity of the Price Level: }
+
+$$MV = PY$$
+
+Where: 
+\begin{itemize}
+    \item $M =$ The money supply 
+    \begin{itemize}
+        \item Bitcoin has a \emph{strict cap of 21 million} \pause 
+        \item Ethereum actively manages the \emph{growth rate} of ETH with the goal of price stability \pause
+        \pause 
+    \end{itemize}
+    \item $V =$ Monetary velocity: avg \# of times a unit of currency changes hands per year
+    \begin{itemize}
+        \item This can be affected by, e.g., fractional reserve banking, where savings are lent out \pause 
+    \end{itemize}
+    \item $P =$ The price level: the price of a constant basket of goods 
+    \begin{itemize}
+        \item Change in price level = inflation \pause 
+    \end{itemize}
+    \item $Y =$ Real economic activity (that occurs in said currency)\pause 
+    \begin{itemize}
+        \item ``Real'' meaning measured in units of real goods, not measured in currency units 
+    \end{itemize}
+\end{itemize}
+    
+\end{frame}
+
+
+%Here: a graph of gold vs. economic activity 
+\begin{frame}{Gold Supply (``M'') }
+\begin{center}
+    \includegraphics[scale = 0.4]{Figure/Historic-World-Gold-Production-Graph-Metric-Tons-per-Year.png}
+\end{center} 
+
+\begin{itemize}
+    \item Global gold mining increased by sixfold from 1900 to 2020 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Compare to GDP (``Y'')}
+
+\begin{center}
+    \includegraphics[scale = 0.3]{Figure/Global-GDP-growth-in-the-industrial-period-Roser-2013.png}
+\end{center} 
+
+\begin{itemize}
+    \item Global GDP has increased by \emph{several hundredfold}
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{MV = PY}
+
+Recall the identity: 
+$$MV = PY$$
+
+\pause 
+
+
+\begin{itemize}
+    \item Fixing $M$ and $V$ with rising $Y$ implies \emph{falling} P: ``deflation''
+    \item FDR suspended the convertibility of U.S. dollars for Gold in 1933 after four years of deflation \pause 
+    \item Deflation is bad because it disincentivizes investment and spending: money is hoarded instead of being invested and spent: monetary velocity falls further, creating a vicious spiral \pause 
+    \item Modern monetary policy is to maintain a 2\% rate of inflation: just enough so that investors need to put money into bonds and stocks instead of vaults 
+    \item With positive inflation, inefficient industries can slowly shrink in real terms without giving workers a nominal pay cut 
+\end{itemize}
+    
+\end{frame}
+
+
+
+\begin{frame}{Features of a currency which may or may not be desirable}
+
+\bi 
+\m \textbf{Privacy}: Can the government (or other private actors) track movement?
+\bi 
+\m Modern U.S. banknotes are more traceable than you would think! \pause 
+\m India retired 86\% of paper currency in 2016 to fight crime \pause 
+\ei 
+\m \textbf{Interest}: Fed pays interest on U.S. bank reserves 
+\bi 
+\m The government surrenders some \emph{seignorage} revenue in order to implement monetary policy (setting the economy-wide short-term interest rate) 
+\m 2025 GENIUS act prohibits interest on stablecoins: deposit-taking banks are protected from competition 
+\ei 
+\ei 
+    
+\end{frame}
+
+
+
+\AtBeginSubsection[]
+{
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents[currentsection,currentsubsection]
+%\tableofcontents[currentsection]
+\end{frame}
+}
+%------------------------------------------------
+%\section{History of Financial Technology}
+%--------------------------------------------------------------------
+\subsection{What is Credit?}
+%------------------------------------------------
+
+\begin{frame}{What is Credit?}
+
+Credit is an investment contract. It can take many forms: 
+\begin{itemize}
+   \item A bond, invented in ancient Greece and popularized by medieval European kings to fight wars (See, e.g., \hyperlink{https://sites.google.com/view/matthijskorevaar/research?authuser=0}{Matthijs Korevar}) \pause 
+    \item Shares of a joint stock company (invented in England in 1551, popularized by the Dutch) \pause 
+    
+\end{itemize}
+Forms of credit can become money-like if they are \emph{safe}
+    \bi 
+    \m Modern banks keep their money as Federal Bank Reserves, a form of credit 
+    %\m Credit cards are a form of credit which has become money 
+    \m Credit has a hard time being \emph{fungible}: it is \textbf{informationally-sensitive} by design, in the sense of \hyperlink{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2552018}{Holmstr\"om}
+    \bi
+    \m The price of credit is a market signal of the price of risk and time. Money is meant to be insensitive to such things. 
+    \ei
+    \ei 
+    
+\end{frame}
+
+\begin{frame}{What is an ``Investment Contract''}
+
+
+\textbf{Question:} What is the SEC? 
+
+\pause \\ 
+
+The \textbf{Securities Exchange Act of 1934} gave the S.E.C., the \textbf{Securities Exchange Commission} authority to regulate ``investment contracts''. 
+\vfill 
+
+\noindent The Supreme Court in 1946 created the \emph{Howey} test to define the term: 
+
+\begin{quote}
+    ``An `investment contract' exists when there is the investment of money in a common enterprise with a reasonable expectation of profits to be derived from the efforts of others''
+\end{quote}
+\pause \vfill 
+In other words, credit is ``Man's Confidence in Man'' 
+
+\end{frame}
+
+\begin{frame}{Man's Confidence in Man}
+\begin{center}
+    \includegraphics[scale = 0.15]{Figure/Credit-Mans-Confidence-in-Man-frieze-hbr.jpg}
+\end{center}
+
+NB: The word ``man'' was commonly understood to be gender-neutral at this time    
+\end{frame}
+
+\begin{frame}{Man's Confidence in Man}
+
+\begin{quote}
+    ``Commercial credit is the creation of modern times and belongs in its highest perfection only to the most enlightened and best governed nations. Credit is the vital air of the system of modern commerce. It has done more -- a thousand times more -- to enrich nations than all the mines of the world.''
+\end{quote}
+
+\flushright Daniel Webster, 1834
+    
+\end{frame}
+
+\begin{frame}{Man's Confidence in Man}
+\begin{center}
+\includegraphics[scale = 0.2]{Figure/D4EBABD4-F2CC-4049-944B-DAB1FFE2716B_1_105_c.jpeg}
+\end{center}
+\flushright Joseph Hall at Harvard Business School, 2019
+    
+\end{frame}
+
+%\input{ALZ_defi_intro}
+
+\begin{frame}{What technologies are needed to supply credit?}
+
+There are three key ingredients necessary to supply credit: 
+
+\bi 
+\m \textbf{Funding}: the resource itself that you are lending (usually money) 
+\bi 
+\m If you do parts (2) and (3) below right, this becomes sustainable \pause 
+\m Retail banks get cheap funding from depositors (does anyone here know their deposit rate?) 
+\ei 
+\m \textbf{Screening}: a process to determine who to lend to
+\bi 
+\m And \hyperlink{https://www.jstor.org/stable/1802787}{how much to lend}
+\ei 
+\m \textbf{Collections}: a process to compel borrowers to repay 
+\ei 
+    
+\end{frame}
+
+
+
+\begin{frame}{The Oldest Financial Technology for Enforcing Investment Contracts}
+
+\centering
+\includegraphics[scale = 0.4]{Figure/1976-Rocky-01.jpg}
+    
+\end{frame}
+
+\begin{frame}{Enforcing Contracts is a Key Role of Government}
+
+\begin{quote}
+    ``Common-law countries generally have the strongest, and French civil-law countries the weakest, legal protections of investors, with German- and Scandinavian-civil-law countries located in the middle... Concentration of ownership shares in the largest public companies is negatively related to investor protections, consistent with the hypothesis that small, diversified shareholders are unlikely to be important in countries that fail to protect their rights.''
+\end{quote}
+
+\begin{flushright}
+    -La Porta, Lopez-de-Silanes, Shleifer, and Vishny: ``Law and Finance'' 
+\end{flushright}
+    
+\end{frame}
+
+\begin{frame}{Can Contracts be Enforced Without Strong Governments?}
+
+\centering
+\includegraphics[scale = 0.3]{Figure/Screenshot 2025-01-03 at 11.09.03 AM.png}
+    
+\end{frame}
+
+\begin{frame}{A Hugely Profitable Investment ... If You Can Enforce It}
+    \centering
+    \includegraphics[scale = 0.3]{Figure/Screenshot 2025-01-03 at 11.09.17 AM.png}
+    \flushleft Source: \hyperlink{https://www.brettgreen.info/publications}{Brett Green }
+\end{frame}
+
+
+\begin{frame}{Rent-to-Own Model with ``Digital Collateral''}
+    \centering
+    \includegraphics[scale = 0.3]{Figure/Screenshot 2025-01-03 at 11.09.38 AM.png}
+
+\bi 
+\m Key Technology: Product is \textbf{}{remotely deactivated} if loan is defaulted 
+\ei
+    
+\end{frame}
+
+
+\begin{frame}{This Class}
+
+In this class, we will cover: 
+
+\begin{itemize}
+    \item \emph{Why} the traditional finance industry is designed and regulated the way it is 
+    \item \emph{What} new financial technologies have become possible due to recent advances in computing 
+    \item \emph{How} the traditional financial industry is adapting to these changes 
+\end{itemize}
+
+    
+\end{frame}
+
+\begin{frame}{Reading for Wednesday 8/20}
+
+By Wednesday, 8/20, please read the following
+
+\begin{center}
+    ``The Denarius and the Fall of Rome'' \\
+     \hyperlink{https://vaulted.com/nuggets/the-roman-denarius/}{vaulted.com/nuggets/the-roman-denarius/} \\ 
+\end{center}
+
+and 
+\begin{center}
+    ``Diocletian and Harris on Inflation and Price-Gouging'' \\ 
+    by John Cochrane, Parts 1, 2, and 3 \\
+    \hyperlink{https://www.grumpy-economist.com/p/diocletian-and-harris-on-inflation}{grumpy-economist.com/p/diocletian-and-harris-on-inflation} \\
+
+\end{center}
+
+Please remember that every author, including the authors of these two essays, have political opinions -- I am not asking you to agree with them! Your assignment is to learn the historical facts and to critically reflect on the authors' arguments. 
+    
+\end{frame}
+
+
+\end{document}

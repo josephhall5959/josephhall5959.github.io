@@ -1,0 +1,579 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+%\documentclass[10pt]{beamer}
+\documentclass[aspectratio=169]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+
+%\setbeamertemplate{headline}
+%{%
+% \begin{beamercolorbox}{section in head/foot}
+%\vskip1pt\insertnavigation{\textwidth}{}{}\vskip2pt
+%  \end{beamercolorbox}
+%}
+
+
+%\setbeamercolor{frametitle}{bg=cyan}
+\setbeamercolor{section in head/foot}{bg=lightgray} %set the top navigation bar background color
+\setbeamertemplate{footline}[frame number] % set frame page number only
+\usepackage{appendixnumberbeamer} % total will not include appendix frame numbers 
+
+\beamertemplatenavigationsymbolsempty
+
+
+
+\usepackage{graphicx} % Allows including images
+% graphicx also allows for resizebox
+% graphicx also allows for \scalebox
+\usepackage{caption}
+\usepackage{subcaption} % packgage for subcaption in subfigures
+% The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
+\usepackage{bm} % make bold math symbols
+\usefonttheme{professionalfonts}
+%\usepackage{newtxtext,newtxmath} % for professional fond to load a Times Roman clone
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{adjustbox} % allows adjustbox
+\usepackage{amsmath}  
+\usepackage{amsfonts}
+\usepackage{hyperref} % package for hyper link
+
+% the following hypersetup makes link blue
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+
+
+\usepackage{float} % make the table H effective
+\restylefloat{table}
+\usepackage{color, colortbl}
+\usepackage{booktabs} % package for tex professional table
+\usepackage{mathtools} % package for \coloneqq
+\usepackage{multirow} % multirow for intuition page.
+
+
+% make pdf dark mode
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0,0,0} %black
+%\color[rgb]{0.5,0.5,0.5} %grey
+
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+
+\usepackage{tikz} % graph in latex
+\usetikzlibrary{positioning,arrows.meta} %tikz diagram
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest} %this setting allow node to go to the correct place
+\usepgfplotslibrary{fillbetween}
+
+% use the tikz external library to cache tikz drawings
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
+
+
+%\bibliography{bibliography}
+%\usepackage[american]{babel}
+%\usepackage{csquotes}
+%\usepackage[style=apa]{biblatex}
+%\DeclareLanguageMapping{american}{american-apa}
+%\addbibresource{References.bib}
+
+\usepackage{natbib} % package for citation
+
+
+%\usepackage{subfigure} % subfigure package
+%\captionsetup[subfigure]{labelformat=empty}
+% The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
+
+%\usepackage{natbib} % package for citation
+
+% define a comment line that does nothing to hide content
+\newcommand{\comment}[1]{}
+\newcommand{\lnb}[1]{%
+  \ln\left(#1\right)%
+}
+
+\renewcommand{\baselinestretch}{1.0} %  scales the default interline space to 1.0 its default value. 
+
+% define a comment that can scale the equation 
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+%Use ALZ's shortcuts, including the very useful \bi and \m 
+\input{mydefs.tex}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[The History of Fintech II]{\huge{The History of Fintech II} \\
+\vspace{6mm}
+\small{MGT 4074, Fall 2025}
+} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+
+%\subtitle{Presentation to Shanghai International Studies University}
+
+
+\author[Joseph Hall]{Joseph Hall} % Your name
+\institute[GT]{Georgia Institute of Technology} % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+ % Your institution for the title page
+ % Your email address
+ 
+\date{Wednesday, August 20, 2025} 
+ % Date, can be changed to a custom date if without date
+
+
+
+%---------------------------------------------------------------------------
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%-----------------------------------------------
+
+
+
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+%\section*{Introduction}
+% When I comment the introduction section, fewer sections show up in navigation
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+
+
+
+\begin{frame}
+\frametitle{Roadmap}
+
+\vspace{-2mm}
+
+
+\begin{itemize}
+    \item Logistics 
+    \item Guided Discussion on Readings I
+    \item In The News: Dune 2025 report on Crypto in LATAM 
+    \item History of Financial Technology
+    \begin{itemize}
+        \item What is Money, Cont. 
+        \smallskip 
+        \item What is Credit? 
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{-5mm}
+
+\end{frame}
+
+
+\begin{frame}{Logistics: Study Groups}
+
+Some of you have filled out the When2Meet for study groups. Thank you for doing so. Here it is again: 
+
+\begin{center}
+    \hyperlink{https://www.when2meet.com/?31699294-rcYcw}{https://www.when2meet.com/?31699294-rcYcw}
+\end{center}
+
+If you do not complete it by \textbf{midnight tonight}, I will assume you have formed a study group on your own. 
+    
+\end{frame}
+
+\begin{frame}{Logistics: Office Hours}
+\vfill 
+My office hours will begin this \textbf{Friday, August 22, 2-3pm, Room 436}.
+\vfill
+Discussion topics need not have anything to do with this course, but course-related questions obviously have first priority. 
+    
+\end{frame}
+
+\begin{frame}{In the News}
+
+Dune 2025 Latin American Crypto report: \\
+
+\begin{center}
+    \includegraphics[width = .8\textwidth]{dune.png}
+\end{center}
+
+Source: \hyperlink{https://dune.com/blog/latam-crypto-2025-report}{https://dune.com/blog/latam-crypto-2025-report}
+    
+\end{frame}
+
+
+\begin{frame}{In the News}
+
+Key use cases driving LATAM crypto adoption in selected countries: 
+
+\begin{itemize}
+    \item Speculative retail investment in Brazil
+    \item Remittances from U.S. to Mexico 
+    \item Hedging inflation in Venezuela and Argentina 
+\end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}{Guided Discussion: What Causes Inflation?}
+\textbf{Q:} What is ``\textbf{Debasement}''? \pause \textbf{A:}
+\begin{center}
+    \includegraphics[height = .8\textheight]{debasement.png}
+\end{center}
+    
+\end{frame}
+
+\begin{frame}{Guided Discussion: What Causes Inflation?}
+
+When economists talk about \emph{Monetary Policy}, we contrast it with \emph{Fiscal Policy}. What is the difference? \pause 
+
+\begin{itemize}
+    \item \emph{Monetary Policy} refers to the government's decision of how to manage the supply of money and credit \pause
+    \begin{itemize}
+        \item The \textbf{Federal Reserve}'s official objective is to minimize inflation while maximizing employment. Its main tool is to set the interest rate on federal reserves \pause 
+        \item A higher interest rate encourages saving, reducing inflation 
+        \item A lower interest rate encourages spending, increasing inflation \pause 
+    \end{itemize}
+    \item \emph{Fiscal Policy} refers to the decision of how much to spend (e.g. defense, R\&D, health, redistribution), how much to tax, and how much to borrow 
+    \begin{itemize}
+        \item A government which fails at fiscal policy can ``\emph{monetize the deficit}'' (what does that mean?) \pause 
+        \item A government can fill a fiscal gap (spending exceeds taxation; \textbf{and} the market will buy no more debt) using \emph{seignorage} 
+        \item This is economically equivalent to secretly siphoning off (taxing) a portion of the value of every currency unit that has been previously minted 
+    \end{itemize}
+\end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}{Is Inflation a Monetary or Fiscal Phenomenon?}
+\pause 
+\begin{center}
+    \includegraphics[width = .8\textwidth]{friedman.jpg} \\ 
+\end{center}
+\pause 
+Cochrane: A monetary problem, sure, but one with a fiscal origin
+
+\end{frame}
+
+\begin{frame}{Inflation in Argentina}
+
+\begin{center}
+    \includegraphics[height = .6\textheight]{milei.png}
+\end{center} 
+\textbf{Q}: What does ``\textbf{tough austerity}'' mean? \pause \\ 
+\textbf{A}: A reduction in government spending, in this case firing 10\% of government workforce and slashing (existing, promised) pensions by 20\% \pause (``fiscal policy'')
+    
+\end{frame}
+
+\begin{frame}{Javier Millei}
+\begin{center}
+    \includegraphics[height = .7\textheight]{milei2.jpeg}
+\end{center}
+\begin{quote}
+    ``If printing money would end poverty, printing diplomas would end stupidity.'' 
+\end{quote}
+    
+\end{frame}
+
+
+\AtBeginSubsection[]
+{
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents[currentsection,currentsubsection]
+%\tableofcontents[currentsection]
+\end{frame}
+}
+%------------------------------------------------
+%\section{History of Financial Technology}
+%--------------------------------------------------------------------
+\subsection{What is Money, Cont.}
+%------------------------------------------------
+
+
+\begin{frame}{Features of a currency which may or may not be desirable}
+
+\bi 
+\m \textbf{Privacy}: Can the government (or other private actors) track movement?
+\bi 
+\m Modern U.S. banknotes are more traceable than you would think! \pause 
+\m India retired 86\% of paper currency in 2016 to fight crime \pause 
+\ei 
+\m \textbf{Interest}: Fed pays interest on U.S. bank reserves 
+\bi 
+\m The government surrenders some \emph{seignorage} revenue in order to have high-frequency control over monetary policy (setting the economy-wide short-term interest rate) 
+\m 2025 GENIUS act prohibits interest on stablecoins: deposit-taking banks are protected from competition 
+\ei 
+\ei 
+    
+\end{frame}
+
+
+
+\AtBeginSubsection[]
+{
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents[currentsection,currentsubsection]
+%\tableofcontents[currentsection]
+\end{frame}
+}
+%------------------------------------------------
+%\section{History of Financial Technology}
+%--------------------------------------------------------------------
+\subsection{What is Credit?}
+%------------------------------------------------
+
+\begin{frame}{What is Credit?}
+
+Credit is an investment contract. It can take many forms: 
+\begin{itemize}
+    \item A contractually-specified set of future cash flows (called \textbf{coupons}) -- this is called a \textbf{bond}, or \textbf{debt}
+    \item An uncertain set of future cash flows (called \textbf{dividends)} -- this contract is called a \textbf{stock}, or \textbf{equity} \pause
+    %\item Shares of a joint stock company (invented in England but popularized by the Dutch to finance long-distance expeditions with high financial upside) \pause 
+   %\item A bond (invented in Greece but popularized by European kings raising armies (See, e.g., \hyperlink{https://sites.google.com/view/matthijskorevaar/research?authuser=0}{Matthijs Korevar})), also known as \textbf{debt} \pause 
+
+    
+\end{itemize}
+Credit and money are not mutually exclusive! \pause If the promised cash flows of a credit contract are \textbf{safe} and \textbf{tradable}
+\bi 
+    \m Modern banks keep their money as Federal Bank Reserves, a form of credit which is treated as money 
+    \m Credit has a hard time being \emph{fungible}: it has an important function as a market prices of risk and time. That is at odds with the monetary goal of price stability which requires the contract be \textbf{safe}. 
+\ei 
+    
+\end{frame}
+
+\begin{frame}{What is an ``Investment Contract''}
+
+
+\textbf{Question:} What is the SEC? 
+
+\pause 
+
+The \textbf{Securities Exchange Act of 1934} gave the S.E.C., the \textbf{Securities Exchange Commission} authority to regulate ``investment contracts''. 
+\vfill 
+
+\noindent The Supreme Court in 1946 created the \emph{Howey} test to define the term: 
+
+\begin{quote}
+    ``An `investment contract' exists when there is the investment of money in a common enterprise with a reasonable expectation of profits to be derived from the efforts of others''.
+\end{quote}
+\pause \vfill 
+
+In other words, credit is ``Man's Confidence in Man''. (The name of specific piece of artwork, not an endorsement of sexism)  
+
+\end{frame}
+
+\begin{frame}{Man's Confidence in Man}
+\begin{center}
+    \includegraphics[scale = 0.15]{Figure/Credit-Mans-Confidence-in-Man-frieze-hbr.jpg}
+\end{center}
+
+NB: Nowadays it is illegal to discriminate in credit markets by gender; read ``man'' as ``humankind''
+
+\end{frame}
+
+\begin{frame}{Man's Confidence in Man}
+
+\begin{quote}
+    ``Commercial credit is the creation of modern times and belongs in its highest perfection only to the most enlightened and best governed nations. Credit is the vital air of the system of modern commerce. It has done more -- a thousand times more -- to enrich nations than all the mines of the world.''
+\end{quote}
+
+\flushright Daniel Webster, 1834 \pause \\ 
+\flushleft
+\textbf{Q}: What is Webster arguing, in the language of money and credit? \pause \\ 
+\textbf{A}: Increasing the money supply by means of mining specie does not create economic growth. Rather, growth is created by the fulfillment of investment contracts -- hence ``commercial credit'' creates more value than ``all the mines of the world''
+    
+\end{frame}
+
+\begin{frame}{Man's Confidence in Man}
+\begin{center}
+\includegraphics[scale = 0.2]{Figure/D4EBABD4-F2CC-4049-944B-DAB1FFE2716B_1_105_c.jpeg} \\
+Joseph Hall at Harvard Business School's Baker Library, 2019
+\end{center}
+
+    
+\end{frame}
+
+\begin{frame}{What technologies are needed to supply credit?}
+
+There are four key technologies necessary to supply credit: \pause 
+
+\bi 
+\m \textbf{Funding}: the resource itself that you are lending (usually money) 
+\bi 
+\m If you do the parts below right, this becomes sustainable forever \pause 
+\m Retail banks get cheap funding from depositors (does anyone here know their deposit rate?) \pause 
+\ei
+\m \textbf{Contracting}: a language to define rights and obligations 
+\bi 
+\m The \textbf{Coase Theorem} is famous in economics for guaranteeing that resources will be used efficiently if all rights are perfectly defined and frictionlessly tradable \pause 
+\m Modern contracts may contain extremely sophisticated logic for which the courts are a kind of computer \pause 
+\ei 
+\m \textbf{Screening}: a process to determine to whom to offer contracts \pause 
+\m \textbf{Collections}: a process to enforce the contract 
+\ei 
+    
+\end{frame}
+
+
+
+\begin{frame}{The Oldest Financial Technology for Enforcing Investment Contracts}
+
+\centering
+\includegraphics[scale = 0.4]{Figure/1976-Rocky-01.jpg}
+    
+\end{frame}
+
+%\begin{frame}{Enforcing Contracts is a Key Role of Government}
+
+%\begin{quote}
+%    ``Common-law countries generally have the strongest, and French civil-law countries the weakest, legal protections of investors, with German- and Scandinavian-civil-law countries located in the middle... Concentration of ownership shares in the largest public companies is negatively related to investor protections, consistent with the hypothesis that small, diversified shareholders are unlikely to be important in countries that fail to protect their rights.''
+%\end{quote}
+
+%\begin{flushright}
+%    -La Porta, Lopez-de-Silanes, Shleifer, and Vishny: ``Law and Finance'' 
+%\end{flushright}
+    
+%\end{frame}
+
+\begin{frame}{Can Contracts be Enforced Without Strong Governments?}
+
+\centering
+\includegraphics[scale = 0.3]{Figure/Screenshot 2025-01-03 at 11.09.03 AM.png}
+    
+\end{frame}
+
+\begin{frame}{A Hugely Profitable Investment ... If You Can Enforce It}
+    \centering
+    \includegraphics[scale = 0.3]{Figure/Screenshot 2025-01-03 at 11.09.17 AM.png}
+    \flushleft Source: \hyperlink{https://www.brettgreen.info/publications}{https://www.brettgreen.info/publications}
+\end{frame}
+
+
+\begin{frame}{Rent-to-Own Model with ``Digital Collateral''}
+    \centering
+    \includegraphics[scale = 0.3]{Figure/Screenshot 2025-01-03 at 11.09.38 AM.png}
+
+\bi 
+\m Key Technology: Product is \textbf{remotely deactivated} if loan is defaulted 
+\ei
+    
+\end{frame}
+
+
+\begin{frame}{This Class}
+
+In this class, we will cover: 
+
+\begin{itemize}
+    \item \emph{Why} the traditional finance industry is designed and regulated the way it is 
+    \item \emph{What} new financial technologies have recently become possible 
+    \item \emph{How} the traditional financial industry is adapting to these changes 
+\end{itemize}
+
+    
+\end{frame}
+
+\begin{frame}{For Monday 10/25}
+
+Please read: 
+
+\begin{center}
+    ``Cryptocurrency Crashes Recall the Wild Days of “Free Banking"'' 
+\end{center}
+by Sara Harrison, interviewing Chenzi Xu for Stanford GSB Insights \\
+\hyperlink{https://stanford.io/3iiLcyl}{https://stanford.io/3iiLcyl}
+    
+\end{frame}
+
+
+\end{document}

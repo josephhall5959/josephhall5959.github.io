@@ -1,0 +1,621 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+%\documentclass[10pt]{beamer}
+\documentclass[aspectratio=169]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+
+%\setbeamertemplate{headline}
+%{%
+% \begin{beamercolorbox}{section in head/foot}
+%\vskip1pt\insertnavigation{\textwidth}{}{}\vskip2pt
+%  \end{beamercolorbox}
+%}
+
+
+%\setbeamercolor{frametitle}{bg=cyan}
+\setbeamercolor{section in head/foot}{bg=lightgray} %set the top navigation bar background color
+\setbeamertemplate{footline}[frame number] % set frame page number only
+\usepackage{appendixnumberbeamer} % total will not include appendix frame numbers 
+
+\beamertemplatenavigationsymbolsempty
+
+
+
+\usepackage{graphicx} % Allows including images
+% graphicx also allows for resizebox
+% graphicx also allows for \scalebox
+\usepackage{caption}
+\usepackage{subcaption} % packgage for subcaption in subfigures
+% The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
+\usepackage{bm} % make bold math symbols
+\usefonttheme{professionalfonts}
+%\usepackage{newtxtext,newtxmath} % for professional fond to load a Times Roman clone
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{adjustbox} % allows adjustbox
+\usepackage{amsmath}  
+\usepackage{amsfonts}
+\usepackage{hyperref} % package for hyper link
+
+% the following hypersetup makes link blue
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+
+
+\usepackage{float} % make the table H effective
+\restylefloat{table}
+\usepackage{color, colortbl}
+\usepackage{booktabs} % package for tex professional table
+\usepackage{mathtools} % package for \coloneqq
+\usepackage{multirow} % multirow for intuition page.
+
+
+% make pdf dark mode
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0,0,0} %black
+%\color[rgb]{0.5,0.5,0.5} %grey
+
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+
+\usepackage{tikz} % graph in latex
+\usetikzlibrary{positioning,arrows.meta} %tikz diagram
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest} %this setting allow node to go to the correct place
+\usepgfplotslibrary{fillbetween}
+
+% use the tikz external library to cache tikz drawings
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
+
+
+%\bibliography{bibliography}
+%\usepackage[american]{babel}
+%\usepackage{csquotes}
+%\usepackage[style=apa]{biblatex}
+%\DeclareLanguageMapping{american}{american-apa}
+%\addbibresource{References.bib}
+
+\usepackage{natbib} % package for citation
+
+
+%\usepackage{subfigure} % subfigure package
+%\captionsetup[subfigure]{labelformat=empty}
+% The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
+
+%\usepackage{natbib} % package for citation
+
+% define a comment line that does nothing to hide content
+\newcommand{\comment}[1]{}
+\newcommand{\lnb}[1]{%
+  \ln\left(#1\right)%
+}
+
+\renewcommand{\baselinestretch}{1.0} %  scales the default interline space to 1.0 its default value. 
+
+% define a comment that can scale the equation 
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+%Use ALZ's shortcuts, including the very useful \bi and \m 
+\input{mydefs.tex}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[History of Fintech III]{\huge{History of Fintech III} \\
+\vspace{6mm}
+\small{MGT 4074 Fintech \& Crypto Tokens, Fall 2025}
+} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+
+%\subtitle{Presentation to Shanghai International Studies University}
+
+
+\author[Joseph Hall]{Joseph Hall} % Your name
+\institute[GT]{Georgia Institute of Technology} % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+ % Your institution for the title page
+ % Your email address
+ 
+\date{August 25, 2025} 
+ % Date, can be changed to a custom date if without date
+
+
+
+%---------------------------------------------------------------------------
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%-----------------------------------------------
+
+
+
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+%\section*{Introduction}
+% When I comment the introduction section, fewer sections show up in navigation
+%---------------------------------------------------------------------
+%---------------------------------------------------------------------
+
+
+%\section{Class Expectations}
+
+
+\begin{frame}{Welcome}
+\vfill 
+\begin{center}
+By Wednesday 8/27, please read ``Seeing Like a Bank'' by Patrick MacKenzie \\
+From his collection of essays ``Bits about Money''\\
+\hyperlink{https://www.bitsaboutmoney.com/archive/seeing-like-a-bank/}{https://www.bitsaboutmoney.com/archive/seeing-like-a-bank/} \\
+\end{center}
+\vfill 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Roadmap: }
+
+\vspace{-2mm}
+
+\begin{itemize}
+    \medskip 
+    \item In the News: Stablecoins and Government Debt 
+    \item Timeline of Financial Innovation
+    \begin{itemize}
+        \item Pre-Industrial (pre-1760) 
+        \smallskip 
+        \item Industrial (1760 - 1944) 
+        \smallskip 
+        \item Modern (post-1944) 
+    \end{itemize}
+    \medskip 
+
+\end{itemize}
+
+\vspace{-5mm}
+
+\end{frame}
+
+
+\begin{frame}{In the News: Stablecoins and Government Debt}
+
+\centering
+\includegraphics[width = .9\textwidth]{stablecoins_1.png} \pause 
+\includegraphics[width = .9\textwidth]{stablecoins_2.png}
+    
+\end{frame}
+
+\begin{frame}{In the News: Stablecoins and Government Debt}
+
+\centering
+\includegraphics[width = .9\textwidth]{stablecoins_3.png}
+
+\textbf{Discussion Question}: Why might stablecoins increase demand for government debt? 
+
+    
+\end{frame}
+
+
+\begin{frame}{Timeline of Financial Innovation: Why These Divisions?}
+
+\bi 
+\m Industrial Revolution (1760): breakpoint in economic growth 
+\bi 
+\m Transportation and communication improves, encouraging \textbf{price discovery} \pause 
+\m Economies of scale encourage investors to pool their wealth in joint ventures, creating \textbf{speculative markets} \pause 
+\m Demand for scalability and anonymity gives rise to \textbf{credit reporting} \pause 
+%\m Explosion in global trade increases demand for trade credit \pause 
+%\m Demand for scalability as the economy and population grows by orders of magnitude \pause 
+\m Governments assign control of the money supply to \textbf{independent central banks} \pause 
+
+\ei 
+\m Information Revolution (1944): breakpoint in computing power growth 
+\bi 
+\m Ubiquitous \textbf{access to financial services}, even for subsistence farmers \pause 
+\m (post-2008) formally understanding the physical limits of computing power enables \textbf{cryptographic money} to be verifiably scarce
+\ei 
+\ei
+    
+\end{frame}
+
+\begin{frame}{Fintech History in One Slide}
+    \begin{center}
+        \includegraphics[scale = 0.4]{Figure/Financial Technology Timeline for Joseph.pdf}
+    \end{center}
+\end{frame}
+
+
+%------------------------------------------------
+% insert table of contents before each section or subsection
+%------------------------------------------------
+%\AtBeginSection[]
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents[currentsection,currentsubsection]
+%\tableofcontents[currentsection]
+\end{frame}
+}
+
+
+%------------------------------------------------
+\section{Pre-Industrial Financial Technology}
+%--------------------------------------------------------------------
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents[currentsection,currentsubsection]
+%\tableofcontents[currentsection]
+\end{frame}
+}
+
+\begin{frame}{Pre-Industrial Financial Technology}
+
+What needs did pre-industrial financial technology need to meet? 
+
+\bi 
+\m Tracking ownership 
+\m Generating \emph{seignorage} revenue 
+\m Trade finance and speculation  
+\ei 
+
+\end{frame}
+
+\begin{frame}{Tracking Ownership of Value}
+
+\bi
+\m Tracking ownership requires addition and subtraction. 
+\m The first surviving documentation of a mechanical calculation aid is from 450 BC. 
+\m The \textbf{abacus} was capable not only of addition and subtraction but also multiplication 
+\ei 
+
+    
+\end{frame}
+
+
+\begin{frame}{Functions of an Abacus}
+    \begin{center}
+        \includegraphics[scale = 0.6]{Figure/image22-1602835709.png}
+    \end{center}
+    Source: Cuemath 
+\end{frame}
+
+\begin{frame}{Abacus Operators Rivaled Electric Calculators Through 1946}
+
+\begin{quote}
+    ``One charming story reports a Tokyo competition in 1946 between the U.S. Army’s most expert operator of the electric calculator in Japan and a champion operator of the abacus in the Japanese Ministry of Postal Administration. According to the report, the addition contest consisted of adding 50 numbers each containing three to six digits... The abacus champion completed the addition tasks in an average of 75 seconds, while the calculator champion required 120 seconds. They battled to a standoff in multiplication and division. The abacus expert won four of the five contests and was declared the victor.''
+\end{quote}
+Kojima, \emph{The Japanese Abacus} \pause 
+\bi 
+\m 2 years of training required for first-grade Abacus certificate 
+\ei 
+
+\end{frame}
+
+\begin{frame}{Paper Money}
+
+\bi 
+\m Song Dynasty issued \emph{Jiaozi} money in standardized denominations as early as 1024 \\
+\m Emperors abused \emph{seignorage} and created \emph{hyperinflation}
+\bi 
+\m Government only held 1/14 of total banknote value in specie and often suspended convertibility 
+\ei 
+\m Despite this, usefulness was recognized by the Mongol \emph{Yuan} dynasty of 1271 who introduced paper money to Europe
+\ei 
+    
+\end{frame}
+
+
+\begin{frame}{Trade Finance}
+
+Dutch investors pooled their money to send expeditions to the East Indies, trading their certificates while awaiting the ship's return and \textbf{speculating} on the outcome of the expedition \pause 
+\begin{quote}
+    ``Contractual and information frictions were a major barrier to establishing international trading relationships in the 19th century, just as they are today. The long lag between the initial shipment by exporters, the receipt of goods by importers, and their final sale to consumers means that purchase and payment is staggered, and there is room for default on both sides. Contractual terms over quantities or quality may be difficult to enforce when the exporter is risky, which is particularly likely for exporters in countries of low institutional quality or in new, riskier markets.'' \\
+\end{quote} 
+The United Kingdom quickly surpassed the Dutch, controlling 98\% of trade finance by 1860. Trade credit was so concentrated that a single bank failure in 1866 disrupted global trade for over 50 years. \hyperlink{https://chenzi-xu.com/docs/reshaping_global_trade_Xu.pdf}{(Xu, 2022)}
+
+\end{frame}
+
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents[currentsection,currentsubsection]
+%\tableofcontents[currentsection]
+\end{frame}
+}
+
+\section{Industrial Financial Technology}
+
+\begin{frame}{GDP Growth Breakpoint in 1760}
+
+\begin{center}
+    \includegraphics[scale = 0.4]{Figure/What has growth been like over the last 3000 years - 1.png}
+\end{center}
+Source: Bank of England
+\end{frame}
+
+
+\begin{frame}{Industrial Financial Technology}
+
+What needs did industrial financial technology need to meet? 
+
+\bi 
+\m Creating deep and \textbf{liquid} markets where investors can trust they can buy and sell whenever necessary \pause 
+\bi
+\m \textbf{Liquidity}: the ability to sell a large amount of an asset quickly at a well-known price
+\ei 
+\m Promoting trade between speculators to encourage \textbf{price discovery} and allocate resources to their best uses \pause 
+\m Facilitating lending to anonymous counterparties using \textbf{credit reporting}
+\m Insulating the money supply it from short-term political pressures using \textbf{Independent Central Banks}
+\ei 
+
+\end{frame}
+
+\begin{frame}{Central Liquid Markets}
+
+\bi 
+\m The NYSE competed with  Baltimore, Boston, Charleston, St. Louis, and Philadelphia until the 1840s. 
+
+\m \textbf{Price Discovery} relies on \textbf{liquidity} -- many large trades, close together in price, for a fungible asset give investors confidence \pause 
+\bi 
+\m Dividing trade across many markets impedes price discovery and causes misallocation: investors bet on the wrong ideas 
+\ei 
+
+\m The commercialization of the Telegraph centralized price discovery in a single liquid market: the NYSE won  \pause 
+
+\m The Transatlantic Sea Cable of 1866 further integrated global markets by connecting the U.S. and U.K. financial markets 
+\ei 
+
+\end{frame}
+
+
+\begin{frame}{The Transatlantic Sea Cable}
+\begin{center}
+    \includegraphics[scale = 0.28]{Figure/Screenshot 2025-01-07 at 2.59.39 PM.png}
+\end{center}
+\flushleft Steinwender (2018)
+\end{frame}
+
+
+\begin{frame}{Credit Reporting}
+
+\bi 
+\m With globalization, the probability that a lender personally knows their borrower rapidly approaches zero \pause 
+\m \textbf{Credit Bureaus} such as R.G. Dun \& Co. were created to track the trustworthiness of firms and individuals \pause 
+\m By \textbf{reporting} defaulted loans to a credit bureau, lenders can threaten borrowers with \textbf{exclusion} from the entire market. \pause 
+\m Originally, these consisted of long written files describing the past dealings of each individual which could be requested by members of the bureau. Later, these became systematic digital data files used to calculate \textbf{credit scores} such as the \emph{FICO} score. \pause
+\m \textbf{Bankruptcy law} was created to prevent debt collectors from fighting with each other over the assets of broke debtors.
+\ei 
+    
+\end{frame}
+
+\begin{frame}{Independent Central Banks}
+
+\bi 
+\m In 1913 the United States Congress created the \textbf{Federal Reserve}, an \textbf{independent central bank} \pause 
+\m The board of decisionmakers serve \textbf{14-year terms} and cannot be fired mid-term, insulating them from short-term political pressure 
+\bi 
+\m They do not benefit from \emph{seignorage} directly and are not tempted to abuse it \pause 
+\ei 
+\m They set the short-term interest rate to manage the money supply with two objectives (the ``Dual Mandate''): \pause 
+\bi 
+\m Maximize employment 
+\m Minimize inflation 
+\m Independent control of the money supply is challenged by short-termist politicians to this day 
+\ei 
+\ei 
+    
+\end{frame}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents[currentsection,currentsubsection]
+%\tableofcontents[currentsection]
+\end{frame}
+}
+\section{Modern Financial Technology}
+
+\begin{frame}{Computing Power Breakpoint in 1944}
+
+\begin{center}
+    \includegraphics[scale = 0.25]{Figure/Screenshot 2025-01-07 at 12.52.53 PM.png}
+\end{center}
+Source: Nordhaus (2007) 
+\end{frame}
+
+
+\begin{frame}{Modern Financial Technology}
+
+What finance has modern technology enabled?
+
+\bi 
+\m Universal instant instant money access and transfers  
+\m Universal instant price discovery 
+\m Scarce money backed by neither \textbf{specie} nor \textbf{fiat}: \textbf{cryptocurrency}
+\ei 
+
+\end{frame}
+
+\begin{frame}{Universal Instant Money Access}
+
+\bi 
+\m Barcleys released the Automatic Teller Machine in 1967 
+\m Bank of America released the Bankamericard in 1958 and processed 5,000 electronic transactions per day by 1973 
+\m Today, the VISA network (spun off from BofA in 1970) processes 15,000 transactions \emph{per second}. 
+\ei 
+    
+\end{frame}
+
+
+\begin{frame}{Perfect Price Discovery for Subsistence Fishers in India}
+
+\bi 
+\m Between 1997 and 2001, mobile phone coverage was introduced in Kerala, India \pause 
+\ei 
+\begin{center}
+    \includegraphics[scale = 0.4]{Figure/Screenshot 2025-01-07 at 3.11.09 PM.png}
+\end{center}
+\flushleft Jensen (2007)  \pause (...was this good for the fish, though?)
+
+\end{frame}
+
+
+\begin{frame}{Cryptocurrency}
+
+We will be covering cryptocurrency extensively in this class. 
+
+\vfill 
+The first cryptocurrency was \textbf{Bitcoin}, described in a whitepaper by Satoshi Nakamoto (whose true identity is still unknown) 
+
+\vfill 
+
+\bi 
+\m Scarcity is enforced by \textbf{Proof of Work} -- as long as computing power is scarce, so is Bitcoin 
+\bi
+\m This feature make it an excellent \textbf{store of value} but a terrible \textbf{medium of exchange} 
+\ei 
+\m Coordination relies on a \textbf{consensus mechanism}: stakeholders ``vote with their compute'' 
+\m Minimal structure is needed: the chain is \textbf{decentralized} and can be freely joined and left 
+\ei 
+
+\end{frame}
+
+\begin{frame}{Proof of Work}
+    \begin{quote}
+        ``The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power.'' 
+    \end{quote}
+    \flushleft Nakamoto (2008)
+
+\end{frame}
+
+
+\begin{frame}{Consensus Mechanism}
+
+\begin{quote}
+    ``Nodes work all at once with little coordination. They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis. Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone. They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them. Any needed rules and incentives can be enforced with this consensus mechanism.\\
+\end{quote}
+    \flushleft Nakamoto (2008)
+
+    
+\end{frame}
+
+
+\begin{frame}{For Wednesday}
+
+On Wednesday we will be starting our last unit before the first midterm exam, ``The Traditional Financial System''. We will cover the most important economic forces underlying the design of modern banks and the regulations they must follow. The first midterm exam will be September 8. \\ 
+\textbf{For Wednesday:} \\
+Please read: \\
+\begin{center}
+%    Bank Runs, Deposit Insurance, and Liquidity \\
+%by Douglas W. Diamond and Philip H. Dybvig \\
+%\hyperlink{https://www.jstor.org/stable/1837095}{https://www.jstor.org/stable/1837095}
+``Seeing Like a Bank'' by Patrick MacKenzie \\
+From his collection of essays ``Bits about Money''\\
+\hyperlink{https://www.bitsaboutmoney.com/archive/seeing-like-a-bank/}{https://www.bitsaboutmoney.com/archive/seeing-like-a-bank/} \\
+\end{center}
+\end{frame}
+
+
+\end{document}
