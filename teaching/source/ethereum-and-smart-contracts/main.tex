@@ -16,7 +16,6 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-%\documentclass[10pt]{beamer}
 \documentclass[]{beamer}
 
 
@@ -32,69 +31,19 @@
 
 \mode<presentation> {
 
-% The Beamer class comes with a number of default slide themes
-% which change the colors and layouts of slides. Below this is a list
-% of all the themes, uncomment each in turn to see what they look like.
 
-%\usetheme{default}
-%\usetheme{AnnArbor}
-%\usetheme{Antibes}
-%\usetheme{Bergen}
-%\usetheme{Berkeley}
-%\usetheme{Berlin}
-%\usetheme{Boadilla}
-%\usetheme{CambridgeUS}
-%\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
-%\usetheme{Dresden}
 \usetheme{Frankfurt}
-%\usetheme{Goettingen}
-%\usetheme{Hannover}
-%\usetheme{Ilmenau}
-%\usetheme{JuanLesPins}
-%\usetheme{Luebeck}
-%\usetheme{Madrid}
-%\usetheme{Malmoe}
-%\usetheme{Marburg}
-%\usetheme{Montpellier}
-%\usetheme{PaloAlto}
-%\usetheme{Pittsburgh}
-%\usetheme{Rochester}
-%\usetheme{Singapore}
-%\usetheme{Szeged}
-%\usetheme{Warsaw}
 
 % As well as themes, the Beamer class has a number of color themes
 % for any slide theme. Uncomment each of these in turn to see how it
 % changes the colors of your current slide theme.
 
-%\usecolortheme{albatross}
-%\usecolortheme{beaver}
-%\usecolortheme{beetle}
-%\usecolortheme{crane}
-%\usecolortheme{dolphin}
-%\usecolortheme{dove}
-%\usecolortheme{fly}
-%\usecolortheme{lily}
-%\usecolortheme{orchid}
-%\usecolortheme{rose}
-%\usecolortheme{seagull}
-%\usecolortheme{seahorse}
-%\usecolortheme{whale}
-%\usecolortheme{wolverine}
 
-%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
-%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
 
-%\setbeamertemplate{headline}
 %{%
-% \begin{beamercolorbox}{section in head/foot}
-%\vskip1pt\insertnavigation{\textwidth}{}{}\vskip2pt
-%  \end{beamercolorbox}
 %}
 
 \setbeamercolor{section in head/foot}{bg=lightgray} %set the top navigation bar background color
@@ -113,7 +62,6 @@
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 \usepackage{bm} % make bold math symbols
 \usefonttheme{professionalfonts}
-%\usepackage{newtxtext,newtxmath} % for professional fond to load a Times Roman clone
 \usepackage{tabularx} % extra features for tabular environment
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{adjustbox} % allows adjustbox
@@ -138,9 +86,6 @@
 \usepackage{multirow} % multirow for intuition page.
 
 % make pdf dark mode
-%\usepackage{xcolor}
-%\pagecolor[rgb]{0,0,0} %black
-%\color[rgb]{0.5,0.5,0.5} %grey
 
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \newcommand{\cmark}{\ding{51}}%
@@ -159,21 +104,12 @@
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 
 
-%\bibliography{bibliography}
-%\usepackage[american]{babel}
-%\usepackage{csquotes}
-%\usepackage[style=apa]{biblatex}
-%\DeclareLanguageMapping{american}{american-apa}
-%\addbibresource{References.bib}
 
 \usepackage{natbib} % package for citation
 
 
-%\usepackage{subfigure} % subfigure package
-%\captionsetup[subfigure]{labelformat=empty}
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 
-%\usepackage{natbib} % package for citation
 
 % define a comment line that does nothing to hide content
 \newcommand{\comment}[1]{}
@@ -195,7 +131,6 @@
 } % The short title appears at the bottom of every slide, the full title is only on the title page
 
 
-%\subtitle{Presentation to Shanghai International Studies University}
 
 
 \author[Joseph Hall]{Joseph Hall} % Your name
@@ -230,8 +165,6 @@
 
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
-%\section*{Introduction}
-% When I comment the introduction section, fewer sections show up in navigation
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 
@@ -247,20 +180,14 @@ Please read ``The Market for Promises'' by Anthony Lee Zhang \\
 \end{frame}
 
     
-%\begin{frame}{MetaMask Wallets}
 
 %Some of you did not fill out your MetaMask public key in the way I needed you to. I have re-opened the assignment and adjusted the due date to \textbf{February 12}. \\ 
-%\vfill 
 %Please fill out the text box \textbf{only} with your public address. E.g., mine is: 
 
-%\begin{center}
 %    0xE7Cc4e3Fa5D8b079731De36Fa1E0D0A723bB25BC
-%\end{center}
 
-%\vfill 
 %One of you even gave me your twelve-word key phrase. \textbf{That is very bad!} That wallet is now permanently compromised and vulnerable. I recommend to this student (whom I will not name and shame) that you create an entirely new wallet. 
     
-%\end{frame}
 
 
 \begin{frame}{In the News}
@@ -299,12 +226,10 @@ Please read ``The Market for Promises'' by Anthony Lee Zhang \\
 % insert table of content before each section or subsection
 %------------------------------------------------
 \AtBeginSection[]
-%\AtBeginSubsection[]
 {
 \begin{frame}
 \frametitle{Roadmap}
 \tableofcontents[currentsection,currentsubsection]
-%\tableofcontents[currentsection]
 \end{frame}
 }
 %------------------------------------------------
@@ -867,8 +792,6 @@ $$dy = \frac{Y\cdot dx}{X+dx}$$
 \m Core idea: users pay for the computation + storage resources they use, using ETH
 \m ``Computational resources'' used by a function call measured in units of ``gas'' \pause
 \m Often unclear how much gas a transaction will take\ldots (``halting problem'')
-%\m Tx's specify ``gas limit'': once exceeded, TX fails (but still recorded on the chain!)
-%\m Tx's specify ``gas price'' per unit gas, paid to stakers: stakers incentivized to include tx's with highest gas price
 \ei
 
 \end{frame}
@@ -938,7 +861,6 @@ Meet BankBot (``BB''), a friendly hypothetical smart contract
 \m BB's actions may cost ETH stakers compute + storage. But BB is a bot!
 \m BB only does things when human wallets ask it to\ldots \pause
 \m {\ldots}So BB only turns on if you pay for gas \emph{up front}
-%\m Human using BB has to pay for computation + data BB uses
 \ei
 
 \end{frame}
@@ -1104,7 +1026,6 @@ See \href{https://blog.trezor.io/https-blog-trezor-io-dev-corner-shamir-backup-g
 \bi
 \m Very hard for Uniswap to ``stop'' your app from calling Uniswap functions!
 \m All data is on chain: everyone can see every app's data!
-%\m Will be important for ``vampire attacks'' in tokenomics lecture in a few weeks
 \ei \pause
 \m Harder to construct ``walled garden ecosystems'', lower barriers to entry + less incumbent advantage
 \ei
@@ -1236,24 +1157,8 @@ Identity very young, essentially no apps yet, so a good area for class projects!
 
 \end{frame}
 
-%\begin{frame}
-%\frametitle{Project Ideas: ETH Data Analytics}
 
-%\bi
-%\m No data costs: literally everything is public!
-%\m Potentially good area for class projects!
-%\bi
-%\m (Slightly outdated) Recent examples: \href{https://twitter.com/BeckerrJon/status/1577031529464676352}{TransposeData}, \href{https://twitter.com/AnthonyLeeZhang/status/1577111246674927617}{others}
-%\ei
-%\m Core components:
-%\bi
-%\m Familiarity with big data pipelines: AWS/Google cloud\ldots
-%\m Organize data into useful format: dashboards, ML analytics\ldots
-%\m Find a target market: devs, traders\ldots
-%\ei
-%\ei
 
-%\end{frame}
 
 \subsection{Proof of Stake}
 
@@ -1326,71 +1231,21 @@ Source: \href{https://l2beat.com/scaling/summary}{L2beat}
 
 
 	
-%\begin{frame}
-%\frametitle{Other L1s}
 
 %Proliferation of other ``L1's", doing similar things to Ethereum. Some notable ones:
-%\bi
-%\m Avalanche, Solana
-%\m Luna (now dead)
-%\m Cosmos, Polkadot, Polygon
-%\m Tron, Binance Smart Chain
-%\m Aptos, Sui
-%\m Appchains: dydx
-%\m Others?
-%\ei
-
-%\end{frame}
-
-%\begin{frame}
-%\frametitle{Other L1s}
-
-%\bi
-%\m ETH still largest by market cap (behind BTC)
-%\m Many newer L1's ``faster'' and ``cheaper'' than ETH
-%\m L1's highly concentrated in terms of development/funding: often large ``ecosystem funds'' to promote using/building on 
-%\m Still few compelling applications on alt-L1's 
-%\m ETH remains the market leader among ``utility'' L1's \pause
-%\m \textbf{Project ideas}: Proposing a new L1/L2 is a hard engineering problem and one I don't recommend it to most 
-%\bi
-%\m If you are an engineer and ``built different'', please by all means blow my mind! 
-%\ei
-%\ei
-
-%\end{frame}
-
-%\subsection{Governance}
-
-%\begin{frame}
-%\frametitle{The DAO Incident}
-
-%\bi
-%\m In 2016, org called ``The DAO'' raised \$150mil USD of ETH
-%\m Hacker exploited a bug and stole \$60mil\ldots \pause
-%\m ETH developers proposed a ``hard fork'': roll back Ethereum to before hack happened, and update the code to fix the bug! 
-%\m But the ``non-forked'' chain continues to exist, as ``Ethereum Classic''
-%\ei
-
-%\end{frame}
 
 
-%\begin{frame}
-%\frametitle{Centralization and Governance}
 
-%\bi
-%\m Even a ``decentralized'' chain like ETH, in practice has influential ``central'' parties (developers)
-%\m ``Centralized'' chains, who run chain validation themselves, have even more power
-%\m Should chain operators have power to unilaterally influence chain outcomes?
-%\m U.S. congress is \textbf{utterly asleep at the wheel}
-%\ei \pause
 
-%\textbf{Policy questions}
-%\bi
-%\m What are the roles and obligations of chain operators?
-%\m How much discretion should chain operators have to rollback changes?
-%\ei
 
-%\end{frame}
+
+
+
+
+
+
+
+
 
 
 

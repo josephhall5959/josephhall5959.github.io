@@ -16,7 +16,6 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-%\documentclass[10pt]{beamer}
 \documentclass[]{beamer}
 
 
@@ -32,69 +31,19 @@
 
 \mode<presentation> {
 
-% The Beamer class comes with a number of default slide themes
-% which change the colors and layouts of slides. Below this is a list
-% of all the themes, uncomment each in turn to see what they look like.
 
-%\usetheme{default}
-%\usetheme{AnnArbor}
-%\usetheme{Antibes}
-%\usetheme{Bergen}
-%\usetheme{Berkeley}
-%\usetheme{Berlin}
-%\usetheme{Boadilla}
-%\usetheme{CambridgeUS}
-%\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
-%\usetheme{Dresden}
 \usetheme{Frankfurt}
-%\usetheme{Goettingen}
-%\usetheme{Hannover}
-%\usetheme{Ilmenau}
-%\usetheme{JuanLesPins}
-%\usetheme{Luebeck}
-%\usetheme{Madrid}
-%\usetheme{Malmoe}
-%\usetheme{Marburg}
-%\usetheme{Montpellier}
-%\usetheme{PaloAlto}
-%\usetheme{Pittsburgh}
-%\usetheme{Rochester}
-%\usetheme{Singapore}
-%\usetheme{Szeged}
-%\usetheme{Warsaw}
 
 % As well as themes, the Beamer class has a number of color themes
 % for any slide theme. Uncomment each of these in turn to see how it
 % changes the colors of your current slide theme.
 
-%\usecolortheme{albatross}
-%\usecolortheme{beaver}
-%\usecolortheme{beetle}
-%\usecolortheme{crane}
-%\usecolortheme{dolphin}
-%\usecolortheme{dove}
-%\usecolortheme{fly}
-%\usecolortheme{lily}
-%\usecolortheme{orchid}
-%\usecolortheme{rose}
-%\usecolortheme{seagull}
-%\usecolortheme{seahorse}
-%\usecolortheme{whale}
-%\usecolortheme{wolverine}
 
-%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
-%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
 
-%\setbeamertemplate{headline}
 %{%
-% \begin{beamercolorbox}{section in head/foot}
-%\vskip1pt\insertnavigation{\textwidth}{}{}\vskip2pt
-%  \end{beamercolorbox}
 %}
 
 \setbeamercolor{section in head/foot}{bg=lightgray} %set the top navigation bar background color
@@ -113,7 +62,6 @@
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 \usepackage{bm} % make bold math symbols
 \usefonttheme{professionalfonts}
-%\usepackage{newtxtext,newtxmath} % for professional fond to load a Times Roman clone
 \usepackage{tabularx} % extra features for tabular environment
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{adjustbox} % allows adjustbox
@@ -138,9 +86,6 @@
 \usepackage{multirow} % multirow for intuition page.
 
 % make pdf dark mode
-%\usepackage{xcolor}
-%\pagecolor[rgb]{0,0,0} %black
-%\color[rgb]{0.5,0.5,0.5} %grey
 
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \newcommand{\cmark}{\ding{51}}%
@@ -159,21 +104,12 @@
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 
 
-%\bibliography{bibliography}
-%\usepackage[american]{babel}
-%\usepackage{csquotes}
-%\usepackage[style=apa]{biblatex}
-%\DeclareLanguageMapping{american}{american-apa}
-%\addbibresource{References.bib}
 
 \usepackage{natbib} % package for citation
 
 
-%\usepackage{subfigure} % subfigure package
-%\captionsetup[subfigure]{labelformat=empty}
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 
-%\usepackage{natbib} % package for citation
 
 % define a comment line that does nothing to hide content
 \newcommand{\comment}[1]{}
@@ -195,7 +131,6 @@
 } % The short title appears at the bottom of every slide, the full title is only on the title page
 
 
-%\subtitle{Presentation to Shanghai International Studies University}
 
 
 \author[Joseph Hall]{Joseph Hall} % Your name
@@ -230,8 +165,6 @@
 
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
-%\section*{Introduction}
-% When I comment the introduction section, fewer sections show up in navigation
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 
@@ -333,12 +266,10 @@ In practice, of course, engineering considerations restrict feasible computers f
 % insert table of content before each section or subsection
 %------------------------------------------------
 \AtBeginSection[]
-%\AtBeginSubsection[]
 {
 \begin{frame}
 \frametitle{Roadmap}
 \tableofcontents[currentsection,currentsubsection]
-%\tableofcontents[currentsection]
 \end{frame}
 }
 %------------------------------------------------
@@ -371,14 +302,12 @@ In practice, of course, engineering considerations restrict feasible computers f
 
 \end{frame}
 
-%\subsection{Complexity}
 
 \begin{frame}
 \frametitle{A Promise in Tradfi}
 
 \begin{center}
 \includegraphics<1>[width = 0.9\textwidth]{pics/isda1.png}
-%\includegraphics<2>[width = 0.9\textwidth]{pics/isda1point5.png}
 \includegraphics<2>[width = 0.5\textwidth]{pics/isda2.png}
 \includegraphics<3>[width = 0.5\textwidth]{pics/isda3.png}
 \includegraphics<4>[width = 0.5\textwidth]{pics/isda4.png}
@@ -392,7 +321,6 @@ In practice, of course, engineering considerations restrict feasible computers f
 
 \end{frame}
 
-%\subsection{Rents}
 
 
 \begin{frame}
@@ -457,7 +385,6 @@ In Economics, a \textbf{rent} is any recurring payment earned in excess of the c
     
 \end{frame}
 
-%\subsection{Justice}
 
 
 \begin{frame}
@@ -475,7 +402,6 @@ In Economics, a \textbf{rent} is any recurring payment earned in excess of the c
 
 \end{frame}
 
-%\subsection{Access}
 
 
 \begin{frame}
@@ -620,11 +546,6 @@ ETH is getting expensive! One set of solutions is \ul{rollups} (also called \ul{
 \m \textbf{ZK-rollup} (zkSync, StarkWare, Polygon): ``Zero-Knowledge'' (ZK) proofs of valid transactions are periodically added to the main chain in batches. More expensive than Optimistic, but fully trustless. 
 \m Currently, Optimistic is more popular 
 \ei \pause
-%\m Industry state: 
-%\bi
-%\m \$30B locked! ETH market cap is \$408B, stables \textasciitilde\$141B
-%\m Optimistic rollups somewhat bigger than ZKs
-%\ei
 \ei
 
 \end{frame}
@@ -814,7 +735,6 @@ Collateralized lending in tradfi:
 \m Where do other tokens come from?
 \m Others are lending into Aave to borrow other tokens
 \ei \pause
-%\m All loans are \ul{overcollateralized}: collateral worth more than borrowing \pause
 \m If ETH price falls, so collateral worth \$100, if loans more than $\$100\times \gamma$, borrower choices:
 \bi
 \m Add more collateral (``margin call'')
@@ -841,7 +761,6 @@ Lenders in Aave play the role of ``brokers'', earning yield:
 Why would you lend to Aave?
 \bi
 \m Have many tokens but few opportunities, want returns
-%\m Have tokens, want to borrow
 \ei \pause
 Why would you borrow from Aave?
 \bi
@@ -849,9 +768,7 @@ Why would you borrow from Aave?
 \bi \pause
 \m Leverage: hold \$100 of assets with only \$50 of cash
 \m Mortgages, margin buying\ldots
-%\m Borrow stablecoins against ETH
 \ei \pause
-%\m Want to short tokens
 \m Need tokens for some utility function
 \bi
 \m Borrow tokens to vote on governance proposals?
@@ -1011,7 +928,6 @@ Identity very young, essentially no apps yet, so a good area for class projects!
 \bi
 \m Very hard for Uniswap to ``stop'' your app from calling Uniswap functions!
 \m All data is on chain: everyone can see every app's data!
-%\m Will be important for ``vampire attacks'' in tokenomics lecture in a few weeks
 \ei \pause
 \m Harder to construct ``walled garden ecosystems'', lower barriers to entry + less incumbent advantage
 \ei
@@ -1226,16 +1142,8 @@ My inbox yesterday:
 \end{frame}
 
 
-%\begin{frame}
-%\frametitle{Risks: Operational Risk}
 
-%\bi
-%\m Lending code particularly tricky to get right, because your funds are locked in contract, and can be lent out
-%\m How does this differ from AMM trading? \pause
-%\m Many examples, such as \href{https://rekt.news/cream-rekt/}{CREAM finance}, \href{https://www.cnbc.com/2021/10/03/162-million-up-for-grabs-after-bug-in-defi-protocol-compound-.html}{Compound}
-%\ei
 
-%\end{frame}
 
 
 \begin{frame}
@@ -1362,9 +1270,6 @@ Consequences of flash loans:
 \ei 
 \m Governance attacks rarer: beanstalk a unique case
 \m The threat of ``51\% attacks'' is why most modern protocols do not operate on unconstrained democracy. 
-%\bi
-%\m However, Curve/Convex demonstrates that the ``market for votes'' -- flash loans aside -- still very important
-%\ei
 \ei
 
 \end{frame}
@@ -1437,21 +1342,10 @@ Consequences of flash loans:
 \end{frame}
 
 
-%\begin{frame}
-%\frametitle{Privacy}
 
 %Derivatives are also a way to customize privacy. 
 
-%\bi
-%\m Most successful project is \href{https://en.wikipedia.org/wiki/Tornado_Cash}{Tornado Cash}
-%\bi
-%\m \textbf{WARNING: Tornado cash is \href{https://home.treasury.gov/news/press-releases/jy0916}{sanctioned by the US treasury!} YOU RISK PRISON IF YOU USE THIS!}
-%\m The Trump Justice Department continues to prosecute the case against founder Roman Storm despite allies' calls to drop the charges. 
-%\ei
-%\m \href{https://aztec.network/}{Aztec Network} 
-%\ei
 
-%\end{frame}
 
 \begin{frame}
 \frametitle{Bridges, Cross-Chain Defi}

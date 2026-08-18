@@ -16,7 +16,6 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-%\documentclass[10pt]{beamer}
 \documentclass[aspectratio=169]{beamer}
 
 
@@ -32,69 +31,19 @@
 
 \mode<presentation> {
 
-% The Beamer class comes with a number of default slide themes
-% which change the colors and layouts of slides. Below this is a list
-% of all the themes, uncomment each in turn to see what they look like.
 
-%\usetheme{default}
-%\usetheme{AnnArbor}
-%\usetheme{Antibes}
-%\usetheme{Bergen}
-%\usetheme{Berkeley}
-%\usetheme{Berlin}
-%\usetheme{Boadilla}
-%\usetheme{CambridgeUS}
-%\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
-%\usetheme{Dresden}
 \usetheme{Frankfurt}
-%\usetheme{Goettingen}
-%\usetheme{Hannover}
-%\usetheme{Ilmenau}
-%\usetheme{JuanLesPins}
-%\usetheme{Luebeck}
-%\usetheme{Madrid}
-%\usetheme{Malmoe}
-%\usetheme{Marburg}
-%\usetheme{Montpellier}
-%\usetheme{PaloAlto}
-%\usetheme{Pittsburgh}
-%\usetheme{Rochester}
-%\usetheme{Singapore}
-%\usetheme{Szeged}
-%\usetheme{Warsaw}
 
 % As well as themes, the Beamer class has a number of color themes
 % for any slide theme. Uncomment each of these in turn to see how it
 % changes the colors of your current slide theme.
 
-%\usecolortheme{albatross}
-%\usecolortheme{beaver}
-%\usecolortheme{beetle}
-%\usecolortheme{crane}
-%\usecolortheme{dolphin}
-%\usecolortheme{dove}
-%\usecolortheme{fly}
-%\usecolortheme{lily}
-%\usecolortheme{orchid}
-%\usecolortheme{rose}
-%\usecolortheme{seagull}
-%\usecolortheme{seahorse}
-%\usecolortheme{whale}
-%\usecolortheme{wolverine}
 
-%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
-%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
 
-%\setbeamertemplate{headline}
 %{%
-% \begin{beamercolorbox}{section in head/foot}
-%\vskip1pt\insertnavigation{\textwidth}{}{}\vskip2pt
-%  \end{beamercolorbox}
 %}
 
 \setbeamercolor{section in head/foot}{bg=lightgray} %set the top navigation bar background color
@@ -113,7 +62,6 @@
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 \usepackage{bm} % make bold math symbols
 \usefonttheme{professionalfonts}
-%\usepackage{newtxtext,newtxmath} % for professional fond to load a Times Roman clone
 \usepackage{tabularx} % extra features for tabular environment
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{adjustbox} % allows adjustbox
@@ -138,9 +86,6 @@
 \usepackage{multirow} % multirow for intuition page.
 
 % make pdf dark mode
-%\usepackage{xcolor}
-%\pagecolor[rgb]{0,0,0} %black
-%\color[rgb]{0.5,0.5,0.5} %grey
 
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \newcommand{\cmark}{\ding{51}}%
@@ -159,12 +104,6 @@
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 
 
-%\bibliography{bibliography}
-%\usepackage[american]{babel}
-%\usepackage{csquotes}
-%\usepackage[style=apa]{biblatex}
-%\DeclareLanguageMapping{american}{american-apa}
-%\addbibresource{References.bib}
 
 \usepackage{natbib} % package for citation
 
@@ -172,11 +111,8 @@
 \usepackage{multicol}
 
 
-%\usepackage{subfigure} % subfigure package
-%\captionsetup[subfigure]{labelformat=empty}
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 
-%\usepackage{natbib} % package for citation
 
 % define a comment line that does nothing to hide content
 \newcommand{\comment}[1]{}
@@ -198,7 +134,6 @@
 } % The short title appears at the bottom of every slide, the full title is only on the title page
 
 
-%\subtitle{Presentation to Shanghai International Studies University}
 
 
 \author[Joseph Hall]{Joseph Hall} % Your name
@@ -233,8 +168,6 @@
 
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
-%\section*{Introduction}
-% When I comment the introduction section, fewer sections show up in navigation
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 
@@ -266,7 +199,6 @@ I will also clarify the \textbf{AI Policy for Final Projects}: yes you may use A
 {
 \begin{frame}
 \frametitle{Roadmap}
-%\tableofcontents[currentsection,currentsubsection]
 \tableofcontents[currentsection]
 \end{frame}
 }
@@ -276,7 +208,6 @@ I will also clarify the \textbf{AI Policy for Final Projects}: yes you may use A
 \begin{frame}
 \frametitle{Roadmap}
 \tableofcontents[currentsection,currentsubsection]
-%\tableofcontents[currentsection]
 \end{frame}
 }
 %------------------------------------------------
@@ -300,9 +231,6 @@ I will also clarify the \textbf{AI Policy for Final Projects}: yes you may use A
 \centering\hfill 
     \includegraphics[width = .3\textwidth]{lefteris.png} \hfill 
     \includegraphics[width = .5\textwidth]{pix.png}\hfill 
-%\begin{itemize}
-%    \item Twitter user \href{https://x.com/PixOnChain/status/1980256223594193233}{PixOnChain} on decentralizing the cloud 
-%\end{itemize}
 
     
 \end{frame}

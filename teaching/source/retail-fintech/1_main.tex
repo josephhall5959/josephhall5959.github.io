@@ -16,7 +16,6 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-%\documentclass[10pt]{beamer}
 \documentclass[aspectratio=169]{beamer}
 
 
@@ -32,69 +31,19 @@
 
 \mode<presentation> {
 
-% The Beamer class comes with a number of default slide themes
-% which change the colors and layouts of slides. Below this is a list
-% of all the themes, uncomment each in turn to see what they look like.
 
-%\usetheme{default}
-%\usetheme{AnnArbor}
-%\usetheme{Antibes}
-%\usetheme{Bergen}
-%\usetheme{Berkeley}
-%\usetheme{Berlin}
-%\usetheme{Boadilla}
-%\usetheme{CambridgeUS}
-%\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
-%\usetheme{Dresden}
 \usetheme{Frankfurt}
-%\usetheme{Goettingen}
-%\usetheme{Hannover}
-%\usetheme{Ilmenau}
-%\usetheme{JuanLesPins}
-%\usetheme{Luebeck}
-%\usetheme{Madrid}
-%\usetheme{Malmoe}
-%\usetheme{Marburg}
-%\usetheme{Montpellier}
-%\usetheme{PaloAlto}
-%\usetheme{Pittsburgh}
-%\usetheme{Rochester}
-%\usetheme{Singapore}
-%\usetheme{Szeged}
-%\usetheme{Warsaw}
 
 % As well as themes, the Beamer class has a number of color themes
 % for any slide theme. Uncomment each of these in turn to see how it
 % changes the colors of your current slide theme.
 
-%\usecolortheme{albatross}
-%\usecolortheme{beaver}
-%\usecolortheme{beetle}
-%\usecolortheme{crane}
-%\usecolortheme{dolphin}
-%\usecolortheme{dove}
-%\usecolortheme{fly}
-%\usecolortheme{lily}
-%\usecolortheme{orchid}
-%\usecolortheme{rose}
-%\usecolortheme{seagull}
-%\usecolortheme{seahorse}
-%\usecolortheme{whale}
-%\usecolortheme{wolverine}
 
-%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
-%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
 
-%\setbeamertemplate{headline}
 %{%
-% \begin{beamercolorbox}{section in head/foot}
-%\vskip1pt\insertnavigation{\textwidth}{}{}\vskip2pt
-%  \end{beamercolorbox}
 %}
 
 
@@ -147,7 +96,6 @@
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 \usepackage{bm} % make bold math symbols
 \usefonttheme{professionalfonts}
-%\usepackage{newtxtext,newtxmath} % for professional fond to load a Times Roman clone
 \usepackage{tabularx} % extra features for tabular environment
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{adjustbox} % allows adjustbox
@@ -172,9 +120,6 @@
 \usepackage{multirow} % multirow for intuition page.
 
 % make pdf dark mode
-%\usepackage{xcolor}
-%\pagecolor[rgb]{0,0,0} %black
-%\color[rgb]{0.5,0.5,0.5} %grey
 
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \newcommand{\cmark}{\ding{51}}%
@@ -193,21 +138,12 @@
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 
 
-%\bibliography{bibliography}
-%\usepackage[american]{babel}
-%\usepackage{csquotes}
-%\usepackage[style=apa]{biblatex}
-%\DeclareLanguageMapping{american}{american-apa}
-%\addbibresource{References.bib}
 
 \usepackage{natbib} % package for citation
 
 
-%\usepackage{subfigure} % subfigure package
-%\captionsetup[subfigure]{labelformat=empty}
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 
-%\usepackage{natbib} % package for citation
 
 % define a comment line that does nothing to hide content
 \newcommand{\comment}[1]{}
@@ -229,7 +165,6 @@
 } % The short title appears at the bottom of every slide, the full title is only on the title page
 
 
-%\subtitle{Presentation to Shanghai International Studies University}
 
 
 \author[Joseph Hall]{Joseph Hall} % Your name
@@ -264,8 +199,6 @@
 
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
-%\section*{Introduction}
-% When I comment the introduction section, fewer sections show up in navigation
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 %----------------------------------------------------
@@ -291,24 +224,20 @@
 % insert table of content before each section or subsection
 %------------------------------------------------
 \AtBeginSection[]
-%\AtBeginSubsection[]
 {
 \begin{frame}
 \frametitle{Roadmap}
-%\tableofcontents[currentsection,currentsubsection]
 \tableofcontents[currentsection]
 \end{frame} %----------------------------------------------------  %----------------------------------------------------
 }
 %------------------------------------------------
 
 
-%\AtBeginSection[]
 \AtBeginSubsection[]
 {
 \begin{frame}
 \frametitle{Roadmap}
 \tableofcontents[currentsection,currentsubsection]
-%\tableofcontents[currentsection]
 \end{frame} %----------------------------------------------------  %----------------------------------------------------
 }
 %------------------------------------------------
@@ -527,14 +456,11 @@ Banks alone are huge in retail lending (\textbf{CAGR} = "Cumulative Annual Growt
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5in}{2.1in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Crowdfunding/figures/GlobalRetailLendingMarket_OnlyBank_ByArea.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-3mm}
@@ -595,14 +521,11 @@ However, Philipp Schnabl (NYU) and Manasa Gopal (Georgia Tech) study Uniform Com
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{4.6in}{2in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Crowdfunding/figures/GrowthOfNonbankLending_Post2008.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-3mm}
@@ -831,14 +754,11 @@ The value of ETFs passed \$10 trillion in 2023 with more than 10,250 ETFs traded
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5in}{2.4in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{figures/GrowthOfExchangeTradedFunds.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{xxxxxxxxxxxxxxxxxxxx}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-2mm}
@@ -852,7 +772,6 @@ The value of ETFs passed \$10 trillion in 2023 with more than 10,250 ETFs traded
 
 %----------------------------------------------------  
 %----------------------------------------------------  
-%\section{How Robot Advisors Transformed the Wealth Management Sector}
 %----------------------------------------------------  
 %----------------------------------------------------  
 
@@ -910,14 +829,11 @@ The value of ETFs passed \$10 trillion in 2023 with more than 10,250 ETFs traded
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{1.3in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{figures/2020FortuneTitle.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{Insurtech Performance First Year Post-IPO}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-2mm}
@@ -986,23 +902,15 @@ The value of ETFs passed \$10 trillion in 2023 with more than 10,250 ETFs traded
 \begin{frame}
 \frametitle{Robinhood’s Commission-Free Trading}
 
-%\vspace{-2mm}
 %Robinhood stock fell by -78\% to \$7.70 at end 2022
 
 %-----------------------------------------------
-%\begin{figure}[H]
-%    \resizebox{4.6in}{2in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[height = .8\textwidth]{figures/Robinhood_StockPrice.png}
 %    } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{Insurtech Performance First Year Post-IPO}
-%\label{fig:ModelIntuition_Graphs}
-%\end{figure}
 %-----------------------------------------------
-%\vspace{-2mm}
 
 
 \end{frame} 
@@ -1035,8 +943,6 @@ Robo-Advisors: Spoiler Alert – Goliath Beats David
   \item As of 2022, robo-advisors manage \$1.8 trillion — less than 2\% of the \$100 trillion global wealth management market.
   \item The gap between ``too poor for your asset allocation to really matter'', and ``rich enough to hire a real person'' might just not exist. 
   
-%  \smallskip 
-%  \item \textbf{Insight:} Robo advice has succeeded through adoption by major financial institutions, not disruption by startups.
 \end{itemize}
 
 
@@ -1102,14 +1008,11 @@ The Early Disruptors
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{1.8in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{figures/USRobotAdvisorPioneers.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{xxxxxxxxxxxxxxxxxxxx}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-2mm}
@@ -1150,14 +1053,11 @@ The Early Disruptors
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{1in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{figures/Blackrock_Aladdin.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{Insurtech Performance First Year Post-IPO}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-2mm}
@@ -1280,7 +1180,6 @@ The Robo-advisor Value Proposition is:
 
 %---------------------------------------------------- 
 %----------------------------------------------------
-%\section{Case: Vanguard}
 %---------------------------------------------------- 
 %---------------------------------------------------- 
 
@@ -1308,14 +1207,11 @@ In mid-2013 Vanguard began piloting in-house robo called \textit{Personal Adviso
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{1.2in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{figures/VanguardUSRoboAdvisorOptionsAndServices.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{xxxxxxxxxxxxxxxxxxxx}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-2mm}
@@ -1361,7 +1257,6 @@ In mid-2013 Vanguard began piloting in-house robo called \textit{Personal Adviso
 
 %---------------------------------------------------- 
 %----------------------------------------------------
-%\section{Case: Wealthfront}
 %---------------------------------------------------- 
 %---------------------------------------------------- 
 
@@ -1442,14 +1337,11 @@ Pivoted to robo-advisor model in 2011
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{2.7in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{figures/Wealthfront_Website.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{Insurtech Performance First Year Post-IPO}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-2mm}
@@ -1497,7 +1389,6 @@ Sustainable Investing to Tackle Climate Change
 
 %----------------------------------------------------  
 %----------------------------------------------------  
-%\section{The Wealth Management Industry}
 %----------------------------------------------------  
 %----------------------------------------------------  
 
@@ -1618,14 +1509,11 @@ Business Models
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{4in}{1.8in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Crowdfunding/figures/NetworkEffect.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{xxxxxxxxxxxxxxxxxxxx}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-3mm}
@@ -1729,14 +1617,11 @@ Two types of crowdfunding:
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{2.2in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Crowdfunding/figures/TypeOfCroudfunding.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{xxxxxxxxxxxxxxxxxxxx}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-3mm}
@@ -1804,13 +1689,10 @@ In addition to within-borrower effects, online lenders face \textbf{negative sel
 
 %-----------------------------------------------
 \begin{figure}[H]
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[width = \textwidth]{Crowdfunding/figures/MarketplaceLenders_InterestRate_Fees.png}
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{xxxxxxxxxxxxxxxxxxxx}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -1880,7 +1762,6 @@ Businesses apply online (under 10 minutes), get an instant decision, and receive
 
 %----------------------------------------------------  
 %----------------------------------------------------  
-%\subsection{Equity Crowdfunding}
 %----------------------------------------------------  
 %----------------------------------------------------  
 
@@ -1916,7 +1797,6 @@ Regulation of equity crowdfunding: Most start-ups fail so regulators limit how m
 
 %----------------------------------------------------  
 %----------------------------------------------------  
-%\subsection{Donations and Rewards Crowdfunding}
 %----------------------------------------------------  
 %----------------------------------------------------  
 
@@ -1989,14 +1869,11 @@ Support Art, Comics, Crafts, Dance, Design, Fashion, Film \& Video, Food, Games,
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{2.6in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Crowdfunding/figures/SuccessfulCrowdfundingPlatforms_Equity,Donation,Rewards.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{xxxxxxxxxxxxxxxxxxxx}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-2mm}
@@ -2014,7 +1891,6 @@ Support Art, Comics, Crafts, Dance, Design, Fashion, Film \& Video, Food, Games,
 %----------------------------------------------------  
 %----------------------------------------------------  
 
-%\subsection{The Rise and Fall of Crowdfunding Globally}
 
 %----------------------------------------------------  
 %---------------------------------------------------- 
@@ -2070,14 +1946,11 @@ By 2020, \$114 billion was raised globally: USA 65\%, Europe 20\%, and China 1\%
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{1.8in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Crowdfunding/figures/Rise&Fall_GlobalCroudfunding.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{xxxxxxxxxxxxxxxxxxxx}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-4mm}
@@ -2106,14 +1979,11 @@ Alternative Finance Market Size and Growth
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{2.2in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Crowdfunding/figures/GlobalCroudfunding_Type_2019&2020.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{xxxxxxxxxxxxxxxxxxxx}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-4mm}
@@ -2159,7 +2029,6 @@ In 2016, the Office of the Comptroller of the Currency (OCC) announced plans to 
 
 %---------------------------------------------------- 
 %---------------------------------------------------- 
-%\subsection{Business Model}
 %---------------------------------------------------- 
 %---------------------------------------------------- 
 
@@ -2227,7 +2096,6 @@ Online lending portals charge fees to both the borrower and the lender:
 
 %---------------------------------------------------- 
 %---------------------------------------------------- 
-%\subsection{Crowdfunding Research Findings}
 %---------------------------------------------------- 
 %---------------------------------------------------- 
 
@@ -2284,7 +2152,6 @@ Discrimination and Bias in Alternative Finance
 
 %----------------------------------------------------  
 %----------------------------------------------------  
-%\subsection{Case: LendingClub}
 %----------------------------------------------------  
 %----------------------------------------------------  
 
@@ -2301,14 +2168,11 @@ Discrimination and Bias in Alternative Finance
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{4in}{0.8in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Crowdfunding/figures/LendingClub_Logo.jpeg}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{Insurtech Performance First Year Post-IPO}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-2mm}
@@ -2410,14 +2274,11 @@ LendingClub was listed on the NYSE in 2014 at \$15.00 per share
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5in}{2in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Crowdfunding/figures/LendingClub_vs_S&P500.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{Insurtech Performance First Year Post-IPO}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-2mm}
@@ -2432,7 +2293,6 @@ LendingClub was listed on the NYSE in 2014 at \$15.00 per share
 
 %----------------------------------------------------  
 %----------------------------------------------------  
-%\subsection{Case: SoFi}
 %----------------------------------------------------  
 %----------------------------------------------------  
 
@@ -2487,14 +2347,11 @@ Despite the success and media attention, SoFi has lost money in its last three f
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5in}{1.8in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Crowdfunding/figures/Sofi_FinancialStatement_2020To2022.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{xxxxxxxxxxxxxxxxxxxx}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \vspace{-4mm}

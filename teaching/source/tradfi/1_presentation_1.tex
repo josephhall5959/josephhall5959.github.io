@@ -17,74 +17,23 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-%\documentclass[10pt]{beamer}
 \documentclass[aspectratio=169]{beamer}
 
 \mode<presentation> {
 
-% The Beamer class comes with a number of default slide themes
-% which change the colors and layouts of slides. Below this is a list
-% of all the themes, uncomment each in turn to see what they look like.
 
-%\usetheme{default}
-%\usetheme{AnnArbor}
-%\usetheme{Antibes}
-%\usetheme{Bergen}
-%\usetheme{Berkeley}
-%\usetheme{Berlin}
-%\usetheme{Boadilla}
-%\usetheme{CambridgeUS}
-%\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
-%\usetheme{Dresden}
 \usetheme{Frankfurt}
-%\usetheme{Goettingen}
-%\usetheme{Hannover}
-%\usetheme{Ilmenau}
-%\usetheme{JuanLesPins}
-%\usetheme{Luebeck}
-%\usetheme{Madrid}
-%\usetheme{Malmoe}
-%\usetheme{Marburg}
-%\usetheme{Montpellier}
-%\usetheme{PaloAlto}
-%\usetheme{Pittsburgh}
-%\usetheme{Rochester}
-%\usetheme{Singapore}
-%\usetheme{Szeged}
-%\usetheme{Warsaw}
 
 % As well as themes, the Beamer class has a number of color themes
 % for any slide theme. Uncomment each of these in turn to see how it
 % changes the colors of your current slide theme.
 
-%\usecolortheme{albatross}
-%\usecolortheme{beaver}
-%\usecolortheme{beetle}
-%\usecolortheme{crane}
-%\usecolortheme{dolphin}
-%\usecolortheme{dove}
-%\usecolortheme{fly}
-%\usecolortheme{lily}
-%\usecolortheme{orchid}
-%\usecolortheme{rose}
-%\usecolortheme{seagull}
-%\usecolortheme{seahorse}
-%\usecolortheme{whale}
-%\usecolortheme{wolverine}
 
-%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
-%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
 
-%\setbeamertemplate{headline}
 %{%
-% \begin{beamercolorbox}{section in head/foot}
-%\vskip1pt\insertnavigation{\textwidth}{}{}\vskip2pt
-%  \end{beamercolorbox}
 %}
 
 \setbeamercolor{section in head/foot}{bg=lightgray} %set the top navigation bar background color
@@ -103,7 +52,6 @@
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 \usepackage{bm} % make bold math symbols
 \usefonttheme{professionalfonts}
-%\usepackage{newtxtext,newtxmath} % for professional fond to load a Times Roman clone
 \usepackage{tabularx} % extra features for tabular environment
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{adjustbox} % allows adjustbox
@@ -128,9 +76,6 @@
 \usepackage{multirow} % multirow for intuition page.
 
 % make pdf dark mode
-%\usepackage{xcolor}
-%\pagecolor[rgb]{0,0,0} %black
-%\color[rgb]{0.5,0.5,0.5} %grey
 
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \newcommand{\cmark}{\ding{51}}%
@@ -149,21 +94,12 @@
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 
 
-%\bibliography{bibliography}
-%\usepackage[american]{babel}
-%\usepackage{csquotes}
-%\usepackage[style=apa]{biblatex}
-%\DeclareLanguageMapping{american}{american-apa}
-%\addbibresource{References.bib}
 
 \usepackage{natbib} % package for citation
 
 
-%\usepackage{subfigure} % subfigure package
-%\captionsetup[subfigure]{labelformat=empty}
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 
-%\usepackage{natbib} % package for citation
 
 % define a comment line that does nothing to hide content
 \newcommand{\comment}[1]{}
@@ -186,7 +122,6 @@
 } % The short title appears at the bottom of every slide, the full title is only on the title page
 
 
-%\subtitle{Presentation to Shanghai International Studies University}
 
 
 \author[Joseph Hall]{Joseph Hall} % Your name
@@ -218,8 +153,6 @@
 
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
-%\section*{Introduction}
-% When I comment the introduction section, fewer sections show up in navigation
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 
@@ -372,28 +305,16 @@ My system:
         \item Failing to pay a debt contract results in \textbf{corporate bankruptcy}: a court gives the senior debt-holders complete control and ownership of the company (their debt is \emph{converted} into equity)  \pause 
         \item US Treasuries are considered the world's safest debt, and the US Treasury market is the world's largest debt market (why?) \pause 
     \end{itemize}
-%\vspace{-3mm}
 %-----------------------------------------------
-%\begin{figure}[H]
-%    \resizebox{4in}{1in}{%
-    %\resizebox{\textwidth}{!}{%
-%    \includegraphics[]{Figure/LongTermDebt_Cashflow.png}
 %    } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
-%\end{figure}
 %-----------------------------------------------
-%\vspace{-1mm}
 
     \item \textbf{Equity}: a contract to pay a \textbf{percentage} of profits after debt is repaid 
-    %\item \textbf{Compared to debt}:
     \begin{itemize}
         \item Equity contracts traditionally include \textbf{control rights} over the company (e.g. voting on Board members), to ensure the company's officers do not expropriate profits 
-        %\item Disadvantage: an equity holder is a residual claimant; that is, the corporation must pay debt holders before paying equity holders.
-        %\item Advantage: benefit directly from any increases in the corporation’s profitability or asset value. In contrast, debt payments are fixed
     \end{itemize}
 \end{itemize}\pause \smallskip 
 
@@ -466,7 +387,6 @@ Most financial markets can be classified as either \textbf{Money Markets} or \te
 \textbf{Secondary Markets}: previously issued securities (stocks and/or bonds) are traded
 \begin{itemize}
     \item \textbf{Example}: The New York Stock Exchange and NASDAQ (National Association of Securities Dealers Automated Quotation System)
-    %\item \textbf{Benefits}: (1) liquidity (easier to sell financial instruments to raise cash), and (2) price discovery 
     \item Key market participants: 
     \begin{itemize}
         \item \textbf{Brokers}: match buyers with sellers of securities, earning percentage \textbf{commission}.
@@ -510,19 +430,15 @@ Most financial markets can be classified as either \textbf{Money Markets} or \te
 \begin{frame}
 \frametitle{Structure of Financial Markets}
 
-%\textbf{Money Market Instruments}: 
 \vspace{-2mm}
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{2.6in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/MoneyMarketInstruments.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -537,19 +453,15 @@ Most financial markets can be classified as either \textbf{Money Markets} or \te
 \begin{frame}
 \frametitle{Structure of Financial Markets}
 
-%\textbf{Capital Market Instruments}: 
 \vspace{-2mm}
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{2.6in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/CapitalMarketInstruments.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -566,19 +478,15 @@ Most financial markets can be classified as either \textbf{Money Markets} or \te
 \begin{frame}
 \frametitle{Financial Intermediaries}
 
-%\textbf{Capital Market Instruments}: 
 \vspace{-6mm}
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{2.9in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/FinancialIntermediaries.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -593,19 +501,15 @@ Most financial markets can be classified as either \textbf{Money Markets} or \te
 \begin{frame}
 \frametitle{Financial Intermediaries}
 
-%\textbf{Capital Market Instruments}: 
 \vspace{-6mm}
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{2.9in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/FinancialIntermediaries_MarketSize.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -732,7 +636,6 @@ Answer: It eliminates the incentive for agents to ever withdraw early when they 
 
 \textbf{Transaction costs hinder flow of funds to people with productive investment opportunities}. Example: suppose you have \$5000 to invest 
 \begin{itemize}
-        %\item Stock market: can only buy a small number of shares
         \item Can you directly identify an entrepreneur in need of \$5,000 and enter a contract with them? \pause 
         \item Debt market: many contracts have \emph{minimum} denominations at \$10,000 or above 
         \item If you find a debt contract at \$5,000 you can buy directly, you will be under-diversified: ``all eggs in one (or few) baskets".
@@ -832,31 +735,24 @@ Who can think of examples of \textbf{moral hazard}? \pause
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{1in}{1.6in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/Akerlof_2001NobelPrize.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
-%\textbf{2001 Nobel Prize in Economic Science: Award for George Akerlof}
 
 \vspace{-4mm}
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5in}{1.1in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/Akerlof_2001NobelPrize_Award Speech.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -1118,14 +1014,11 @@ What do we learn from this? Trade must be justified by different \emph{preferenc
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{2in}{1.6in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/Hard&Holmstrom_2016NobelPrize.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -1135,14 +1028,11 @@ What do we learn from this? Trade must be justified by different \emph{preferenc
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{0.8in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/Hard&Holmstrom_2016NobelPrize_AwardSpeech.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -1310,14 +1200,11 @@ What do we learn from this? Trade must be justified by different \emph{preferenc
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{4in}{1in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/LongTermDebt_Cashflow.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{\scriptsize{Source: Andreas Hackethal and Reinhard H. Schmidt, “Financing Patterns: Measurement Concepts and Empirical Results,” Johann Wolfgang Goethe-Universitat Working Paper No. 125, January 2004. The data are from 1970–2000 and are gross flows as percentage of the total, not including trade and other credit data, which are not available.}}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 \begin{itemize}
@@ -1425,14 +1312,11 @@ Example: Steve’s ice-cream store
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{4in}{1.8in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/FinTechNonbankLenders_PPP.jpg}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{\scriptsize{Source: Andreas Hackethal and Reinhard H. Schmidt, “Financing Patterns: Measurement Concepts and Empirical Results,” Johann Wolfgang Goethe-Universitat Working Paper No. 125, January 2004. The data are from 1970–2000 and are gross flows as percentage of the total, not including trade and other credit data, which are not available.}}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -1490,14 +1374,11 @@ Example: Steve’s ice-cream store
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{2.9in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/RegulatoryBodies_PartA.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -1516,14 +1397,11 @@ Example: Steve’s ice-cream store
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.6in}{2.9in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/RegulatoryBodies_PartB.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -1546,14 +1424,11 @@ Example: Steve’s ice-cream store
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{3.6in}{1.6in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/BernankeDiamond&Dybvig_2022NobelPrize.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -1562,14 +1437,11 @@ Example: Steve’s ice-cream store
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{4.6in}{1.2in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/BernankeDiamond&Dybvig_2022NobelPrize_AwardSpeech.png}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -1688,14 +1560,11 @@ Summary: \textbf{\textcolor{red}{In this banking crisis, Bank A's lost knowledge
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5in}{1.8in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[width=0.9\textwidth]{Figure/BGG1999_Intuition.pdf}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{Source: Xiangyang Li's lecture notes P11}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -1721,14 +1590,11 @@ Summary: \textbf{\textcolor{red}{In this banking crisis, Bank A's lost knowledge
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5in}{1.8in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[width=0.9\textwidth]{Figure/WhyBankCrisisAlongCanCauseEconomicRecession.pdf}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{Source: Xiangyang Li's lecture notes P11}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 

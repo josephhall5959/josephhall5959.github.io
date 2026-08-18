@@ -17,78 +17,26 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-%\documentclass[10pt]{beamer}
 \documentclass[aspectratio=169]{beamer}
 
 \mode<presentation> {
 
-% The Beamer class comes with a number of default slide themes
-% which change the colors and layouts of slides. Below this is a list
-% of all the themes, uncomment each in turn to see what they look like.
 
-%\usetheme{default}
-%\usetheme{AnnArbor}
-%\usetheme{Antibes}
-%\usetheme{Bergen}
-%\usetheme{Berkeley}
-%\usetheme{Berlin}
-%\usetheme{Boadilla}
-%\usetheme{CambridgeUS}
-%\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
-%\usetheme{Dresden}
 \usetheme{Frankfurt}
-%\usetheme{Goettingen}
-%\usetheme{Hannover}
-%\usetheme{Ilmenau}
-%\usetheme{JuanLesPins}
-%\usetheme{Luebeck}
-%\usetheme{Madrid}
-%\usetheme{Malmoe}
-%\usetheme{Marburg}
-%\usetheme{Montpellier}
-%\usetheme{PaloAlto}
-%\usetheme{Pittsburgh}
-%\usetheme{Rochester}
-%\usetheme{Singapore}
-%\usetheme{Szeged}
-%\usetheme{Warsaw}
 
 % As well as themes, the Beamer class has a number of color themes
 % for any slide theme. Uncomment each of these in turn to see how it
 % changes the colors of your current slide theme.
 
-%\usecolortheme{albatross}
-%\usecolortheme{beaver}
-%\usecolortheme{beetle}
-%\usecolortheme{crane}
-%\usecolortheme{dolphin}
-%\usecolortheme{dove}
-%\usecolortheme{fly}
-%\usecolortheme{lily}
-%\usecolortheme{orchid}
-%\usecolortheme{rose}
-%\usecolortheme{seagull}
-%\usecolortheme{seahorse}
-%\usecolortheme{whale}
-%\usecolortheme{wolverine}
 
-%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
-%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
 
-%\setbeamertemplate{headline}
 %{%
-% \begin{beamercolorbox}{section in head/foot}
-%\vskip1pt\insertnavigation{\textwidth}{}{}\vskip2pt
-%  \end{beamercolorbox}
 %}
 
 
-%\setbeamercolor{frametitle}{bg=cyan}
 \setbeamercolor{section in head/foot}{bg=lightgray} %set the top navigation bar background color
 \setbeamertemplate{footline}[frame number] % set frame page number only
 \usepackage{appendixnumberbeamer} % total will not include appendix frame numbers 
@@ -105,7 +53,6 @@
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 \usepackage{bm} % make bold math symbols
 \usefonttheme{professionalfonts}
-%\usepackage{newtxtext,newtxmath} % for professional fond to load a Times Roman clone
 \usepackage{tabularx} % extra features for tabular environment
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{adjustbox} % allows adjustbox
@@ -131,9 +78,6 @@
 
 
 % make pdf dark mode
-%\usepackage{xcolor}
-%\pagecolor[rgb]{0,0,0} %black
-%\color[rgb]{0.5,0.5,0.5} %grey
 
 
 \usepackage{pifont}% http://ctan.org/pkg/pifont
@@ -153,21 +97,12 @@
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 
 
-%\bibliography{bibliography}
-%\usepackage[american]{babel}
-%\usepackage{csquotes}
-%\usepackage[style=apa]{biblatex}
-%\DeclareLanguageMapping{american}{american-apa}
-%\addbibresource{References.bib}
 
 \usepackage{natbib} % package for citation
 
 
-%\usepackage{subfigure} % subfigure package
-%\captionsetup[subfigure]{labelformat=empty}
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 
-%\usepackage{natbib} % package for citation
 
 % define a comment line that does nothing to hide content
 \newcommand{\comment}[1]{}
@@ -194,7 +129,6 @@
 } % The short title appears at the bottom of every slide, the full title is only on the title page
 
 
-%\subtitle{Presentation to Shanghai International Studies University}
 
 
 \author[Joseph Hall]{Joseph Hall} % Your name
@@ -226,8 +160,6 @@
 
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
-%\section*{Introduction}
-% When I comment the introduction section, fewer sections show up in navigation
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 
@@ -407,13 +339,11 @@ I will try to assign you to a group with common availability to meet and study. 
 %------------------------------------------------
 % insert table of contents before each section or subsection
 %------------------------------------------------
-%\AtBeginSection[]
 \AtBeginSubsection[]
 {
 \begin{frame}
 \frametitle{Roadmap}
 \tableofcontents[currentsection,currentsubsection]
-%\tableofcontents[currentsection]
 \end{frame}
 }
 %------------------------------------------------
@@ -554,14 +484,11 @@ It is obvious to use as money something that is naturally scarce, called \textbf
 %-----------------------------------------------
 \begin{figure}[H]
     \resizebox{5.8in}{2.8in}{%
-    %\resizebox{\textwidth}{!}{%
     \includegraphics[]{Figure/RS1077_IMG_9172.jpg}
     } %end of resizebox
 %-----------------------------------------------
 % Figure setting: caption and label
 %-----------------------------------------------
-%\caption{}
-%\label{fig:ModelIntuition_Graphs}
 \end{figure}
 %-----------------------------------------------
 
@@ -713,11 +640,9 @@ $$MV = PY$$
 \begin{frame}
 \frametitle{Roadmap}
 \tableofcontents[currentsection,currentsubsection]
-%\tableofcontents[currentsection]
 \end{frame}
 }
 %------------------------------------------------
-%\section{History of Financial Technology}
 %--------------------------------------------------------------------
 \subsection{What is Credit?}
 %------------------------------------------------
@@ -733,7 +658,6 @@ Credit is an investment contract. It can take many forms:
 Forms of credit can become money-like if they are \emph{safe}
     \bi 
     \m Modern banks keep their money as Federal Bank Reserves, a form of credit 
-    %\m Credit cards are a form of credit which has become money 
     \m Credit has a hard time being \emph{fungible}: it is \textbf{informationally-sensitive} by design, in the sense of \hyperlink{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2552018}{Holmstr\"om}
     \bi
     \m The price of credit is a market signal of the price of risk and time. Money is meant to be insensitive to such things. 
@@ -788,7 +712,6 @@ NB: The word ``man'' was commonly understood to be gender-neutral at this time
     
 \end{frame}
 
-%\input{ALZ_defi_intro}
 
 \begin{frame}{What technologies are needed to supply credit?}
 

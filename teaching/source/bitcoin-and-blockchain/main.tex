@@ -16,7 +16,6 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-%\documentclass[10pt]{beamer}
 \documentclass[aspectratio=169]{beamer}
 
 
@@ -32,69 +31,19 @@
 
 \mode<presentation> {
 
-% The Beamer class comes with a number of default slide themes
-% which change the colors and layouts of slides. Below this is a list
-% of all the themes, uncomment each in turn to see what they look like.
 
-%\usetheme{default}
-%\usetheme{AnnArbor}
-%\usetheme{Antibes}
-%\usetheme{Bergen}
-%\usetheme{Berkeley}
-%\usetheme{Berlin}
-%\usetheme{Boadilla}
-%\usetheme{CambridgeUS}
-%\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
-%\usetheme{Dresden}
 \usetheme{Frankfurt}
-%\usetheme{Goettingen}
-%\usetheme{Hannover}
-%\usetheme{Ilmenau}
-%\usetheme{JuanLesPins}
-%\usetheme{Luebeck}
-%\usetheme{Madrid}
-%\usetheme{Malmoe}
-%\usetheme{Marburg}
-%\usetheme{Montpellier}
-%\usetheme{PaloAlto}
-%\usetheme{Pittsburgh}
-%\usetheme{Rochester}
-%\usetheme{Singapore}
-%\usetheme{Szeged}
-%\usetheme{Warsaw}
 
 % As well as themes, the Beamer class has a number of color themes
 % for any slide theme. Uncomment each of these in turn to see how it
 % changes the colors of your current slide theme.
 
-%\usecolortheme{albatross}
-%\usecolortheme{beaver}
-%\usecolortheme{beetle}
-%\usecolortheme{crane}
-%\usecolortheme{dolphin}
-%\usecolortheme{dove}
-%\usecolortheme{fly}
-%\usecolortheme{lily}
-%\usecolortheme{orchid}
-%\usecolortheme{rose}
-%\usecolortheme{seagull}
-%\usecolortheme{seahorse}
-%\usecolortheme{whale}
-%\usecolortheme{wolverine}
 
-%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
-%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
 
-%\setbeamertemplate{headline}
 %{%
-% \begin{beamercolorbox}{section in head/foot}
-%\vskip1pt\insertnavigation{\textwidth}{}{}\vskip2pt
-%  \end{beamercolorbox}
 %}
 
 \setbeamercolor{section in head/foot}{bg=lightgray} %set the top navigation bar background color
@@ -113,7 +62,6 @@
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 \usepackage{bm} % make bold math symbols
 \usefonttheme{professionalfonts}
-%\usepackage{newtxtext,newtxmath} % for professional fond to load a Times Roman clone
 \usepackage{tabularx} % extra features for tabular environment
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{adjustbox} % allows adjustbox
@@ -138,9 +86,6 @@
 \usepackage{multirow} % multirow for intuition page.
 
 % make pdf dark mode
-%\usepackage{xcolor}
-%\pagecolor[rgb]{0,0,0} %black
-%\color[rgb]{0.5,0.5,0.5} %grey
 
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \newcommand{\cmark}{\ding{51}}%
@@ -159,21 +104,12 @@
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 
 
-%\bibliography{bibliography}
-%\usepackage[american]{babel}
-%\usepackage{csquotes}
-%\usepackage[style=apa]{biblatex}
-%\DeclareLanguageMapping{american}{american-apa}
-%\addbibresource{References.bib}
 
 \usepackage{natbib} % package for citation
 
 
-%\usepackage{subfigure} % subfigure package
-%\captionsetup[subfigure]{labelformat=empty}
 % The subfig and subcaption packages can not be used in cooperation with each other. Instead, you can usecaption package with subfig to add some flavor to the captions and subcaptions
 
-%\usepackage{natbib} % package for citation
 
 % define a comment line that does nothing to hide content
 \newcommand{\comment}[1]{}
@@ -195,7 +131,6 @@
 } % The short title appears at the bottom of every slide, the full title is only on the title page
 
 
-%\subtitle{Presentation to Shanghai International Studies University}
 
 
 \author[Joseph Hall]{Joseph Hall} % Your name
@@ -230,8 +165,6 @@
 
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
-%\section*{Introduction}
-% When I comment the introduction section, fewer sections show up in navigation
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 
@@ -265,12 +198,10 @@
 % insert table of content before each section or subsection
 %------------------------------------------------
 \AtBeginSection[]
-%\AtBeginSubsection[]
 {
 \begin{frame}
 \frametitle{Roadmap}
 \tableofcontents[currentsection,currentsubsection]
-%\tableofcontents[currentsection]
 \end{frame}
 }
 %------------------------------------------------
@@ -311,7 +242,6 @@ The project’s original vision was a two-tiered structure. The first monetary l
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 \section{Math}
-% Net Export Growth as a proxy for Local Economic Growth
 %---------------------------------------------------------------------
 %---------------------------------------------------------------------
 
@@ -475,13 +405,11 @@ In blockchains, hash functions have two main uses:
 \m Easy to compute $H(x)$ given $H(\cdot)$ and $x$ \pause 
 \m If someone changes $x$ to $\tilde{x}$, even by one letter, $H(\tilde{x})$ will be very different!
 \m Used in checksums for file downloading \pause 
-%\m Fun use case is \href{https://x.com/macrocephalopod/status/1524514683088162816}{hash commitments}, will show up in your pset!
 \ei
 \m Application: \textbf{Mining and proof-of-work}
 \bi 
 \m No way to discover $x$ given $H(x)$ beside \textbf{brute force}! \pause 
 \m The Secure Hash Algorithm 1 (``\textbf{SHA1}'') takes between $2^{63}$ - $2^{80}$ evaluations to find a collision ($x,y$ such that $H(x)=H(y)$) (depending on how clever you are) \pause 
-%\m We now use SHA2 or SHA3 which are even harder to break  
 \m Bitcoins are mined by brute-forcing hashes to find $x$s that produce $H(x)$ with leading zeroes. 
 \ei 
 \ei
@@ -855,7 +783,6 @@ When are these better than just a spreadsheet? \pause \\
 \m Because everyone uses the \textbf{longest chain}, I must be able to hash faster than \textbf{everyone else combined}
 \m Control 51\% of the computing power in the Bitcoin ecosystem!
 \ei
-%\m Whiteboard demo
 \m For more details, see \href{https://cs251.stanford.edu/lectures/lecture5.pdf}{Stanford CS251 slides}
 \ei
 
@@ -933,7 +860,6 @@ Guide your reading by thinking about the following questions:
 \m ``Equilibrium'' behavior is easy to predict in such settings
 \bi
 \m In equilibrium, the ``good'' deal is so crowded that it becomes just as bad as the ``bad'' deal
-%\m \textbf{Coordination} 
 \ei \pause
 \m Game theory language: call these \ul{congestion games}, or \ul{wars of attrition}, or \ul{tragedy of the commons}
 \ei
@@ -1018,21 +944,13 @@ A \textbf{BTU} is a ``British Thermal Unit'', the energy required to heat a poun
 
 \end{frame}
 
-%\begin{frame}
-%\frametitle{Technological Improvements}
 
-%\begin{center}
-%\includegraphics[width = \textwidth]{pics/asicprice.jpeg}
-%\end{center}
 
-%\scriptsize
 %Source: \href{https://data.hashrateindex.com/chart/asic-price-index}{Hashrate Index}
 
-%\vspace{2ex}
 
 %Circle plot: money, electricity, hashes, BTC, money
 
-%\end{frame}
 
 \begin{frame}
 \frametitle{Technological Improvement}
@@ -1087,8 +1005,6 @@ As of 2024,
 \bi
 \m No, difficulty adjustment
 \ei \pause
-%\m But, mining rewards decrease every 5 years
-%\pause
 \m Also implies there will only ever be 21 million BTC in existence!
 \bi 
 \m By approximately 2140, the block reward will drop to less than the smallest unit of bitcoin ($1/10^8$) and become equal to zero. 
@@ -1168,7 +1084,6 @@ Explore mempools at \hyperlink{https://mempool.space/}{https://mempool.space/}
 \bi
 \m But, it's free \$\$!
 \ei
-%\m Gets slightly more complicated later: we'll discuss MEV\ldots
 \ei
 
 \end{frame}
@@ -1238,7 +1153,6 @@ Source: \href{https://coinmarketcap.com/currencies/bitcoin/}{CoinMarketCap}
 
 \bi
 \m Valid block headers' hashes start with a big number of 0's (mining puzzle)
-%\m Special ``coinbase'' tx, sends ``mined'' BTC to miner address
 \ei
 
 \vspace{2ex}
@@ -1421,13 +1335,9 @@ Source: \href{https://www.fidelity.ca/en/investments/solutions-portfolios/all-in
 \end{frame}
 
 
-%\section{Bitcoin}
 
-%\subsection{History of Bitcoin}
 
-%\subsection{Bitcoin Transactions}
 
-%\subsection{User Experiences}
 
 %------------------------------------------------
 
