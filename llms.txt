@@ -60,14 +60,14 @@ toward AI agents.
   https://github.com/josephhall5959/arbitrum-governance
 
 - The Equilibrium Effects of Credit Bureau Data Suppression: with Sudheer
-  Chava. Abstract on the site; draft coming soon (no public PDF yet).
+  Chava. Draft in progress (no public materials yet).
   Medical debt deletion raises credit scores (3.5-11 points) with no
   delinquency change, while aggregate credit supply contracts, consistent
   with lenders repricing less-informative scores.
 
 ## Work in progress
 
-- Lending to Lemons: with Lulu Wang.
+- Lending to Lemons: with Lulu Wang. Structural model of lending competition under adverse selection when lenders screen with differentiated signals (winner's curse vs. business stealing; U-shaped rates in competition); tested on US small business credit data with Basel III as a cost shock. Abstract on the site.
 - Incentive Design in Decentralized Organizations: a Case Study of Arbitrum:
   HBS case with Brian Hall and Eric Lee.
 
