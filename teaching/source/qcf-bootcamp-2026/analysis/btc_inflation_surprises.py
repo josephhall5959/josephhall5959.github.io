@@ -10,17 +10,18 @@ correlation table, and writes fig_inflation_hedge.png for the deck.
 import urllib.request, json, datetime, math, csv, os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+DATA = os.path.join(HERE, 'data')
 
 def load_fred(fn):
     out = {}
-    for row in csv.reader(open(os.path.join(HERE, fn))):
+    for row in csv.reader(open(os.path.join(DATA, fn))):
         if row[0] == 'observation_date' or row[1] in ('', '.'):
             continue
         out.setdefault(row[0][:7], []).append(float(row[1]))
     return {k: v[-1] for k, v in out.items()}
 
 def load_btc():
-    cache = os.path.join(HERE, 'btc_monthly.csv')
+    cache = os.path.join(DATA, 'btc_monthly.csv')
     if os.path.exists(cache):
         return {r[0]: float(r[1]) for r in csv.reader(open(cache))}
     req = urllib.request.Request(
