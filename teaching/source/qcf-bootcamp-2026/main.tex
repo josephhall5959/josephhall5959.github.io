@@ -328,11 +328,10 @@ $\pub{\beta} = \pub{\alpha}^{\priv{d}} \bmod \pub{p}$.
 Extracting $\priv{d}$ from $\pub{\beta}$ is the discrete log problem, so it is infeasible. \pause
 \m \textbf{Sign} a number $\pub{x}$: draw a fresh random $\priv{k}$ and publish $\pub{r}=\pub{\alpha}^{\priv{k}}$; then solve
 $\pub{x} = \priv{d}\cdot \pub{r} + \priv{k}\cdot \pub{s}$
-for $\pub{s}$ -- the one unknown left -- and publish it. Only someone who knows $\priv{d}$ can solve it. \pause
-
+for $\pub{s}$ -- the one unknown left -- and publish it. Only someone who \ul{knows} $\priv{d}$ can solve it. \pause
 \m \textbf{Verify}: anyone checks, using only blue quantities,
 \[ \pub{\beta}^{\,\pub{r}}\cdot \pub{r}^{\,\pub{s}} \;\overset{?}{=}\; \pub{\alpha}^{\pub{x}} \pmod{\pub{p}} \]
-\m \textbf{Why it balances}: $\pub{\beta}^{\pub{r}} = \pub{\alpha}^{\priv{d}\pub{r}}$, and the rule $\alpha^{a}\alpha^{b}=\alpha^{a+b}$ still holds on the clock, so the left side is $\pub{\alpha}^{\priv{d}\pub{r} + \priv{k}\pub{s}} = \pub{\alpha}^{\pub{x}}$. 
+\m \textbf{Why it balances}: $\pub{\beta}^{\pub{r}} = \pub{\alpha}^{\priv{d}\pub{r}}$, and the rule $\alpha^{a}\alpha^{b}=\alpha^{a+b}$ still holds on the clock, so the left side is $\pub{\alpha}^{\priv{d}\pub{r} + \priv{k}\pub{s}} = \pub{\alpha}^{\pub{x}}$. \pause
 \m \textbf{Why it's secure}: forging $\pub{(r,s)}$ for a new $\pub{x}$ requires knowing $\priv{d}$ -- which is locked behind the one-way street.
 \ei
 
@@ -975,6 +974,20 @@ ETH is getting expensive! One set of solutions is \ul{rollups}, also called \ul{
 \m So the product is \ul{a bank deposit that pays no interest} -- but with extra interoperability, because smart contracts can natively hold and accept it 
 \m Demystified this way, the payments scorecard coming in Part II should not surprise you -- a zero-interest deposit competing against Treasuries, banks, and fast-payment rails has to win on convenience alone
 \ei
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Stablecoins vs.\ Tokenized Deposits}
+
+\bi
+\m On the surface these are the same product -- a dollar claim that lives on a blockchain. The difference is \ul{where the money sits} \pause
+\ei
+\begin{center}
+\includegraphics[width=0.72\textwidth]{fig_tokenized_deposits.png}
+\end{center}
+\vspace{-1mm}
+{\small A dollar that migrates from a bank deposit into a stablecoin stops funding loans. At scale, that is \textbf{bank disintermediation} -- the policy fight underneath the stablecoin rulebook.}
 
 \end{frame}
 
