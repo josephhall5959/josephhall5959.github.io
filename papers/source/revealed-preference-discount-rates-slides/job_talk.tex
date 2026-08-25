@@ -321,28 +321,15 @@ $\operatorname{se}(\widehat{\beta}) \;=\; \dfrac{c}{\sqrt{n_{\text{defaults}}}}$
 \end{wideitemize}
 \end{frame}
 
-\begin{frame}{By credit score: monotone, precise, and modest}
-\begin{wideitemize}
-  \item Varying-coefficient design: the two logits carry heterogeneity in
-        their derivatives, so every default informs every cell ---
-        standard errors of \alert{0.4pp} where cell-splitting gives multiples
-  \item Three-year rates decline monotonically across score deciles:
-        \alert{26.7\% (d1) $\to$ 23.2\% (d10)}
-  \item The gradient is real but \emph{modest} --- high default rates among
-        low-score borrowers are mostly not impatience
-\end{wideitemize}
-\end{frame}
-
-\begin{frame}{By income: the patient rich, measured}
-\begin{wideitemize}
-  \item Same design, income quartiles (at median score):
-        \alert{25.8\% $\to$ 21.8\%} from the bottom to the top quartile
-  \item Individual-level gradient, holding score and region ---
-        distinct from (and cleaner than) the zip-level income correlate,
-        which dies under the selection control
-  \item Correction invariance: a common $\lambda$ cannot generate
-        cross-group gradients
-\end{wideitemize}
+\begin{frame}{By credit score and income: monotone, precise, modest}
+\begin{center}
+\includegraphics[width=0.86\textwidth]{fig_vc_gradients.pdf}
+\end{center}
+\vspace{-0.3em}
+\small Varying-coefficient design: every default informs every cell, so
+the bands are \alert{0.4pp} wide. Both gradients are monotone; both are
+modest against the 20--27\% level. High default rates among low-score
+borrowers are mostly something other than impatience.
 \end{frame}
 
 \begin{frame}[label=curve]{The revealed discount curve, traced loan by loan}

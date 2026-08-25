@@ -490,6 +490,20 @@ Two decomposition results establish that the estimate measures default behavior 
 
 The model cannot rule out liquidity constraints or high expected income growth as drivers of low measured discount factors;\footnote{Nor can the estimator itself: Appendix \ref{appendix:mcliquidity} reports a Monte Carlo exercise in which economies with entirely liquidity-driven default produce estimated discount factors near the empirical value rather than near zero, because total obligations load mechanically on the payment that liquidity-driven default does respond to. The same exercise shows the converse discipline: across simulated economies spanning true discount factors from $0.55$ to $0.99$ and liquidity shares up to one half---each calibrated to the empirical default rate---no combination of patient preferences and admissible contamination produces an estimate as low as the one measured.} rather, the evidence that the estimates reflect impatient preferences is quantitative, and this subsection assembles it. For mortgages, \citet{ganong_liquidity_2020} find that most defaults follow cash-flow shocks; if binding liquidity constraints drove default here, the sensitivity ratio would measure desperation rather than discounting. Liquidity constraints fail to predict three features of the data, expectations of income growth fail as an explanation for three reasons, and the quantitative adjustments both channels admit are small; the four diagnostics below carry the argument, and the closing paragraph states the magnitudes.
 
+Table \ref{tab:liquidity} collects the two diagnostics that carry the most weight.
+
+\begin{table}[ht!]
+\centering
+\caption{Liquidity diagnostics}
+\label{tab:liquidity}
+\input{tables/tab_liquidity}
+
+\vspace{0.5em}
+\begin{minipage}{0.92\textwidth}
+\noindent \small \textit{Notes:} Panel A follows every auto defaulter holding at least one other open tradeline with no chargeoff at the default event, and measures the status of those other tradelines at the archive snapshot nearest six months after the chargeoff; a tradeline is paying if its last-payment date falls within three months of the snapshot. Panel B estimates the sufficient statistic within terciles of the change in state unemployment over the loan's first eighteen months, terciles taken within origination year, and separately for recession-year origination cohorts (2007--2009, 2020). Replication: \texttt{Code/pace/41\_cross\_loan\_events.R}, \texttt{Code/pace/44\_shock\_splits.R}.
+\end{minipage}
+\end{table}
+
 \emph{First, auto default is overwhelmingly a portfolio choice.} Among 2.46 million auto defaulters holding other open, clean tradelines at the time of default, 65 percent are still actively making payments on at least one other account six months \emph{after} the auto chargeoff (they hold 10.7 other tradelines on average), and only 1.6 percent default on every account. Money continued to flow to other creditors through the event. The only form of the objection that undermines revealed preference---total cash-flow collapse---is bounded between 1.6 and roughly 35 percent of defaults.
 
 \emph{Second, the estimates do not track liquidity shocks.} Sorting loans within origination year into terciles of the change in state unemployment over the loan's first eighteen months, the estimated discount factor is flat: $0.774$, $0.786$, and $0.789$ from the mildest to the most severe exposure. If the estimates repackaged liquidity shocks, this gradient would be steep. (Loans originated in recession years do show lower estimates, $0.731$ against $0.792$; that comparison confounds borrower composition and is not assigned an interpretation.)
@@ -504,7 +518,25 @@ Quantitatively, the two channels admit only small adjustments. Correcting the su
 
 The estimates in this section vary the sufficient statistic across observable subgroups. A preliminary decomposition disciplines their interpretation: across geographic clusters and state-cycle cells, 84--89\% of the cross-group variance in log discount factors is attributable to the default-sensitivity ratio $R$ alone, with rankings reproduced at rank correlation $0.97$ when the annualization horizon is held fixed at its common mean. The maps and gradients below therefore reflect differences in default behavior itself.
 
-A varying-coefficient implementation sharpens the score and income gradients. Interacting the two logits' payment and obligation terms with standardized score, standardized log income, and census region lets every default in the sample inform every cell, and the resulting three-year revealed rates carry standard errors of approximately $0.4$ percentage points where cell-splitting yields multiples of that. The rates decline monotonically in credit score, from 26.7 percent in the lowest decile to 23.2 percent in the highest, and decline in income, from 25.8 percent in the bottom quartile to 21.8 percent in the top. Both gradients are modest relative to the level of the estimates.
+A varying-coefficient implementation sharpens the score and income gradients. Interacting the two logits' payment and obligation terms with standardized score, standardized log income, and census region lets every default in the sample inform every cell, and the resulting three-year revealed rates carry standard errors of approximately $0.4$ percentage points where cell-splitting yields multiples of that. The rates decline monotonically in credit score, from 26.7 percent in the lowest decile to 23.2 percent in the highest, and decline in income, from 25.8 percent in the bottom quartile to 21.8 percent in the top (Figure \ref{fig:vcgradients}; Table \ref{tab:vcmargins}). Both gradients are modest relative to the level of the estimates.
+
+\begin{figure}[ht!]
+\centering
+\caption{Three-year revealed discount rates by credit score and income}
+\label{fig:vcgradients}
+\includegraphics[width=0.9\textwidth]{fig_vc_gradients.pdf}
+\vspace{-0.4em}
+\begin{minipage}{0.9\textwidth}
+\noindent \small \textit{Notes:} Rates from the varying-coefficient specification, evaluated at the median of the dimensions held fixed; bars are 95 percent parametric-bootstrap intervals. Replication: \texttt{Code/pace/49\_interacted\_logits.R} and \texttt{Code/make\_paper\_exhibits.py} from \texttt{results/vc\_r\_surface.csv}.
+\end{minipage}
+\end{figure}
+
+\begin{table}[ht!]
+\centering
+\caption{Varying-coefficient margins}
+\label{tab:vcmargins}
+\input{tables/tab_vc_margins}
+\end{table}
 
 The preceding section establishes steep average impatience. But the distribution of $\beta$ is at least as important as its mean. This section estimates $\beta$ separately by credit score ventile, income ventile, and U.S.\ state. For each subgroup, I re-estimate the two logit models, recompute the sensitivity ratio, and obtain $\beta$ with delta-method standard errors.
 
@@ -583,7 +615,19 @@ Because two measured horizons point-identify quasi-hyperbolic preferences (Corol
 \end{minipage}
 \end{figure}
 
-A declining term structure is the signature of non-exponential discounting (Figure \ref{fig:termstructure}): short-horizon tradeoffs are priced at rates an order of magnitude steeper than long-horizon ones, within the same borrower, at market stakes. This is the pattern that quasi-hyperbolic and related present-biased specifications were built to describe \citep{laibson_estimating_2024}, measured here from field behavior rather than elicitation. Two caveats discipline the interpretation. First, horizon and stakes co-move across contract families---mortgages are both the longest and the largest obligations---so the declining schedule is also consistent with attention that scales with consequence; both readings reject a single constant discount rate, and separating them requires within-family variation in horizon at fixed loan size, which the auto data can support and is left for the estimation on the full panel. Second, the long-horizon estimates inherit the heaviest measurement burden in the default-to-maturity horizon, and the sensitivity ratio $R$ is reported alongside every annualized figure so the measurement and the clock can be read separately.
+\begin{table}[ht!]
+\centering
+\caption{Within-person estimates across contract families}
+\label{tab:withinperson}
+\input{tables/tab_within_person}
+
+\vspace{0.5em}
+\begin{minipage}{0.92\textwidth}
+\noindent \small \textit{Notes:} Each pair of rows estimates the sufficient statistic separately on the two contract families of borrowers who hold both, with the default cost defined as the outstanding balance at default in every family. Consumer identity is matched on hashed consumer keys. Replication: \texttt{Code/pace/46\_within\_person.R}.
+\end{minipage}
+\end{table}
+
+A declining term structure is the signature of non-exponential discounting (Figure \ref{fig:termstructure} and Table \ref{tab:withinperson}): short-horizon tradeoffs are priced at rates an order of magnitude steeper than long-horizon ones, within the same borrower, at market stakes. This is the pattern that quasi-hyperbolic and related present-biased specifications were built to describe \citep{laibson_estimating_2024}, measured here from field behavior rather than elicitation. Two caveats discipline the interpretation. First, horizon and stakes co-move across contract families---mortgages are both the longest and the largest obligations---so the declining schedule is also consistent with attention that scales with consequence; both readings reject a single constant discount rate, and separating them requires within-family variation in horizon at fixed loan size, which the auto data can support and is left for the estimation on the full panel. Second, the long-horizon estimates inherit the heaviest measurement burden in the default-to-maturity horizon, and the sensitivity ratio $R$ is reported alongside every annualized figure so the measurement and the clock can be read separately.
 
 \section{Comparison with Prior Estimates}\label{sec:comparison}
 
@@ -1110,8 +1154,34 @@ Three results. \emph{First}, at the persistence measured in the panel (Appendix 
 
 Two independent restrictions cage $\lambda$ without taking a stand on the preferred cell. \emph{Internal consistency}: since $\beta \le 1$, identification requires $\lambda \ge \hat R = \hat\beta^{T} = 0.47$; calibrations violating this (in the grid, precisely the low-persistence/high-insurance corners that would produce large corrections) are refuted by the data themselves. \emph{The borrowing-rate bracket}: Section \ref{sec:lowerbounds} bounds discount rates from below using observed borrowing behavior, a methodology whose bias runs in the opposite direction from the marginal-utility correction. The corrected sufficient-statistic estimates ($\approx$25\%, upper range 31\%) and the borrowing-rate lower bounds ($\approx$16--20\%) bracket the truth from two sides: annual discount rates for these households lie in roughly the 20--27\% range under any admissible calibration, and the paper's central claim -- impatience far exceeding standard calibrations -- holds throughout the bracket.
 
+Table \ref{tab:ladder} assembles the full correction ladder, applying in sequence the timing-dispersion (Jensen) adjustment, the persistence adjustment at the measured value, and the default-option adjustment; the corrected annual rate under each cumulative combination remains far from standard calibrations.
+
+\begin{table}[H]
+\centering
+\caption{The correction ladder, applied cumulatively}
+\label{tab:ladder}
+\input{tables/tab_ladder}
+
+\vspace{0.5em}
+\noindent \small \textit{Notes:} Corrections applied left to right, cumulatively, at three values of the consumption-insurance pass-through $\phi$. Replication: \texttt{Code/pace/50\_ladder\_apply.R}.
+\end{table}
+
 Because the preferred correction is a single factor applied to all subgroups, the heterogeneity estimates of Section \ref{sec:heterogeneity} shift level by 1.6\% but preserve all cross-group comparisons; subgroup-specific corrections (allowing $\lambda$ to vary with income via subgroup payment-to-income ratios) are a straightforward extension of the replication file and left for the estimation on the full panel.
 
+
+\section{Instrument Diagnostics}\label{appendix:ivdiag}
+
+Table \ref{tab:menuiv} reports the state of the lender-menu instrumental-variables program described in the identification discussion. Panel A shows the first stages. Panel B applies the sufficient statistic on the identical sample under the fixed-effects baseline, under lender fixed effects, and under control-function specifications using the first-stage residuals; the control-function rows fail sign and support diagnostics in every variant, which is the basis for the paper's statement that the within-lender design remains ongoing work.
+
+\begin{table}[H]
+\centering
+\caption{Lender-menu instruments: first stages and specification grid}
+\label{tab:menuiv}
+\input{tables/tab_menu_iv}
+
+\vspace{0.5em}
+\noindent \small \textit{Notes:} Instruments are leave-one-out lender-year means: the share of originations with terms of 72 months or longer (z\_dur) and mean log loan size (z\_size), computed among lenders with at least 500 originations in the year. Fixed effects: origination-year $\times$ state, with lender fixed effects added in the lenderFE rows. Standard errors clustered by lender. A dash denotes a specification whose sensitivity ratio falls outside the unit interval. Replication: \texttt{Code/pace/65\_menu\_leniency\_iv.R}.
+\end{table}
 
 \section{The Estimator Under Liquidity-Driven Default: Monte Carlo Evidence}\label{appendix:mcliquidity}
 
@@ -1171,6 +1241,35 @@ $\beta_{true}$ & 0 & 0.10 & 0.20 & 0.35 & 0.50 \\
 \end{table}
 
 Three findings. \emph{First}, the estimator cannot acquit itself: in the pure-liquidity economy ($s = 1$, Table \ref{tab:mcmix}) the estimated discount factor does not collapse toward zero but settles at $0.78$ --- a mechanical variance share arising because total obligations $L = mT$ load on the payment $m$ that liquidity-driven default does respond to. An estimate in this range is therefore consistent, on its own, with either interpretation, which is why Section \ref{sec:liquidity} rests on direct evidence. \emph{Second}, contamination biases the estimate toward impatience monotonically, but modestly: at the ceiling admissible share $s = 0.35$, the depression in $\hat\beta$ is at most $0.05$ across every row of Table \ref{tab:mcsurface}. \emph{Third}, and most consequentially, the simulated estimator attenuates toward patience in every world it is given: across true discount factors from $0.55$ to $0.99$ and contamination shares up to $0.50$, no cell of the matched surface produces an estimate as low as the empirical $0.787$. Within this model class, patient preferences plus admissible contamination cannot manufacture the measured impatience; the measured estimate requires the preference component itself to discount steeply. The compression of the surface also means the exercise cannot be inverted for a sharp point estimate of the contamination bias; a structurally estimated data-generating process would be required, and the categorical conclusion above is what the design supports.
+
+
+\section{Data Construction and Estimation Procedures}\label{appendix:procedures}
+
+This appendix specifies every construction step at reconstruction grade. A reader with the raw inputs and this appendix can rebuild the pipeline without the replication code; the code (file names cited in each exhibit's notes) implements exactly what follows.
+
+\subsection{Auto-loan estimation sample}
+
+The unit of observation is a loan in the merged auto-loan file, one row per loan carrying origination fields and terminal-snapshot fields. Filters, applied in order: credit score strictly between 0 and 851; income strictly positive. A loan is a default if its chargeoff amount is nonmissing and positive. The monthly payment $m$ is the scheduled payment amount; total obligations are $L = m \times \text{terms}$; the baseline fixed-effects cell is the five-digit zip code concatenated with the archive month. Dates parse as month--day--year; approximately 1.6 percent of origination dates fail to parse and drop where a date is required. Months paid equals the number of whole months between the origination date and the last-payment date. Loans recorded as defaults with months paid outside $[0, \text{terms})$ are excluded from all timing calculations. Rows whose payment-by-terms product overflows to missing drop from the $L$ regression only, matching the originally estimated specification. The resulting sample contains 6{,}315{,}095 loans with a 5.1 percent default rate.
+
+\subsection{The two-logit estimator}
+
+Two logistic regressions with high-dimensional fixed effects: default on $\log m$, and default on $\log L$, each absorbing score-ventile and zip-by-month fixed effects, with classical standard errors. With $\widehat\gamma_m$ and $\widehat\gamma_L$ the two slope coefficients, $\widehat R = \widehat\gamma_L / (\widehat\gamma_L + \widehat\gamma_m)$ and $\widehat\beta = \widehat R^{\,1/\widehat{\Delta T}}$, where $\widehat{\Delta T}$ is the defaulter mean of $(\text{terms} - \text{months paid})/12$. Standard errors follow the delta method (Appendix \ref{appendix:delta_method}). Subgroup estimates repeat the identical procedure on the subgroup, re-cutting score ventiles within it.
+
+\subsection{Fixed-term contract families}
+
+Families are extracted from the monthly trade-level archives by flag conditions evaluated at each snapshot: first mortgages require the first-mortgage flag with monthly terms between 120 and 480; home equity requires the home-equity-loan flag with terms between 12 and 360; personal installment requires the installment flag with the auto, first-mortgage, home-equity, student-loan, medical, and revolving flags all zero and terms between 6 and 120; autos require the auto flag with terms between 12 and 96. Each loan is keyed by hashed consumer identity, hashed institution identity, and origination date; origination fields (payment, high credit, terms, first archive) freeze at first observation, and terminal fields (balance, chargeoff, last payment, narrative codes) overwrite at each subsequent observation. Date fields in the archives are packed variable-width integers in month--day--year order and parse after zero-padding to eight digits; consumer keys are handled as character strings throughout because their values span the full 64-bit integer range. The family-level statistic uses $A$ equal to the defaulter sum of remaining scheduled payments, with payment values restricted to the interval $(0, 10^5)$, and the uniform default cost $B$ equal to the defaulter sum of terminal balances; $\beta = (A/(A+B))^{1/\Delta T}$ with $\Delta T$ the defaulter mean remaining horizon in years. Within-person comparisons restrict both families to consumers whose hashed identity appears in each.
+
+\subsection{Delinquency-spell persistence}
+
+A spell is a tradeline with positive past-due amount, no chargeoff, and positive balance at an archive snapshot. Its outcome at the next available snapshot (mean gap 4.0 months) is cured when the past-due amount equals zero with no chargeoff, chargeoff when the chargeoff amount is positive, still delinquent when the past-due amount remains positive, and unobserved otherwise; unobserved transitions are excluded. The per-gap persistence is the still-delinquent and chargeoff share among observed outcomes, annualized as $\rho_{\text{annual}} = \rho_{\text{gap}}^{12/\text{gap}}$.
+
+\subsection{Cross-loan event study}
+
+A default event is the first archive month in which any auto tradeline of a consumer shows a positive chargeoff amount. For each event the pipeline locates the archive snapshots nearest one month before and six months after the event, requiring each within two months of its target. Other tradelines open and clean at the pre-snapshot are classified at the post-snapshot; a tradeline is paying when its last-payment date falls within three months of the post-snapshot month. Origination harvesting collects, at first observation, the origination fields of every tradeline of an event consumer opened within 48 months of the event.
+
+\subsection{Varying-coefficient specification and imputed rates}
+
+The varying-coefficient logits interact $\log m$ and $\log L$ with standardized score, standardized log income, and census region, absorbing score-ventile, income-ventile, and zip-by-month fixed effects; the defaulter-side horizon regression uses the same covariates. Surfaces evaluate on a score-decile by income-quartile by region grid, with uncertainty from 500 parametric-bootstrap draws of the estimated coefficient vectors. Imputed note rates invert the annuity identity $m = L r / (1 - (1+r)^{-T})$ for the monthly rate by bisection on $(10^{-7}, 1)$, annualize by multiplying by twelve, and discard values above 0.6; post-default comparisons take within-consumer means of imputed rates on originations before and after the consumer's event month.
 
 \section{Additional Figures}\label{appendix:figures}
 
