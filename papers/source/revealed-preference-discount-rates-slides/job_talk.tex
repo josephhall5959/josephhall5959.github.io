@@ -104,7 +104,7 @@ Revealed Preference from 20 Years of Credit-Bureau Data}}
         21.8\%); geography spreads $\beta$ across $[0.73, 0.84]$
   \item And the headline twist: different loan horizons trace out a
         \alert{steeply declining discount curve} --- within person --- a
-        schedule, not a single rate
+        discount rate schedule
 \end{wideitemize}
 \end{frame}
 
@@ -175,9 +175,10 @@ Revealed Preference from 20 Years of Credit-Bureau Data}}
         as the envelope condition of the optimal stopping problem
         (Appendix; available for the whiteboard)
   \item Heterogeneous agents: aggregation theory for what a population
-        $\beta$ distribution implies for measured aggregates
-        \ph{aggregation simulation figure}
-  \item Marginal-utility correction: \alert{measured, not assumed} ---
+        $\beta$ distribution implies for measured aggregates ---
+        pooled estimation recovers a sensitivity-weighted average of
+        type-level statistics (exact aggregation proposition)
+  \item Marginal-utility correction: \alert{measured directly in the panel} ---
         the key input is the persistence of the marginal borrower's state,
         and 21.4M delinquency transitions put it at $\rho = 0.992$
         $\Rightarrow$ $\lambda = 1.00$, correction nil (the literature's
@@ -204,7 +205,7 @@ Revealed Preference from 20 Years of Credit-Bureau Data}}
 \buttonrow{\goto{b_mu}{measured correction}\ \goto{b_tvr}{is it just $T$?}\ \goto{b_power}{precision}}
 \end{frame}
 
-\begin{frame}[label=power]{Power is a theorem here, not a hope}
+\begin{frame}[label=power]{Power here is a theorem}
 \begin{center}
 \Large
 $\operatorname{se}(\widehat{\beta}) \;=\; \dfrac{c}{\sqrt{n_{\text{defaults}}}}$
@@ -269,8 +270,8 @@ $\operatorname{se}(\widehat{\beta}) \;=\; \dfrac{c}{\sqrt{n_{\text{defaults}}}}$
 \begin{wideitemize}
   \item \alert{65\% of 2.46M auto defaulters keep paying other creditors}
         six months \emph{after} the chargeoff (10.7 other trades on
-        average; only 1.6\% default on everything) --- a portfolio choice,
-        not a collapse
+        average; only 1.6\% default on everything) --- the modal default is
+        a portfolio choice
   \item $\widehat\beta$ is \alert{flat across local labor shocks}:
         0.774 / 0.786 / 0.789 by unemployment-change tercile
   \item The same borrower reveals 29\% on personal loans, 12\% on autos,
@@ -352,7 +353,7 @@ $\operatorname{se}(\widehat{\beta}) \;=\; \dfrac{c}{\sqrt{n_{\text{defaults}}}}$
 \small Four families, one estimator, uniform default cost --- the annual
 rate falls from \alert{31\% at a 1.7-year horizon to 1\% at seventeen
 years}, and the dual-holder markers show it \alert{within person}.
-A schedule, not a rate.
+The measurement is a schedule.
 \buttonrow{\goto{b_curve}{$(\beta_{pb}, \delta)$ identification}\ \goto{b_liq}{not liquidity}}
 \end{frame}
 
@@ -362,7 +363,9 @@ A schedule, not a rate.
         estimated cluster-by-cluster with the full estimator
   \item Cross-cluster spread is \alert{large}: $\beta$ p10--p90
         $[0.733, 0.835]$ --- annual rates from $\sim$20\% to $\sim$36\%
-  \item \ph{cluster map figure --- choropleth by $\widehat{\beta}$}
+  \item Decomposition: 84\% of the cross-cluster variance in
+        $\log\beta$ comes from the default sensitivities alone; the
+        horizon contributes 2\%
 \end{wideitemize}
 \end{frame}
 
@@ -373,7 +376,7 @@ A schedule, not a rate.
         $(0.09)$ --- poorer areas show \emph{lower} measured discount rates;
         survives default-composition control
   \item Income level: raw positive, \alert{dies under the selection control}
-        --- reported as a selection artifact, not a finding
+        --- reported as a selection artifact
   \item Unemployment share, itemizer share: positive, state-FE fragile
 \end{wideitemize}
 \end{frame}
@@ -416,16 +419,16 @@ A schedule, not a rate.
 \begin{wideitemize}
   \item Heterogeneous-agents aggregation: measured aggregates load on the
         \emph{patient tail}, so population medians and macro calibrations
-        answer different questions \ph{aggregation simulation figure}
-  \item The 25\% median coexists with standard macro calibrations ---
-        and the paper shows exactly how
+        answer different questions
+  \item The 27\% median coexists with standard macro calibrations, and
+        the aggregation proposition states exactly how
 \end{wideitemize}
 \end{frame}
 
 \begin{frame}{What it means}
 \begin{wideitemize}
   \item Incidence: debt relief and forbearance are transfers \emph{to} the
-        impatient margin --- measured, not assumed
+        impatient margin, and the margin is now measured
   \item Pricing: lenders setting minimum payments face a distribution of
         $\beta$ this paper measures directly
   \item Measurement: the toolkit (rate imputation, power-preserving splits,
@@ -455,11 +458,31 @@ selection, data plumbing.
 \end{frame}}
 
 \begin{frame}{Backup: exact identity, full derivation}
-\ph{two-period derivation, then $T$-period envelope argument}
+\begin{wideitemize}
+  \item Two periods: implicit differentiation of the period-1 threshold
+        gives $\partial p_1/\partial L = f(y_1^*)\beta(1-p_2)
+        \mathbb{E}[u'(C_2^P)\mid y_2 > y_2^*]/\Delta u_1'$ and
+        $\partial p_1/\partial m$ as the current-payment analogue
+  \item The ratio cancels the margin density and the utility scale,
+        leaving $\beta\lambda$
+  \item $T$ periods: the same identity survives as the envelope condition
+        of optimal stopping, provided the punishment has a flow component
+        and good standing carries the option to default later
+\end{wideitemize}
 \end{frame}
 
 \begin{frame}{Backup: continuous-time statement}
-\ph{optimal-stopping formulation and the identity as smooth-pasting}
+\begin{wideitemize}
+  \item Continuous time: default is a stopping time on the income process,
+        and the identity appears as the smooth-pasting condition at the
+        default boundary
+  \item The response of stopping to a payment perturbation at horizon $s$
+        is $D(s)$ times the survival-weighted marginal utility at $s$ ---
+        ratios across horizons identify the discount function
+        nonparametrically
+  \item Two horizons point-identify quasi-hyperbolic $(\beta_{pb},
+        \delta)$; three make the exponential null testable
+\end{wideitemize}
 \end{frame}
 
 \begin{frame}[label=b_mu]{Backup: the marginal-utility correction, measured}
@@ -480,7 +503,7 @@ selection, data plumbing.
 \buttonrow{\back{baseline}{back: baseline}}
 \end{frame}
 
-\begin{frame}[label=b_tvr]{Backup: is the clock doing the work? No.}
+\begin{frame}[label=b_tvr]{Backup: the clock contributes little}
 \begin{wideitemize}
   \item Decompose cross-group variance of $\log\beta$ into sensitivity
         ($R$) and horizon ($T$) contributions: geography \alert{84\%
@@ -553,8 +576,14 @@ selection, data plumbing.
 \end{frame}
 
 \begin{frame}[label=b_select]{Backup: selection diagnostics, full table}
-\ph{correlates with and without default-share control; score-band-within-
-cluster estimates when they land}
+\begin{wideitemize}
+  \item Poverty (EITC share): slope $-0.42$ $(0.09)$ without the
+        default-composition control, and the correlation survives with it
+  \item Zip-level income: positive in the raw cross-section and gone
+        under the control --- reported as a selection artifact
+  \item Partisanship level: $-0.088$ $(0.040)$ raw, $-0.101$ $(0.038)$
+        controlled; the 2016--2020 swing is a precise zero
+\end{wideitemize}
 \buttonrow{\back{threat_sel}{back: threat 3}}
 \end{frame}
 

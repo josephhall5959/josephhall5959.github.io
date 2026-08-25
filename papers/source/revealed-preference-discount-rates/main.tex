@@ -138,7 +138,7 @@
 \begin{abstract}
 \begin{singlespace} \vspace{-0.3cm}
 
-\noindent This paper measures household discount rates using default decisions rather than asset prices or choices in laboratories. When a borrower decides whether to default, the relative sensitivity of that decision to short-run payment burdens versus long-run debt obligations reveals the borrower's rate of time preference. I formalize this insight in an endogenous default model and show that two comparative statics---the effect on default of a change in monthly payments and of a change in total repayment---are sufficient statistics for the discount factor. Applying this method to over six million U.S.\ auto loans, I estimate an average annual discount factor of $\beta = 0.79$, implying a 27\% annual discount rate---far steeper than the 4\% typically assumed in macroeconomic calibrations. Discount rates vary sharply with income but are nearly flat across credit scores, suggesting that high default rates among low-score borrowers reflect income risk and costs of default rather than impatience. Extending the method across consumer debt contracts at maturities from two to seventeen years reveals a steeply declining term structure of discount rates---including within borrower---evidence of a discount rate schedule rather than a single rate. These findings provide the first large-scale, revealed-preference distributional estimates of time preferences for households who do not participate in asset markets.
+\noindent This paper measures household discount rates using default decisions rather than asset prices or choices in laboratories. When a borrower decides whether to default, the relative sensitivity of that decision to short-run payment burdens versus long-run debt obligations reveals the borrower's rate of time preference. I formalize this insight in an endogenous default model and show that two comparative statics---the effect on default of a change in monthly payments and of a change in total repayment---are sufficient statistics for the discount factor. Applying this method to over six million U.S.\ auto loans, I estimate an average annual discount factor of $\beta = 0.79$, implying a 27\% annual discount rate---far steeper than the 4\% typically assumed in macroeconomic calibrations. Discount rates decline monotonically with income and with credit score, and both gradients are modest relative to the level, indicating that high default rates among low-score borrowers arise mostly from income risk and costs of default. Extending the method across consumer debt contracts at maturities from two to seventeen years reveals a steeply declining term structure of discount rates---including within borrower---evidence of a discount rate schedule rather than a single rate. These findings provide the first large-scale, revealed-preference distributional estimates of time preferences for households who do not participate in asset markets.
 
 \end{singlespace}
 
@@ -384,9 +384,11 @@ To estimate $\partial p_1 / \partial m$ and $\partial p_1 / \partial L$, I explo
 \emph{Conditional on credit score, maturity and loan size are as-if randomly assigned with respect to pre-existing determinants of default.}
 \end{quote}
 
-This assumption is plausible because lenders rely on standardized underwriting algorithms that map credit scores to allowable loan structures. Conditional on score, residual variation in contract terms reflects idiosyncratic factors---dealer negotiations, vehicle choice, down payment size---rather than private information about future default risk. The model explicitly calculates the discount rate under the assumption that the correlation between loan terms and default is entirely due to moral hazard (larger loans cause more default), not adverse selection (worse borrowers select into larger loans).
+This assumption is plausible because lenders rely on standardized underwriting algorithms that map credit scores to allowable loan structures. Conditional on score, residual variation in contract terms reflects idiosyncratic factors---dealer negotiations, vehicle choice, down payment size---rather than private information about future default risk. The model explicitly calculates the discount rate under the assumption that the correlation between loan terms and default is entirely due to moral hazard, in which larger loans cause more default, with adverse selection, in which worse borrowers select into larger loans, set to zero.
 
-Several pieces of evidence support this assumption. First, Figure \ref{fig:default_by_terms} shows that the unconditional relationship between maturity and default rate is highly idiosyncratic, with no systematic monotonic pattern. This is consistent with lenders adjusting terms (e.g., requiring larger down payments) to equalize default risk across maturities. Second, even if adverse selection is present, a directional argument favors the identifying assumption: if lenders could privately observe worse credit risks conditional on score, they would offer \emph{smaller} loans, biasing against the observed pattern. Third, if the degree of adverse selection is equal across all maturities, it cancels out in the ratio of Equation \eqref{eq:beta}.
+Several pieces of evidence support this assumption. First, Figure \ref{fig:default_by_terms} shows that the unconditional relationship between maturity and default rate is highly idiosyncratic, with no systematic monotonic pattern. This is consistent with lenders adjusting terms (e.g., requiring larger down payments) to equalize default risk across maturities. Second, even if adverse selection is present, a directional argument favors the identifying assumption. If lenders could privately observe worse credit risks conditional on score, they would offer \emph{smaller} loans, biasing against the observed pattern. Third, if the degree of adverse selection is equal across all maturities, it cancels out in the ratio of Equation \eqref{eq:beta}.
+
+An instrumental-variables program supplements these arguments, and I report its state completely. Instruments built from the level of market interest rates at origination fail, in three separate designs, for a structural reason worth recording. A rate level varies only at the origination-cohort level, and cohort composition co-moves with the rate cycle, so no fixed-effect structure recovers exclusion. Instruments built from lender policy menus perform differently. The staggered expansion of 72- and 84-month auto terms across lenders, and cross-lender differences in loan-size menus, yield two leave-one-out instruments with first-stage $F$ statistics of 221 and above 47{,}000 when clustered by lender. A control function using these instruments without lender fixed effects fails an exclusion diagnostic---lenders with long-maturity menus serve observably riskier clienteles---and the within-lender design that identifies from menu changes over time is the appropriate specification. The estimates from that specification are the subject of ongoing work; the identification of the estimates reported in this paper rests on the fixed-effects design above, on the diagnostics of Section \ref{sec:liquidity}, and on the agreement with external quasi-experimental designs documented in Section \ref{sec:quasi}.
 
 \begin{figure}[H]
     \centering
@@ -492,7 +494,7 @@ The model cannot rule out liquidity constraints or high expected income growth a
 
 \emph{Second, the estimates do not track liquidity shocks.} Sorting loans within origination year into terciles of the change in state unemployment over the loan's first eighteen months, the estimated discount factor is flat: $0.774$, $0.786$, and $0.789$ from the mildest to the most severe exposure. If the estimates repackaged liquidity shocks, this gradient would be steep. (Loans originated in recession years do show lower estimates, $0.731$ against $0.792$; that comparison confounds borrower composition and is not assigned an interpretation.)
 
-\emph{Third, the within-person schedule is inconsistent with a binding budget constraint as the driver.} A liquidity constraint binds at the person-month---one budget---while Section \ref{sec:termstructure} shows the same borrower simultaneously revealing an annual rate near 29 percent on the personal-loan margin, 12 percent on the auto margin, and 1 percent on the mortgage margin. Inability to pay pushes every obligation toward default together; margin-specific, horizon-ordered revealed rates are the structure of choice, not of collapse.
+\emph{Third, the within-person schedule is inconsistent with a binding budget constraint as the driver.} A liquidity constraint binds at the person-month---one budget---while Section \ref{sec:termstructure} shows the same borrower simultaneously revealing an annual rate near 29 percent on the personal-loan margin, 12 percent on the auto margin, and 1 percent on the mortgage margin. Inability to pay pushes every obligation toward default together; margin-specific, horizon-ordered revealed rates are the structure of choice.
 
 \emph{Fourth, the measured persistence of distress closes the remaining theoretical channel.} Delinquency spells at the default margin cure at a rate of $0.26$ percent per quarter (annualized persistence $0.992$; Appendix \ref{appendix:measuredrho}). Liquidity narratives built on transitory shocks contradict this permanence directly, and permanent-state narratives operate through marginal utility---precisely the correction $\lambda$, which at the measured persistence equals one.
 
@@ -501,6 +503,8 @@ Quantitatively, the two channels admit only small adjustments. Correcting the su
 \section{Heterogeneity in Estimated Discount Factors}\label{sec:heterogeneity}
 
 The estimates in this section vary the sufficient statistic across observable subgroups. A preliminary decomposition disciplines their interpretation: across geographic clusters and state-cycle cells, 84--89\% of the cross-group variance in log discount factors is attributable to the default-sensitivity ratio $R$ alone, with rankings reproduced at rank correlation $0.97$ when the annualization horizon is held fixed at its common mean. The maps and gradients below therefore reflect differences in default behavior itself.
+
+A varying-coefficient implementation sharpens the score and income gradients. Interacting the two logits' payment and obligation terms with standardized score, standardized log income, and census region lets every default in the sample inform every cell, and the resulting three-year revealed rates carry standard errors of approximately $0.4$ percentage points where cell-splitting yields multiples of that. The rates decline monotonically in credit score, from 26.7 percent in the lowest decile to 23.2 percent in the highest, and decline in income, from 25.8 percent in the bottom quartile to 21.8 percent in the top. Both gradients are modest relative to the level of the estimates.
 
 The preceding section establishes steep average impatience. But the distribution of $\beta$ is at least as important as its mean. This section estimates $\beta$ separately by credit score ventile, income ventile, and U.S.\ state. For each subgroup, I re-estimate the two logit models, recompute the sensitivity ratio, and obtain $\beta$ with delta-method standard errors.
 
@@ -575,7 +579,7 @@ Because two measured horizons point-identify quasi-hyperbolic preferences (Corol
 \includegraphics[width=0.92\textwidth]{fig_term_structure.pdf}
 \vspace{-0.4em}
 \begin{minipage}{0.92\textwidth}
-\noindent \small \uline{Notes:} Each bar is the annualized revealed discount rate from applying the sufficient-statistics estimator to one fixed-term loan family, plotted at the family's mean default-to-maturity horizon (log scale); the default cost is defined identically (outstanding balance at default) in every family. The measured sensitivity ratio $R$ is printed beneath each bar. Hollow markers are the within-person estimates from borrowers holding both contract types. The dashed line is the quasi-hyperbolic discount function $D(t) = \beta_{pb}\delta^{t}$ fitted to the four family points ($\beta_{pb} = 0.66$, $\delta = 1.01$); the estimates trace it point by point. Replication: \texttt{Code/fig\_term\_structure.R} from \texttt{results/consequence\_norm\_beta.csv} and \texttt{results/within\_person\_beta.csv}.
+\noindent \small \textit{Notes:} Each bar is the annualized revealed discount rate from applying the sufficient-statistics estimator to one fixed-term loan family, plotted at the family's mean default-to-maturity horizon (log scale); the default cost is defined identically (outstanding balance at default) in every family. The measured sensitivity ratio $R$ is printed beneath each bar. Hollow markers are the within-person estimates from borrowers holding both contract types. The dashed line is the quasi-hyperbolic discount function $D(t) = \beta_{pb}\delta^{t}$ fitted to the four family points ($\beta_{pb} = 0.66$, $\delta = 1.01$); the estimates trace it point by point. Replication: \texttt{Code/fig\_term\_structure.R} from \texttt{results/consequence\_norm\_beta.csv} and \texttt{results/within\_person\_beta.csv}.
 \end{minipage}
 \end{figure}
 
@@ -621,7 +625,7 @@ Standard macro calibration & Euler equation & Rep.\ agent & 0.96 & 4\% \\
 
 The estimates from this paper fall in the range implied by quasi-experimental studies and field experiments, and are far from the $\beta \approx 0.96$ of standard macro calibrations. The close agreement between the auto loan estimate ($\beta = 0.79$), the Ganong--Noel HAMP estimate ($\beta = 0.76$), and the Indarte bankruptcy estimate ($\beta = 0.78$) is particularly striking: three different populations (auto borrowers, distressed mortgagors, homeowners at risk of bankruptcy), three different debt types (auto loans, modified mortgages, dischargeable debt), and three fundamentally different identification strategies (logit on administrative data, regression discontinuity, and regression kink design combined with an ARM instrumental variable) all recover annual discount factors in the range $0.76$--$0.79$, implying annual discount rates of 27--32\%.
 
-Figure \ref{fig:cohen_hist} places this paper's estimate in the context of the 112 point estimates cataloged by \cite{cohen_measuring_2020}. The median prior estimate is 22\% per year (implied $\beta = 0.82$), close to this paper's estimate of 27\% ($\beta = 0.79$). The consistency across methods---sufficient statistics applied to administrative data, regression discontinuities, randomized experiments, and laboratory elicitations---suggests that high discount rates among borrowing populations are a regularity, not an artifact of any single identification strategy. The contribution of this paper relative to most prior estimates is that it uses large-stakes revealed preference from administrative records at population scale, rather than small-sample laboratory or survey elicitations.
+Figure \ref{fig:cohen_hist} places this paper's estimate in the context of the 112 point estimates cataloged by \cite{cohen_measuring_2020}. The median prior estimate is 22\% per year (implied $\beta = 0.82$), close to this paper's estimate of 27\% ($\beta = 0.79$). The consistency across methods---sufficient statistics applied to administrative data, regression discontinuities, randomized experiments, and laboratory elicitations---suggests that high discount rates among borrowing populations are a regularity that no single identification strategy produces on its own. The contribution of this paper relative to most prior estimates is that it uses large-stakes revealed preference from administrative records at population scale, rather than small-sample laboratory or survey elicitations.
 
 \begin{figure}[H]
     \centering
@@ -650,7 +654,7 @@ The key assumption is that households face an upward-sloping credit supply curve
     \caption{Illustration of Lower Bound Approach} \label{fig:illustration}
     \includegraphics[width=\textwidth]{Unobserved discount rate chart.pdf}
   \end{center}
-  \noindent \small \uline{Notes: } This schematic illustrates the framework for interpreting observed borrowing rates as lower bounds on discount rates. Because credit supply is upward sloping and products are discrete, the true discount rate lies at or above the highest observed borrowing rate.
+  \noindent \small \textit{Notes:}  This schematic illustrates the framework for interpreting observed borrowing rates as lower bounds on discount rates. Because credit supply is upward sloping and products are discrete, the true discount rate lies at or above the highest observed borrowing rate.
 \end{figure}
 
 For each household in the SCF, I calculate the maximum interest rate on debt that is both currently being repaid and actively accruing interest---excluding, for example, the 67\% of student loans currently in forbearance or deferment and any debt with a promotional 0\% rate. I include credit card debt, as it is the marginal credit product for most households at short horizons. Figure \ref{fig:4} shows these distributions.
@@ -661,7 +665,7 @@ For each household in the SCF, I calculate the maximum interest rate on debt tha
     \includegraphics[width=0.49\textwidth]{../figures/figure_4.pdf}
     \includegraphics[width=0.49\textwidth]{../figures/figure_4b.pdf}
   \end{center}
-  \noindent \small \uline{Notes: }  Panel A includes credit card debt; Panel B excludes it. The highest interest rate on debt currently accruing interest is shown. 86\% of Americans pay interest on debt.
+  \noindent \small \textit{Notes:}   Panel A includes credit card debt; Panel B excludes it. The highest interest rate on debt currently accruing interest is shown. 86\% of Americans pay interest on debt.
 \end{figure}
 
 The modal maximum borrowing rate is 18\%---the dominant default credit card rate, a legacy of state usury laws (\cite{hall_credit_2024}). Even excluding credit cards, over 25\% of households borrow above the 5\% treasury rate.
@@ -767,7 +771,7 @@ Using the life-cycle model to adjust for consumption smoothing under hand-to-mou
     \caption{Distribution of Implied Upper Bounds on $\beta$} \label{fig:8}
     \includegraphics[width=\textwidth]{../figures/figure_8.pdf}
   \end{center}
-  \noindent \small \uline{Notes: } Upper-bound $\beta$s calculated using Equation \eqref{eq:beta_of_r} with $\gamma=1.9$.
+  \noindent \small \textit{Notes:}  Upper-bound $\beta$s calculated using Equation \eqref{eq:beta_of_r} with $\gamma=1.9$.
 \end{figure}
 
 
@@ -1097,7 +1101,7 @@ Annual persistence $\rho$ & $\phi=1.00$ & $\phi=0.64$ & $\phi=0.40$ & $\phi=1.00
 \end{tabular}
 
 \vspace{0.5em}
-\noindent \small \uline{Notes:} $\lambda$ computed exactly in the two-period model with persistent income ($\tilde\rho = \rho^{3.2}$) and consumption function $c(y)=y^{\phi}$; $\phi = 1$ is hand-to-mouth, $\phi = 0.64$ the permanent-shock pass-through of \citet{blundell_consumption_2008}, $\phi = 0.40$ a more fully insured benchmark. Corrected $\beta = (\hat R/\lambda)^{1/T}$ with $\hat R = 0.79^{3.2}$. Bold: preferred cell, at the state persistence measured in the credit-bureau panel (Appendix \ref{appendix:measuredrho}).
+\noindent \small \textit{Notes:} $\lambda$ computed exactly in the two-period model with persistent income ($\tilde\rho = \rho^{3.2}$) and consumption function $c(y)=y^{\phi}$; $\phi = 1$ is hand-to-mouth, $\phi = 0.64$ the permanent-shock pass-through of \citet{blundell_consumption_2008}, $\phi = 0.40$ a more fully insured benchmark. Corrected $\beta = (\hat R/\lambda)^{1/T}$ with $\hat R = 0.79^{3.2}$. Bold: preferred cell, at the state persistence measured in the credit-bureau panel (Appendix \ref{appendix:measuredrho}).
 \end{table}
 
 Three results. \emph{First}, at the persistence measured in the panel (Appendix \ref{appendix:measuredrho}; the $\rho = 0.99$ row) the correction vanishes: $\lambda = 1.00$ at the \citet{blundell_consumption_2008} pass-through, and the corrected estimate equals the baseline $\beta = 0.79$. Under the lower persistence preferred in parts of the earnings literature ($\rho = 0.95$, $\phi = 0.64$, $\gamma = 2$) the correction remains small: $\lambda = 0.95$, corrected $\beta = 0.80$, a 25\% annual discount rate against the uncorrected 27\%. \emph{Second}, the sign of the correction is ambiguous at high persistence -- at $\rho = 0.99$ hand-to-mouth, $\lambda > 1$ and the correction \emph{raises} measured impatience -- so the simplified estimator is not systematically biased toward finding impatience in the empirically relevant region. \emph{Third}, across every admissible cell of the grid the corrected annual discount rate remains between 19\% and 31\%: no calibration of the correction brings the estimates near standard macroeconomic values.
@@ -1136,7 +1140,7 @@ Liquidity share $s$ & $\hat\beta$ & implied annual rate & default rate \\
 \end{tabular}
 
 \vspace{0.5em}
-\noindent \small \uline{Notes:} Each row simulates a mixture economy with true annual discount factor $0.95$ for preference-world borrowers and liquidity share $s$. Replication: \texttt{Code/mc\_liquidity.R}.
+\noindent \small \textit{Notes:} Each row simulates a mixture economy with true annual discount factor $0.95$ for preference-world borrowers and liquidity share $s$. Replication: \texttt{Code/mc\_liquidity.R}.
 \end{table}
 
 \begin{table}[H]
@@ -1163,7 +1167,7 @@ $\beta_{true}$ & 0 & 0.10 & 0.20 & 0.35 & 0.50 \\
 \end{tabular}
 
 \vspace{0.5em}
-\noindent \small \uline{Notes:} Every cell's default-cost level is calibrated so the simulated default rate matches the empirical 5.1\%. Dashes: cells outside the extended grid. Replication: \texttt{Code/mc\_liquidity\_bound.R}; surfaces in \texttt{results/mc\_bound\_surface.csv} and \texttt{\_ext.csv}.
+\noindent \small \textit{Notes:} Every cell's default-cost level is calibrated so the simulated default rate matches the empirical 5.1\%. Dashes: cells outside the extended grid. Replication: \texttt{Code/mc\_liquidity\_bound.R}; surfaces in \texttt{results/mc\_bound\_surface.csv} and \texttt{\_ext.csv}.
 \end{table}
 
 Three findings. \emph{First}, the estimator cannot acquit itself: in the pure-liquidity economy ($s = 1$, Table \ref{tab:mcmix}) the estimated discount factor does not collapse toward zero but settles at $0.78$ --- a mechanical variance share arising because total obligations $L = mT$ load on the payment $m$ that liquidity-driven default does respond to. An estimate in this range is therefore consistent, on its own, with either interpretation, which is why Section \ref{sec:liquidity} rests on direct evidence. \emph{Second}, contamination biases the estimate toward impatience monotonically, but modestly: at the ceiling admissible share $s = 0.35$, the depression in $\hat\beta$ is at most $0.05$ across every row of Table \ref{tab:mcsurface}. \emph{Third}, and most consequentially, the simulated estimator attenuates toward patience in every world it is given: across true discount factors from $0.55$ to $0.99$ and contamination shares up to $0.50$, no cell of the matched surface produces an estimate as low as the empirical $0.787$. Within this model class, patient preferences plus admissible contamination cannot manufacture the measured impatience; the measured estimate requires the preference component itself to discount steeply. The compression of the surface also means the exercise cannot be inverted for a sharp point estimate of the contamination bias; a structurally estimated data-generating process would be required, and the categorical conclusion above is what the design supports.
@@ -1175,7 +1179,7 @@ Three findings. \emph{First}, the estimator cannot acquit itself: in the pure-li
     \caption{Distribution of Liabilities (Sorted by Total Liabilities)} \label{fig:3a}
     \includegraphics[width=\textwidth]{../figures/figure_3a.pdf}
   \end{center}
-  \noindent \small \uline{Notes:} The x-axis is scaled by SCF survey weights.
+  \noindent \small \textit{Notes:} The x-axis is scaled by SCF survey weights.
 \end{figure}
 
 
