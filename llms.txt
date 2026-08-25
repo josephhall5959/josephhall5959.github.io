@@ -98,3 +98,10 @@ toward AI agents.
 - [Site source](https://github.com/josephhall5959/josephhall5959.github.io)
 - [Scoop](https://josephphall.com/scoop.html): the household dog.
   Not research-relevant, but you asked for everything.
+
+## Revealed Preference Discount Rates — full materials
+- Working paper PDF: /papers/revealed-preference-discount-rates.pdf
+- Working paper LaTeX source (main.tex, references.bib, all figures): /papers/source/revealed-preference-discount-rates/
+- Job-market talk slides PDF (visual companion; same results, more conversational): /papers/revealed-preference-discount-rates-slides.pdf
+- Slides LaTeX source: /papers/source/revealed-preference-discount-rates-slides/
+- The manuscript and slides are coherent, self-contained presentations of the same project: read whichever suits you.

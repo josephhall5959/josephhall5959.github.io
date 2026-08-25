@@ -1,0 +1,1255 @@
+\documentclass[12pt,english]{article}
+
+\renewcommand{\baselinestretch}{2}
+\usepackage{lmodern}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage{afterpage}
+\usepackage{lscape}
+\usepackage{abstract, lipsum}
+\usepackage{bbm}
+% inputenc/fontenc guarded: they break XeTeX/LuaTeX (e.g. tectonic), and
+% modern pdflatex defaults to UTF-8 anyway.
+\ifdefined\XeTeXversion\else
+  \usepackage[T1]{fontenc}
+  \usepackage[latin9,utf8]{inputenc}
+\fi
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.25cm,bmargin=2.25cm,lmargin=2.25cm,rmargin=2.25cm}
+\usepackage{array}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{xcolor,psfrag,graphicx}
+\usepackage[hidelinks,colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage{epstopdf}
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{verbatim}
+\usepackage{dirtytalk}
+\usepackage[hang, flushmargin,bottom]{footmisc}
+\usepackage{footnotebackref}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{threeparttable}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{tabularx}
+\usepackage{comment}
+\usepackage{tkz-euclide}
+\usetikzlibrary{intersections}
+
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{detect-all, table-number-alignment = center}
+
+\tikzstyle{RectObject}=[rectangle,fill=white,draw,line width=0.5mm]
+\tikzstyle{line}=[draw]
+\tikzstyle{arrow}=[draw, -latex]
+\usetikzlibrary{shapes, fit, arrows, snakes, shadows, backgrounds, positioning}
+
+\doublespacing
+
+\usepackage{natbib}
+\bibliographystyle{aer}
+
+\newcommand{\lyxdot}{.}
+\newcommand{\localtextbulletone}{\textcolor{gray}{\raisebox{.45ex}{\rule{.6ex}{.6ex}}}}
+\renewcommand{\labelitemi}{\localtextbulletone}
+
+\makeatletter
+\providecommand{\tabularnewline}{\\}
+\newtheorem{theorem}{Theorem}
+\newtheorem{assumption}{Assumption}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{tikz}
+\usetikzlibrary{intersections}
+\usepackage{etoolbox}
+
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\usepackage{pdfpages}
+\usepackage{mathpazo}
+\usepackage{tabularx}
+
+\usepackage[disable]{todonotes}
+\makeatother
+
+
+\begin{document}
+
+\begin{singlespace}
+\title{\textbf{\large {Revealed Preference Discount Rates}\thanks{{\footnotesize{}This version: \today. I thank Amit Seru, Benjamin H\'ebert, Greg Buchak, Robin Greenwood, Jeffrey Zweibel, Hanno Lustig, Sudheer Chava, Xindi He, Indrajit Mitra, and the Georgia Tech Financial Services Innovation Lab. Excellent research assistance was provided by Victor Huang. This paper subsumes and expands upon the content of a prior paper circulated with the title ``Liquidity Constraint and Strategic Default: a Sufficient Statistics Approach''.
+}}
+}}
+
+
+\author{%
+\normalsize Joseph P. Hall\thanks{%
+   Georgia Institute of Technology. {Email: \tt jhall390@gatech.edu}. Address: 800 W Peachtree St NW, Atlanta, GA 30308. Phone: +1 (781) 715-5862 }
+      }
+
+
+\date{}
+\maketitle
+
+\centering
+
+
+\end{singlespace}
+
+
+\vspace{-0.25cm}
+
+\begin{abstract}
+\begin{singlespace} \vspace{-0.3cm}
+
+\noindent This paper measures household discount rates using default decisions rather than asset prices or choices in laboratories. When a borrower decides whether to default, the relative sensitivity of that decision to short-run payment burdens versus long-run debt obligations reveals the borrower's rate of time preference. I formalize this insight in an endogenous default model and show that two comparative statics---the effect on default of a change in monthly payments and of a change in total repayment---are sufficient statistics for the discount factor. Applying this method to over six million U.S.\ auto loans, I estimate an average annual discount factor of $\beta = 0.79$, implying a 27\% annual discount rate---far steeper than the 4\% typically assumed in macroeconomic calibrations. Discount rates vary sharply with income but are nearly flat across credit scores, suggesting that high default rates among low-score borrowers reflect income risk and costs of default rather than impatience. Extending the method across consumer debt contracts at maturities from two to seventeen years reveals a steeply declining term structure of discount rates---including within borrower---evidence of a discount rate schedule rather than a single rate. These findings provide the first large-scale, revealed-preference distributional estimates of time preferences for households who do not participate in asset markets.
+
+\end{singlespace}
+
+\vspace{0.25cm}
+
+\begin{singlespace}
+\noindent \textbf{JEL:} D14, D15, E21, E43, G10, G40, G51, H23, H55
+
+\end{singlespace}
+\end{abstract}
+\vfill{}
+\thispagestyle{empty}
+\AtBeginEnvironment{quote}{\par\singlespacing\small}
+
+
+%==========================================================================
+% SECTION 1: INTRODUCTION
+%==========================================================================
+
+\section{Introduction}\label{sec:intro}
+
+A borrower deciding whether to default on a loan makes an intertemporal choice: forgo current payments to consume more today, at the cost of penalties that reduce future utility. The central contribution of this paper is to show that the comparative statics of this decision---how default responds to changes in short-run versus long-run repayment obligations---are sufficient statistics for the household's subjective discount rate. In an endogenous default model with concave, time-separable utility, the ratio of the sensitivity of default to total debt ($\partial p / \partial L$) relative to the sensitivity to monthly payments ($\partial p / \partial m$) identifies the discount factor $\beta$ without observing consumption, income paths, or the utility function. This replaces ``marginal willingness to save'' with ``marginal willingness to avoid default'' as the identifying variation for time preferences---a shift that opens time-preference measurement to the vast majority of households who hold debt but no meaningful financial assets.
+
+Applying this method to over six million U.S.\ auto loans from administrative credit bureau records, I estimate an average annual discount factor of $\beta = 0.79$ (s.e.\ 0.003), implying that borrowers value a dollar next year at only 79 cents relative to a dollar today. This corresponds to an annual discount rate of approximately 27\% (unchanged by the marginal-utility correction at the state persistence measured in the panel, and no lower than 25\% under literature persistence values)---far exceeding the $\beta \approx 0.96$ (4\% annual rate) routinely used in macroeconomic calibrations. Reinterpreting the quasi-experimental estimates from \citet{ganong_liquidity_2020} on mortgage borrowers through the same sufficient-statistics lens yields a similar magnitude: $\beta = 0.76$ per year. Across different populations, debt types, and identification strategies, the evidence consistently points to steep impatience among borrowing households.
+
+The heterogeneity in estimated discount factors is at least as informative as the level. Impatience rises sharply as income falls: low-income borrowers exhibit discount factors well below the population average, while high-income borrowers approach conventional calibrations. By contrast, the estimated discount factor is nearly flat across credit score ventiles. This pattern has a direct implication: the well-documented fact that low-credit-score individuals default more frequently \emph{cannot} be attributed to greater impatience. Instead, income risk, thin financial buffers, or lower costs of default must account for the score--default relationship. Impatience is correlated with income, not with credit score. This distinction matters for credit policy, welfare analysis, and the structural modeling of household default.
+
+Why must we look beyond asset prices? In the United States, only 12\% of households participate in any form of risk-free financial investment, and the top 1\% holds 75\% of risk-free assets (\cite{scf2022}). The Euler equation prices risk-free bonds using the discount factor of the \emph{marginal investor}, who is wealthy and patient. The time preferences of the remaining 88\% of households---the constrained, the hand-to-mouth, the borrowers---are not identified by these prices. Laboratory experiments offer an alternative, but the relevance of lab-elicited discount rates to real-world financial decisions is unclear, in part because behavior under small stakes may differ substantially from behavior under large stakes (\cite{coller_eliciting_1999}, \cite{harrison_estimating_2002}, \cite{rabin_risk_2000}). The approach developed here uses real-stakes decisions at economically meaningful time horizons, observed at population scale.
+
+I complement the sufficient-statistics approach with a second, independent strategy. Using the 2022 Survey of Consumer Finances, I observe the highest interest rate at which each household currently borrows. Because credit is supplied along an upward-sloping schedule, this maximum borrowing rate provides a revealed-preference lower bound on the household's discount rate. After adjusting for consumption-smoothing demand using a calibrated life-cycle income model (\cite{guvenen_what_2021}), the median implied upper bound on $\beta$ is 0.91---consistent with at least 9\% annual discounting even before accounting for the discreteness of credit products that makes these bounds conservative. Consumption-smoothing demand itself, as measured by the life-cycle model, explains almost none of the cross-sectional variation in borrowing rates ($R^2 < 2\%$), leaving heterogeneity in impatience as the dominant source of variation.
+
+These estimates have direct implications for public finance, credit regulation, and welfare analysis. The U.S.\ federal government applies a social discount rate near 2--3\% per year (\cite{the_white_house_biden-harris_2023}). If a large share of the population has discount factors near 0.80, then cost-benefit analyses of policies with long-run payoffs---early childhood education, climate mitigation, infrastructure---will systematically overweight future benefits relative to the preferences of the citizens these policies aim to serve. \cite{hendren_unified_2020} show that the relative ranking of early childhood versus adult education programs flips at discount rates in this range. For consumer credit policy, the results imply that short-term payment relief will be far more effective at preventing default than principal reduction or long-term debt forgiveness, consistent with the quasi-experimental evidence in \cite{ganong_liquidity_2020}.
+
+The remainder of the paper proceeds as follows. Section \ref{sec:literature} reviews related literature. Section \ref{sec:suffstats} develops the sufficient-statistics framework. Section \ref{sec:autodata} applies this framework to auto loan data and presents the main estimates. Section \ref{sec:heterogeneity} documents heterogeneity by income, credit score, and geography. Section \ref{sec:comparison} places these estimates in the context of prior work. Section \ref{sec:lowerbounds} develops the complementary lower-bound approach using borrowing rates and a life-cycle income model. Section \ref{sec:discussion} discusses interpretation, including what the estimated $\beta$ captures and extensions to non-separable utility. Section \ref{sec:conclusion} concludes.
+
+
+
+%==========================================================================
+% SECTION 2: RELATED LITERATURE
+%==========================================================================
+
+\section{Related Literature}\label{sec:literature}
+
+This paper connects to several literatures.
+
+\paragraph{Discount rates from asset markets.} The standard approach to measuring time preferences uses the Euler equation to link the price of risk-free bonds to the discount factor of the marginal investor (\cite{lustig_market_2005}; \cite{bansal_risks_2004}). Calibrations of heterogeneous-agent models routinely set $\beta \approx 0.96$ to match the capital-output ratio (\cite{guvenen_reconciling_2006}) or government bond yields. \cite{di_tella_zero-beta_2024} construct a ``zero-beta rate'' from equity portfolios, estimating an average of 8.3\% per year. These approaches identify the preferences of the marginal investor---necessarily a wealthy, patient household---which may differ substantially from those of the typical household. My approach instead identifies discount factors for the borrowing population, which constitutes the majority of U.S.\ households.
+
+\paragraph{Laboratory and field experiments.} A large experimental literature elicits discount rates using monetary tradeoffs over time. \cite{coller_eliciting_1999} and \cite{harrison_estimating_2002} are foundational contributions. \cite{cohen_measuring_2020} survey 222 empirical studies of time preferences published through 2016 and provide a comprehensive catalog of methods and findings. Of these 222 studies, 131 are lab-based, 56 use field data, and only 24 use publicly available datasets. The 112 studies that report point estimates of the subjective discount rate have a median of 22\% per year and a mean of 26\%---considerably higher than standard macro calibrations, though primarily from small samples with small stakes. The relevance of lab-elicited discount rates to real-world financial behavior is unclear, as preferences over small-stakes gambles may differ substantially from those governing large-stakes intertemporal decisions (\cite{rabin_risk_2000}). My approach complements this literature by using revealed preference from large-stakes decisions at population scale.
+
+\paragraph{Structural models of default and household debt.} \cite{ganong_liquidity_2020} use a regression discontinuity in the HAMP mortgage modification program to show that short-term payment reductions prevent default far more effectively than equivalent-value principal reductions. As I show, applying the sufficient-statistics formula to their reported estimates yields $\beta = 0.76$, consistent with steep impatience. \cite{dobbie_targeted_2020} conduct a randomized experiment on credit card borrowers and find that delayed interest write-downs improve outcomes while immediate payment reductions do not; however, the payment reduction effect is not statistically significant, so the formula does not produce a well-identified $\beta$ in their setting. \cite{ganong_consumer_2019} estimate that approximately one-third of consumers in their data are extremely impatient ``low-$\beta$'' types, but do not produce full distributional estimates. The structural default model in my paper shares the basic tradeoff in \cite{indarte_moral_2023}, where borrowers weigh current consumption against default penalties.
+
+\paragraph{Sufficient statistics methods.} The sufficient-statistics approach to welfare and policy analysis (\cite{chetty_sufficient_2009}) emphasizes that key policy-relevant parameters can be recovered from a small number of empirically estimable moments, without specifying the full structure of the model. My application to default behavior is, to my knowledge, the first to use this methodology to identify discount rates. The identifying logic is analogous to recovering an MRS from behavioral responses: the ratio of two default sensitivities reveals the intertemporal tradeoff.
+
+\paragraph{Discount rates in public finance.} Discount rates are central to cost-benefit analysis. The United Kingdom and France publish declining discount rate schedules for horizons up to 350 years (\cite{arrow_should_2014}). The U.S.\ government recently lowered its recommended social discount rate from 3\% to 2\% (\cite{the_white_house_biden-harris_2023}). \cite{hendren_unified_2020} show that the ranking of public investments is sensitive to the discount rate, with adult education dominating at high rates and early childhood education at low rates. \cite{demarzo_sovereign_2023} show that patient citizens are harmed when their government borrows excessively. My estimates suggest that the actual discount rates of the median household are an order of magnitude higher than those used in policy analyses.
+
+
+%==========================================================================
+% SECTION 3: SUFFICIENT STATISTICS APPROACH
+%==========================================================================
+
+\section{A Sufficient Statistics Approach to Measuring Discount Rates}\label{sec:suffstats}
+
+What can we learn about households' impatience from their default decisions? Interest rates on observed debt provide lower bounds on discount rates (Section \ref{sec:lowerbounds}), but they cannot point-identify the discount factor because credit products are discrete and rationed. Default decisions, however, encode a richer intertemporal tradeoff. I show that in a simple endogenous default model with separable utility, the causal effects on default of changes in repayment obligations at two different time horizons are sufficient to point-identify the discount factor $\beta$ between those two horizons, up to a single marginal-utility ratio whose key input---the persistence of the marginal borrower's economic state---I measure directly in the credit-bureau panel; at the measured persistence the implied correction is negligible, and under substantially lower literature values of persistence it moves the annual estimate by less than two percentage points (Appendix \ref{appendix:mucorrection}). No functional form for the utility function is required beyond strict concavity and monotonicity for the identifying identity itself.
+
+The economic intuition is simple. An impatient borrower is very sensitive to short-run changes in payment obligations---a higher monthly payment today sharply increases the temptation to default. A patient borrower, by contrast, responds primarily to changes in total debt, which affect long-run consumption. The ratio of these two responses reveals the weight the borrower places on the present versus the future.
+
+\subsection{Two-Period Endogenous Default Model}
+
+The model is set in two discrete time periods $t\in \{1,2\}$, representing the dates at which payments are due. The starting balance of the loan is $L$, and the payment in each period is $m$ (monthly payment), with the second-period payment equal to $L-m$. In the base case, $L=2m$. The two-period structure is a clean special case of a general model rather than a knife-edge simplification: Appendix \ref{appendix:multiperiod} extends the model to $T$ payments with default as an optimal stopping problem and shows (Proposition \ref{prop:interiorT}) that every default probability remains strictly interior for any horizon $T$, provided the punishment has a flow component and staying in good standing is valued as one period of standing \emph{plus the option to default later}. The same appendix characterizes the two modeling choices that instead produce degenerate corner probabilities---comparing default against committed repayment of all remaining installments, and letting the punishment vanish at maturity---so the sensitivities derived below are the $T=2$ case of well-behaved general formulas.
+
+Period 1 income $y_1 > 0$ is uncertain and distributed according to $F(y_1)$. No specific distributional assumption is needed. The punishment for default is $\sigma$, encompassing credit-market exclusion, social stigma, and garnishment (\cite{indarte_moral_2023}).
+
+The borrower has a strictly increasing, strictly concave utility function over consumption, additive across periods with discount factor $\beta$:
+
+\begin{equation}
+    \begin{split}
+        V_2^P &= u(C_2^P) \\
+        V_2^N &= u(C_2^N) - \sigma \\
+        V_1^P &= u(C_1^P) + \beta \left[ \int_0^{y_2^*} V_2^N dF(y_2 | y_1) + \int_{y_2^*}^\infty V_2^P dF(y_2 | y_1) \right] \\
+        V_1^N &= u(C_1^N) + \beta V_2^N
+    \end{split}
+\end{equation}
+
+where $y_2^*$ is the endogenous default threshold in period 2. The budget constraints are:
+
+\begin{equation}
+\begin{split}
+ C_1^P & = y_1 - m \\
+C_1^N & = y_1 \\
+C_2^P & = y_2 - (L - m) \\
+C_2^N & = y_2
+\end{split}
+\end{equation}
+
+The borrower defaults when the utility gain from avoiding payment exceeds the punishment $\sigma$. Let $y_2^*$ satisfy:
+\begin{equation}
+u(C_2^P(y_2^*)) = u(C_2^N(y_2^*)) - \sigma.
+\label{eq:threshold2}
+\end{equation}
+The period-1 default threshold $y_1^*$ is determined by:
+\begin{equation}
+u(C_1^{P*}) + \beta \mathbb{E}[V_2^P]
+\;=\; u(C_1^{N*}) + \beta \mathbb{E}[V_2^N].
+\label{eq:threshold1}
+\end{equation}
+
+I do not require closed-form solutions for $y_1^*$ or $y_2^*$. Instead, I focus on how small changes in $m$ and $L$ perturb the default probability $p_1 = F(y_1^*)$ and thereby reveal $\beta$.
+
+\subsection{Default Sensitivities as Sufficient Statistics}
+
+Differentiating $p_1 = F(y_1^*)$ with respect to $m$ and $L$ yields:
+\[
+\frac{\partial p_1}{\partial m}
+= f(y_1^*) \frac{\partial y_1^*}{\partial m},
+\qquad
+\frac{\partial p_1}{\partial L}
+= f(y_1^*) \frac{\partial y_1^*}{\partial L}.
+\]
+
+Applying implicit differentiation to the threshold condition \eqref{eq:threshold1} (full derivation in Appendix \ref{appendix:proofs}) yields:
+
+\begin{equation}\label{eq:sensitivities}
+\begin{split}
+\frac{\partial p_1}{\partial L} &=
+f(y_1^*) \, \beta (1-p_2) \,
+\frac{ \mathbb{E}\left[u'(C_2^P(y_2)) \mid y_2 > y_2^*\right] }
+     { u'(C_1^{P*}) - u'(C_1^{N*}) }, \\
+\frac{\partial p_1}{\partial m} &=
+f(y_1^*) \frac{u'(C_1^{P})}{u'(C_1^{P*}) - u'(C_1^{N*})}
+    - \frac{\partial p_1}{\partial L}.
+\end{split}
+\end{equation}
+
+The first expression captures the effect of raising long-run obligations: higher $L$ reduces future consumption for borrowers who repay, lowering their continuation value and making default more attractive. The second captures the effect of raising current payments: higher $m$ reduces current consumption, increasing the marginal utility of consuming today and thus increasing the temptation to default by not paying. Crucially, the ratio of these effects eliminates the default-margin density $f(y_1^*)$ and the scale of utility, leaving $\beta$ multiplied by a single ratio of marginal utilities---the object $\lambda$ defined in equation \eqref{eq:lambda} below, whose calibrated value is close to one.
+
+Rearranging:
+
+\begin{equation*}
+    \frac{\frac{\partial p_{1}}{\partial L}}{(1-p_2)\frac{\partial p_{1}}{\partial m}+\frac{\partial p_{1}}{\partial L}}=\beta\frac{E\left[u'\left(c_{2}^{P}\right) | y_2 > y_2^* \right]} {u'\left(c_{1}^{P}\right)}
+\end{equation*}
+
+Two further steps take this exact identity to an estimator. The first is the empirically supported simplification that late default is negligible ($p_2 \approx 0$, verified in Appendix \ref{appendix:CDR}). The second deserves scrutiny rather than a passing assumption: defining the \emph{marginal-utility ratio}
+\begin{equation}\label{eq:lambda}
+\lambda \;\equiv\; \frac{\mathbb{E}\left[u'(C_2^P) \mid y_2 > y_2^*,\, y_1 = y_1^*\right]}{u'(C_1^{P*})},
+\end{equation}
+the exact identity reads $A/(A+B) = \beta\lambda$, and the simplified formula below sets $\lambda = 1$. The numerator of $\lambda$ is the average marginal utility of future repayers conditional on standing at today's default margin, while the denominator is the marginal utility of the marginal defaulter herself; with concave utility these need not coincide. Appendix \ref{appendix:mucorrection} disciplines $\lambda$ with a measurement rather than an assumption: the ratio's key input is the persistence of the marginal borrower's economic state, and the credit-bureau panel measures it directly. Across 21.4 million delinquency-spell transitions for auto borrowers, the distress state that puts a borrower at the default margin persists with annualized probability $0.992$---only $0.3$ percent of delinquent loan-months cure by the next snapshot. At this measured persistence the two marginal utilities cancel almost exactly ($\lambda = 1.00$ at the preferred insurance pass-through), so the simplified estimator is measured, not assumed, to be nearly exact. Under substantially lower persistence values from the earnings literature the correction remains small: at $\rho = 0.95$ \citep{storesletten_cyclical_2004}, $\lambda = 0.95$ and the corrected estimate is $\beta = 0.80$ (a 25\% annual rate) against the baseline $0.79$ (27\%). Second, the data themselves bound the correction: identification requires $\lambda \ge (\hat\beta)^{T} = 0.47$, which refutes exactly the low-persistence, high-insurance calibrations that would generate large corrections. Third, because a common $\lambda$ rescales all subgroup estimates by the same monotone transformation, the cross-sectional comparisons at the heart of Section \ref{sec:heterogeneity} -- across credit scores, incomes, and geographies -- are unaffected by any uniform value of the correction. Together with the borrowing-rate evidence of Section \ref{sec:lowerbounds}, which bounds discount rates from \emph{below}, the corrected estimates are bracketed by two independent methodologies with oppositely-signed biases. Under the simplification $\lambda = 1$:
+
+\begin{equation}\label{eq:beta}
+\frac{\frac{\partial p_{1}}{\partial L}}{\frac{\partial p_{1}}{\partial m}+\frac{\partial p_{1}}{\partial L}}=\beta
+\end{equation}
+
+This maps neatly to intuition. If default decisions are entirely forward-looking and strategic ($\partial p / \partial L$ dominates), then $\beta = 1$: perfect patience. If default decisions are entirely myopic and driven only by current payment burdens ($\partial p / \partial m$ dominates), then $\beta = 0$. The formula smoothly nests all intermediate cases.
+
+\subsection{Recovering the Annual Discount Factor}
+
+The formula produces the discount factor over the horizon between typical default and loan maturity. To convert to an annual rate under the assumption of time-consistent discounting:
+
+\begin{equation}\label{eq:betaformula}
+    \beta_{annual} =\left(\frac{\frac{\partial p_{1}}{\partial L}}{\frac{\partial p_{1}}{\partial m}+\frac{\partial p_{1}}{\partial L}}\right)^{1/T}
+\end{equation}
+
+where $T$ is the average time (in years) between default and loan maturity.\footnote{In the auto loan sample, $T = 3.2$ years unconditionally.} Standard errors are computed via the delta method (Appendix \ref{appendix:delta_method}).
+
+It is worth being precise about the estimand, because Section \ref{sec:termstructure} will show that the measurement differs across horizons within the same borrower. Let $D_i(t)$ denote borrower $i$'s discount function and define the revealed annualized yield at horizon $T$ as $y_i(T) = D_i(T)^{-1/T} - 1$, the zero-coupon rate of the borrower's discount curve. Each contract family prices exactly one point on this curve---the default margin trades consumption today against the stream over the family's default-to-maturity horizon---so equation \eqref{eq:betaformula} recovers $y_i(\tau_f)$ at the family's horizon $\tau_f$. Every cross-sectional statement in this paper is therefore a statement about the distribution of a \emph{horizon-labeled} rate: the auto-loan heterogeneity of Section \ref{sec:heterogeneity} concerns the three-year revealed discount rate, an object that is well-defined without any assumption on the curve's shape because the horizon is common across the groups compared (a decomposition reported there verifies this empirically). Statements comparing rates across horizons are statements about the curve, and are treated separately in Section \ref{sec:termstructure}.
+
+The assumption of time-consistent discounting deserves comment, because it is an interpretation rather than a testable restriction: a two-period contract offers exactly one intertemporal margin, so the sufficient statistic delivers one point on the borrower's discount curve, and converting it to an annual rate requires taking a stand on the curve's shape. Appendix \ref{appendix:multiperiod} makes this precise and shows it is not a limitation of the framework but of the contract. In the $T$-period extension, the response of initial default to a perturbation of the payment due at horizon $s$ is $\partial p_1/\partial m_s = f(y_1^*)\, D(s-1)\, Q_s\, \mathbb{E}[u'(c_s)]/\Delta u_1'$ (Proposition \ref{prop:sensT}), where $D(\cdot)$ is an arbitrary discount function and $Q_s$ is the observable probability of remaining in good standing through $s$. Ratios of these responses across horizons therefore identify the \emph{entire} discount function nonparametrically from a menu of per-horizon payment experiments (Proposition \ref{prop:curveT}); quasi-hyperbolic $\beta$--$\delta$ preferences are point-identified from perturbations at just two distinct future horizons (Corollary \ref{cor:betadeltaT}); and with three or more horizons the exponential null itself becomes testable. The required variation---randomized, ceteris paribus perturbations of individual payments within a fixed borrower population---is not delivered by comparing borrowers who selected into different contract lengths, and to my knowledge no such experiment has been run. The theory for measuring the full discount curve is thus worked out and waiting on the experiment; with the data at hand, the honest object is the single point that equation \eqref{eq:betaformula} reports.
+
+\subsection{Application in Experimental and Quasi-Experimental Settings}\label{sec:quasi}
+
+Before turning to the auto loan data, I demonstrate the framework's power by reinterpreting three prominent quasi-experimental studies through this lens. Table \ref{tab:external_validation} summarizes the results. Each application uses the simplified ($\lambda = 1$) formula of equation \eqref{eq:beta}; the marginal-utility correction of Appendix \ref{appendix:mucorrection} applies to these settings symmetrically, so a common correction leaves the cross-study comparison intact.
+
+\citet{ganong_liquidity_2020} study mortgage modifications using a regression discontinuity in HAMP. They find that short-term payment reductions substantially reduce default, while long-term principal reductions have almost no effect. Converting both estimates to semi-elasticities---using the 11 percentage point LTV reduction and a pre-modification LTV of approximately 120\% to express the principal treatment as a percent change in total balance---and applying the sufficient-statistics formula with a five-year horizon yields:
+\[
+\beta_{\text{GN}} = 0.76 \quad \text{(s.e.\ 0.30)}.
+\]
+The large standard error reflects the imprecision of the principal reduction estimate, which is not statistically significant in the original study. Nevertheless, the point estimate is consistent with steep impatience---similar to the auto loan estimate.
+
+\citet{indarte_moral_2023} decomposes the bankruptcy filing response into a moral hazard channel (response to discharge value, analogous to $A$) and a liquidity channel (response to payment burden, analogous to $B$), using two independent identification strategies: a regression kink design exploiting homestead exemption limits for the moral hazard estimate, and an instrumental variable using adjustable-rate mortgage resets for the liquidity estimate. She finds that 83\% of the filing response operates through the liquidity channel and only 17\% through moral hazard. Both estimates are converted to comparable per-dollar units via an NPV adjustment, and the two identification strategies use independent samples ($N \approx 99$ million for the RKD, $N \approx 1$ million for the ARM IV), so the covariance is zero. Applying the sufficient-statistics formula with a seven-year horizon (the median remaining mortgage duration in her sample) yields:
+\[
+\beta_{\text{Indarte}} = 0.78 \quad \text{(s.e.\ 0.03)}.
+\]
+This is the most precisely estimated external application of the formula, with a 95\% confidence interval of $[0.72,\, 0.83]$. The point estimate is remarkably close to the auto loan estimate of $\beta = 0.79$, despite coming from an entirely different population (homeowners at risk of bankruptcy), debt type (mortgages), and identification strategy.
+
+\citet{dobbie_targeted_2020} study credit card borrowers using a randomized experiment and find that delayed interest write-downs improve repayment outcomes while immediate payment reductions do not. Because the payment reduction effect is not statistically significant in any specification, the formula does not produce a well-identified $\beta$ in their setting. This is itself informative: the absence of a measurable short-run payment effect means the identifying variation required by the sufficient-statistics approach is not present in the Dobbie--Song experiment.
+
+\begin{table}[H]
+\centering
+\caption{External Validation: Applying the Sufficient-Statistics Formula to Other Studies}
+\label{tab:external_validation}
+\begin{tabular}{p{3.2cm}p{2.8cm}p{2cm}cccc}
+\toprule
+\textbf{Study} & \textbf{Setting} & \textbf{Identification} & $\boldsymbol{T}$ & $\boldsymbol{\beta}$ & \textbf{SE} & \textbf{Annual Rate} \\
+\midrule
+Auto loans (this paper) & U.S.\ auto loans & Logit & 3.2 & 0.79 & 0.003 & 27\% \\
+\cite{ganong_liquidity_2020} & HAMP mortgages & Two RDs & 5 & 0.76 & 0.30 & 31\% \\
+\cite{indarte_moral_2023} & Household bankruptcy & RKD + ARM IV & 7 & 0.78 & 0.03 & 29\% \\
+\midrule
+\cite{dobbie_targeted_2020} & Credit card debt & RCT & 4 & 0.69 & 0.40 & --- \\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+
+\small Notes: Each row applies the formula $\beta = (A/(A+B))^{1/T}$ to estimates from the indicated study, with standard errors via the delta method. $T$ is the horizon in years. The \cite{indarte_moral_2023} estimates use the 83/17 moral-hazard/liquidity decomposition from her Tables 1 and 3, with the NPV-adjusted coefficients ensuring comparable per-dollar units. The \cite{dobbie_targeted_2020} estimate is excluded from the comparison because the short-run payment coefficient is not statistically significant ($t = 0.33$), producing an uninformative confidence interval.
+\end{table}
+
+
+%==========================================================================
+% SECTION 4: APPLICATION TO AUTO LOAN DATA
+%==========================================================================
+
+\section{Application to Auto Loan Data}\label{sec:autodata}
+
+\subsection{Data}
+
+Auto loans offer an attractive empirical setting: maturities vary substantially, payments are highly salient, and auto loans are one of the most common forms of installment credit, with wide participation across the income distribution. I use a 1\% random sample of U.S.\ credit reports containing over six million auto loans originated across the past decade. Table \ref{tab:loan_summary} summarizes the key variables.
+
+\begin{table}[H]
+    \caption{Summary of Auto Loan Sample}
+    \label{tab:loan_summary}
+    \begin{center}
+    \vspace{-1em}
+    \include{summary_table}
+\end{center}
+\end{table}
+
+The typical repayment horizon is five years (60 months), and the three most popular maturities---36, 60, and 72 months---account for over half of observations. Figure \ref{fig:origination_volume} shows steady origination volumes since 2010.
+
+
+\begin{figure}[H]
+    \centering
+    \caption{Auto Loan Originations Over Time}
+    \label{fig:origination_volume}
+    \includegraphics[width=0.9\textwidth]{../figures/loans_by_archive.pdf}
+    \small Notes: Number of auto loans originated in the 1\% credit bureau sample, plotted by origination year.
+\end{figure}
+
+
+\subsection{Identification}
+
+To estimate $\partial p_1 / \partial m$ and $\partial p_1 / \partial L$, I exploit variation in contractual maturity and loan size across borrowers with the same credit score. The identifying assumption is:
+
+\begin{quote}
+\emph{Conditional on credit score, maturity and loan size are as-if randomly assigned with respect to pre-existing determinants of default.}
+\end{quote}
+
+This assumption is plausible because lenders rely on standardized underwriting algorithms that map credit scores to allowable loan structures. Conditional on score, residual variation in contract terms reflects idiosyncratic factors---dealer negotiations, vehicle choice, down payment size---rather than private information about future default risk. The model explicitly calculates the discount rate under the assumption that the correlation between loan terms and default is entirely due to moral hazard (larger loans cause more default), not adverse selection (worse borrowers select into larger loans).
+
+Several pieces of evidence support this assumption. First, Figure \ref{fig:default_by_terms} shows that the unconditional relationship between maturity and default rate is highly idiosyncratic, with no systematic monotonic pattern. This is consistent with lenders adjusting terms (e.g., requiring larger down payments) to equalize default risk across maturities. Second, even if adverse selection is present, a directional argument favors the identifying assumption: if lenders could privately observe worse credit risks conditional on score, they would offer \emph{smaller} loans, biasing against the observed pattern. Third, if the degree of adverse selection is equal across all maturities, it cancels out in the ratio of Equation \eqref{eq:beta}.
+
+\begin{figure}[H]
+    \centering
+        \caption{Unconditional Default Rate by Maturity}
+    \includegraphics[width=0.8\linewidth]{../figures/default_by_terms.pdf}
+    \label{fig:default_by_terms}
+    \small Notes: Each bar shows the unconditional default rate for auto loans of the given contract maturity. The absence of a monotonic pattern is consistent with lenders adjusting terms to equalize default risk.
+\end{figure}
+
+
+\subsection{Main Results}
+
+Table \ref{tab:default_sens} reports estimates from two logit models of default. Each includes credit-score ventile fixed effects and zipcode-by-month fixed effects, which flexibly absorb borrower risk classification and local economic conditions.
+
+\begin{equation}
+\label{eq:short_run_reg}
+\text{Default}_{i}
+= \beta_{S}\,\log(\text{MonthlyPayment}_{i})
++ \gamma_{v(i)}
++ \delta_{z(i),t(i)}
++ \varepsilon_{i}
+\end{equation}
+
+\begin{equation}
+\label{eq:long_run_reg}
+\text{Default}_{i}
+= \beta_{L}\,\log(\text{TotalPayments}_{i})
++ \gamma_{v(i)}
++ \delta_{z(i),t(i)}
++ \varepsilon_{i}
+\end{equation}
+
+The short-run coefficient $\beta_S = 0.50$ (s.e.\ 0.008) and the long-run coefficient $\beta_L = 0.43$ (s.e.\ 0.006). Both are large and precisely estimated. The somewhat larger short-run coefficient indicates that current payment obligations exert a slightly stronger influence on default than total debt---the signature of impatience.
+
+
+\begin{table}[H]
+    \caption{Default Sensitivity to Short-Run and Long-Run Payment Obligations}
+    \label{tab:default_sens}
+    \begin{center}
+    \vspace{-1em}
+\begin{tabular}{lcc}
+   \tabularnewline \midrule \midrule
+   Dependent Variable: & \multicolumn{2}{c}{Default}\\
+   Model:                      & (1)            & (2)\\
+   \midrule
+   \emph{Variables}\\
+   log(Monthly Payment) & 0.5000$^{***}$ &   \\
+                               & (0.0083)       &   \\
+   log(Total Payments)        &                & 0.4283$^{***}$\\
+                               &                & (0.0058)\\
+   \midrule
+   \emph{Fixed-effects}\\
+   Score Ventile   & Yes            & Yes\\
+   Zip Code $\times$ Month       & Yes            & Yes\\
+   \midrule
+   \emph{Fit statistics}\\
+   Observations                & 1,434,210      & 1,434,208\\
+   Squared Correlation         & 0.37087        & 0.37278\\
+   Pseudo R$^2$                & 0.37593        & 0.37766\\
+   BIC                         & 3,423,797.9    & 3,421,505.8\\
+   \midrule \midrule
+   \multicolumn{3}{l}{\emph{IID standard-errors in parentheses}}\\
+   \multicolumn{3}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\end{center}
+\end{table}
+
+
+Applying the sufficient-statistics formula \eqref{eq:betaformula}:
+
+\begin{table}[H]
+\centering
+\caption{Sufficient-Statistics Estimate of the Discount Factor $\beta$}
+\label{tab:delta_method_inputs}
+\begin{tabular}{lccp{7cm}}
+\toprule
+\textbf{Variable} & \textbf{Estimate} & \textbf{Std.\ Error} & \textbf{Description} \\
+\midrule
+$\dfrac{\partial p_{1}}{\partial m}$ & 0.500 & 0.008 & Sensitivity of default to monthly payment \\[6pt]
+$\dfrac{\partial p_{1}}{\partial L}$ & 0.428 & 0.006 & Sensitivity of default to total payments \\[6pt]
+$T$ & 3.223 & 0.004 & Horizon: years between average default and maturity \\
+\midrule
+$\beta$ & 0.787 & 0.003 & Annual discount factor: $\displaystyle\left(\frac{\partial p_{1}/\partial L}{\partial p_{1}/\partial L + \partial p_{1}/\partial m}\right)^{1/T}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The estimated annual discount factor is $\beta = 0.787$ (s.e.\ 0.003), implying that the average auto loan borrower values a dollar next year at only 79 cents relative to a dollar today. The equivalent annual discount rate is approximately 27\%. The marginal-utility correction of Appendix \ref{appendix:mucorrection} leaves this estimate essentially unchanged at the persistence measured in the panel ($\rho = 0.992$; $\lambda = 1.00$); under the lower persistence values estimated in the earnings literature the corrected rate falls no further than 25\% ($\beta = 0.80$). Because any common value of the correction rescales every subgroup identically, the cross-sectional comparisons that follow are invariant to it.
+
+Two decomposition results establish that the estimate measures default behavior rather than the annualization clock. First, the level verdict does not depend on the horizon estimate $T$: the measured sensitivity ratio is $R = 0.465$ over the default-to-maturity horizon, and consistency with the macroeconomic benchmark $\beta = 0.96$ would require $T = \ln R / \ln 0.96 = 18.8$ years---on loans that last five. A generous 20\% error in $T$ moves the implied annual rate from 27\% only to 22\%. Second, decomposing the cross-sectional variation in Section \ref{sec:heterogeneity} into the contribution of the sensitivity ratio $R$ and the contribution of the horizon $T$, the sensitivity ratio accounts for 84\% of the variance in log discount factors across the 142 geographic clusters (89\% across state-cycle cells) and reproduces the cross-group ranking with rank correlation $0.97$; the horizon contributes 2\%. The heterogeneity this paper reports is variation in how default responds to payments and obligations, not variation in loan timing.
+
+
+
+%==========================================================================
+% SECTION 5: HETEROGENEITY
+%==========================================================================
+
+\subsection{Is It Liquidity?}\label{sec:liquidity}
+
+The model cannot rule out liquidity constraints or high expected income growth as drivers of low measured discount factors;\footnote{Nor can the estimator itself: Appendix \ref{appendix:mcliquidity} reports a Monte Carlo exercise in which economies with entirely liquidity-driven default produce estimated discount factors near the empirical value rather than near zero, because total obligations load mechanically on the payment that liquidity-driven default does respond to. The same exercise shows the converse discipline: across simulated economies spanning true discount factors from $0.55$ to $0.99$ and liquidity shares up to one half---each calibrated to the empirical default rate---no combination of patient preferences and admissible contamination produces an estimate as low as the one measured.} rather, the evidence that the estimates reflect impatient preferences is quantitative, and this subsection assembles it. For mortgages, \citet{ganong_liquidity_2020} find that most defaults follow cash-flow shocks; if binding liquidity constraints drove default here, the sensitivity ratio would measure desperation rather than discounting. Liquidity constraints fail to predict three features of the data, expectations of income growth fail as an explanation for three reasons, and the quantitative adjustments both channels admit are small; the four diagnostics below carry the argument, and the closing paragraph states the magnitudes.
+
+\emph{First, auto default is overwhelmingly a portfolio choice.} Among 2.46 million auto defaulters holding other open, clean tradelines at the time of default, 65 percent are still actively making payments on at least one other account six months \emph{after} the auto chargeoff (they hold 10.7 other tradelines on average), and only 1.6 percent default on every account. Money continued to flow to other creditors through the event. The only form of the objection that undermines revealed preference---total cash-flow collapse---is bounded between 1.6 and roughly 35 percent of defaults.
+
+\emph{Second, the estimates do not track liquidity shocks.} Sorting loans within origination year into terciles of the change in state unemployment over the loan's first eighteen months, the estimated discount factor is flat: $0.774$, $0.786$, and $0.789$ from the mildest to the most severe exposure. If the estimates repackaged liquidity shocks, this gradient would be steep. (Loans originated in recession years do show lower estimates, $0.731$ against $0.792$; that comparison confounds borrower composition and is not assigned an interpretation.)
+
+\emph{Third, the within-person schedule is inconsistent with a binding budget constraint as the driver.} A liquidity constraint binds at the person-month---one budget---while Section \ref{sec:termstructure} shows the same borrower simultaneously revealing an annual rate near 29 percent on the personal-loan margin, 12 percent on the auto margin, and 1 percent on the mortgage margin. Inability to pay pushes every obligation toward default together; margin-specific, horizon-ordered revealed rates are the structure of choice, not of collapse.
+
+\emph{Fourth, the measured persistence of distress closes the remaining theoretical channel.} Delinquency spells at the default margin cure at a rate of $0.26$ percent per quarter (annualized persistence $0.992$; Appendix \ref{appendix:measuredrho}). Liquidity narratives built on transitory shocks contradict this permanence directly, and permanent-state narratives operate through marginal utility---precisely the correction $\lambda$, which at the measured persistence equals one.
+
+Quantitatively, the two channels admit only small adjustments. Correcting the sufficient-statistics formula for the income process measured in the panel changes the average $\beta$ by less than $0.01$ (the annual rate moves from 27 percent to no less than 25 percent under any admissible calibration; Appendix \ref{appendix:mucorrection}), and the borrowing-rate lower bounds of Section \ref{sec:lowerbounds}---whose bias runs in the opposite direction---independently place annual discount rates above 16--20 percent. What survives is the narrow claim that some share of defaults are true cash-flow collapses, bounded above by roughly 35 percent. The simulation harness shows that this residual cannot manufacture the headline estimate: across preference calibrations spanning $\beta = 0.55$ to $0.99$, contamination at the ceiling share depresses the estimated discount factor by at most five points, and no simulated combination of patience and contamination---including contamination of half of all defaults---produces an estimate as impatient as the one measured, because the simulated estimator attenuates toward patience in every world it is given. Within the examined model class, the measured impatience requires genuine preference-side impatience.
+
+\section{Heterogeneity in Estimated Discount Factors}\label{sec:heterogeneity}
+
+The estimates in this section vary the sufficient statistic across observable subgroups. A preliminary decomposition disciplines their interpretation: across geographic clusters and state-cycle cells, 84--89\% of the cross-group variance in log discount factors is attributable to the default-sensitivity ratio $R$ alone, with rankings reproduced at rank correlation $0.97$ when the annualization horizon is held fixed at its common mean. The maps and gradients below therefore reflect differences in default behavior itself.
+
+The preceding section establishes steep average impatience. But the distribution of $\beta$ is at least as important as its mean. This section estimates $\beta$ separately by credit score ventile, income ventile, and U.S.\ state. For each subgroup, I re-estimate the two logit models, recompute the sensitivity ratio, and obtain $\beta$ with delta-method standard errors.
+
+Before turning to the subgroup estimates, it is worth stating exactly what the pooled estimate of the previous section measures when the population is heterogeneous. Appendix \ref{appendix:aggregation} shows (Proposition \ref{prop:aggT}) that the pooled statistic is, exactly, a weighted average of type-level statistics, $\hat\beta = \sum_i \omega_i s_i \beta_i^{stat} / \sum_i \omega_i s_i$, with weights equal to each type's total default sensitivity $s_i = f_i(y_i^*)\, u_i'(C_1^{P*})/[u_i'(C_1^{P*}) - u_i'(C_1^{N*})]$: the mass of the type's members at its default margin, scaled by the responsiveness of its marginal defaulter. The pooled $\hat\beta$ is therefore always bounded by the smallest and largest type-level values---aggregation cannot manufacture a number outside the convex hull of group discount factors---and it upweights groups that sit near the default margin, in the same way that instrumental-variable estimates weight compliers. Numerical verification and magnitudes are in Appendix \ref{appendix:aggregation}; in two-type calibrations the wedge between the pooled statistic and the population-weighted mean is at most about $0.01$. Two implications follow for this section. First, the subgroup estimates below are the primitive objects, and the full-sample number is their sensitivity-weighted mean rather than a population mean. Second, because the weights favor households at the margin of default, the pooled estimate is the discount factor of precisely the population whose behavior default-related policy operates on.
+
+\begin{figure}[H]
+    \centering
+    \caption{Estimated $\beta$ by Credit Score Ventile}
+    \includegraphics[width=0.9\textwidth]{../figures/heterogeneity_score.pdf}
+    \label{fig:score_heterogeneity}
+    \small Notes: Error bars show $\pm 2$ standard errors. The discount factor is nearly flat across credit scores, with wide error bars in upper ventiles reflecting few defaults.
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \caption{Estimated $\beta$ by Income Ventile}
+    \includegraphics[width=0.9\textwidth]{../figures/heterogeneity_income.pdf}
+    \label{fig:income_heterogeneity}
+    \small Notes: Error bars show $\pm 2$ standard errors. Low-income borrowers are substantially more impatient.
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Estimated $\beta$ by State}
+    \includegraphics[width=0.95\textwidth]{../figures/heterogeneity_state.pdf}
+    \label{fig:state_heterogeneity}
+\end{figure}
+
+
+\begin{table}[H]
+\centering
+\caption{State-Level Discount Factor Estimates}
+\label{tab:state_betas}
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\input{state_beta_table_left.tex}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\input{state_beta_table_right.tex}
+\end{minipage}
+\end{table}
+
+Three patterns emerge. First, the estimated discount factor is \textbf{nearly flat across credit scores} (Figure \ref{fig:score_heterogeneity}). Despite the enormous variation in default rates across scores, the intertemporal preference parameter shows no systematic gradient. This implies that the well-established correlation between low credit scores and high default rates cannot be attributed to impatience. Other forces---income volatility, thin financial buffers, or differing nonpecuniary costs of default---must drive the score--default relationship.
+
+Second, $\beta$ \textbf{rises sharply with income} (Figure \ref{fig:income_heterogeneity}). Low-income borrowers have substantially lower $\beta$, consistent with greater impatience. This gradient is statistically significant---the difference between the first and third income ventiles can be rejected at conventional levels. The pattern is consistent with tighter liquidity constraints, higher exposure to income shocks, and higher marginal utility of current consumption among low-income households.
+
+Third, there is \textbf{meaningful geographic variation} (Figure \ref{fig:state_heterogeneity}, Table \ref{tab:state_betas}), with state-level estimates spanning a range of roughly 0.10 in $\beta$.
+
+In the upper credit-score ventiles, the error bands on $\beta$ are extremely wide. This is not a defect of the method but a feature: high-score borrowers rarely default, so the sensitivity of default to payment structure is imprecisely estimated. For these populations, default-based identification is unnecessary---their credit is not rationed, and their marginal borrowing rates directly reveal their discount rates.
+
+
+
+%==========================================================================
+% SECTION 6: COMPARISON WITH PRIOR ESTIMATES
+%==========================================================================
+
+\section{A Term Structure of Revealed Discount Rates}\label{sec:termstructure}
+
+The framework so far reports one point on each borrower's discount curve: the annual rate implied by the single horizon a contract offers. Appendix \ref{appendix:multiperiod} shows that responses at multiple horizons identify the discount function itself (Proposition \ref{prop:curveT}), and notes that the ideal per-horizon payment experiment has not been run. Different loan products, however, supply different horizons: extending the estimator to the major fixed-term consumer debt families in the same credit-bureau panel prices the default margin at maturities from under two years to nearly two decades.
+
+Applying the identical estimator with a uniformly-defined default cost to each family yields a steeply declining term structure of revealed annual discount rates: approximately 31\% for personal installment loans (mean default-to-maturity horizon 1.7 years), 12\% for auto loans (3.0 years), and 1--1.5\% for home-equity loans and first mortgages (17 years).\footnote{These family-level estimates use the aggregate sensitivity-ratio variant of the estimator with the default cost defined identically (the outstanding balance at default) in every family, so that cross-family comparisons hold the cost measurement fixed. The auto-loan value under this variant (12\%) sits below the baseline logit estimate (27\%); the two variants differ in weighting and are not interchangeable across tables.} Selection across products does not drive the pattern: among borrowers who hold both contract types, the same person's revealed annual rate is 28.9\% on the personal-loan margin against 12.0\% on the auto margin, and 11.4\% on the auto margin against 1.0\% on the mortgage margin.
+
+Because two measured horizons point-identify quasi-hyperbolic preferences (Corollary \ref{cor:betadeltaT}), the dual-holder estimates also deliver the schedule's two-parameter summary. Writing $D(t) = \beta_{pb}\,\delta^{t}$ and inverting the pair of horizon factors yields $\beta_{pb} = 0.71$ with $\delta = 1.01$ from the auto--mortgage margins, and $\beta_{pb} = 0.55$ with $\delta = 1.09$ from the auto--personal-loan margins: a large present-bias wedge set against long-run discounting statistically indistinguishable from zero ($\delta$ estimates marginally above one reflect the measurement burden in long-horizon $T$ and are not interpreted as negative long-run rates). Under this summary, the population object that heterogeneity analysis should target is the joint distribution of $(\beta_{pb}, \delta)$; estimating it at the group level from two family margins per cell is the natural extension of Section \ref{sec:heterogeneity} and is left for the full panel.
+
+\begin{figure}[ht!]
+\centering
+\caption{The revealed discount curve, traced across loan families}
+\label{fig:termstructure}
+\includegraphics[width=0.92\textwidth]{fig_term_structure.pdf}
+\vspace{-0.4em}
+\begin{minipage}{0.92\textwidth}
+\noindent \small \uline{Notes:} Each bar is the annualized revealed discount rate from applying the sufficient-statistics estimator to one fixed-term loan family, plotted at the family's mean default-to-maturity horizon (log scale); the default cost is defined identically (outstanding balance at default) in every family. The measured sensitivity ratio $R$ is printed beneath each bar. Hollow markers are the within-person estimates from borrowers holding both contract types. The dashed line is the quasi-hyperbolic discount function $D(t) = \beta_{pb}\delta^{t}$ fitted to the four family points ($\beta_{pb} = 0.66$, $\delta = 1.01$); the estimates trace it point by point. Replication: \texttt{Code/fig\_term\_structure.R} from \texttt{results/consequence\_norm\_beta.csv} and \texttt{results/within\_person\_beta.csv}.
+\end{minipage}
+\end{figure}
+
+A declining term structure is the signature of non-exponential discounting (Figure \ref{fig:termstructure}): short-horizon tradeoffs are priced at rates an order of magnitude steeper than long-horizon ones, within the same borrower, at market stakes. This is the pattern that quasi-hyperbolic and related present-biased specifications were built to describe \citep{laibson_estimating_2024}, measured here from field behavior rather than elicitation. Two caveats discipline the interpretation. First, horizon and stakes co-move across contract families---mortgages are both the longest and the largest obligations---so the declining schedule is also consistent with attention that scales with consequence; both readings reject a single constant discount rate, and separating them requires within-family variation in horizon at fixed loan size, which the auto data can support and is left for the estimation on the full panel. Second, the long-horizon estimates inherit the heaviest measurement burden in the default-to-maturity horizon, and the sensitivity ratio $R$ is reported alongside every annualized figure so the measurement and the clock can be read separately.
+
+\section{Comparison with Prior Estimates}\label{sec:comparison}
+
+Table \ref{tab:comparison} places the estimates from this paper alongside prior discount rate estimates from the literature. Despite using fundamentally different methods, populations, and identification strategies, a consistent picture emerges: households who borrow and default---as opposed to the wealthy households who price financial assets---exhibit discount rates far steeper than standard calibrations assume.
+
+\begin{table}[H]
+\centering
+\caption{Discount Rate Estimates Across Studies}
+\label{tab:comparison}
+\begin{tabular}{p{4cm}p{3.5cm}p{2.5cm}cc}
+\toprule
+\textbf{Study} & \textbf{Method} & \textbf{Population} & $\boldsymbol{\beta}$ & \textbf{Annual Rate} \\
+\midrule
+\multicolumn{5}{l}{\emph{This paper}} \\
+Auto loans (full sample) & Sufficient statistics & U.S.\ auto borrowers & 0.79 & 27\% \\
+Auto loans (bottom income quintile) & Sufficient statistics & Low-income borrowers & $<$0.70 & $>$43\% \\
+SCF lower bounds (median) & Max borrowing rate & U.S.\ households & $\leq$0.91 & $\geq$9\% \\
+\midrule
+\multicolumn{5}{l}{\emph{Quasi-experimental (sufficient statistics applied to published estimates)}} \\
+\cite{ganong_liquidity_2020} & RD (HAMP mortgages) & Distressed mortgagors & 0.76 & 32\% \\
+\cite{indarte_moral_2023} & RKD + ARM IV (bankruptcy) & Homeowners at risk & 0.78 & 29\% \\
+\cite{ganong_consumer_2019} & Structural estimation & General consumers & 0.52--0.94 & 6--92\% \\
+\midrule
+\multicolumn{5}{l}{\emph{Laboratory experiments}} \\
+\cite{harrison_estimating_2002} & Field experiment & Danish adults & 0.72 & 28\% \\
+\cite{coller_eliciting_1999} & Lab experiment & U.S.\ students & 0.83 & 20\% \\
+\cite{laibson_estimating_2024} & Meta-analysis & Various & 0.50--0.85 & 18--100\% \\
+\cite{cohen_measuring_2020} & Survey of 112 studies & Various & 0.82 (median) & 22\% (median) \\
+\midrule
+\multicolumn{5}{l}{\emph{Asset market calibrations}} \\
+Standard macro calibration & Euler equation & Rep.\ agent & 0.96 & 4\% \\
+\cite{di_tella_zero-beta_2024} & Zero-beta portfolio & Marginal investor & 0.92 & 8\% \\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+
+\small Notes: $\beta$ denotes the annual discount factor. Annual rate is $(1/\beta - 1) \times 100$. Estimates from \cite{ganong_liquidity_2020}, \cite{indarte_moral_2023}, and \cite{dobbie_targeted_2020} are computed by applying the sufficient-statistics formula of this paper to their reported comparative statics. The \cite{indarte_moral_2023} estimate uses the 83/17 moral-hazard/liquidity decomposition of bankruptcy filing (Tables 1 and 3), with NPV-adjusted coefficients ensuring comparable per-dollar units; $T = 7$ years (median remaining mortgage duration). Estimates from \cite{ganong_consumer_2019} reflect the range between their estimated ``low-$\beta$'' and ``high-$\beta$'' types. Laboratory estimates from \cite{laibson_estimating_2024} reflect the range of hyperbolic ($\beta,\delta$) estimates across multiple studies. The \cite{cohen_measuring_2020} row reports the median and mean across 112 point estimates extracted from 222 studies surveyed in that paper; 131 of those studies are lab-based and only 24 use publicly available data.
+\end{table}
+
+The estimates from this paper fall in the range implied by quasi-experimental studies and field experiments, and are far from the $\beta \approx 0.96$ of standard macro calibrations. The close agreement between the auto loan estimate ($\beta = 0.79$), the Ganong--Noel HAMP estimate ($\beta = 0.76$), and the Indarte bankruptcy estimate ($\beta = 0.78$) is particularly striking: three different populations (auto borrowers, distressed mortgagors, homeowners at risk of bankruptcy), three different debt types (auto loans, modified mortgages, dischargeable debt), and three fundamentally different identification strategies (logit on administrative data, regression discontinuity, and regression kink design combined with an ARM instrumental variable) all recover annual discount factors in the range $0.76$--$0.79$, implying annual discount rates of 27--32\%.
+
+Figure \ref{fig:cohen_hist} places this paper's estimate in the context of the 112 point estimates cataloged by \cite{cohen_measuring_2020}. The median prior estimate is 22\% per year (implied $\beta = 0.82$), close to this paper's estimate of 27\% ($\beta = 0.79$). The consistency across methods---sufficient statistics applied to administrative data, regression discontinuities, randomized experiments, and laboratory elicitations---suggests that high discount rates among borrowing populations are a regularity, not an artifact of any single identification strategy. The contribution of this paper relative to most prior estimates is that it uses large-stakes revealed preference from administrative records at population scale, rather than small-sample laboratory or survey elicitations.
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribution of Discount Rate Estimates Across 112 Prior Studies}
+    \includegraphics[width=0.85\textwidth]{../figures/cohen_histogram.pdf}
+    \label{fig:cohen_hist}
+    \small Notes: The histogram shows the distribution of annual subjective discount rate point estimates extracted from the 222-paper survey in \cite{cohen_measuring_2020}. The dashed line marks this paper's estimate ($\beta = 0.79$, SDR $= 27\%$). The dotted line marks the median of prior estimates (22\%).
+\end{figure}
+
+
+
+%==========================================================================
+% SECTION 7: LOWER BOUNDS FROM BORROWING RATES
+%==========================================================================
+
+\section{Lower Bounds from Observed Borrowing Rates}\label{sec:lowerbounds}
+
+One might object that the discount rates estimated in the preceding sections are too high to be consistent with any kind of intertemporal optimization. This section provides a complementary and independent line of evidence showing that they are not. The bounds developed here also do double duty: because their bias runs opposite to the marginal-utility correction of Appendix \ref{appendix:mucorrection}, the two methodologies bracket annual discount rates from both sides, confining them to roughly the 20--27\% range under any admissible calibration. Using the interest rates at which households actually borrow as revealed-preference lower bounds on their discount rates, and adjusting for consumption-smoothing demand with a calibrated life-cycle income model, I show that the implied lower bounds on impatience are broadly consistent with the sufficient-statistics estimates. This approach requires only that each household holds debt---a far weaker data requirement---and is subject to orthogonal identification concerns.
+
+\subsection{Borrowing Rates as Lower Bounds}
+
+The key assumption is that households face an upward-sloping credit supply curve and accept offers to borrow at progressively higher rates until the offered rate exceeds their true discount rate. Because credit products are discrete, the highest observed borrowing rate lies weakly below the true discount rate. Figure \ref{fig:illustration} illustrates the logic schematically.
+
+\begin{figure}[H]
+  \begin{center}
+    \caption{Illustration of Lower Bound Approach} \label{fig:illustration}
+    \includegraphics[width=\textwidth]{Unobserved discount rate chart.pdf}
+  \end{center}
+  \noindent \small \uline{Notes: } This schematic illustrates the framework for interpreting observed borrowing rates as lower bounds on discount rates. Because credit supply is upward sloping and products are discrete, the true discount rate lies at or above the highest observed borrowing rate.
+\end{figure}
+
+For each household in the SCF, I calculate the maximum interest rate on debt that is both currently being repaid and actively accruing interest---excluding, for example, the 67\% of student loans currently in forbearance or deferment and any debt with a promotional 0\% rate. I include credit card debt, as it is the marginal credit product for most households at short horizons. Figure \ref{fig:4} shows these distributions.
+
+\begin{figure}[H]
+  \begin{center}
+    \caption{Distribution of Maximum Interest Rate per Household} \label{fig:4}
+    \includegraphics[width=0.49\textwidth]{../figures/figure_4.pdf}
+    \includegraphics[width=0.49\textwidth]{../figures/figure_4b.pdf}
+  \end{center}
+  \noindent \small \uline{Notes: }  Panel A includes credit card debt; Panel B excludes it. The highest interest rate on debt currently accruing interest is shown. 86\% of Americans pay interest on debt.
+\end{figure}
+
+The modal maximum borrowing rate is 18\%---the dominant default credit card rate, a legacy of state usury laws (\cite{hall_credit_2024}). Even excluding credit cards, over 25\% of households borrow above the 5\% treasury rate.
+
+
+\subsection{Motivating Evidence: Why Asset Prices Are Uninformative About Most Households}
+
+Asset prices correctly identify the discount factor of the \emph{marginal} investor. But the marginal investor is far from typical. Figure \ref{fig:figure_1} shows that only 12\% of households hold any risk-free financial assets, with the top 1\% holding 75\%. Figure \ref{fig:figure_2} shows the full distribution of financial assets: the bottom third holds nothing, and the top 1\% holds 47\% of all financial assets. If impatience is negatively correlated with wealth, as is natural to assume, then the marginal investor will be far more patient than the median household. Asset prices reveal her preferences, not theirs.
+
+\begin{figure}[H]
+    \centering
+    \caption{Risk-Free Asset Holdings Across the Distribution}
+    \label{fig:figure_1}
+    \includegraphics[width=0.9\textwidth]{../figures/figure_1.pdf}
+    \captionsetup{justification=justified}
+    \small Notes: SCF households sorted by percentile of total financial assets (scaled by survey weights). The y-axis reports average holdings within percentile bins.
+\end{figure}
+
+
+\begin{figure}[H]
+    \begin{center}
+        \caption{Distribution of All Financial Assets by Type}
+    \label{fig:figure_2}
+    \includegraphics[width=0.9\textwidth]{../figures/figure_2.pdf}
+    \end{center}
+    \small Notes: Assets are classified as risk-free, investment, or other. The bottom third holds no financial assets. The top 1\% holds 47\% of all financial assets.
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \caption{Liabilities Across the Asset Distribution}
+    \label{fig:figure_3}
+    \includegraphics[width=0.9\textwidth]{../figures/figure_3b.pdf}
+    \end{center}
+    \small Notes: Same percentile ranks as above, but the y-axis shows average liabilities. Mortgage debt is widespread through the middle; unsecured debts cluster at the bottom.
+\end{figure}
+
+The contrast between Figures \ref{fig:figure_2} and \ref{fig:figure_3} motivates the paper's core approach: the relevant revealed-preference margin for most households lies on the \emph{liability} side of their balance sheets. Credit, not investment, is the domain in which they express intertemporal tradeoffs.
+
+
+\subsection{From Interest Rates to Discount Rates: Adjusting for Consumption Smoothing}\label{sec:lifecycle}
+
+Observed borrowing rates are lower bounds on $r$, the household's intertemporal demand---not on $\beta$, the pure impatience parameter. The Euler equation decomposes these:
+
+\begin{equation}\label{eq:beta_of_r}
+    \underbrace{r}_{\text{intertemporal demand}} = \underbrace{-\log(\beta)}_{\text{impatience}}  + \underbrace{\log E_t\left[U'\left(C_{t+1}\right)\right] - \log U'\left(C_t\right)}_{\text{consumption-smoothing demand}}
+\end{equation}
+
+A household may borrow at high rates not because it is impatient, but because it expects income to grow.\footnote{Steinbeck's diagnosis of why Depression-era America produced so few self-described proletarians makes the same point about expectations: ``Everyone was a temporarily embarrassed capitalist'' \citep{steinbeck_primer_1960}. The more commonly quoted ``temporarily embarrassed millionaires'' is a later paraphrase \citep{wright_short_2004}.} To assess this, I calibrate the life-cycle income model of \cite{guvenen_what_2021} to each SCF household, using their age, current income, and employment status to project expected income growth at 1, 5, and 10-year horizons.
+
+The model produces reasonable estimates: implied income growth expectations correlate with households' subjective reports of optimism (Table \ref{tab:3}).
+
+\begin{table}[H]
+\begin{center}
+\caption{Model-Implied Income Growth by Subjective Optimism} \label{tab:3}
+\begin{tabular}{ccc}
+    Optimism & $E[\Delta L_{t+1}]$ & N\\
+  \hline
+  $>$Inflation & 0.032 & 2,900 \\
+  $=$Inflation & 0.028 & 5,561 \\
+  $<$Inflation & 0.027 & 4,609 \\
+  \hline
+\end{tabular}
+\end{center}
+\small Notes: Optimism is from SCF question x7364. $\Delta L_{t+1} \equiv \log L_{t+1} - \log L_t$.
+\end{table}
+
+However, income growth expectations explain almost none of the variation in borrowing rates. Table \ref{tab:4} reports regressions of maximum borrowing rates on model-implied expected income growth and subjective optimism. The $R^2$ is below 2\% in all specifications.
+
+\begin{table}[H]
+    \caption{Income Growth Expectations and Borrowing Rates}
+    \label{tab:4}
+    \begin{center}
+    \vspace{-1em}
+\begin{tabular}{lcccc}
+   \midrule \midrule
+   \emph{Variables} & max($r$)   & max($r$ ex cards)    & max($r$)   & max($r$ ex cards)\\
+   $E[\Delta L_{t+1}]$           & 43.44$^{***}$          & $-$27.06$^{***}$          & 17.75$^{***}$          & $-$7.612$^{***}$\\
+                        & (8.940)                & (4.896)                 & (3.415)                & (2.517)\\
+   Optimism             & $-$0.104                & 0.035                  & $-$0.074                & 0.089\\
+                        & (0.259)               & (0.229)                & (0.106)               & (0.078)\\
+   Constant             &                        &                         & 14.48$^{***}$          & 4.585$^{***}$\\
+                        &                        &                         & (0.264)               & (0.195)\\
+   \midrule
+   \emph{Fixed-effects}\\
+   Age                  & Yes                    & Yes                     &        No                & No\\
+   \midrule
+   \emph{Fit statistics}\\
+   Observations         & 13,069                 & 13,069                  & 13,069                 & 13,069\\
+   R$^2$                & 0.019                & 0.022                 & 0.002                & 0.001\\
+   \midrule \midrule
+   \multicolumn{5}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\end{center}
+\end{table}
+
+This is a key result. Under CRRA utility, the Euler equation implies $r = -\log\beta + \gamma \cdot E_t[\Delta \log C_{t+1}]$, so the coefficient on expected income growth in a regression of borrowing rates should equal $\gamma$.\footnote{This specification assumes log utility ($\gamma = 1$) when entering expected income growth linearly. More generally, with $\gamma \neq 1$, the coefficient should equal $\gamma$, and the $R^2$ should be correspondingly higher for any reasonable $\gamma$. For $\gamma$ up to 5 or even 10, the consumption-smoothing term remains far too small to rationalize the observed borrowing rates.} Instead, the $R^2$ is negligible, and the estimated coefficients are either wrong-signed (excluding credit cards) or implausibly large (including credit cards). Heterogeneity in \emph{impatience}, not in \emph{income expectations}, is the dominant source of variation in household borrowing rates. Subjective optimism, controlling for model-implied objective expectations, adds no explanatory power.
+
+Using the life-cycle model to adjust for consumption smoothing under hand-to-mouth consumption with $\gamma = 1.9$ (\cite{laibson_estimating_2024}), the median implied upper bound on $\beta$ is 0.91 (Figure \ref{fig:8}), indicating at least 9\% annual discounting. This estimate is conservative: even with $\gamma = 5$, which is at the upper end of estimates considered reasonable in the literature, the implied upper bound on $\beta$ remains below 0.95 for most households. Approximately 2\% of households have implied $\beta$ below 0.75, indicating at least 25\% annual discounting.
+
+\begin{figure}[H]
+  \begin{center}
+    \caption{Distribution of Implied Upper Bounds on $\beta$} \label{fig:8}
+    \includegraphics[width=\textwidth]{../figures/figure_8.pdf}
+  \end{center}
+  \noindent \small \uline{Notes: } Upper-bound $\beta$s calculated using Equation \eqref{eq:beta_of_r} with $\gamma=1.9$.
+\end{figure}
+
+
+
+%==========================================================================
+% SECTION 8: DISCUSSION
+%==========================================================================
+
+\section{Discussion}\label{sec:discussion}
+
+\subsection{What Does $\beta$ Capture?}\label{sec:whatbeta}
+
+The sufficient-statistics estimate of $\beta = 0.79$ is a revealed-preference object, not a primitive preference parameter. Several forces are subsumed within it:
+
+\begin{enumerate}
+    \item \textbf{Pure time preference}: the intrinsic rate at which the household discounts future utility.
+    \item \textbf{Liquidity concerns}: households facing binding liquidity constraints will behave as if more impatient, even if their underlying time preference is moderate.
+    \item \textbf{Probability distortions}: if borrowers overweight the likelihood of favorable future income realizations, they will default less strategically than their true discount rate would predict.
+    \item \textbf{Beliefs about future income}: pessimism about future earnings would inflate the effective discount rate by reducing the perceived benefit of continued repayment.
+    \item \textbf{Dynamic exclusion costs}: if the perceived cost of default ($\sigma$) is lower than assumed---for example, because borrowers underestimate credit-market exclusion---the estimated $\beta$ will be biased downward.
+\end{enumerate}
+
+This conflation may be a feature rather than a defect. The paper's goal is revealed-preference measurement: what \emph{effective} rate do households discount the future at, as revealed by their behavior? For many applications in public finance and credit policy, this reduced-form object is precisely the relevant one. A government evaluating whether short-term payment relief will prevent default does not need to decompose $\beta$ into its constituent channels---it needs to know how borrowers actually trade off present and future.
+
+That said, the decomposition matters for normative analysis. If a low $\beta$ reflects liquidity constraints rather than preferences, then policies that relax those constraints (emergency savings programs, income insurance) could raise effective patience without changing underlying preferences. Separating these channels requires additional variation---for example, exogenous shifts in liquidity holding income constant, or experimental manipulation of beliefs about future income.
+
+The evidence in this paper provides some guidance. The finding that $\beta$ varies sharply with income but not with credit score is more consistent with liquidity-driven impatience than with a purely taste-based explanation: income determines the tightness of constraints, while credit score (conditional on income) captures historical repayment behavior and risk characteristics.
+
+\subsection{Rate of Time Preference vs.\ Discount Rate}
+
+It is important to distinguish between two related but distinct objects. The \emph{rate of time preference} is a primitive preference parameter governing how individuals intrinsically value present versus future utility. The \emph{discount rate} is the rate at which individuals actually discount the future, reflecting both time preference and the economic environment (liquidity constraints, income expectations, uncertainty). The estimates in this paper identify the latter. The former requires additional structural assumptions or variation to recover.
+
+\subsection{Extensions: Non-Time-Separable Utility}\label{sec:ezkp}
+
+The baseline model assumes time-separable utility. In the Epstein-Zin-Kreps-Porteus (EZKP) framework, utility is:
+
+\begin{equation}
+    U_t = \{ (1-\beta)C_t^{1-\frac{1}{\psi}}  + \beta \left(E_t U_{t+1}^{1-\gamma}\right)^{\frac{1 - \frac{1}{\psi}}{1-\gamma}}\}^{\frac{1}{1-\frac{1}{\psi}}}
+\end{equation}
+
+Under lognormal assumptions, the risk-free rate becomes:
+$$r_{f} = -\log \beta + \frac{1}{\psi}E_t\left[\Delta \log c_{t+1}\right] - \frac{\theta}{2\psi^2}\sigma_c^2 + \frac{\theta-1}{2}\sigma^2_w$$
+
+The main effect is that the expected-income-growth term is now scaled by $1/\psi$ (the inverse IES) rather than $\gamma$ (risk aversion). To assess robustness, consider the range of values for $1/\psi$ that the literature considers reasonable. Even among advocates of EZKP preferences, estimates of $\psi$ cluster between $2/3$ and $2$ (\cite{epstein_substitution_1991}; \cite{bansal_risks_2004}), implying $1/\psi \in [0.5, 1.5]$. For a household borrowing at 20\% per year, even with $1/\psi = 1.5$ and expected consumption growth of 3\% per year, the implied $\beta$ is at most $\exp(-(0.20 - 1.5 \times 0.03)) \approx 0.86$---still far below standard calibrations. The consumption growth required to rationalize a 20\% borrowing rate with $\beta = 0.96$ would be $(0.20 + \log(0.96))/1.5 \approx 16\%$ per year, which is implausible for any sustained period. Since the $R^2$ of income growth in explaining borrowing rates is negligible (Table \ref{tab:4}), this adjustment has minimal quantitative impact on the estimates.
+
+
+%==========================================================================
+% SECTION 9: CONCLUSION
+%==========================================================================
+
+\section{Conclusion}\label{sec:conclusion}
+
+This paper develops and applies a new method for measuring household discount rates. The key intellectual move is to replace ``marginal willingness to save''---the traditional identifying variation from asset markets---with ``marginal willingness to avoid default.'' In an endogenous default model, the relative sensitivity of default to short-run versus long-run payment obligations is a sufficient statistic for the discount factor. The identifying identity requires no functional form for utility and no consumption data; the one approximation involved---a ratio of marginal utilities---is disciplined by measuring its key input, the persistence of the marginal borrower's distress state, directly in the panel (annualized $0.992$ across 21.4 million delinquency transitions); at the measured persistence the approximation is nearly exact, and under any admissible literature calibration it moves the headline estimate by less than two percentage points (Appendix \ref{appendix:mucorrection}). It identifies the discount factor for precisely the households whose preferences asset-pricing data cannot reveal.
+
+The empirical findings are consistent across settings. Across auto loans, mortgage modifications, and credit card experiments, borrowing households exhibit annual discount factors near 0.79--0.80 after the marginal-utility correction, implying discount rates in the 25--27\% range---substantially above standard calibrations and bracketed from below by the borrowing-rate evidence. Impatience varies sharply with income but is nearly orthogonal to credit score, suggesting that high default rates among low-score borrowers reflect income risk rather than impatience. A complementary lower-bound analysis using SCF borrowing rates, adjusted for consumption-smoothing demand, corroborates these magnitudes and shows that income growth expectations explain almost none of the cross-sectional variation in borrowing rates.
+
+These findings have practical implications. For credit policy, they imply that short-term payment relief will be far more effective at preventing default than equivalent-cost principal reductions. For public finance, they suggest that the gap between official social discount rates and the revealed preferences of many citizens is large, with consequences for the evaluation of policies whose costs and benefits are separated in time. For structural modeling, they provide new moments---distributional estimates of time preferences linked to observables---that can discipline heterogeneous-agent models in which the discount factor distribution has previously been calibrated or indirectly inferred.
+
+
+\newpage
+\singlespace
+\bibliography{references}
+\newpage
+
+
+\appendix
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+\begin{centering}
+
+\noindent {\Large \bf Appendices}
+
+\end{centering}
+
+
+\section{Proofs}
+\label{appendix:proofs}
+
+This appendix provides a complete derivation of the comparative statics in equation \eqref{eq:sensitivities}.
+
+\subsection{Setup and Default Threshold}
+
+The borrower defaults in period 1 by comparing:
+\[
+V_1^P(y_1) = u(y_1 - m) +
+\beta \left[
+\int_{y_2^*}^\infty u(y_2 - (L-m)) dF(y_2 \mid y_1)
++
+\int_0^{y_2^*} (u(y_2) - \sigma) dF(y_2 \mid y_1)
+\right]
+\]
+and
+\[
+V_1^N(y_1) = u(y_1) + \beta (u(y_2) - \sigma).
+\]
+
+The threshold $y_1^*$ satisfies $V_1^P(y_1^*) = V_1^N(y_1^*)$, and $p_1 = F(y_1^*)$, so:
+\begin{equation}
+\frac{\partial p_1}{\partial x} = f(y_1^*) \frac{\partial y_1^*}{\partial x},
+\qquad x \in \{L,m\}.
+\label{eq:pchain}
+\end{equation}
+
+\subsection{Differentiating the Threshold Condition}
+
+Defining $\Delta(y_1;L,m) \equiv V_1^P(y_1) - V_1^N(y_1) = 0$ at $y_1 = y_1^*$, implicit differentiation gives:
+\[
+\frac{\partial y_1^*}{\partial x}
+=
+- \frac{\partial \Delta / \partial x}{\partial \Delta / \partial y_1}.
+\]
+
+\subsection{Derivative with Respect to $y_1$}
+\[
+\frac{\partial}{\partial y_1} \Delta(y_1;L,m)
+=
+u'(y_1 - m) - u'(y_1)
+\equiv u'(C_1^P) - u'(C_1^N) < 0.
+\]
+
+\subsection{Derivative with Respect to $L$}
+
+Only the continuation value depends on $L$:
+\[
+\frac{\partial \Delta}{\partial L}
+=
+-\beta (1-p_2)
+E\!\left[ u'(C_2^P(y_2)) \,\middle|\, y_2 > y_2^* \right].
+\]
+
+Combining:
+\[
+\boxed{
+\frac{\partial p_1}{\partial L}
+=
+f(y_1^*) \beta (1-p_2)\,
+\frac{E[u'(C_2^P(y_2)) \mid y_2>y_2^*]}
+{u'(C_1^{P*}) - u'(C_1^{N*})}.
+}
+\]
+
+\subsection{Derivative with Respect to $m$}
+
+The payment $m$ affects both current consumption and the future balance:
+\[
+\frac{\partial \Delta}{\partial m}
+=
+- u'(C_1^P)
+- \frac{\partial \Delta}{\partial L}.
+\]
+
+Therefore:
+\[
+\boxed{
+\frac{\partial p_1}{\partial m}
+=
+f(y_1^*)\frac{u'(C_1^P)}{u'(C_1^{P*}) - u'(C_1^{N*})}
+-
+\frac{\partial p_1}{\partial L}.
+}
+\]
+
+\subsection{Discussion}
+
+Increasing $L$ worsens future consumption while holding current consumption fixed; increasing $m$ worsens current consumption while reducing future obligations. The ratio of these channels maps cleanly to $\beta$.
+
+
+\section{The $T$-Period Model: Interior Default and the Discount Curve}\label{appendix:multiperiod}
+
+This appendix extends the two-period model to $T$ discrete periods, establishes that default probabilities remain strictly interior at every horizon, and shows that a menu of payment-schedule perturbations identifies the entire discount function---of which the two-period sufficient statistic of the main text is a single point.
+
+\subsection{Setup and recursive formulation}
+
+A contract specifies payments $m_t > 0$ at dates $t = 1, \dots, T$, with balance $L = \sum_t m_t$. Income $y_t$ is drawn i.i.d.\ from $F$ with continuous density $f$ and full support on $(0,\infty)$ (all results below go through with Markov income; see Section \ref{appendix:continuous}). Consumption equals income net of any payment, utility $u$ is strictly increasing, strictly concave, and satisfies $u(0^+) = -\infty$ (e.g.\ CRRA with $\gamma \ge 1$). Default is absorbing: a borrower who defaults at $t$ consumes income thereafter and incurs a punishment flow $\sigma > 0$ in each period $s \in \{t, \dots, T\}$. All agents are identical after $T$, so post-$T$ values are normalized to zero.
+
+Let $W_t = \sum_{k=0}^{T-t}\beta^k(\mathbb{E}u(y) - \sigma)$ denote the defaulted value and
+\begin{equation}\label{eq:bellmanT}
+V_t(y) = \max\big\{\, u(y - m_t) + \beta \mathbb{E}V_{t+1},\;\; u(y) - \sigma + \beta W_{t+1} \,\big\}, \qquad V_{T+1} \equiv 0,
+\end{equation}
+the value of good standing. Write the surplus from staying as $\Delta_t(y) = K_t - g_t(y)$, where $g_t(y) \equiv u(y) - u(y-m_t) > 0$ is strictly decreasing on $(m_t,\infty)$ and $K_t \equiv \sigma + \beta(\mathbb{E}V_{t+1} - W_{t+1})$. The borrower defaults iff $y < y_t^* = g_t^{-1}(K_t)$, and $p_t = F(y_t^*)$. Two observations deliver the key recursion. First, the expected value of the default branch of \eqref{eq:bellmanT} equals $W_t$ itself. Second, $V_t(y) = [u(y) - \sigma + \beta W_{t+1}] + \Delta_t(y)^+$, so $\mathbb{E}V_t - W_t = \mathbb{E}[\Delta_t(y)^+] \ge 0$. Therefore
+\begin{equation}\label{eq:Krec}
+K_t = \sigma + \beta\, \mathbb{E}\big[(K_{t+1} - g_{t+1}(y))^+\big], \qquad K_T = \sigma.
+\end{equation}
+
+\begin{proposition}[Interior default probabilities at every horizon]\label{prop:interiorT}
+Under the maintained assumptions, $K_t \ge \sigma > 0$ for every $t$, the threshold $y_t^* \in (m_t, \infty)$ exists and is unique, and $p_t \in (F(m_t), 1) \subset (0,1)$---for any horizon $T$ and any payment schedule.
+\end{proposition}
+
+\noindent\textbf{Proof.} $K_t \ge \sigma$ is immediate from \eqref{eq:Krec}. Since $u(0^+) = -\infty$, $g_t$ maps $(m_t,\infty)$ onto $(0,\infty)$ bijectively, so $y_t^*$ exists and is unique; $p_t < 1$ because $y_t^*$ is finite and $F$ has unbounded support, and $p_t > F(m_t) > 0$ because default is forced for $y \le m_t$. $\hfill\square$
+
+The recursion \eqref{eq:Krec} is the economic heart of the result: a borrower who stays today is not committing to repay the remaining $T-t$ installments---she buys one period of good standing plus the \emph{option} to reconsider, and the max operator truncates the continuation comparison at zero. The remaining payment burden therefore cannot accumulate into the current default incentive. Dropping the option is not an innocuous simplification:
+
+\begin{lemma}[Committed-repayment comparisons degenerate]\label{lem:committedT}
+Suppose the date-$t$ decision instead compares default against the value of committing to all remaining payments, so that $\tilde K_t = \sigma + \sum_{k=1}^{T-t}\beta^k(\sigma - \mathbb{E}g_{t+k}(y))$. If $\mathbb{E}g_s(y) > \sigma(1+\epsilon)$ for all $s$ and some $\epsilon > 0$, there exists $\bar k(\epsilon,\beta)$ such that $\tilde K_t \le 0$---and hence $\tilde p_t = 1$---whenever $T - t \ge \bar k$, while $\tilde K_T = \sigma$ keeps late-period probabilities interior.
+\end{lemma}
+
+\noindent\textbf{Proof.} Each term in the sum is bounded above by $-\epsilon\sigma\beta^k$; the partial sums cross $-\sigma$ once $\epsilon\sum_{k\le\bar k}\beta^k > 1$, which occurs at finite $\bar k$ for any $\beta \in (0,1]$. $\hfill\square$
+
+The committed-repayment model thus produces exactly the pattern of probabilities collapsing to $0$ or $1$ as the horizon grows. A second, independent source of degeneracy is a punishment that vanishes at maturity: if $\sigma = 0$, nothing enforces the final payment, $p_T = 1$, and by \eqref{eq:Krec} the contract unravels backward period by period, as in a finitely repeated game. Any specification whose punishment is proportional to the remaining balance inherits this endgame problem; a flow or fixed punishment component disciplines it.
+
+\subsection{Payment-schedule sensitivities}
+
+Fix $(m_1,\dots,m_T)$ and let $\Delta u_1' \equiv u'(y_1^* - m_1) - u'(y_1^*) > 0$.
+
+\begin{proposition}[Sensitivities to the payment schedule]\label{prop:sensT}
+Under exponential discounting,
+\begin{align}
+\frac{\partial p_1}{\partial m_1} &= f(y_1^*)\,\frac{u'(y_1^* - m_1)}{\Delta u_1'}, \label{eq:sens1T}\\
+\frac{\partial p_1}{\partial m_s} &= f(y_1^*)\,\beta^{s-1} Q_s\, \frac{\mathbb{E}[u'(y - m_s) \mid y > y_s^*]}{\Delta u_1'}, \qquad s \ge 2, \label{eq:senssT}
+\end{align}
+where $Q_s = \prod_{k=2}^{s}(1-p_k)$ is the probability of good standing through date $s$.
+\end{proposition}
+
+\noindent\textbf{Proof.} $\partial p_1/\partial m_s = -f(y_1^*)(\partial\Delta_1/\partial m_s)/\Delta u_1'$ by the implicit function theorem. For $s=1$ only current paying utility depends on $m_1$. For $s \ge 2$, $\Delta_1$ depends on $m_s$ only through $\beta\mathbb{E}V_2$, and induction using value matching at each future threshold (the boundary terms vanish because $S_t = N_t$ at $y_t^*$) gives $\partial \mathbb{E}V_t/\partial m_s = -\beta^{s-t}\big(\prod_{k=t}^{s}(1-p_k)\big)\mathbb{E}[u'(y-m_s) \mid y > y_s^*]$ for $t \le s$. $\hfill\square$
+
+With $T = 2$, $m_1 = m$, and $m_2 = L - m$, equations \eqref{eq:sens1T}--\eqref{eq:senssT} reduce exactly to equation \eqref{eq:sensitivities} of the main text.
+
+\subsection{A menu of experiments identifies the discount curve}
+
+Let the borrower discount date-$(1+k)$ utility by a general discount function $D(k)$, $D(0)=1$, and suppose either discounting is exponential or the borrower is naive. Replaying the proof of Proposition \ref{prop:sensT} yields
+\begin{equation}\label{eq:curveT}
+\frac{\partial p_1/\partial m_s}{\partial p_1/\partial m_1} = D(s-1)\, Q_s\, \frac{\mathbb{E}[u'(y-m_s) \mid y > y_s^*]}{u'(y_1^* - m_1)}, \qquad s = 1, \dots, T.
+\end{equation}
+
+\begin{proposition}[Identification of the discount curve]\label{prop:curveT}
+If an experimenter can perturb each payment $m_s$ separately and observes the initial default response to each perturbation together with the survival probabilities $Q_s$ (directly observable from repayment data), then under the marginal-utility approximation of the main text the discount function is identified pointwise: $D(s-1) \approx (\partial p_1/\partial m_s)/(Q_s\,\partial p_1/\partial m_1)$. With $T \ge 3$ the exponential null is testable: $D(k) = \beta^k$ holds iff $\log[(\partial p_1/\partial m_s)/(Q_s\,\partial p_1/\partial m_1)]$ is linear in $s$.
+\end{proposition}
+
+\begin{corollary}[Quasi-hyperbolic discounting]\label{cor:betadeltaT}
+Under $D(k) = \beta\delta^k$ for $k \ge 1$, perturbations at two distinct future horizons $s, s' \ge 2$ point-identify both parameters: $\delta = (D(s-1)/D(s'-1))^{1/(s-s')}$ and $\beta = D(s-1)/\delta^{s-1}$. A two-period contract offers a single future horizon, hence one moment, and cannot separate $\beta$ from $\delta$: the two-period statistic is one point on the discount curve, not the curve.
+\end{corollary}
+
+\begin{remark}[What the experiments must be]\label{rem:experimentsT}
+Identification requires ceteris paribus perturbations of individual payments within a fixed population. Comparing borrowers who selected into different contract lengths does not qualify: such populations may differ in their entire discount functions, confounding the curve with selection. The menu describes a feasible-in-principle design---randomized payment holidays or step-ups at prespecified horizons within a homogeneous pool---that, to our knowledge, has not been run. The theory is ready for the experiment; the experiment has not been done.
+\end{remark}
+
+\begin{remark}[Sophistication]\label{rem:sophT}
+The envelope step uses indifference at future thresholds under the \emph{deciding self's} preferences. Under exponential discounting or naivet\'e this coincides (up to positive scaling) with the date-1 self's criterion and the boundary terms vanish. Under sophisticated time-inconsistent discounting, date-$t$'s threshold is not optimal for date-1's preferences, and \eqref{eq:senssT} acquires wedge terms of the form $f(y_t^*)\,\omega_t\,(\partial y_t^*/\partial m_s)$, where $\omega_t$ is the date-1 valuation of the branch gap at date-$t$'s margin; $\omega_t = 0$ for all $t$ iff $D(t-1+k) = D(t-1)D_t(k)$, i.e.\ exponential discounting. Estimating the curve on sophisticated agents therefore requires bounding these wedges or modeling the intrapersonal game.
+\end{remark}
+
+\subsection{Toward continuous time}\label{appendix:continuous}
+
+Index periods by length $h$: payment flow $m$, stigma flow $\sigma$, discounting $e^{-\rho h}$. With income i.i.d.\ across periods, inspection of \eqref{eq:Krec} shows $K_t = O(h)$ while $g_t(y) = u'(y)mh + O(h^2)$, so the threshold converges to a nondegenerate limit and the \emph{per-period} default probability stays bounded away from zero---while the number of periods per unit of calendar time grows like $1/h$. The cumulative default probability over any fixed window therefore converges to one: an i.i.d.-income model cannot refine the period while holding the calendar fixed. Interior default at fine time resolution requires \emph{persistent} income, so that threshold crossings arrive at a finite hazard. This is a distinct degeneracy mechanism from Lemma \ref{lem:committedT}, and it disappears once income follows a discretized diffusion or an AR(1) with autocorrelation $e^{-\kappa h}$.
+
+With persistent (Markov) income, Proposition \ref{prop:sensT} generalizes directly---the proof uses only the law of iterated expectations---with survival and marginal utility no longer factoring:
+\[
+\frac{\partial p_1}{\partial m_s} = \frac{f(y_1^* \mid \mathcal{F}_1)}{\Delta u_1'}\, e^{-\rho(s-1)h}\, \mathbb{E}\big[\mathbf{1}\{\text{good standing through } s\}\, u'(y_s - m_s h) \,\big|\, y_1 = y_1^*\big].
+\]
+Fixing calendar horizons $\tau = sh$ and letting $h \to 0$, ratios of these sensitivities identify $e^{-\rho(\tau - \tau')}$: the continuous-time analogue of the sufficient statistic, in which ``changing the monthly payment'' becomes changing the payment flow rate $m(\tau)$.
+
+In the full diffusion formulation ($dy = \mu(y)d\tau + \eta(y)dB_\tau$), the repaying value solves $\rho V = u(y - m(\tau)) + V_\tau + \mu V_y + \tfrac{1}{2}\eta^2 V_{yy}$ in the continuation region, the defaulted value $W$ solves the same equation with flow $u(y) - \sigma$, and the free boundary $b(\tau)$ satisfies value matching and smooth pasting. Because both the remaining payment burden and the remaining stigma shrink linearly as $\tau \to T$, the boundary converges to the interior flow comparison $u'(b)m = \sigma$ at maturity. One subtlety distinguishes this case from discrete time: smooth pasting sets $\Delta_y(b(\tau),\tau) = 0$, so the marginal-defaulter denominator $\Delta u_1'$ vanishes and sensitivities must instead be computed by perturbing the value-matching/smooth-pasting pair jointly, which yields a first-order boundary shift $\delta b = -\varepsilon\,\psi_y(b)/\Delta_{yy}(b)$ for a payoff perturbation $\varepsilon\psi$. The $h$-period persistent-income model above sidesteps this machinery and is the recommended vehicle for quantitative work; the formal diffusion treatment is left for future research.
+
+\section{Aggregation Under Heterogeneity}\label{appendix:aggregation}
+
+The model of the main text assumes a homogeneous population. Suppose instead the population is a mixture of types $i = 1,\dots,n$ with weights $\omega_i$, each with its own discount factor $\beta_i$, utility $u_i$, and income distribution $F_i$, hence its own sensitivities $A_i = \partial p_1^i/\partial L$ and $B_i = \partial p_1^i/\partial m$. Pooled estimation recovers the population-average derivatives $\bar A = \sum_i \omega_i A_i$ and $\bar B = \sum_i \omega_i B_i$ (exactly, for a linear probability specification; up to the usual first-order approximation, for average marginal effects from a pooled logit), and the estimator is $\hat\beta = \bar A/(\bar A + \bar B)$.
+
+\begin{proposition}[Exact aggregation]\label{prop:aggT}
+Define each type's statistic $\beta_i^{stat} = A_i/(A_i + B_i)$ and its total default sensitivity
+\[
+s_i \;=\; A_i + B_i \;=\; f_i(y_i^*)\, \frac{u_i'(C_1^{P*})}{u_i'(C_1^{P*}) - u_i'(C_1^{N*})} \;>\; 0.
+\]
+Then, exactly,
+\[
+\hat\beta = \frac{\sum_i \omega_i\, s_i\, \beta_i^{stat}}{\sum_i \omega_i\, s_i} \;\in\; \Big[\min_i \beta_i^{stat},\; \max_i \beta_i^{stat}\Big].
+\]
+\end{proposition}
+
+\noindent\textbf{Proof.} $\bar A = \sum_i \omega_i s_i \beta_i^{stat}$ and $\bar A + \bar B = \sum_i \omega_i s_i$; divide. The expression for $s_i$ is the sum of the two sensitivity formulas in equation \eqref{eq:sensitivities}, in which the $\partial p/\partial L$ terms cancel. $\hfill\square$
+
+The pooled estimator is therefore a \emph{sensitivity-weighted} average of type-level statistics: each type is weighted by its population share times (i) the density of its members at its own default margin, $f_i(y_i^*)$, and (ii) the responsiveness of its marginal defaulter, the marginal-utility ratio in $s_i$. Types far from the default margin contribute no identifying variation and receive no weight---the analogue of complier weighting in local average treatment effects. $\hat\beta$ is thus best interpreted as the discount factor of the population \emph{at the default margin}, which is the relevant population for default-related policy. The direction of the wedge relative to the population-weighted mean depends on the covariance of $s_i$ with $\beta_i$ and is a quantitative question.
+
+The companion script \texttt{Code/aggregation\_simulation.R} solves the exact two-period model for CRRA types ($\gamma = 2$) with lognormal income under the paper's punishment convention and verifies these results numerically (output in \texttt{Output/aggregation\_simulation.csv}). In 18 two-type configurations spanning $\beta_{lo} \in \{0.3, 0.5, 0.6\}$, $\beta_{hi} \in \{0.9, 0.95\}$, and mixture shares $\{0.25, 0.5, 0.75\}$: the identity of Proposition \ref{prop:aggT} holds to machine precision (maximum error $2.8\times10^{-17}$); the wedge between $\hat\beta$ and the population-weighted mean ranges from $+0.001$ to $+0.011$ in statistic units (at this calibration the patient type carries the larger $s_i$); and a pooled logit on $200{,}000$ simulated households adds a functional-form difference of about $0.013$ relative to exact pooled derivatives. The simulation also quantifies the marginal-utility correction in the exact ratio identity, to which we return in ongoing work.
+
+\section{The Marginal-Utility Correction: Calibration and Bounds}\label{appendix:mucorrection}
+
+The exact identity behind equation \eqref{eq:beta} is $A/(A+B) = \beta\lambda$ with $\lambda$ defined in equation \eqref{eq:lambda}. This appendix calibrates $\lambda$, states the resulting corrected point estimates, and shows that large corrections are refuted both by internal consistency and by the borrowing-rate bounds of Section \ref{sec:lowerbounds}. Simulation code: \texttt{Code/mu\_correction\_simulation.R}.
+
+\subsection{Why $\lambda$ could differ from one, and what disciplines it}
+
+The denominator of $\lambda$ evaluates marginal utility at the consumption of the \emph{marginal} period-1 defaulter; the numerator averages marginal utility over future repayers \emph{conditional on being at that margin today}. Two forces govern the gap. \emph{Income persistence}: if income is persistent, a borrower at today's margin is still relatively poor at maturity, and the two marginal utilities largely cancel; if income were i.i.d.\ across the two dates, future repayers would be drawn from the unconditional (richer) distribution and $\lambda$ would fall far below one -- in a hand-to-mouth i.i.d.\ benchmark it reaches $0.19$. \emph{Consumption insurance}: households smooth, so consumption dispersion -- and hence marginal-utility dispersion -- is smaller than income dispersion.
+
+Both forces are measured by large literatures. Annual persistence of the idiosyncratic component of labor income is estimated at $\rho \approx 0.99$ under the restricted-income-profiles specification and $\rho \approx 0.82$ under heterogeneous profiles \citep{guvenen_empirical_2009}, $\rho \approx 0.91$ in PSID data \citep{floden_idiosyncratic_2001}, and $\rho \approx 0.95$ in \citet{storesletten_cyclical_2004}; administrative earnings data confirm the high persistence of the persistent component \citep{guvenen_what_2021}. For insurance, \citet{blundell_consumption_2008} estimate that consumption loads with coefficient $\approx 0.64$ on permanent income shocks (and only $\approx 0.05$ on transitory shocks), with substantially lower pass-through for wealthier households.
+
+\subsection{Measured persistence of the default-margin state}\label{appendix:measuredrho}
+
+The grid below spans the range of persistence estimates from the earnings
+literature, but the object $\lambda$ actually requires is more specific than
+the persistence of labor income in the population: it is the persistence of
+the economic state of a borrower \emph{at the default margin}. The
+credit-bureau panel measures this state's persistence directly. I classify
+every auto tradeline with a positive past-due balance and no chargeoff at
+one archive snapshot, and follow it to the next snapshot (mean gap $4.0$
+months): across $21{,}350{,}801$ such delinquency-spell transitions, $90.0$
+percent remain delinquent, $9.8$ percent charge off, and only $0.26$ percent
+cure. The implied annualized persistence of the distress state is
+$\rho = 0.992$ (replication: \texttt{Code/pace/48\_cure\_rates.R},
+\texttt{results/cure\_rates.csv}). Because snapshots are quarterly, spells
+that begin and cure entirely within a gap are missed, so the measured cure
+rate is a lower bound; even an order-of-magnitude undercount of cures would
+leave $\rho \ge 0.97$, within the top rows of the grid below. The
+measurement selects the high-persistence region of the calibration grid ---
+the region in which the correction vanishes --- and it does so for exactly
+the population and margin the estimator uses.
+
+\subsection{Calibration}
+
+I embed both forces in the two-period model: $\log y_2 = \tilde\rho \log y_1 + \varepsilon$ with $\tilde\rho = \rho^{T}$ for $T = 3.2$ years, stationary innovation variance, and consumption $c(y) = y^{\phi}$ with required payments reducing consumption one-for-one (debt service is not insurable, consistent with the liquidity interpretation of default). Thresholds and $\lambda$ are computed exactly by the same routines as the baseline model. Table \ref{tab:mucorrection} reports $\lambda$, the annual correction factor $\lambda^{-1/T}$, and the corrected $\beta$ for $\gamma = 2$; the replication file contains $\gamma \in \{1,3\}$.
+
+\begin{table}[H]
+\centering
+\caption{The marginal-utility ratio $\lambda$ and corrected estimates ($\gamma = 2$)}
+\label{tab:mucorrection}
+\begin{tabular}{lccc ccc}
+\toprule
+& \multicolumn{3}{c}{$\lambda$} & \multicolumn{3}{c}{corrected $\beta$ (measured: 0.79)} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Annual persistence $\rho$ & $\phi=1.00$ & $\phi=0.64$ & $\phi=0.40$ & $\phi=1.00$ & $\phi=0.64$ & $\phi=0.40$ \\
+\midrule
+0.82 \citep{guvenen_empirical_2009} & 0.72 & 0.64 & 0.51 & 0.88 & 0.91 & 0.97 \\
+0.91 \citep{floden_idiosyncratic_2001} & 0.92 & 0.84 & 0.72 & 0.81 & 0.83 & 0.88 \\
+0.95 \citep{storesletten_cyclical_2004} & 1.04 & 0.95 & 0.84 & 0.78 & 0.80 & 0.84 \\
+0.99 (measured, Appx.\ \ref{appendix:measuredrho}; \citealp{guvenen_empirical_2009}) & 1.09 & \textbf{1.00} & 0.97 & 0.77 & \textbf{0.79} & 0.80 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\noindent \small \uline{Notes:} $\lambda$ computed exactly in the two-period model with persistent income ($\tilde\rho = \rho^{3.2}$) and consumption function $c(y)=y^{\phi}$; $\phi = 1$ is hand-to-mouth, $\phi = 0.64$ the permanent-shock pass-through of \citet{blundell_consumption_2008}, $\phi = 0.40$ a more fully insured benchmark. Corrected $\beta = (\hat R/\lambda)^{1/T}$ with $\hat R = 0.79^{3.2}$. Bold: preferred cell, at the state persistence measured in the credit-bureau panel (Appendix \ref{appendix:measuredrho}).
+\end{table}
+
+Three results. \emph{First}, at the persistence measured in the panel (Appendix \ref{appendix:measuredrho}; the $\rho = 0.99$ row) the correction vanishes: $\lambda = 1.00$ at the \citet{blundell_consumption_2008} pass-through, and the corrected estimate equals the baseline $\beta = 0.79$. Under the lower persistence preferred in parts of the earnings literature ($\rho = 0.95$, $\phi = 0.64$, $\gamma = 2$) the correction remains small: $\lambda = 0.95$, corrected $\beta = 0.80$, a 25\% annual discount rate against the uncorrected 27\%. \emph{Second}, the sign of the correction is ambiguous at high persistence -- at $\rho = 0.99$ hand-to-mouth, $\lambda > 1$ and the correction \emph{raises} measured impatience -- so the simplified estimator is not systematically biased toward finding impatience in the empirically relevant region. \emph{Third}, across every admissible cell of the grid the corrected annual discount rate remains between 19\% and 31\%: no calibration of the correction brings the estimates near standard macroeconomic values.
+
+\subsection{Bounds}
+
+Two independent restrictions cage $\lambda$ without taking a stand on the preferred cell. \emph{Internal consistency}: since $\beta \le 1$, identification requires $\lambda \ge \hat R = \hat\beta^{T} = 0.47$; calibrations violating this (in the grid, precisely the low-persistence/high-insurance corners that would produce large corrections) are refuted by the data themselves. \emph{The borrowing-rate bracket}: Section \ref{sec:lowerbounds} bounds discount rates from below using observed borrowing behavior, a methodology whose bias runs in the opposite direction from the marginal-utility correction. The corrected sufficient-statistic estimates ($\approx$25\%, upper range 31\%) and the borrowing-rate lower bounds ($\approx$16--20\%) bracket the truth from two sides: annual discount rates for these households lie in roughly the 20--27\% range under any admissible calibration, and the paper's central claim -- impatience far exceeding standard calibrations -- holds throughout the bracket.
+
+Because the preferred correction is a single factor applied to all subgroups, the heterogeneity estimates of Section \ref{sec:heterogeneity} shift level by 1.6\% but preserve all cross-group comparisons; subgroup-specific corrections (allowing $\lambda$ to vary with income via subgroup payment-to-income ratios) are a straightforward extension of the replication file and left for the estimation on the full panel.
+
+
+\section{The Estimator Under Liquidity-Driven Default: Monte Carlo Evidence}\label{appendix:mcliquidity}
+
+This appendix reports the simulation exercise referenced in Section \ref{sec:liquidity}. Its purpose is to characterize what the sufficient-statistics estimator returns when default is not a forward-looking choice, and thereby to establish which questions the estimator can and cannot answer on its own.
+
+\subsection{Design}
+
+A population of 400{,}000 loans is simulated with contract terms drawn from $\{36, 48, 60, 72\}$ months, principals lognormal, and note rates decreasing in a credit-score index; monthly payments follow the annuity formula. Borrowers inhabit one of two worlds. In the \emph{preference} world, a borrower defaults in month $k$ when the $\delta$-discounted present value of the remaining payment stream exceeds a default cost drawn i.i.d.\ each month around a persistent individual level ($\delta$ is the monthly equivalent of the annual factor $\beta_{true}$; the cost level is drawn independently of the loan's own terms). In the \emph{liquidity} world, default arrives as a hazard proportional to the current payment burden raised to the power $1.5$; the future stream never enters the decision. A mixture economy assigns share $s$ of borrowers to the liquidity world. The estimator applied to each simulated cross-section is the paper's two-logit statistic verbatim, with score-ventile and cell fixed effects mirroring the empirical specification. In the calibrated surface of Table \ref{tab:mcsurface}, the default-cost level in every $(\beta_{true}, s)$ cell is tuned so the simulated lifetime default rate matches the empirical 5.1 percent.
+
+\subsection{Results}
+
+\begin{table}[H]
+\centering
+\caption{Mixture economies: the estimator under increasing liquidity shares ($\beta_{true} = 0.95$)}
+\label{tab:mcmix}
+\begin{tabular}{cccc}
+\toprule
+Liquidity share $s$ & $\hat\beta$ & implied annual rate & default rate \\
+\midrule
+0.00 & 0.887 & 12.8\% & 0.013 \\
+0.25 & 0.838 & 19.3\% & 0.025 \\
+0.50 & 0.811 & 23.3\% & 0.037 \\
+0.75 & 0.793 & 26.1\% & 0.048 \\
+1.00 & 0.783 & 27.6\% & 0.059 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\noindent \small \uline{Notes:} Each row simulates a mixture economy with true annual discount factor $0.95$ for preference-world borrowers and liquidity share $s$. Replication: \texttt{Code/mc\_liquidity.R}.
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{The default-rate-matched surface: $\hat\beta$ across true patience and contamination}
+\label{tab:mcsurface}
+\begin{tabular}{lccccc}
+\toprule
+& \multicolumn{5}{c}{liquidity share $s$} \\
+\cmidrule(lr){2-6}
+$\beta_{true}$ & 0 & 0.10 & 0.20 & 0.35 & 0.50 \\
+\midrule
+0.55 & 0.853 & -- & -- & 0.830 & -- \\
+0.62 & 0.860 & -- & -- & 0.837 & -- \\
+0.70 & 0.866 & -- & -- & 0.839 & -- \\
+0.76 & 0.874 & -- & -- & 0.848 & -- \\
+0.80 & 0.876 & 0.871 & 0.860 & 0.847 & 0.828 \\
+0.84 & 0.879 & 0.872 & 0.864 & 0.850 & 0.829 \\
+0.88 & 0.884 & 0.875 & 0.867 & 0.849 & 0.831 \\
+0.92 & 0.888 & 0.879 & 0.869 & 0.856 & 0.836 \\
+0.96 & 0.892 & 0.884 & 0.873 & 0.855 & 0.836 \\
+0.99 & 0.896 & 0.885 & 0.876 & 0.859 & 0.841 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\noindent \small \uline{Notes:} Every cell's default-cost level is calibrated so the simulated default rate matches the empirical 5.1\%. Dashes: cells outside the extended grid. Replication: \texttt{Code/mc\_liquidity\_bound.R}; surfaces in \texttt{results/mc\_bound\_surface.csv} and \texttt{\_ext.csv}.
+\end{table}
+
+Three findings. \emph{First}, the estimator cannot acquit itself: in the pure-liquidity economy ($s = 1$, Table \ref{tab:mcmix}) the estimated discount factor does not collapse toward zero but settles at $0.78$ --- a mechanical variance share arising because total obligations $L = mT$ load on the payment $m$ that liquidity-driven default does respond to. An estimate in this range is therefore consistent, on its own, with either interpretation, which is why Section \ref{sec:liquidity} rests on direct evidence. \emph{Second}, contamination biases the estimate toward impatience monotonically, but modestly: at the ceiling admissible share $s = 0.35$, the depression in $\hat\beta$ is at most $0.05$ across every row of Table \ref{tab:mcsurface}. \emph{Third}, and most consequentially, the simulated estimator attenuates toward patience in every world it is given: across true discount factors from $0.55$ to $0.99$ and contamination shares up to $0.50$, no cell of the matched surface produces an estimate as low as the empirical $0.787$. Within this model class, patient preferences plus admissible contamination cannot manufacture the measured impatience; the measured estimate requires the preference component itself to discount steeply. The compression of the surface also means the exercise cannot be inverted for a sharp point estimate of the contamination bias; a structurally estimated data-generating process would be required, and the categorical conclusion above is what the design supports.
+
+\section{Additional Figures}\label{appendix:figures}
+
+\begin{figure}[H]
+  \begin{center}
+    \caption{Distribution of Liabilities (Sorted by Total Liabilities)} \label{fig:3a}
+    \includegraphics[width=\textwidth]{../figures/figure_3a.pdf}
+  \end{center}
+  \noindent \small \uline{Notes:} The x-axis is scaled by SCF survey weights.
+\end{figure}
+
+
+\section{Lifecycle Model Calibration}\label{appendix:calibration}
+\setcounter{table}{0}
+\renewcommand{\thetable}{B\arabic{table}}
+
+Following \cite{guvenen_what_2021}, annual earnings for workers aged 25--65 are:
+
+\begin{equation}
+    L_{it} = (1-\nu_t^i)e^{(g(t)+\alpha^i+\beta^it+z_t^i+\varepsilon_t^i)}
+\end{equation}
+
+where $g(t)$ is a quadratic age profile, $\alpha^i$ and $\beta^i$ are idiosyncratic level and slope parameters, $z_t^i$ is a persistent component, $\varepsilon_t^i$ is a transitory shock, and $\nu_t^i$ captures nonemployment duration. The estimated common component is:
+
+\begin{center}
+    \begin{tabular}{c|l}
+     $g_0$&  10.7  \\
+     $g_1$& 0.0537 \\
+     $g_2$& $-$0.000718 \\
+\end{tabular}
+\end{center}
+
+All remaining parameters are taken from the calibration in \cite{guvenen_what_2021}. For SCF application, I estimate each earner's age-adjusted idiosyncratic earnings position and assign $\alpha^i$ and $\beta^i$ consistent with their position in the marginal distributions. The state variable is estimated as $E[Z_t^i] = \log L_{it} - g(t) - \alpha^i -\beta^i t$, and future earnings at horizon $k$ are projected as $E_t[L_{t+k}] = \exp(\rho^k Z_{it} + \alpha^i +\beta^i(t+k)+g(t+k))$.
+
+
+\section{Conditional Default Rate Calculations}\label{appendix:CDR}
+\setcounter{table}{0}
+\renewcommand{\thetable}{C\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{C\arabic{figure}}
+
+The empirical conditional default probability is:
+
+\[
+\text{CDR}_{d,m} =
+\frac{W_{d,m}}
+{O_d - \displaystyle\sum_{k=1}^{m-1} W_{d,k}}
+\]
+
+where $W_{d,m}$ is defaults in decile $d$ at month $m$, and $O_d$ is total originations. I condition on both contract term and credit score deciles to address the concern that heterogeneity in ex-ante risk could spuriously generate a declining conditional default curve. Even after this conditioning, late default is extremely rare:
+
+\begin{center}
+    \includegraphics[width = \textwidth]{../figures/auto_loan_months_paid_72mo_by_decile.pdf}
+\end{center}
+
+\begin{center}
+    \includegraphics[width = \textwidth]{../figures/conditional_default_rate_by_decile.pdf}
+\end{center}
+
+
+\section{Delta Method Calculations}\label{appendix:delta_method}
+\setcounter{table}{0}
+\renewcommand{\thetable}{D\arabic{table}}
+
+Let $A \equiv \partial p_1 / \partial L$, $B \equiv \partial p_1 / \partial m$, $R \equiv A/(A+B)$, so $\beta = R^{1/T}$. The gradient:
+\begin{align}
+    \frac{\partial \beta}{\partial A}
+        &= \beta \cdot \frac{1}{T} \cdot \frac{B}{A(A+B)}, \\
+    \frac{\partial \beta}{\partial B}
+        &= \beta \cdot \frac{1}{T} \cdot \left(-\frac{1}{A+B}\right), \\
+    \frac{\partial \beta}{\partial T}
+        &= \beta \cdot \left(-\frac{\ln R}{T^{2}}\right).
+\end{align}
+
+Since $(A, B, T)$ are estimated independently, the standard error is:
+\[
+\mathrm{se}(\hat{\beta}) =
+\beta\sqrt{
+\frac{1}{T^{2}}\left(\frac{B}{A(A+B)}\right)^{2}\sigma_A^{2}
++\frac{1}{T^{2}}\left(\frac{1}{A+B}\right)^{2}\sigma_B^{2}
++\frac{(\ln R)^{2}}{T^{4}}\sigma_T^{2}
+}.
+\]
+
+
+\end{document}
