@@ -164,7 +164,7 @@ A borrower deciding whether to default on a loan makes an intertemporal choice: 
 
 Applying this method to over six million U.S.\ auto loans from administrative credit bureau records, I estimate an average annual discount factor of $\beta = 0.79$ (s.e.\ 0.003), implying that borrowers value a dollar next year at only 79 cents relative to a dollar today. This corresponds to an annual discount rate of approximately 27\% (unchanged by the marginal-utility correction at the state persistence measured in the panel, and no lower than 25\% under literature persistence values)---far exceeding the $\beta \approx 0.96$ (4\% annual rate) routinely used in macroeconomic calibrations. Reinterpreting the quasi-experimental estimates from \citet{ganong_liquidity_2020} on mortgage borrowers through the same sufficient-statistics lens yields a similar magnitude: $\beta = 0.76$ per year. Across different populations, debt types, and identification strategies, the evidence consistently points to steep impatience among borrowing households.
 
-The heterogeneity in estimated discount factors is at least as informative as the level. Impatience rises sharply as income falls: low-income borrowers exhibit discount factors well below the population average, while high-income borrowers approach conventional calibrations. By contrast, the estimated discount factor is nearly flat across credit score ventiles. This pattern has a direct implication: the well-documented fact that low-credit-score individuals default more frequently \emph{cannot} be attributed to greater impatience. Instead, income risk, thin financial buffers, or lower costs of default must account for the score--default relationship. Impatience is correlated with income, not with credit score. This distinction matters for credit policy, welfare analysis, and the structural modeling of household default.
+The heterogeneity in estimated discount factors is at least as informative as the level. Revealed discount rates decline monotonically with income and with credit score, and both gradients are modest---roughly four percentage points from the bottom to the top of each distribution, against a level near 27 percent. The score gradient carries a direct implication: because it is an order of magnitude too small to account for the enormous score--default gradient, the well-documented fact that low-credit-score individuals default more frequently is mostly attributable to income risk, thin financial buffers, and lower costs of default. This distinction matters for credit policy, welfare analysis, and the structural modeling of household default.
 
 Why must we look beyond asset prices? In the United States, only 12\% of households participate in any form of risk-free financial investment, and the top 1\% holds 75\% of risk-free assets (\cite{scf2022}). The Euler equation prices risk-free bonds using the discount factor of the \emph{marginal investor}, who is wealthy and patient. The time preferences of the remaining 88\% of households---the constrained, the hand-to-mouth, the borrowers---are not identified by these prices. Laboratory experiments offer an alternative, but the relevance of lab-elicited discount rates to real-world financial decisions is unclear, in part because behavior under small stakes may differ substantially from behavior under large stakes (\cite{coller_eliciting_1999}, \cite{harrison_estimating_2002}, \cite{rabin_risk_2000}). The approach developed here uses real-stakes decisions at economically meaningful time horizons, observed at population scale.
 
@@ -353,7 +353,7 @@ Auto loans (this paper) & U.S.\ auto loans & Logit & 3.2 & 0.79 & 0.003 & 27\% \
 
 \subsection{Data}
 
-Auto loans offer an attractive empirical setting: maturities vary substantially, payments are highly salient, and auto loans are one of the most common forms of installment credit, with wide participation across the income distribution. I use a 1\% random sample of U.S.\ credit reports containing over six million auto loans originated across the past decade. Table \ref{tab:loan_summary} summarizes the key variables.
+Auto loans offer an attractive empirical setting: maturities vary substantially, payments are highly salient, and auto loans are one of the most common forms of installment credit, with wide participation across the income distribution. I use a 10\% random sample of U.S.\ credit files containing over six million auto loans originated between 2005 and 2024. Table \ref{tab:loan_summary} summarizes the key variables.
 
 \begin{table}[H]
     \caption{Summary of Auto Loan Sample}
@@ -372,7 +372,7 @@ The typical repayment horizon is five years (60 months), and the three most popu
     \caption{Auto Loan Originations Over Time}
     \label{fig:origination_volume}
     \includegraphics[width=0.9\textwidth]{../figures/loans_by_archive.pdf}
-    \small Notes: Number of auto loans originated in the 1\% credit bureau sample, plotted by origination year.
+    \small Notes: Number of auto loans originated in the 10\% credit bureau sample, plotted by origination year.
 \end{figure}
 
 
@@ -433,7 +433,7 @@ Table \ref{tab:default_sens} reports estimates from two logit models of default.
 + \varepsilon_{i}
 \end{equation}
 
-The short-run coefficient $\beta_S = 0.50$ (s.e.\ 0.008) and the long-run coefficient $\beta_L = 0.43$ (s.e.\ 0.006). Both are large and precisely estimated. The somewhat larger short-run coefficient indicates that current payment obligations exert a slightly stronger influence on default than total debt---the signature of impatience.
+The short-run coefficient is $\beta_S = 0.50$ (s.e.\ 0.008) and the long-run coefficient is $\beta_L = 0.43$ (s.e.\ 0.006). Both are large and precisely estimated, and their ratio is the finding: the future component of obligations receives less than half the weight of an equally sized change in the current payment, which is the signature of steep discounting that equation \eqref{eq:betaformula} converts into $\beta$.\footnote{The logit estimation sample is 1.43 million loans: observations in fixed-effects cells with no variation in default contribute no likelihood and drop from the estimation, which removes most of the 6.3 million-loan sample's singleton zip-month cells. The defaulter timing moments use the full sample.}
 
 
 \begin{table}[H]
@@ -524,7 +524,7 @@ Table \ref{tab:liquidity} collects the two diagnostics that carry the most weigh
 
 \emph{Fourth, the measured persistence of distress closes the remaining theoretical channel.} Delinquency spells at the default margin cure at a rate of $0.26$ percent per quarter (annualized persistence $0.992$; Appendix \ref{appendix:measuredrho}). Liquidity narratives built on transitory shocks contradict this permanence directly, and permanent-state narratives operate through marginal utility---precisely the correction $\lambda$, which at the measured persistence equals one.
 
-Quantitatively, the two channels admit only small adjustments. Correcting the sufficient-statistics formula for the income process measured in the panel changes the average $\beta$ by less than $0.01$ (the annual rate moves from 27 percent to no less than 25 percent under any admissible calibration; Appendix \ref{appendix:mucorrection}), and the borrowing-rate lower bounds of Section \ref{sec:lowerbounds}---whose bias runs in the opposite direction---independently place annual discount rates above 16--20 percent. What survives is the narrow claim that some share of defaults are true cash-flow collapses, bounded above by roughly 35 percent. The simulation harness shows that this residual cannot manufacture the headline estimate: across preference calibrations spanning $\beta = 0.55$ to $0.99$, contamination at the ceiling share depresses the estimated discount factor by at most five points, and no simulated combination of patience and contamination---including contamination of half of all defaults---produces an estimate as impatient as the one measured, because the simulated estimator attenuates toward patience in every world it is given. Within the examined model class, the measured impatience requires genuine preference-side impatience.
+Quantitatively, the two channels admit only small adjustments. Correcting the sufficient-statistics formula for the income process measured in the panel changes the average $\beta$ by less than $0.01$ (the annual rate moves from 27 percent to no less than 25 percent under any admissible calibration; Appendix \ref{appendix:mucorrection}), and the borrowing-rate lower bounds of Section \ref{sec:lowerbounds}---whose bias runs in the opposite direction---independently indicate double-digit annual discounting for the borrowing population. What survives is the narrow claim that some share of defaults are true cash-flow collapses, bounded above by roughly 35 percent. The simulation harness shows that this residual cannot manufacture the headline estimate: across preference calibrations spanning $\beta = 0.55$ to $0.99$, contamination at the ceiling share depresses the estimated discount factor by at most five points, and no simulated combination of patience and contamination---including contamination of half of all defaults---produces an estimate as impatient as the one measured, because the simulated estimator attenuates toward patience in every world it is given. Within the examined model class, the measured impatience requires genuine preference-side impatience.
 
 \section{Heterogeneity in Estimated Discount Factors}\label{sec:heterogeneity}
 
@@ -559,7 +559,7 @@ Before turning to the subgroup estimates, it is worth stating exactly what the p
     \caption{Estimated $\beta$ by Credit Score Ventile}
     \includegraphics[width=0.9\textwidth]{../figures/heterogeneity_score.pdf}
     \label{fig:score_heterogeneity}
-    \small Notes: Error bars show $\pm 2$ standard errors. The discount factor is nearly flat across credit scores, with wide error bars in upper ventiles reflecting few defaults.
+    \small Notes: Error bars show $\pm 2$ standard errors. Wide bands in the upper ventiles reflect few defaults; the varying-coefficient estimates of Figure \ref{fig:vcgradients} resolve the gradient these bands cannot.
 \end{figure}
 
 
@@ -594,9 +594,9 @@ Before turning to the subgroup estimates, it is worth stating exactly what the p
 \end{minipage}
 \end{table}
 
-Three patterns emerge. First, the estimated discount factor is \textbf{nearly flat across credit scores} (Figure \ref{fig:score_heterogeneity}). Despite the enormous variation in default rates across scores, the intertemporal preference parameter shows no systematic gradient. This implies that the well-established correlation between low credit scores and high default rates cannot be attributed to impatience. Other forces---income volatility, thin financial buffers, or differing nonpecuniary costs of default---must drive the score--default relationship.
+Three patterns emerge. First, the score gradient is \textbf{small relative to the score--default gradient} (Figure \ref{fig:score_heterogeneity}). The binned equal-default splits detect no gradient within their wide bands; the varying-coefficient design, which pools power across cells, resolves a monotone decline of 3.5 percentage points from the bottom to the top decile. Under either reading, the variation in the preference parameter is an order of magnitude too small to account for the variation in default rates across scores, so income volatility, thin financial buffers, and differing costs of default must drive the score--default relationship.
 
-Second, $\beta$ \textbf{rises sharply with income} (Figure \ref{fig:income_heterogeneity}). Low-income borrowers have substantially lower $\beta$, consistent with greater impatience. This gradient is statistically significant---the difference between the first and third income ventiles can be rejected at conventional levels. The pattern is consistent with tighter liquidity constraints, higher exposure to income shocks, and higher marginal utility of current consumption among low-income households.
+Second, $\beta$ \textbf{rises with income} (Figure \ref{fig:income_heterogeneity}). The varying-coefficient quartile gradient is four percentage points of the annual rate; the binned ventile estimates place the lowest-income ventiles substantially below the rest, and the difference between the first and third income ventiles is rejected at conventional levels. The pattern is consistent with tighter liquidity constraints, higher exposure to income shocks, and higher marginal utility of current consumption among low-income households.
 
 Third, there is \textbf{meaningful geographic variation} (Figure \ref{fig:state_heterogeneity}, Table \ref{tab:state_betas}), with state-level estimates spanning a range of roughly 0.10 in $\beta$.
 
@@ -605,7 +605,7 @@ In the upper credit-score ventiles, the error bands on $\beta$ are extremely wid
 
 
 %==========================================================================
-% SECTION 6: COMPARISON WITH PRIOR ESTIMATES
+% SECTION: TERM STRUCTURE
 %==========================================================================
 
 \section{A Term Structure of Revealed Discount Rates}\label{sec:termstructure}
@@ -655,7 +655,7 @@ Table \ref{tab:comparison} places the estimates from this paper alongside prior 
 \midrule
 \multicolumn{5}{l}{\emph{This paper}} \\
 Auto loans (full sample) & Sufficient statistics & U.S.\ auto borrowers & 0.79 & 27\% \\
-Auto loans (bottom income quintile) & Sufficient statistics & Low-income borrowers & $<$0.70 & $>$43\% \\
+Auto loans (bottom income quartile) & Varying-coefficient FE & Low-income borrowers & 0.79 & 26\% \\
 SCF lower bounds (median) & Max borrowing rate & U.S.\ households & $\leq$0.91 & $\geq$9\% \\
 \midrule
 \multicolumn{5}{l}{\emph{Quasi-experimental (sufficient statistics applied to published estimates)}} \\
@@ -882,7 +882,7 @@ The main effect is that the expected-income-growth term is now scaled by $1/\psi
 
 This paper develops and applies a new method for measuring household discount rates. The key intellectual move is to replace ``marginal willingness to save''---the traditional identifying variation from asset markets---with ``marginal willingness to avoid default.'' In an endogenous default model, the relative sensitivity of default to short-run versus long-run payment obligations is a sufficient statistic for the discount factor. The identifying identity requires no functional form for utility and no consumption data; the one approximation involved---a ratio of marginal utilities---is disciplined by measuring its key input, the persistence of the marginal borrower's distress state, directly in the panel (annualized $0.992$ across 21.4 million delinquency transitions); at the measured persistence the approximation is nearly exact, and under any admissible literature calibration it moves the headline estimate by less than two percentage points (Appendix \ref{appendix:mucorrection}). It identifies the discount factor for precisely the households whose preferences asset-pricing data cannot reveal.
 
-The empirical findings are consistent across settings. Across auto loans, mortgage modifications, and credit card experiments, borrowing households exhibit annual discount factors near 0.79--0.80 after the marginal-utility correction, implying discount rates in the 25--27\% range---substantially above standard calibrations and bracketed from below by the borrowing-rate evidence. Impatience varies sharply with income but is nearly orthogonal to credit score, suggesting that high default rates among low-score borrowers reflect income risk rather than impatience. A complementary lower-bound analysis using SCF borrowing rates, adjusted for consumption-smoothing demand, corroborates these magnitudes and shows that income growth expectations explain almost none of the cross-sectional variation in borrowing rates.
+The empirical findings are consistent across settings. Across auto loans, mortgage modifications, and bankruptcy filings, borrowing households exhibit annual discount factors near 0.76--0.79, implying discount rates in the 27--32\% range at short horizons---substantially above standard calibrations and bracketed from below by the borrowing-rate evidence. Revealed rates decline modestly and monotonically with income and with credit score, and the score gradient is far too small to account for the score--default relationship, which is therefore mostly attributable to income risk and costs of default. A complementary lower-bound analysis using SCF borrowing rates, adjusted for consumption-smoothing demand, corroborates these magnitudes and shows that income growth expectations explain almost none of the cross-sectional variation in borrowing rates.
 
 These findings have practical implications. For credit policy, they imply that short-term payment relief will be far more effective at preventing default than equivalent-cost principal reductions. For public finance, they suggest that the gap between official social discount rates and the revealed preferences of many citizens is large, with consequences for the evaluation of policies whose costs and benefits are separated in time. For structural modeling, they provide new moments---distributional estimates of time preferences linked to observables---that can discipline heterogeneous-agent models in which the discount factor distribution has previously been calibrated or indirectly inferred.
 
