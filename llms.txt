@@ -16,7 +16,15 @@ the paper from scratch. You are welcome to clone, reproduce, extend, and
 cite. Each replication repository has its own CLAUDE.md / README oriented
 toward AI agents.
 
-## Publications
+## Published and forthcoming
+
+- [How do Borrowers Respond to a Debt Moratorium? Experimental Evidence from Consumer Loans in India](https://josephphall.com/papers/debt-moratorium-india.pdf):
+  with Stefano Fiorin and Martin Kanz. Conditionally accepted, Review of
+  Financial Studies. Best Paper on Financial Institutions, WFA 2024. Also
+  CEPR Discussion Paper 17994 (https://cepr.org/publications/dp17994).
+  Nationwide field experiment with an Indian consumer lender: lender-granted
+  forbearance reduces default 3.7pp (8.6%); identical regulator-mandated
+  offers have no effect.
 
 - [Discrimination Expectations in the Credit Market: Survey Evidence from India](https://www.aeaweb.org/articles?id=10.1257/pandp.20251098):
   with Stefano Fiorin and Martin Kanz. AEA Papers & Proceedings 115 (May
@@ -31,14 +39,6 @@ toward AI agents.
   sufficient statistic for the discount factor. Applied to 6M+ U.S. auto
   loans: average annual discount factor 0.79 (27% annual rate), varying
   sharply with income but nearly flat across credit scores.
-
-- [How do Borrowers Respond to a Debt Moratorium? Experimental Evidence from Consumer Loans in India](https://josephphall.com/papers/debt-moratorium-india.pdf):
-  with Stefano Fiorin and Martin Kanz. Conditionally accepted, Review of
-  Financial Studies. Best Paper on Financial Institutions, WFA 2024. Also
-  CEPR Discussion Paper 17994 (https://cepr.org/publications/dp17994).
-  Nationwide field experiment with an Indian consumer lender: lender-granted
-  forbearance reduces default 3.7pp (8.6%); identical regulator-mandated
-  offers have no effect.
 
 - [Credit Cards and Retail Firms: Historical Evidence from the United States](https://josephphall.com/papers/credit-cards-retail-firms.pdf):
   solo-authored, under journal submission. The 1978 Marquette decision ended
