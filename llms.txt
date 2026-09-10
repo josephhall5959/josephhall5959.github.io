@@ -19,7 +19,7 @@ toward AI agents.
 ## Published and forthcoming
 
 - [How do Borrowers Respond to a Debt Moratorium? Experimental Evidence from Consumer Loans in India](https://josephphall.com/papers/debt-moratorium-india.pdf):
-  with Stefano Fiorin and Martin Kanz. Forthcoming, Review of
+  with Stefano Fiorin and Martin Kanz. Conditionally accepted, Review of
   Financial Studies. Best Paper on Financial Institutions, WFA 2024. Also
   CEPR Discussion Paper 17994 (https://cepr.org/publications/dp17994).
   Nationwide field experiment with an Indian consumer lender: lender-granted
