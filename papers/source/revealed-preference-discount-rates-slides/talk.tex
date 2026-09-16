@@ -1,0 +1,242 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+\usetheme{default}\usecolortheme{seagull}
+\usepackage{booktabs,tabularx,amsmath,hyperref}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\hfill\scriptsize\insertframenumber/\inserttotalframenumber\hspace{2em}\vspace{1em}}
+\setbeamertemplate{itemize items}{--}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamercolor{frametitle}{fg=black}\setbeamercolor{title}{fg=black}
+\definecolor{expred}{HTML}{B0413E}\definecolor{bureaublue}{HTML}{2C5F8A}
+\newcommand{\m}[1]{\item #1}
+\newcommand{\backup}[2]{\hfill{\scriptsize\hyperlink{#1}{\textcolor{bureaublue}{$\rightarrow$ #2}}}}
+\newcommand{\backto}{\hfill{\scriptsize\hyperlink{main-end}{\textcolor{bureaublue}{$\leftarrow$ main}}}}
+\title{Revealed Preference Discount Rates}
+\subtitle{Can default choices reveal time preferences?}
+\author{Joseph Hall\\Georgia Tech}
+\date{September 2026}
+\begin{document}
+\begin{frame}[plain]\titlepage\end{frame}
+
+\begin{frame}{What the paper does}
+\begin{itemize}
+\m{A borrower who defaults trades the payment due now against penalties that arrive later. The theory shows that the responses of default to payments due at different dates identify the discount function, with no consumption data and no utility function beyond concavity.}
+\m{Applied within borrower to a credit-bureau panel of auto loans, the formula gives an annual discount rate of $0.11$ over the horizon of a contract, with a 95 percent set from $0.09$ to $0.13$.}
+\m{The rate has no gradient in credit score or income. Default rates fall fifty-fold across the same score deciles. The heterogeneity in default is exposure to the default margin.}
+\m{The one gradient is age. Borrowers aged 18 to 30 reveal $0.32$, and every older group reveals zero.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The identity}
+Response of default to a payment due $s$ months ahead $=$ common scale $\times$ date-specific weight
+\[ \frac{\partial p}{\partial m_s} \;=\; \phi \cdot D(s-1)\, Q_s\, \lambda_s \qquad (\text{discount function} \times \text{survival} \times \text{marginal-utility ratio}) \]
+\begin{itemize}
+\m{Two payment paths in one population. The ratio of responses cancels $\phi$ and, with survival measured, identifies $D$.}
+\m{In logs the weight is the Euler equation's decomposition of the rate a household demands to defer a dollar, $-\log w_s = \rho(s-1)/12 - \log\lambda_s - \log Q_s$. Impatience is $\rho$. Consumption smoothing is $\lambda_s$, and it is measured.}
+\m{The identity replaces marginal willingness to save, the variation asset prices use, with marginal willingness to avoid default. It measures the time preferences of households with debt and no assets.}
+\end{itemize}
+\backup{bk-theory}{propositions}
+\end{frame}
+
+\begin{frame}{Three provisos, three results}
+\begin{enumerate}
+\item \textbf{The present-payment premium.} The payment due now is valued at the marginal defaulter's marginal utility and later ones at a repayer's, so $\lambda_s < 1$. Present bias $\beta$ and $\lambda_s$ enter every response as the product $\beta\lambda_s$, and no experiment that moves payments across dates separates them (Theorem). A liquid dollar against an illiquid dollar at one date does, and Indarte's pair measures the level at $0.2$.
+\item \textbf{Beliefs.} Subjective survival multiplies $D$. The discount function is identified with beliefs fixed, and the panel fixes them at measured survival.
+\item \textbf{The contract's length.} A longer contract at a fixed payment adds far payments, raises a balance-scaled penalty, adds months of exposure, and across borrowers changes who selects which length. A rate comes from it only with the borrower held fixed and the penalty channel decayed.
+\end{enumerate}
+\backup{bk-limits}{the theorems}
+\end{frame}
+
+\begin{frame}{A default within a window is a decision at its own month}
+\[ R_K \;=\; \frac{\sum_{t \le K}\omega_t\, T\, w_{T-t+1}}{\sum_{t \le K}\omega_t \sum_{k \le T-t+1} w_k}, \qquad w_1 = 1, \quad w_k = \lambda_k\,e^{-(\rho + h)(k-1)/12} \]
+\begin{itemize}
+\m{Default within 24 months aggregates decisions at months $1$ to $24$, weighted by the measured share $\omega_t$ of the window's defaults at $t$. The two-period formula is the case $K = 1$, a decision at origination with the far payment sixty months out.}
+\m{Two corrections to the two-period reading, and they run in opposite directions. Assigning each default to its own month raises the rate from $0.09$ to $0.27$, because a second-year default was decided with the far payment nearer.}
+\m{The marginal-utility ratio is a profile that declines with the horizon as the distress state mean-reverts, $0.89$ at the second payment and $0.35$ at the sixtieth under the persistence measured in the panel. The profile lowers the rate to $0.11$.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The headline rate}
+\centering\includegraphics[width=0.8\textwidth,height=0.6\textheight,keepaspectratio]{figures/fig_rho_headline.pdf}
+\begin{itemize}\small
+\m{$\rho = 0.11$, set $[0.09, 0.13]$, the loan-weighted mean across score deciles of the within-borrower ratios, each mapped through the window formula with the group's own profile and exit hazard.}
+\m{The Dobbie--Song experiment, aggregated over its own five-year window, fits best at zero and accepts every rate to $1.2$ at five percent. The experiment fixes the sign of the far-payment weight. The bureau fixes its level.}
+\end{itemize}
+\backup{bk-experiments}{the experiments}
+\end{frame}
+
+\begin{frame}{The level is the bureau's because of where the auto loan sits}
+\centering\includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{figures/fig_horizon_power.pdf}
+\begin{itemize}\small
+\m{A far payment's weight is $\lambda_s e^{-(\rho+h)(s-1)/12}$. Compounding makes it more sensitive to the rate, discounting and survival make it smaller, so the rate's standard error is smallest at $1/(\rho+h)$, $3.3$ years, and $134$ times larger at 26 years.}
+\m{A five-year outcome window averages the weight over decisions at which the far payment stands one to five years out, which is why the Dobbie--Song pair bounds the sign and not the level. No design in these data and no published experiment estimates a long-run rate.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The rate across people, from the bureau}
+\centering\includegraphics[width=0.9\textwidth,height=0.6\textheight,keepaspectratio]{figures/fig_rho_within.pdf}
+\begin{itemize}\small
+\m{Within borrower, on 13.5 million borrowers with two or more auto loans (65 million loans), the term response over the payment response at 24 months is mapped through the window formula with each group's own profile and exit hazard.}
+\m{No gradient in score or income, a hump in the middle deciles, and sets that include zero in the two top deciles, while default rates fall fifty-fold across the same deciles.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What the bureau adds at population scale}
+\centering\includegraphics[width=\textwidth,height=0.55\textheight,keepaspectratio]{figures/fig_exposure_groups.pdf}
+\begin{itemize}\small
+\m{The payment margin at population scale is $0.45$ pooled and $0.44$ within borrower, the same in every cohort from 2010 to 2024, inside the range of the published quasi-experiments' payment responses.}
+\m{Its heterogeneity is exposure. The elasticity is $0.41$ in the bottom income quartile and $0.86$ in the top, peaks at the median score, and differs by a factor of two across places.}
+\end{itemize}
+\backup{bk-bureau}{identification in the bureau}
+\end{frame}
+
+\input{slide_data}
+
+\input{slide_laboratories}
+
+\input{slide_ladder}
+
+\begin{frame}{The run-off of the payment margin validates the stopping model}
+\centering\includegraphics[width=0.9\textwidth,height=0.55\textheight,keepaspectratio]{figures/fig_runoff_profiles.pdf}
+\begin{itemize}\small
+\m{The payment elasticity is flat for three years and then falls to three quarters of its level, the same shape in every group.}
+\m{The structural model, calibrated to the default rate, produces this shape at every discount rate under an i.i.d.\ or a persistent income process, because the default option sets the weight on far payments. The run-off is evidence for the model and is not mapped to a rate.}
+\end{itemize}
+\backup{bk-runoff}{the model's run-off}
+\end{frame}
+
+\begin{frame}{The rate does not differ across groups}
+\centering\resizebox{0.72\textwidth}{!}{\input{tables/tab_rho_within_compact}}
+\begin{itemize}\small
+\m{By score decile the rate runs from $0.01$ to $0.22$, with sets that contain the mean in eight deciles. By income quartile it is $0.24$, $0.06$, $0.08$ and $0.26$. The ratios themselves differ little, $0.53$ at the bottom decile and $0.49$ at the top.}
+\m{Heterogeneity in default is in the level of the margin, exposure, and not in how the horizon is discounted.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The rate by subgroup, from the one experiment that reports both arms by subgroup}
+\centering\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{figures/fig_rho_subgroups.pdf}
+\begin{itemize}\small
+\m{In Dobbie--Song the best fit lies between zero and $0.20$ in every subgroup, no reference rate is rejected at five percent, and the two halves of each split do not differ ($p = 0.64$, $0.84$ and $0.21$ for the ratios).}
+\m{The axes along which default differs most, credit score and leverage, are not axes along which the rate differs.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The population term margin is a selection gradient in the score}
+\centering\includegraphics[width=\textwidth,height=0.58\textheight,keepaspectratio]{figures/fig_het_agreement.pdf}
+\begin{itemize}\small
+\m{Pooled, the population ratio is $0.25$ against $0.55$ within borrower. By decile it rises from $-0.95$ to $4.45$ while the within-borrower ratio stays between $0.32$ and $0.53$, because lenders screen risky borrowers with short terms and safe borrowers choose long ones.}
+\m{The population step buys exposure with power at every resolution and the selection gradient at 46 points of the score distribution. It does not buy a rate by group.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The geography of exposure follows income}
+\centering\includegraphics[width=\textwidth,height=0.55\textheight,keepaspectratio]{figures/fig_geo_correlates.pdf}
+\begin{itemize}\small
+\m{Across 91 zip-code areas exposure runs from $0.33$ to $0.67$ between the tenth and ninetieth percentiles, as dispersed as across income quartiles. One standard deviation of income per return raises it by $0.07$ across states, and one of the Republican share lowers it by $0.06$.}
+\m{With the place's score, income and contract-length composition held fixed, the vote's gradient is zero and income's survives only across states. The political map of default is an income map.}
+\end{itemize}
+\end{frame}
+
+\input{slide_equity}
+\input{slide_arm}
+\input{slide_student}
+
+\begin{frame}{Contributions}
+\begin{itemize}\small
+\m{\textbf{Theory.} A sufficient statistic for the discount function from default responses to payments at two dates. Three theorems on its limits (the premium, beliefs, the contract's length). A window formula that assigns each default to its own decision month, and a precision result that says at which horizon a rate can be estimated.}
+\m{\textbf{The rate.} $0.11$ over the horizon of a contract, from two loans of the same borrower, with no gradient in score or income and a gradient in age. The published experiments accept it and, run over windows of years at horizons of four to twenty-six years, fix its sign and not its level.}
+\m{\textbf{Default is strategic.} The cost of default rises with the balance owed ($+0.36$ on the term response where the balance cannot be pursued, $+3.9$ on mortgages without recourse), and the equity response of mortgage default is a walk-away, stronger without recourse and convex in negative equity.}
+\m{\textbf{Exposure at population scale.} The payment elasticity runs from $0.41$ to $0.86$ across income quartiles and by a factor of two across places, follows income rather than the vote, and the population term margin is the Hertzberg et al.\ selection pattern at 46 points of the score distribution.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What is next}
+\begin{itemize}
+\m{The adjustable-rate resets in the bureau are found and do not deliver the rate, because the index moved by less than $0.2$ points in 2010 to 2013 and delinquency is higher before a coming cut in every sample, a sign no discount function produces.}
+\m{The October 2023 student-loan resumption, a statutory bill on another account, moved nothing, because half of the bills went unpaid and none were reported delinquent for a year.}
+\m{HAMP step-ups, card promotional expirations and forbearance exits are queued. Each moves a payment at a known date at a fixed balance, in the panel, with score, income and lender on every loan.}
+\end{itemize}
+\label{main-end}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% BACKUP %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain]\centering\Large Backup\end{frame}
+
+\begin{frame}[label=bk-theory]{The propositions}
+\begin{itemize}\small
+\m{Interior default at every horizon. The borrower who continues buys one period of standing plus the option to reconsider, and committed-repayment comparisons degenerate.}
+\m{Sensitivities. $\partial p_1/\partial m_s = f(y^*)\,\delta^{s-1} Q_s\, \mathbb{E}[u'(y-m_s)\mid y>y_s^*]/\Delta u'_1$.}
+\m{The discount curve is identified pointwise from a menu of payment perturbations with survival measured, and the exponential null is testable with three horizons.}
+\m{Exact aggregation. A pooled estimate is a sensitivity-weighted average of type-level statistics, with weights equal to each type's mass at its own margin.}
+\end{itemize}\backto
+\end{frame}
+
+\begin{frame}[label=bk-limits]{The theorems on limits}
+\begin{itemize}\small
+\m{\textbf{Theorem.} With $D(k)=\beta\delta^k$ and the profile $\lambda_s$, every ratio of default responses depends on $(\beta,\lambda_s)$ through $\beta\lambda_s$. Payment-timing experiments identify $\delta$ and $\beta\lambda_s$ and neither factor alone.}
+\m{\textbf{Corollary.} A liquid-versus-illiquid comparison at one date identifies $\lambda$ (Indarte's pair, $\lambda \approx 0.2$), and then $\beta$ follows.}
+\m{\textbf{Proposition.} Subjective survival $\tilde Q$ multiplies $D$. The identified object is $D\,\tilde Q/Q$, fixed by measuring $Q$.}
+\m{\textbf{Proposition.} The term response is the preference channel minus the balance-scaled penalty plus exposure, and a ratio above one is outside the preference channel at any rate.}
+\end{itemize}\backto
+\end{frame}
+
+\begin{frame}[label=bk-experiments]{The experiments as payment paths}
+\centering\includegraphics[width=0.9\textwidth,height=0.62\textheight,keepaspectratio]{figures/fig_ledger_paths.pdf}
+\begin{itemize}\small\m{A relief owes less in every month. A rescheduling owes less now and more later. The distinction is what a discount rate prices.}\end{itemize}\backto
+\end{frame}
+
+\begin{frame}{What each pair says}
+\centering\includegraphics[width=0.75\textwidth,height=0.62\textheight,keepaspectratio]{figures/fig_ledger_rho.pdf}
+\begin{itemize}\small\m{Dobbie--Song, over its own five-year window, fits best at zero and accepts $[0, 1.20]$ at five percent and $[0, 2.84]$ at one percent. Read at a single decision date the sets would end at $0.03$ and $0.08$. Ganong--Noel is nearly flat over 26 years and rejects nothing. Indarte's pair identifies $\lambda$.}\end{itemize}\backto
+\end{frame}
+
+\begin{frame}{The near-horizon response across settings, and $\lambda$}
+\centering\includegraphics[width=0.7\textwidth,height=0.4\textheight,keepaspectratio]{figures/fig_ledger_near.pdf}\\
+\includegraphics[width=0.7\textwidth,height=0.4\textheight,keepaspectratio]{figures/fig_ledger_lambda.pdf}\backto
+\end{frame}
+
+\begin{frame}[label=bk-bureau]{The payment margin is a stable parameter}
+\centering\includegraphics[width=\textwidth,height=0.62\textheight,keepaspectratio]{figures/fig_stability.pdf}
+\begin{itemize}\small\m{Within-borrower designs, the population specification on the panel, and every cohort lie between $0.3$ and $0.6$, inside the range of the published payment responses.}\end{itemize}\backto
+\end{frame}
+
+\begin{frame}{The specification search}
+\centering\includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{figures/fig_spec.pdf}
+\begin{itemize}\small\m{Ten candidates scored on 47 group-by-window comparisons against within-borrower estimates. One reproduces them in every group with a constant gap.}\end{itemize}\backto
+\end{frame}
+
+\begin{frame}{The gap to the within-borrower estimate, by group}
+\centering\includegraphics[width=\textwidth,height=0.62\textheight,keepaspectratio]{figures/fig_gap.pdf}\backto
+\end{frame}
+
+\begin{frame}{The term margin has two channels}
+\centering\includegraphics[width=0.8\textwidth,height=0.55\textheight,keepaspectratio]{figures/fig_termmargin.pdf}
+\begin{itemize}\small\m{At a fixed payment a longer contract lowers early delinquency for low scores and raises it for high scores. Values above one are outside the preference channel, and the deficiency rules confirm the penalty channel.}\end{itemize}\backto
+\end{frame}
+
+\begin{frame}{Person, place, and the penalty base}
+\centering\includegraphics[width=0.48\textwidth,height=0.5\textheight,keepaspectratio]{figures/fig_place.pdf}\hfill\includegraphics[width=0.48\textwidth,height=0.5\textheight,keepaspectratio]{figures/fig_chargeoff.pdf}
+\begin{itemize}\small\m{A quarter of the variance of default is the person, and the place is 7 to 12 percent. Charge-off amounts scale one-for-one with the payment and increasingly with the term as the balance amortizes.}\end{itemize}\backto
+\end{frame}
+
+\begin{frame}{Power-preserving splits}
+\centering\includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{figures/fig_exposure_geo.pdf}\backto
+\end{frame}
+
+\begin{frame}[label=bk-runoff]{The model's run-off across discount rates}
+\begin{itemize}\small
+\m{Calibrated to the sample's default rate with anticipated exits at the measured hazard, the run-off ratio is $0.77$ to $0.82$ at every rate from $0$ to $1.2$, and the data's $0.75$ (charge-off) and $0.67$ (90-day) lie within.}
+\m{The first-order formula, applied to the model's own simulations at true rates of $0.03$ to $0.10$, returns rates near $3$, because it includes survival and $\lambda$ but not the option.}
+\m{At twice the taste-shock scale the elasticity level stays near five and the shape is unchanged. The model with i.i.d.\ income cannot reach the data's level at the data's default rate, and the level is where model and data are to be reconciled.}
+\end{itemize}\backto
+\end{frame}
+
+\begin{frame}{Identification strategies tried}
+\begin{itemize}\small
+\m{Reading the rate off the default margins. The two separate logits, the closed form $x/(e^x-1)$, fixed-window outcomes.}
+\m{Instruments for the term margin. Macro rates, size menus, leave-out lender menus, the 72-month menu discontinuity, the difference estimator under equi-confounding, within-borrower effects, selection on observables.}
+\m{Separating channels. Deficiency rules, full model inversion, the first-order formula, contract-length bins, charge-off amounts.}
+\m{Timing inside the bureau. Deferrals and balloons, pandemic forbearance, movers.}
+\m{The appendix records each with the object it would have identified and why it fell short, and the timing designs built and queued.}
+\end{itemize}\backto
+\end{frame}
+\end{document}
