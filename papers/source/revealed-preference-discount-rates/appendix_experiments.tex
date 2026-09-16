@@ -1,0 +1,84 @@
+% appendix_experiments.tex: the rule-based experiments: posterior summaries under a flat prior (moved from Section 3.4), the payment path of every treatment and the p-value curve of every pair.
+\section{The Rule-Based Experiments: Posterior Summaries and Exhibits}\label{appendix:experiments}
+
+This appendix reports, for the rule-based experiments of Section \ref{sec:quasi}, the posterior summaries of the rate under a flat prior, the payment path of every treatment arm, and the $p$-value curve of every pair together with the near-horizon responses across settings and Indarte's pair as the model produces it.
+
+\subsection{The treatments and the model's estimate from each pair}
+
+\begin{table}[H]
+\centering
+\caption{Rule-based experiments as payment-path treatments, and the model's estimate from each pair}
+\label{tab:experiments}
+\resizebox{\textwidth}{!}{\input{tables/tab_experiments}}
+\vspace{0.5em}
+\begin{minipage}{0.95\textwidth}
+\small \textit{Notes:} Panel A codes each treatment as the change in dollars owed by month relative to the study's control; effects are the studies' reported estimates on the outcome and horizon shown. Panel B tests each pair of arms from the same population on the grid of $\rho$ from 0 to 3 by 0.01: the joint $\chi^2(1)$ distance of the two reported effects from the model's line effect$_1 = r(\rho)\,$effect$_2$, with $r(\rho)$ the ratio of the arms' weighted payment changes under exponential discounting, aggregated over the decision months of each study's outcome window with the study's own event timing (equation \eqref{eq:window}), survival from the study's own exit hazards (the re-default or filing hazard scaled by the uncured share, plus the payoff hazard), and the marginal-utility profile of equation \eqref{eq:lambda_p} at the study population's baseline rate and payment share, through Indarte's $0.2$; the rows marked ``same'' repeat the test with the two arms' sampling errors correlated at 0.5 (their covariance is not reported and the main rows treat them as independent) and with a constant $\lambda = 0.2$. The reference rates are the 2 percent social discount rate, the paper's estimate, and the laboratory median of 0.22. Sets are the rates on the grid not rejected at the stated level, as unions of intervals where they are not connected. Indarte's pair identifies $\lambda$ and is not tested for $\rho$.
+\end{minipage}
+% replication: Code/local/experiments_ledger.R, Code/exhibits/make_experiments_table.py; external/experiments_paths.csv, external/experiments_estimates.csv, results/experiments_rho_summary.csv
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_rho_subgroups.pdf}
+\caption{The discount rate by subgroup in the Dobbie--Song experiment. Each curve is the $p$-value of the subgroup's pair of arms against the model's line on the grid of the annual rate from 0 to 3, aggregated over the five-year window at the marginal-utility profile, with survival from the study's exit hazards; the upper row repeats the lower on rates from 0 to 0.3; the dotted and dashed lines are five and one percent.}
+\label{fig:rho_subgroups}
+% replication: Code/local/experiments_rho_subgroups.R, Code/exhibits/make_rho_subgroups.R
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{The discount rate by subgroup in the Dobbie--Song experiment}
+\label{tab:rho_subgroups}
+\small
+\resizebox{\textwidth}{!}{\input{tables/tab_rho_subgroups}}
+\vspace{0.5em}
+\begin{minipage}{0.95\textwidth}
+\small \textit{Notes:} Effects on bankruptcy within five years of the maximum-intensity write-down and payment-reduction arms, by subgroup, from \citet{dobbie_targeted_2020}, Table 8 and Appendix Table A9 (standard errors in parentheses). The remaining columns test each pair against the model's line on the grid of the annual rate from 0 to 3 by 0.01, aggregated over the five-year window at the marginal-utility profile, with survival from the study's exit hazards and the two arms treated as independent, their covariance not being reported: the best-fitting rate, the $p$-value at the 2 percent social discount rate, at the paper's estimate and at the laboratory median of 0.22, and the sets of rates not rejected at the five and one percent levels. A set with two components has its second component in the region of high rates where the model predicts no write-down response. The pooled row uses the maximum-arm effects.
+\end{minipage}
+% replication: Code/local/experiments_rho_subgroups.R, Code/exhibits/make_rho_subgroups.R; results/experiments_rho_subgroups.csv
+\end{table}
+
+\subsection{Posterior summaries under a flat prior}
+
+Turned into posterior weights under a flat prior, the estimates of Section \ref{sec:quasi} depend on the prior's support in a way that the $p$-value curve does not (Table \ref{tab:rho_posterior}). On the support $[0, 1]$ the Dobbie--Song posterior has its mode at zero, a mean of $0.36$, a 68 percent highest-density set of $[0, 0.47]$ and a 95 percent set of $[0, 0.88]$. On the support $[0, 3]$ the mode is again zero, but the mean is $0.66$ and a fifth of the posterior mass lies above $\rho = 1$, in the region where the write-down is predicted to do little: the mass is the prior's, not the experiment's, because a flat prior over a wide region of low likelihood accumulates weight that no point in the region earns. Pooling the pair with Ganong--Noel's under one rate changes little on either support, since the second pair's likelihood is nearly flat: the pooled mean is $0.40$ on $[0, 1]$ and $0.72$ on $[0, 3]$, with 68 percent sets of $[0, 0.51]$ and $[0, 0.80]$. The mean of a posterior is not the right summary of this evidence, and the paper does not report one as its rate; the experimental statement of the paper is the Dobbie--Song pair's $p$-value curve, and the check is the set it accepts.
+
+\begin{table}[H]
+\centering
+\caption{Posterior summaries of the rate under a flat prior, by pair and support}
+\label{tab:rho_posterior}
+% replication: Code/local/experiments_rho_posterior.R, Code/exhibits/make_rho_posterior_table.R; results/experiments_rho_posterior.csv
+\small
+\input{tables/tab_rho_posterior}
+\vspace{0.5em}
+\begin{minipage}{0.95\textwidth}
+\small \textit{Notes:} Posterior weights $\propto \exp(-\chi^2(\rho)/2)$ on the grid of $\rho$ by $0.01$, under the window aggregation of equation \eqref{eq:window} at the marginal-utility profile, with survival from each study's exit hazards and the arms independent; the pooled row sums the Dobbie--Song (maximum arms) and Ganong--Noel $\chi^2$ statistics. Sets are highest-density sets, the grid points of largest weight that together hold 68 or 95 percent, and are unions of intervals where the posterior has a second region of weight at high rates. The posterior mass above $\rho = 1$ on the $[0, 3]$ support is 0.22 for Dobbie--Song, 0.69 for Ganong--Noel and 0.24 pooled.
+\end{minipage}
+% replication: Code/local/experiments_rho_posterior.R, Code/exhibits/make_rho_posterior_table.R; results/experiments_rho_posterior.csv
+\end{table}
+
+\subsection{Payment paths and $p$-value curves}
+
+\begin{figure}[H]
+\centering
+\caption{Rule-based experiments as payment-path treatments}
+\label{fig:ledger_paths}
+% replication: Code/exhibits/make_ledger_figures.R; external/experiments_paths.csv, external/experiments_estimates.csv
+\includegraphics[width=\textwidth]{figures/fig_ledger_paths.pdf}
+\begin{minipage}{0.95\textwidth}
+\small \textit{Notes:} Each panel is one treatment arm: the change in dollars owed in each month after the event relative to the study's control (first 96 months shown). Blue: relief, every month owes less. Red: rescheduling, less now and more later. The studies shown are those of Table \ref{tab:experiments}. Source: \texttt{external/experiments\_paths.csv}.
+\end{minipage}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\caption{What each pair of arms says about the discount rate, and the near-horizon response across settings}
+\label{fig:ledger_rho}
+% replication: Code/exhibits/make_ledger_figures.R, Code/exhibits/make_lambda_figure.R; results/experiments_rho.csv, external/experiments_estimates.csv
+\includegraphics[width=0.8\textwidth]{figures/fig_ledger_rho.pdf}\\[0.5em]
+\includegraphics[width=0.8\textwidth]{figures/fig_ledger_near.pdf}\\[0.5em]
+\includegraphics[width=0.8\textwidth]{figures/fig_ledger_lambda.pdf}
+\begin{minipage}{0.95\textwidth}
+\small \textit{Notes:} Upper panel: the $p$-value of the joint test of a pair of arms against the model, on the grid of $\rho$ from 0 to 3 (Section \ref{sec:mapping}; aggregated over each study's outcome window; survival from each study's exit hazards; the marginal-utility profile; the dashed and dotted lines are five and one percent). Middle panel: each study's reported response converted to a proportional change in the default or filing rate per \$100 a month of payment relief, with the credit-bureau within-borrower payment elasticity at a \$400 payment for comparison. Bottom panel: Indarte's pair, the ratio of the seizable-equity response to the payment response, as the model produces it for values of $\lambda_{\text{illiquid}}$ at three discount rates; the observed ratio crosses at about 0.2 whatever $\rho$ is.
+\end{minipage}
+\end{figure}
+

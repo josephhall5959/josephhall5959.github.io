@@ -1,0 +1,80 @@
+% appendix_equity.tex: the equity margin on first mortgages: design, results, the model with a house, and what the margin establishes (2026-09-09).
+\section{The Equity Margin on First Mortgages}\label{appendix:equity}
+
+This appendix documents the equity margin of Section \ref{sec:equity}: the response of mortgage default to the house's value, measured against the response to the payment, on the one-percent panel, and the model calculation that shows why the ratio of the two responses does not identify the discount rate.
+
+\subsection{Design}
+
+A borrower whose house is worth less than the balance can stop paying and surrender the house. The decision weighs the remaining stream of payments, up to twenty-five years of them, against the house, a single asset she keeps if she pays to the end or sells. Proposition \ref{prop:sensT} makes the ratio of default responses to two payment paths a sufficient statistic for the discount function, and the house value is a path with all of its weight at the end. The equity margin is the response of default to the log change in the house's value since origination; the payment margin is the response to the log origination payment; the ratio of the two is the object a model maps to a rate.
+
+Identification uses origination cohorts within a zip code. The regression is a linear probability model of first 90-day delinquency in a quarter on the log house-price change since origination, the log origination payment, and the log origination balance, with fixed effects for the five-digit zip code by calendar quarter and for the origination year, and standard errors clustered by three-digit zip code. The zip-by-quarter effects absorb the local economy in that quarter, including its labor market, so that the house-price change varies only across origination cohorts of the same zip observed in the same quarter: a household that bought in 2006 and one that bought in 2003 face the same local conditions in 2010 and hold different equity because they bought at different points in the price path. The origination-year effects absorb what is common to a cohort across zips, and with both sets of effects the loan's age is fixed up to the quarter within the origination year.
+
+The sample is the E11 mortgage panel: thirty-year first mortgages originated in 2000 to 2012 in the one-percent panel, observed from 2005 to 2018 at semiannual archives to 2009 and monthly archives from 2010, with score, income and age at first sight. The house-price index is the Zillow home value index by five-digit zip code, monthly, averaged within the quarter. The origination rate is implied by the payment, the balance and the term through the annuity identity, and the scheduled balance follows from it. Each loan is at risk from its first quarter in the panel to the quarter of its first 90-day delinquency, its payoff, or its last sight. The panel holds 21,781,047 loan-quarters on 1,863,861 loans and 191,581 first 90-day delinquencies, a quarterly hazard of 0.88 percent; 88 percent of the loans that meet the contract filters have an index in their origination quarter. The log house-price change since origination has a tenth percentile of $-0.20$, a median of $0.06$ and a ninetieth percentile of $0.48$.
+
+\subsection{Results}
+
+Table \ref{tab:equity_margin} reports the pooled estimate and the splits by recourse, loan age and period. The house-price coefficient is $-2.23$ ($0.09$) per unit of log price, times one hundred, on a base hazard of $0.88$ percent per quarter: an elasticity of $-2.54$, so that a price ten percent below its origination level raises the hazard by a quarter. The payment coefficient is $1.31$ ($0.04$), an elasticity of $1.49$, and the ratio of the two coefficients is $-1.71$ ($0.07$). In the states whose laws bar a deficiency judgment on a purchase mortgage the elasticity is $-2.74$ against $-2.48$ elsewhere, and the ratio is $-2.38$ against $-1.54$. The response falls with the loan's age: $-5.90$ in the first three years, $-2.88$ from three to seven years, $-1.07$ after seven. It is $-3.09$ in 2008 to 2012 and $-1.26$ from 2013.
+
+Table \ref{tab:equity_groups} reports the two margins by score tercile and income quartile. The house-price elasticity rises with the score, from $-1.46$ in the lowest tercile to $-3.52$ and $-4.84$, while the payment elasticity falls from $1.13$ to $0.07$ and $0.15$; across income quartiles the house-price elasticity rises from $-1.70$ to $-3.11$ and the payment elasticity falls from $1.60$ to $0.41$. Table \ref{tab:equity_bins} reports the hazard by bin of the house-price change, relative to a rise of up to ten percent. A fall of up to ten percent leaves the hazard at its base; a fall of ten to twenty percent adds $0.51$ percentage points per quarter, of twenty to thirty $1.12$, of thirty to fifty $1.98$, and of more than fifty percent $3.93$, four and a half times the base. Rises of more than ten percent add $0.16$ to $0.28$ points.
+
+\begin{table}[H]
+\centering
+\caption{The equity margin and the payment margin by score and income}
+\label{tab:equity_groups}
+% replication: Code/identification/I12_equity_margin.R, Code/exhibits/make_equity_groups_table.R; results/equity_margin.csv
+\small
+\resizebox{\textwidth}{!}{\input{tables/tab_equity_groups}}
+\vspace{0.5em}
+\begin{minipage}{0.92\textwidth}
+\noindent \small \textit{Notes:} The specification of Table \ref{tab:equity_margin}, estimated within score tercile and income quartile; score and income at the loan's first sight in the panel. Coefficients ($\times 100$), standard errors clustered by three-digit zip code, and elasticities in brackets (coefficient over the base hazard, which is in percent per quarter).
+\end{minipage}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{The hazard by bin of the house-price change since origination}
+\label{tab:equity_bins}
+% replication: Code/identification/I12_equity_margin.R, Code/exhibits/make_equity_groups_table.R; results/equity_margin_bins.csv
+\small
+\input{tables/tab_equity_bins}
+\vspace{0.5em}
+\begin{minipage}{0.92\textwidth}
+\noindent \small \textit{Notes:} Linear probability coefficients ($\times 100$) on indicators for bins of the log house-price change since origination, relative to a change between zero and ten percent, with the log origination payment and balance and the fixed effects of Table \ref{tab:equity_margin}; standard errors clustered by three-digit zip code. The last column divides the coefficient by the base hazard of $0.88$ percent per quarter.
+\end{minipage}
+\end{table}
+
+\subsection{The model with a house}
+
+The calculation that maps the ratio to a rate is the stopping problem of Appendix \ref{appendix:multiperiod} with a house added. Periods are quarters and the contract has 120 of them. Income is i.i.d. lognormal with a log standard deviation of $0.5$ and a median of one; utility is logarithmic; the payment is $0.36$ of median quarterly income. The house is worth 25 quarters of median income at origination against a balance of 80 percent of that value, and its log value follows a random walk with a drift of $0.005$ and a standard deviation of $0.04$ per quarter; the balance amortizes at an annual note rate of six percent. Each quarter, after income and the house value are observed, the borrower pays, sells, or defaults. Selling is available when the house is worth more than the balance and yields $\omega$ times the difference, with $\omega$ the marginal utility of a dollar to a repayer, equal to one at the median income under logarithmic utility, and ends the loan. Default incurs the penalty flow $\sigma$ over 28 quarters and forfeits the house. A borrower who makes the last payment owns the house, worth $\omega$ times its value. Exogenous exits, moves and refinancings, occur at ten percent a year and pay the equity when it is positive. A logistic taste shock of scale $0.5\sigma$ smooths the three-way choice. For each rate on a grid the penalty $\sigma$ is calibrated so that the mean quarterly hazard, on the sample's own distribution of loan age and house-price change since origination, equals the sample's $0.88$ percent; the model then reports the elasticity of the hazard to the log house value, the elasticity to the log payment, and their ratio, in total and by loan-age bin.
+
+Table \ref{tab:equity_model} reports the grid. Across rates from $0.02$ to $0.80$ the house-value elasticity is between $-5.33$ and $-5.05$, the payment elasticity between $4.67$ and $5.50$, and the ratio between $-0.92$ and $-1.09$. By loan age the house-value elasticity is $-6.8$ to $-6.6$ in the first three years, $-4.7$ to $-4.2$ from three to seven, and $-6.1$ to $-6.0$ after seven, at every rate. Variants with $\omega$ set to one half and to two, at the same hazard, give ratios between $-2.1$ and $-1.8$ and the same absence of movement across rates. The payment elasticity in every variant is $4.7$ to $5.5$, against the measured $1.49$, and income is i.i.d.; the model with a house has not been solved with the persistent income process of Appendix \ref{appendix:persistent}, whose auto-loan results, the same elasticity and the same insensitivity to the rate at every persistence, are the reason the absence of movement here is stated as conditional on the calibration. The mechanism in the model is the sale option. A borrower whose house is worth more than the balance does not default; she sells, repays, and keeps the difference. A fall in the house's value moves default by removing that alternative, which is available in the current quarter, and the value of a current alternative does not depend on how the borrower weighs the future. The far stream of payments enters the decision only through the continuation value, and the calibration of $\sigma$ to the hazard absorbs its level at every rate.
+
+
+\begin{table}[H]
+\centering
+\caption{The model's equity margin on a grid of discount rates}
+\label{tab:equity_model}
+\small
+\input{tables/tab_equity_model}
+\vspace{0.5em}
+\begin{minipage}{0.92\textwidth}
+\noindent \small \textit{Notes:} The stopping problem of Appendix \ref{appendix:multiperiod} in quarters with a house whose log value follows a random walk, a sale option when the house is worth more than the balance, default that incurs the penalty and forfeits the house, ownership at maturity, exogenous exits at ten percent a year, and a logistic taste shock; the penalty $\sigma$ is calibrated at each rate to the sample's quarterly hazard on the sample's distribution of loan age and price change. Elasticities of the hazard to the log house value and to the log payment, and their ratio. Income is i.i.d.; the model's payment elasticity is $4.7$ to $5.5$ against the measured $1.49$ (Appendix \ref{appendix:persistent} for the auto-loan counterpart).
+\end{minipage}
+% replication: Code/local/mc_equity_model.R, Code/exhibits/make_equity_table.R
+\end{table}
+
+\subsection{What the equity margin establishes}
+
+The margin is measured with standard errors of a few percent of its size and it does not identify the rate. Four facts in it are used elsewhere.
+
+First, the recourse contrast is a population-scale measurement of the penalty channel on mortgages. In the states that bar deficiency judgments the borrower who surrenders the house owes nothing further, and her default responds more to the house's value; the difference between the two groups of states, $-2.74$ against $-2.48$ in elasticity and $-2.38$ against $-1.54$ in the ratio to the payment margin, is the mortgage analogue of the balance-scaled penalty of Appendix \ref{appendix:balancepenalty}, whose auto-loan counterpart is the deficiency contrast of Section \ref{sec:equity}.
+
+Second, the two margins by score are the two triggers of the double-trigger account of default. In the lowest score tercile default responds to the payment, with an elasticity of $1.13$, and weakly to the house, $-1.46$; in the highest tercile it responds to the house, $-4.84$, and not to the payment, $0.15$. Section \ref{sec:exposure_not_impatience} interprets the heterogeneity in the payment margin as the population's position relative to the payment threshold; the equity margin adds a second threshold, and the two together place each group: subprime borrowers near the payment threshold and far from the equity threshold, prime borrowers the reverse.
+
+Third, the decline of the house-price response with the loan's age, from $-5.90$ to $-1.07$, is a target the model with a house does not reproduce: its own profile is $-6.8$ in the first three years and $-6.0$ after seven, a ratio of $1.1$ against the data's $5.5$. The gap is recorded as a failure of fit of the house process, the exit process and the income process, since the model's profile is the same at every rate in the calibration of Table \ref{tab:equity_model}; on auto loans, the persistent income process of Appendix \ref{appendix:persistent} changes the loan-age profile of the model's elasticities without changing their sensitivity to the rate.
+
+Fourth, the convexity of the hazard in negative equity, from nothing at a fall of up to ten percent to four and a half times the base at a fall of more than half, is the signature of the walk-away decision and an input to the calibration of the house-value process and the penalty in the model with a house.
+
+\subsection{Replication}
+
+\texttt{Code/extract/E15\_mortgage\_equity.R} builds the loan-quarter panel from the E11 mortgage panel and the Zillow index (\texttt{external/zhvi\_zip\_month.csv}); \texttt{Code/identification/I12\_equity\_margin.R} estimates the margins, the splits and the bins and writes \texttt{results/equity\_margin.csv}, \texttt{equity\_margin\_bins.csv} and the age-by-price histogram \texttt{equity\_age\_x\_hist.csv}; \texttt{Code/local/mc\_equity\_model.R} solves the model with a house and writes \texttt{results/mc\_equity\_grid\_omega1.csv} and the $\omega$ variants; \texttt{Code/exhibits/make\_equity\_table.R} and \texttt{make\_equity\_groups\_table.R} produce the tables.

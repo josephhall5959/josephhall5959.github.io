@@ -1,0 +1,118 @@
+%==========================================================================
+% APPENDIX: A PRACTITIONER'S GUIDE TO INFERRING LOAN PRICING FROM
+% CREDIT-BUREAU DATA
+%
+% Input-able at \section level (no preamble). Simulation code:
+% Code/impute_rates.R; all numbers cited below are reproduced by
+% Output/impute_validation.csv and Output/impute_validation.pdf.
+%==========================================================================
+
+\section{A Practitioner's Guide to Inferring Loan Pricing from Credit-Bureau Data}\label{appendix:rateimputation}
+
+\subsection{The problem: bureaus record quantities and statuses, not prices}
+
+Credit-bureau trade records contain no interest-rate field. Consumer credit data are furnished to the bureaus in the Metro~2 format---the standardized reporting layout maintained by the Consumer Data Industry Association and documented in its \emph{Credit Reporting Resource Guide} \citep{cdia_credit_nodate}---and the format's account-level fields describe quantities, dates, and payment statuses rather than prices. In the bureau's archive data used in this paper, the column labeled \texttt{rate} is a payment-status code taking values 0--9 (current, 30 days past due, 60 days past due, and so forth), not an interest rate. The absence of pricing information is a general feature of bureau-based research datasets, including the FRBNY Consumer Credit Panel \citep{lee_introduction_2010}; see \citet{avery_overview_2003} for an overview of the content of U.S. credit records. Loan-level interest rates are typically observable only in proprietary data from individual lenders \citep[e.g.,][]{einav_contract_2012}.
+
+What each fixed-term installment trade does contain is the complete quantity side of the contract: \texttt{highcredit} (the original principal, $L$), \texttt{scheduled\allowbreak payment\allowbreak amount} (the contractual monthly payment, $m$), and \texttt{terms} (the number of monthly installments, $T$). In addition, the archive dimension of the data provides monthly snapshots of \texttt{balance}, along with \texttt{actual\allowbreak payment\allowbreak amount}, \texttt{balloon\allowbreak payment\allowbreak amount}, and \texttt{date\allowbreak deferred\allowbreak payment\allowbreak start} where furnished. Because a fixed-rate amortizing contract is fully determined by $(L, m, T)$ up to its interest rate, the rate is overidentified by these fields: it can be recovered once from the origination terms and again, independently, from the evolution of the balance. This appendix develops both estimators, quantifies how each known reporting quirk of bureau data distorts each estimator, and states the resulting guidance. All magnitudes come from a simulation with known ground truth (Section~\ref{appendix:rateimputation:sim}); the code is \texttt{Code/impute\_rates.R}.
+
+\subsection{Method 1: annuity inversion at origination}\label{appendix:rateimputation:m1}
+
+A level-payment amortizing loan is an annuity-immediate: a stream of $T$ equal payments made at the end of each period, whose present value at per-period rate $r$ is $m \, a_{\overline{T}|r}$ with $a_{\overline{T}|r} = \left(1-(1+r)^{-T}\right)/r$ \citep{kellison_theory_2008}. Setting the present value of the payments equal to the principal gives the defining equation of the contract,
+\begin{equation}\label{eq:annuity}
+L \;=\; m \, \frac{1-(1+r)^{-T}}{r} \;+\; K\,(1+r)^{-T},
+\end{equation}
+where $K \ge 0$ is a balloon payment due at maturity ($K = 0$ for a fully amortizing trade). Method~1 solves equation~\eqref{eq:annuity} for the monthly rate $r$ given the reported $(L, m, T)$ and, where furnished, $K$; the annualized note rate is $12r$, the nominal-annual convention in which U.S. consumer note rates are quoted.
+
+\emph{Existence and uniqueness.} The right side of equation~\eqref{eq:annuity} is strictly decreasing in $r$ on $r > 0$: each term $m(1+r)^{-t}$ and $K(1+r)^{-T}$ is strictly decreasing. Equivalently, the payment that solves the equation for fixed $(L, T, K)$ is strictly increasing in $r$. As $r \to 0^{+}$ the right side approaches $mT + K$, and as $r \to \infty$ it approaches zero. A solution $r > 0$ therefore exists, and is unique, if and only if
+\begin{equation}\label{eq:existence}
+mT + K > L,
+\end{equation}
+that is, whenever total undiscounted payments exceed the principal. The root can be computed by any bracketing method; the replication code uses \texttt{uniroot} per trade.
+
+\emph{The nonpositive-rate region as a data-quality flag.} When $mT + K \le L$ the implied rate is nonpositive, which does not occur for a correctly reported interest-bearing amortizing contract. In practice this region is populated by balloon contracts whose \texttt{balloon\allowbreak payment\allowbreak amount} field is unfurnished (the reduced payment $m$ cannot amortize $L$; see quirk~(g) below) and by misreported fields. Trades violating condition~\eqref{eq:existence} should therefore be flagged rather than assigned a rate.
+
+\emph{Note rate versus APR.} Equation~\eqref{eq:annuity} recovers the \emph{note rate}: the contractual rate applied to the amount financed. When origination fees are financed into the balance, \texttt{highcredit} includes them, and the note rate on the inflated principal is below the annual percentage rate (APR) that Regulation~Z requires lenders to disclose, which is computed on the amount financed net of prepaid finance charges \citep{cfpb_regulation_nodate}. Both methods in this appendix recover the note rate exactly in this case; the fee premium is a matter of interpretation, not estimation error, and its magnitude is quantified under quirk~(b) below.
+
+\subsection{Method 2: balance-path imputation from archive snapshots}\label{appendix:rateimputation:m2}
+
+Between consecutive monthly archives, the balance of a fixed-rate trade obeys $B_{t+1} = B_t(1+r) - \mathrm{pay}_t$, so each adjacent pair of snapshots implies a monthly rate
+\begin{equation}\label{eq:balancepath}
+\hat r_t \;=\; \frac{B_{t+1} - B_t + \mathrm{pay}_t}{B_t},
+\end{equation}
+where $\mathrm{pay}_t$ is the payment made in month $t$: \texttt{actual\allowbreak payment\allowbreak amount} where furnished, and \texttt{scheduled\allowbreak payment\allowbreak amount} otherwise. A loan observed for $n+1$ consecutive archives yields $n$ such monthly estimates. The loan-level estimator is the \emph{median} of the $\hat r_t$, annualized as $12 \times \mathrm{median}_t\, \hat r_t$.
+
+The median is the operative choice. Every reporting problem that afflicts the archive dimension---a stale snapshot that repeats last month's balance, a curtailment (extra principal payment) invisible in the scheduled payment, a deferral month in which no payment is made---corrupts individual months while leaving the remaining months exact, because the recursion $B_{t+1} = B_t(1+r) - \mathrm{pay}_t$ re-anchors at every snapshot. Isolated corrupted months therefore appear as outliers among the $\hat r_t$, which the median ignores so long as fewer than half of a loan's observed months are affected; the mean has no such protection, and the simulations below quantify the difference. Two further facts sharpen implementation. First, a \emph{uniform} one-month reporting lag is innocuous: if every snapshot shows the prior month's balance, consecutive snapshots still span exactly one true month of amortization, and with a level payment equation~\eqref{eq:balancepath} is unchanged. Only \emph{intermittent} staleness corrupts intervals, in offsetting pairs (one interval with too little amortization, the next with too much). Second, the denominator $B_t$ makes late-life months fragile: when the balance is within a few payments of zero, small reporting errors and payoff-month conventions produce extreme $\hat r_t$, so months with $B_t$ below a small multiple of $m$ are best excluded. The replication code requires at least four valid intervals per loan.
+
+\subsection{Validation on simulated bureau data with known note rates}\label{appendix:rateimputation:sim}
+
+I simulate 50{,}000 installment trades with known note rates and realistic contract mixes: 80\% auto loans ($L$ between \$8{,}000 and \$60{,}000; $T \in \{36, 48, 60, 72, 84\}$ months) and 20\% mortgages ($L$ between \$100{,}000 and \$600{,}000; $T \in \{180, 360\}$), with annual note rates between 2\% and 25\%. Each loan's true amortization path is generated month by month, thirteen consecutive archive snapshots are drawn from a window in the first five years of life, and both estimators are applied to the reported fields. In the clean baseline both methods recover every note rate to numerical precision, confirming that any error below is attributable to the measurement quirk under study. Each quirk is then applied one at a time, and finally all of them jointly:
+
+\begin{enumerate}
+\item[(a)] \emph{Dollar rounding.} The scheduled payment and reported balances are rounded to the nearest dollar. Contractual payments do cluster at round numbers in practice \citep{argyle_monthly_2020}.
+\item[(b)] \emph{Financed fees.} \texttt{highcredit} equals the amount financed including financed fees of 0--4\% of net proceeds, so the note rate sits below the Regulation~Z APR.
+\item[(c)] \emph{Odd first period.} The first payment falls 45 days after origination; under the actuarial convention the payment scales by $(1+r)^{1/2}$ relative to the standard annuity payment.
+\item[(d)] \emph{Stale balances.} Fifteen percent of snapshots repeat the prior month's balance.
+\item[(e)] \emph{Curtailments.} Five percent of loan-months contain extra principal of 0.5--2 monthly payments, not reflected in \texttt{scheduled\allowbreak payment\allowbreak amount}.
+\item[(f)] \emph{Deferrals.} Ten percent of loans skip two to three payments mid-life while interest accrues.
+\item[(g)] \emph{Balloon contracts.} A balloon of 20--50\% of principal is due at maturity, with the monthly payment set by equation~\eqref{eq:annuity}.
+\end{enumerate}
+
+Table~\ref{tab:impute_taxonomy} reports the bias and root-mean-squared error of each method against the true note rate under each scenario, and Figure~\ref{fig:impute_validation} displays the corresponding error distributions.
+
+\begin{table}[H]
+\centering
+\caption{Error taxonomy: bureau reporting quirks and their effect on each imputation method}
+\label{tab:impute_taxonomy}
+\begin{threeparttable}
+\small
+\begin{tabular}{lcccc}
+\toprule
+& \multicolumn{2}{c}{Method 1: annuity inversion} & \multicolumn{2}{c}{Method 2: balance path (median)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Scenario & Bias (bp) & RMSE (bp) & Bias (bp) & RMSE (bp) \\
+\midrule
+Baseline (clean)              & 0.0     & 0.0   & 0.0    & 0.0   \\
+(a) Dollar rounding           & $-$0.0  & 3.2   & $-$0.0 & 1.2   \\
+(b) Financed fees 0--4\%\tnote{a}      & 0.0     & 0.0   & 0.0    & 0.0   \\
+(c) 45-day first period       & $+$17.9 & 22.0  & 0.0    & 0.0   \\
+(d) Stale balances            & 0.0     & 0.0   & $-$0.1 & 10.4  \\
+(e) Curtailments              & 0.0     & 0.0   & $-$0.6 & 79.6  \\
+(f) Deferrals                 & 0.0     & 0.0   & 0.0    & 0.0   \\
+(g) Balloon contracts, naive\tnote{b}  & $-$722.9 & 772.2 & 0.0 & 0.0 \\
+\phantom{(g)} balloon-adjusted        & 0.0     & 0.0   &        &       \\
+All quirks jointly\tnote{c}   & $-$17.2 & 167.3 & $+$1.5 & 361.5 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Notes: Bias is the mean of (imputed $-$ true) annual note rate in basis points among trades with a defined estimate; RMSE is the root-mean-squared error. 50{,}000 simulated loans per scenario (scenario~(g): the 40{,}141 auto loans, all balloon). Method~2 is the median of monthly implied rates over twelve snapshot intervals. Simulation code: \texttt{Code/impute\_rates.R}; full statistics, including the non-robust mean version of Method~2, in \texttt{Output/impute\_validation.csv}.
+\item[a] Both methods recover the note rate exactly; the imputed note rate lies 77~bp (mean) below the Regulation~Z APR computed on net proceeds.
+\item[b] Ignoring the balloon field, 44.4\% of balloon trades violate condition~\eqref{eq:existence} and return no estimate; the bias and RMSE shown are for the remainder. Solving equation~\eqref{eq:annuity} with the reported \texttt{balloon\allowbreak payment\allowbreak amount} restores exact recovery.
+\item[c] Quirks (a)--(f) jointly, plus balloons on 10\% of auto loans. Method~1 returns no estimate for 3.5\% of trades (the unflagged balloons); the balloon-adjusted inversion has bias $+$17.3~bp and RMSE 21.6~bp. The Method~2 RMSE is driven by fewer than 0.5\% of loans: 99.5\% of estimates lie within 25~bp of the truth (95th percentile of absolute error: 5.3~bp).
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\caption{Distribution of imputation errors by scenario and method}
+\label{fig:impute_validation}
+\includegraphics[width=0.95\textwidth]{../results/archive/legacy_output/impute_validation.pdf}
+\small Notes: Dots mark the median error, thick segments the interquartile range, and thin segments the 5th--95th percentile range of (imputed $-$ true) annual note rate, in basis points, across simulated loans. The top panel is truncated at $\pm 100$~bp; segments reaching the panel edge (the mean version of Method~2 under stale balances, curtailments, and the joint scenario) extend beyond it. The balloon scenario is displayed separately because the errors of the naive annuity inversion there are an order of magnitude larger. Source: \texttt{Code/impute\_rates.R}.
+\end{figure}
+
+Five regularities organize the table. First, the two methods are distorted by \emph{disjoint} sets of quirks: origination-side quirks (odd first period, unflagged balloons, payment rounding) afflict only the annuity inversion, while archive-side quirks (stale balances, curtailments, deferrals) afflict only the balance path. This is mechanical---Method~1 uses only origination fields and Method~2 only archive fields---and it is what makes cross-method agreement informative (Section~\ref{appendix:rateimputation:guidance}). Second, the only bias exceeding a few basis points for a correctly specified contract is the odd-first-period effect on Method~1, $+18$~bp on average, with the sign determined by the convention: 45 days of accrual raises the payment relative to the standard annuity, and the inversion attributes the higher payment to a higher rate. Third, rounding is negligible ($\mathrm{RMSE} \le 3.2$~bp), and financed fees bias neither method's recovery of the note rate---they instead open a mean premium of 77~bp between the note rate and the APR, which bounds how far imputed note rates may be interpreted as disclosure-equivalent APRs. Fourth, the median rule does the work on the archive side: replacing the median with the mean raises the RMSE under stale balances from 10 to 348~bp, under curtailments from 80~bp to above $10^{4}$~bp (driven by near-payoff months in which the balance denominator is small), and under deferrals from 0 to 131~bp. Fifth, balloon contracts are the one first-order threat to Method~1, biasing imputed rates downward by hundreds of basis points where an estimate exists at all; the \texttt{balloon\allowbreak payment\allowbreak amount} field, where furnished, and the nonpositive-rate flag of condition~\eqref{eq:existence}, where it is not, identify the affected trades.
+
+\subsection{Practical guidance}\label{appendix:rateimputation:guidance}
+
+The simulations support the following implementation rules.
+
+\begin{enumerate}
+\item \emph{Default to Method 1 for origination pricing.} The annuity inversion requires only the origination cross-section $(L, m, T)$, is exact for clean fully amortizing contracts, and its worst-case distortion from origination conventions is tens of basis points. Trades violating condition~\eqref{eq:existence} are flagged, not imputed.
+\item \emph{Use Method 2 where the archive panel exists, and always as a check.} The balance path requires monthly snapshots but is invariant to origination conventions (odd first periods, balloons) and, with the median rule and at least four valid intervals, holds 99.5\% of loans within 25~bp of the truth even with every quirk active simultaneously. Exclude months with balances below a few multiples of the payment, and use the \texttt{actual\allowbreak payment\allowbreak amount} and \texttt{date\allowbreak deferred\allowbreak payment\allowbreak start} fields, where furnished, to identify curtailment and deferral months.
+\item \emph{Treat cross-method agreement as a data-quality diagnostic.} Because the two estimators draw on disjoint fields and fail on disjoint quirks, their agreement at the trade level indicates a correctly reported, fully amortizing contract, while disagreement localizes the problem: an imputed Method~1 rate far below Method~2 indicates an unflagged balloon or misreported principal; Method~2 dispersion across months with a clean Method~1 rate indicates archive-side problems such as modifications or stale furnishing. The comparison costs nothing where both methods are computable and requires no outside data.
+\item \emph{State the price concept.} Imputed rates from either method are note rates. Where financed fees are material, the corresponding APR exceeds the imputed rate---by 77~bp on average under the 0--4\% fee distribution simulated here---and analyses that require the disclosure-based APR concept should treat imputed note rates as lower bounds.
+\end{enumerate}
+
+\subsection{Role in the paper's instrumental-variable design}
+
+The paper's instrumental-variable specification uses the imputed note rate as the endogenous loan price and the three-year Treasury yield at the origination month as the instrument, so the first stage regresses the imputed rate on the funding rate prevailing when the contract was priced. The simulations above bear on this design in two ways. First, the dominant imputation errors are small relative to the cross-sectional and time-series variation in consumer note rates---under all quirks jointly, the balloon-adjusted inversion has an RMSE of 22~bp and the balance-path median holds 99.5\% of loans within 25~bp---and idiosyncratic imputation error in the endogenous variable is absorbed by the instrumental-variable projection, costing first-stage precision rather than consistency. Second, the systematic components identified here have known signs and remedies: the odd-first-period effect shifts imputed rates upward by roughly 18~bp on average, balloon contracts are identified and either corrected or excluded via condition~\eqref{eq:existence}, and the note-rate--APR premium is a fixed interpretive statement about the price concept rather than a source of spurious covariation with the Treasury instrument.

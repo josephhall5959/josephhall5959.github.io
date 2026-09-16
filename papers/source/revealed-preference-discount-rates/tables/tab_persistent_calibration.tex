@@ -1,0 +1,33 @@
+\begin{tabular}{lrrrr}
+\toprule
+ & \multicolumn{2}{c}{i.i.d.\ income} & Persistent income & Data \\
+\cmidrule(lr){2-3}
+ & i.i.d.\ model & i.i.d.\ limit of the & (calibrated) & \\
+ & (simulated) & persistent solver & & \\
+\midrule
+\multicolumn{5}{l}{\emph{Parameters}} \\
+Annual rate $\rho$ at calibration & 0.10 & 0.09 & 0.09 &  \\
+Persistence $\phi$ (monthly) & 0 & 0 & 0.998 &  \\
+Innovation s.d.\ $s_z$ & 0 & 0 & 0.147 &  \\
+Transitory s.d.\ $s_\varepsilon$ & 0.5 & 0.50 & 0.20 &  \\
+Penalty flow $\sigma$ & 0.251 & 0.236 & 0.476 &  \\
+Taste-shock scale $s/\sigma$ & 0.5 & 0.50 & 0.50 &  \\
+Balance penalty $\kappa_B$ & 0 & 0 & 0 &  \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Targeted moments}} \\
+Lifetime default & 0.048 & 0.048 & 0.048 & 0.048 \\
+Share of lifetime default within 12 months$^{a}$ & 0.93 & 0.96 & 0.13 & 0.13 \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Untargeted moments}} \\
+Share within 24 months & 0.96 & 0.98 & 0.41 & 0.36 \\
+Payment elasticity, default within 12 months & 4.53$^{b}$ & 4.38 & 4.59 & 0.45 \\
+Payment elasticity, lifetime default &  & 4.33 & 2.22 & 0.35 \\
+Term elasticity, default within 12 months$^{c}$ &  & +2.48 & +1.30 & -0.31 \\
+$R_{12}$, term over payment elasticity$^{c}$ & +0.464 & +0.565 & +0.284 & -0.70 (0.02) \\
+$R_{24}$ & +0.473 & +0.562 & +0.388 & +0.55 (0.01) \\
+$R_{36}$ & +0.459 & +0.553 & +0.484 &  \\
+Run-off ratio (48--60 over 0--6 months)$^{d}$ &  &  & 0.22 & 0.75 \\
+Monthly hazard, month 12 over month 1 &  & 0.01 & 10.00 & 6.05 \\
+Monthly hazard, month 60 over month 12 &  & 0.30 & 1.39 & 1.30 \\
+\bottomrule
+\end{tabular}

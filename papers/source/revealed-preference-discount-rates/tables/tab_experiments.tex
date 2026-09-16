@@ -1,0 +1,28 @@
+\begin{tabular}{lllllll}
+\toprule
+\multicolumn{7}{l}{\textit{Panel A: treatments as payment-path changes}} \\
+Study & Treatment & Type & Far payments at & Outcome & Effect, pp (s.e.) & Base, \% \\
+\midrule
+\citet{ganong_liquidity_2020} & Principal forgiveness, payments fixed 5 years & relief & 5--26 years & 90+ days delinquent at any point, modi & +1.20 (3.18) & 19.0 \\
+\citet{ganong_liquidity_2020} & Deeper payment reduction, maturity to 40 years & rescheduling & 22--40 years & 90+ days delinquent within two years o & -0.38 (0.08) & 32.1 \\
+\citet{indarte_moral_2023} & Seizable home equity at filing & value of default & at decision & Chapter 7/13 filing in the quarter & -0.019 (0.0024) & 0.7 \\
+\citet{indarte_moral_2023} & ARM reset: lower payment for 12 months & relief & within 1 year & filing in each of the 12 months after  & -0.21 (0.06) & 0.7 \\
+\citet{dobbie_targeted_2020} & Interest write-down: last 10 payments forgiven & relief & 3.5--4.3 years & bankruptcy filing within 5 years & -3.00 (0.90) & 10.5 \\
+\citet{dobbie_targeted_2020} & Payment cut, 18 extra months, fees up & rescheduling & 4.3--5.8 years & bankruptcy filing within 5 years & +2.30 (1.10) & 10.5 \\
+\citet{dobbie_targeted_2020} (median) & Write-down: last 4 payments forgiven & relief & 3.8--4.2 years & bankruptcy filing within 5 years & -0.99 (0.52) & 10.4 \\
+\citet{dobbie_targeted_2020} (median) & Payment cut, 4 extra months & rescheduling & 4.2--4.5 years & bankruptcy filing within 5 years & +0.70 (0.42) & 10.4 \\
+\citet{fiorin_moratorium_2026} & 3-month deferral, fee, 3 payments after maturity & rescheduling & 6--8 months & loan repaid in full & +0.30 (1.30) & 42.0 \\
+\citet{fuster_payment_2017} & 5/1 IO ARM reset: rate $-$3 pp, payment halved & relief (single arm) & from reset on & first 60-day delinquency & -56.30\% (3.00) & 1.7 \\
+\citet{keys_mortgage_2014} & Agency 5/1 vs 7/1 reset: $-$\$125, $-$\$164 per month & relief (single arm) & years 1--2 & 60+ day mortgage delinquency, two year & -1.80 (1.00) & 4.5 \\
+\citet{agarwal_policy_2017} & HAMP modification: $-$25\% payment, 5 years & relief, then step-up & years 1--5 & foreclosure completed within one year  & -12.45 (0.39) & -- \\
+\midrule
+\multicolumn{7}{l}{\textit{Panel B: the test of each pair against the model (joint test on the two arms; grid of $\rho$ from 0 to 3 by 0.01; decisions aggregated over the outcome window; survival from the study's exit hazards)}} \\
+Pair & $\rho$ best fit & $p$ at $\rho = 0.02$ & $p$ at the estimate & $p$ at 0.22 & $\rho$ consistent at 5\% & $\rho$ consistent at 1\% \\
+\midrule
+Dobbie--Song pair (max arms), $\lambda_s$ profile & 0.00 & 0.925 & 0.734 & 0.538 & [0.00, 1.20] & [0.00, 2.84] \\
+\quad same, arms correlated 0.5 & 0.00 & 0.938 & 0.774 & 0.597 & [0.00, 1.24] & [0.00, 2.24] \\
+\quad same, constant $\lambda = 0.2$ & 0.05 & 0.913 & 0.865 & 0.622 & [0.00, 0.99] & [0.00, 1.97] \\
+Dobbie--Song pair (median arms), $\lambda_s$ profile & 0.00 & 0.628 & 0.575 & 0.517 & [0.00, 3.00] & [0.00, 3.00] \\
+Ganong--Noel pair, $\lambda_s$ profile & 3.00 & 0.246 & 0.396 & 0.502 & [0.00, 3.00] & [0.00, 3.00] \\
+\bottomrule
+\end{tabular}

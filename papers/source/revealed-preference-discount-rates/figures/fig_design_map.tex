@@ -1,0 +1,29 @@
+% figures/fig_design_map.tex: the designs, the inputs each supplies to the formula, and the outputs (TikZ; no data).
+\begin{tikzpicture}[
+  font=\footnotesize,
+  design/.style={rectangle, draw, rounded corners=2pt, fill=gray!8, text width=4.0cm, align=left, inner sep=4pt, minimum height=0.9cm},
+  input/.style={rectangle, draw, fill=blue!6, text width=3.5cm, align=center, inner sep=4pt, minimum height=0.9cm},
+  output/.style={rectangle, draw, rounded corners=2pt, fill=white, text width=4.0cm, align=left, inner sep=4pt, minimum height=0.9cm},
+  arr/.style={-latex, gray!70, line width=0.5pt},
+  node distance=0.32cm and 1.1cm]
+\node[design] (d1) {Two-arm experiments (Section \ref{sec:quasi}): payments moved at two future dates in one population};
+\node[design, below=of d1] (d2) {Indarte's pair (Section \ref{sec:quasi}): a liquid against an illiquid dollar at one date};
+\node[design, below=of d2] (d3) {Within borrower (Sections \ref{sec:rate_people}, \ref{sec:termmargin}): two loans of the same person};
+\node[design, below=of d3] (d4) {Deficiency and recourse laws (Section \ref{sec:termmargin}): the balance can or cannot be pursued};
+\node[design, below=of d4] (d5) {Purchase cohorts within zip and quarter (Section \ref{sec:equity}): house prices since origination};
+\node[design, below=of d5] (d6) {Panel hazards (Sections \ref{sec:data}, \ref{sec:mapping}): exits, defaults, cures};
+\node[design, below=of d6] (d7) {Population fixed effects (Sections \ref{sec:identification}, \ref{sec:heterogeneity}): every loan, within cells};
+\node[input, right=of d1.east, yshift=-0.55cm] (i1) {$\dfrac{\partial p_1/\partial m_{t_2}}{\partial p_1/\partial m_{t_1}} = \delta^{t_2-t_1}\dfrac{Q_{t_2}}{Q_{t_1}}$ \\[2pt] two future dates, $\lambda$ constant};
+\node[input, below=0.45cm of i1] (i2) {$\lambda_s$: the profile of a later dollar's weight against the dollar due now};
+\node[input, below=0.45cm of i2] (i3) {$R_{24} = \varepsilon_T/\varepsilon_m$ within borrower, by group; the three channels of the term margin};
+\node[input, below=0.45cm of i3] (i4) {$Q_s$: survival to each payment};
+\node[input, below=0.45cm of i4] (i5) {$\varepsilon_m$ by group: the density at the default margin};
+\node[output, right=of i1] (o1) {The check: the pairs accept the estimate and fix the sign and horizon of the far-payment response; the same by subgroup};
+\node[output, below=of o1] (o2) {The premium's level: $\lambda = 0.2$ through Indarte's pair; its profile from persistence; present bias and liquidity as one product};
+\node[output, below=of o2] (o3) {The estimate: $0.11$ $[0.09, 0.13]$, no gradient in score or income; a gradient in age};
+\node[output, below=of o3] (o4) {The penalty channel: the cost of default rises with the balance; the walk-away channel and its recourse dependence};
+\node[output, below=of o4] (o5) {Exposure at population scale: $0.41$ to $0.86$ across income quartiles; exposure, not impatience};
+\draw[arr] (d1) -- (i1); \draw[arr] (d2) -- (i2); \draw[arr] (d3) -- (i3); \draw[arr] (d4) -- (i3); \draw[arr] (d5) -- (o4.west);
+\draw[arr] (d6) -- (i4); \draw[arr] (d7) -- (i5);
+\draw[arr] (i1) -- (o1); \draw[arr] (i2) -- (o2); \draw[arr] (i2) -- (o3); \draw[arr] (i3) -- (o3); \draw[arr] (i3) -- (o4); \draw[arr] (i4) -- (o1); \draw[arr] (i4) -- (o3); \draw[arr] (i5) -- (o5);
+\end{tikzpicture}

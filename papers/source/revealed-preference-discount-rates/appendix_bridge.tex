@@ -1,0 +1,34 @@
+% appendix_bridge.tex: Selecting the full-population specification (2026-09-04).
+\section{Selecting the Specification for the Full Population}\label{appendix:bridge}
+
+The heterogeneity reported in Section \ref{sec:heterogeneity} comes from a regression that can be run on every loan and within every group. Many such regressions exist, differing in their fixed effects and controls, and they give different answers. This appendix records how one was chosen, by the benchmarking rule stated in Section \ref{sec:identification}: as the specification that, wherever it can be compared with an estimate closer to causal, resembles it most, with a remaining gap that is the same in every group and can therefore be applied to groups where the closer estimate cannot be computed. The rule selects a specification by its agreement with a benchmark, and the last subsection states the caveat that selection places on the standard errors.
+
+\subsection{Candidates}
+Each candidate is a linear probability model of default within $K$ months ($K = 6, 12, 24, 36$) or over the life of the loan on $\log m$ and $\log T$, on the covariate-matched auto extract (E4), estimated on the pooled sample and separately by score decile, income quartile, and census region, with standard errors clustered by lender-year. The candidates differ in their fixed effects: origination year (S1); zip3 by year (S2); lender by year (S3); both (S4); both with score-ventile effects (S5); both with score-ventile-by-income-quartile effects (S6); state by year with lender by year (S7); S4 with linear controls for score, log income and age (S8); lender by zip3 by year (S9); S4 with origination-month effects (S10).
+
+\subsection{Validation targets}
+Two objects are closer to causal than any candidate. The first is the same regression with borrower fixed effects, on borrowers with two or more auto loans (Table \ref{tab:main_margins}, lower panel): it removes every stable trait of the borrower and is estimable for the pooled sample, for score deciles up to the fourth, for income quartiles and for regions, wherever the multi-loan subsample has at least 300 defaults. The second is the band of near-horizon responses in the rule-based experiments of Section \ref{sec:quasi}, converted to a payment elasticity at the bureau sample's mean payment; the pooled payment elasticity of a candidate should fall inside it.
+
+\subsection{Score}
+For candidate $c$, group $g$, outcome $y$, and margin $j \in \{m, T\}$, let $d_{cgyj} = \hat\gamma^{c}_{gyj} - \hat\gamma^{\text{within}}_{gyj}$ with variance the sum of the two squared standard errors. The raw score is $\sum (d/\text{s.e.})^2$ over the comparisons. The corrected score removes one precision-weighted pooled bias $\bar b_{cyj}$ per outcome and margin before squaring: $\sum ((d - \bar b)/\text{s.e.})^2$, on $\chi^2$ degrees of freedom equal to the number of comparisons less the number of biases. A candidate scores well on the corrected criterion when its gap to the within-borrower estimate is the same in every group, whatever its level, because a constant gap is what the difference estimator of Appendix \ref{appendix:ivvalidation} can transport; a candidate scores badly when the gap changes across groups, because no single correction then applies. The chosen specification is the corrected-score minimizer among candidates that estimate every group.
+
+\subsection{Result}
+Table \ref{tab:spec_search} reports the scores on 88 group-by-outcome comparisons at full covariate coverage. Adding score-ventile-by-income-quartile cells to the lender-year and zip3-year design (S6) gives the smallest corrected statistic, $1114.6$ on 166 degrees of freedom, with a mean absolute gap to the within-borrower estimates of $0.12$ on the payment margin and $0.04$ on the term margin, and a pooled twelve-month payment elasticity of $0.37$ inside the band of the rule-based experiments; the linear-control specification (S8) is a close second, with the smallest payment gap, $0.06$, and the largest term gap, $0.09$. The corrected statistic rejects the hypothesis that the gap is the same in every group for every candidate: the gap is small, but it is not a constant that could be subtracted from every group. Coarser designs have gaps two to five times larger, and the zip3-year-only design (S2) has a term-margin gap of $0.30$.
+
+\subsection{What applies to every group, and what does not}
+The population estimates by group in Section \ref{sec:heterogeneity} are the S6 estimates on the one-percent panel, uncorrected. The pooled gaps to the within-borrower estimates are stated here, and a reader who prefers the within-borrower level subtracts them; because the invariance test rejects, no group-specific correction is transported, and the rate the paper reports rests on the within-borrower design directly (Section \ref{sec:rate_people}), with the population regression supplying the level of the payment margin by group, its exposure, where the within-borrower design cannot be run.
+
+\subsection{The post-selection caveat}
+A coefficient selected by its agreement with a benchmark is a post-selection estimate whose sampling distribution the conventional standard error does not describe \citep{leeb_model_2005, guggenberger_impact_2010}. The standard errors of equation \eqref{eq:main_reg} are reported with that caveat; the within-borrower estimates, on which the rate rests, are not selected and do not share it.
+
+\begin{table}[ht]
+\centering
+\caption{Candidate full-population specifications scored against the within-borrower estimates}
+\label{tab:spec_search}
+\resizebox{\textwidth}{!}{\input{tables/tab_spec_search}}
+\vspace{0.5em}
+\begin{minipage}{0.95\textwidth}
+\small \textit{Notes:} Raw and corrected $\chi^2$ distances over 88 group-by-outcome comparisons with the within-borrower estimates (both margins), 166 degrees of freedom after removing one pooled bias per outcome and margin; mean absolute pooled bias by margin; the pooled 12-month payment elasticity and whether it lies in the band spanned by the rule-based experiments (Figure \ref{fig:ledger_rho}, lower panel). 
+\end{minipage}
+% replication: Code/identification/I6e_spec_search.R, Code/local/bridge_spec_score.R, Code/exhibits/make_spec_table.py
+\end{table}

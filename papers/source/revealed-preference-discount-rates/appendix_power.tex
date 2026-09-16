@@ -1,0 +1,65 @@
+%==========================================================================
+% APPENDIX: POWER AND THE NUMBER OF DEFAULTS: THE DESIGN OF
+% POWER-PRESERVING SAMPLE SPLITS
+%
+% Input-able at \section level (no preamble). Empirical validation:
+% Code/power_validation.R -> Output/power_validation.csv.
+%==========================================================================
+
+\section{Statistical Power and the Number of Defaults}\label{appendix:power}
+
+The estimator developed in Section~2 is computed within many subsamples --- geographic clusters, credit-score bands, income bands, and origination-cohort cells. This appendix derives the relationship between the standard error of the estimated discount factor and the composition of the subsample, and states the design rule that the derivation implies: statistical power is governed by the number of \emph{defaults} a cell contains, not by the number of loans, so power-balanced partitions equalize default counts.
+
+\subsection{The estimator as a smooth function of estimated moments}
+
+Within a subsample, the discount factor is estimated as
+\begin{equation}\label{eq:power:ghat}
+\widehat{\delta} \;=\; g(\widehat{m}), \qquad
+g(m) = \left( \frac{\gamma_L}{\gamma_L + \gamma_m} \right)^{1/\Delta T}, \qquad
+\widehat{m} = \big( \widehat{\gamma}_m, \; \widehat{\gamma}_L, \; \widehat{\Delta T} \big)',
+\end{equation}
+where $\widehat{\gamma}_m$ and $\widehat{\gamma}_L$ are the slope coefficients from the two fixed-effects logit regressions of default on the log monthly payment and the log of total payments, and $\widehat{\Delta T}$ is the mean remaining term among defaulters (in years). By the delta method \citep[Ch.~3]{vandervaart_asymptotic_1998}, if $\widehat{m}$ is asymptotically normal with asymptotic covariance matrix $\Sigma$, then
+\begin{equation}\label{eq:power:delta}
+\operatorname{Avar}\big(\widehat{\delta}\big) \;=\; \nabla g(m)' \, \Sigma \, \nabla g(m),
+\qquad
+\nabla g(m) =
+\begin{pmatrix}
+-\,\delta \, \dfrac{1}{\Delta T} \, \dfrac{1}{\gamma_L + \gamma_m} \\[1.4ex]
+\;\;\delta \, \dfrac{1}{\Delta T} \, \dfrac{\gamma_m}{\gamma_L (\gamma_L + \gamma_m)} \\[1.4ex]
+-\,\delta \, \dfrac{\ln \big( \gamma_L / (\gamma_L + \gamma_m) \big)}{\Delta T^{2}}
+\end{pmatrix}.
+\end{equation}
+The implementation evaluates equation~\eqref{eq:power:delta} with a diagonal $\Sigma$; because $\widehat{\gamma}_m$ and $\widehat{\gamma}_L$ are estimated from the same observations their sampling covariance is not zero, and the diagonal evaluation should be taken as an approximation whose adequacy is checked empirically below.
+
+\subsection{Every entry of $\Sigma$ scales with the inverse of the default count}
+
+The three moments in $\widehat{m}$ have a common statistical anchor. For the timing moment this is immediate: $\widehat{\Delta T}$ is a sample mean over the $n_d$ defaulters, so $\operatorname{Var}(\widehat{\Delta T}) = \sigma^2_{\tau} / n_d$.
+
+For the logit slopes the anchor is the rare-events structure of the likelihood. The Fisher information for a logit coefficient vector $\gamma$ is $\mathcal{I}(\gamma) = \sum_{i=1}^{n} p_i (1 - p_i) \, \tilde{x}_i \tilde{x}_i'$, where $p_i$ is the default probability and $\tilde{x}_i$ the (fixed-effect-demeaned) regressor. When default is rare ($p_i \to 0$ with $\sum_i p_i = \mathbb{E}[n_d]$ held fixed), $p_i(1-p_i) \approx p_i$ and
+\begin{equation}\label{eq:power:info}
+\mathcal{I}(\gamma) \;\approx\; \sum_{i=1}^{n} p_i \, \tilde{x}_i \tilde{x}_i'
+\;=\; \mathbb{E}[n_d] \cdot \underbrace{\frac{\sum_i p_i \tilde{x}_i \tilde{x}_i'}{\sum_i p_i}}_{\textstyle M},
+\end{equation}
+where $M$ is the default-probability-weighted design moment. Hence $\operatorname{Var}(\widehat{\gamma}) \approx M^{-1} / \, \mathbb{E}[n_d]$: the information content of a rare-events logit is proportional to the expected number of \emph{events}, with the number of non-events contributing only through the weighted moment $M$, which converges to a constant as the sample grows \citep{king_logistic_2001}; the same principle underlies the events-per-variable rule of thumb in the biostatistics literature \citep{peduzzi_simulation_1996}.
+
+Collecting terms, $\Sigma = V / n_d$ for a matrix $V$ that depends only on the defaulter-distribution moments of the cell, and therefore
+\begin{equation}\label{eq:power:law}
+\operatorname{se}\big(\widehat{\delta}\big) \;=\; \frac{c}{\sqrt{n_d}},
+\qquad
+c \;=\; \sqrt{\nabla g' \, V \, \nabla g},
+\end{equation}
+with $c$ a cell-level constant. Total sample size $n$ does not appear in equation~\eqref{eq:power:law} except through its negligible effect on $M$.
+
+\subsection{Empirical validation on the geographic clusters}
+
+Equation~\eqref{eq:power:law} is testable on the 136 estimated clusters: it predicts a log-log slope of $-\tfrac12$ of the standard error on the default count, and --- more sharply --- that the loan count has no residual explanatory power once the default count is held fixed. Both predictions hold. Regressing $\ln \operatorname{se}_k$ on $\ln n_{d,k}$ across clusters yields a slope of $-0.615$ (s.e.\ $0.077$); adding $\ln n_k$ yields a default-count coefficient of $-0.608$ (s.e.\ $0.102$) and a loan-count coefficient of $-0.016$ (s.e.\ $0.153$). The implied constant $\widehat{c}_k = \operatorname{se}_k \sqrt{n_{d,k}}$ has median $1.54$ with interquartile range $[1.19, 2.05]$; its dispersion reflects genuine cross-cluster heterogeneity in defaulter moments rather than a failure of the scaling law. The point estimate slightly steeper than $-\tfrac12$ is consistent with the mild tendency of larger cells to also have less dispersed defaulter timing. Replication: \texttt{Code/local/power\_validation.R}.
+
+\subsection{Design rule: power-preserving partitions equalize default counts}
+
+Equation~\eqref{eq:power:law} converts partition design into an allocation problem. Consider any partition $\{S_1, \dots, S_K\}$ of the sample and suppose the defaulter-moment constant $c$ is approximately common across cells. Minimizing the worst-case variance $\max_k \operatorname{se}^2_k$ subject to a fixed number of cells is achieved by equalizing $n_{d,k}$ across cells: any transfer of defaulters from a default-rich to a default-poor cell lowers the maximum. The paper's sample splits therefore target the default count, not the loan count:
+
+\begin{itemize}
+\item \emph{Geography.} Clusters are built to a floor on expected defaults. A floor on loans is equivalent only under homogeneous default rates; empirically, cluster-level default rates range from $1.7$ to $8.8$ percent, so a loans floor misallocates power by up to a factor of $\sqrt{8.8/1.7} \approx 2.3$ across areas.
+\item \emph{Credit-score and income bands.} Cut points are placed at quantiles of the \emph{defaulter} marginal distribution rather than of the population distribution (\texttt{equal\_default\_bins()} in \texttt{Code/pace/00\_config.R}). Because the default hazard falls steeply in the credit score, population-equal ventiles concentrate defaults --- and hence precision --- in the lowest score bands while starving the highest ones; defaulter-quantile bands equalize the standard error across the score distribution by construction.
+\item \emph{Cohort cells.} In panel splits (geography $\times$ origination cycle), the same rule sets the feasible resolution: cells are reported when they meet the default floor, and flagged rather than silently pooled when they do not.
+\end{itemize}

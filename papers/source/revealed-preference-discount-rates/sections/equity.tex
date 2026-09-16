@@ -1,0 +1,20 @@
+% sections/equity.tex: Section 5.5: the equity margin on first mortgages (house prices by purchase cohort within zip-by-quarter).
+% Results: equity_margin.csv, equity_margin_bins.csv (I12), mc_equity_grid_omega1.csv (appendix).
+\subsection{The Equity Margin on First Mortgages}\label{sec:equity}
+
+First mortgages are the laboratory for long horizons, and their instrument is the house. Two households in the same zip code in the same quarter who bought their houses in different years hold different equity because prices moved between the two purchases, and with zip-by-quarter and origination-year effects the comparison is between origination cohorts under the same local conditions. The decision the design identifies is the walk-away: the one decision in the bureau in which default is a choice that weighs the remaining stream of payments against an asset, rather than a forced response to income (Remark \ref{rem:option}). Table \ref{tab:equity_margin} measures it on 1.86 million thirty-year first mortgages originated in 2000 to 2012, followed quarterly to the first 90-day delinquency, with the house-price change since origination from the zip-code index.
+
+A ten percent fall in the house price since origination raises the quarterly hazard by a quarter, an elasticity of $-2.5$. The response is stronger in the states whose laws bar the lender from pursuing the balance, $-2.7$ against $-2.5$, the recourse dependence that the penalty channel of Section \ref{sec:termmargin} predicts; it falls with the loan's age, from $-5.9$ in the first three years to $-1.1$ after seven; and it is convex in negative equity, with the hazard five times its base once the price has fallen by half. Those are the signatures of a walk-away decision, and they establish that the stopping problem with a house describes the data. The ratio of the equity response to the payment response, $-1.71$ ($0.07$), is a ratio of a lump at the decision date to a twenty-five-year stream, and a first-order formula would map it to a rate; the model with a house, a sale option, and default that forfeits the house, calibrated to the sample's hazard on its own distribution of loan age and price change, produces a ratio between $-0.92$ and $-1.09$ at every rate from $0.02$ to $0.80$, because with positive equity the borrower sells rather than defaults, so the equity margin is the sale alternative, a current one, and the valuation of the far stream does not enter it (Appendix \ref{appendix:equity}, Table \ref{tab:equity_model}). The equity margin therefore identifies the walk-away channel and its dependence on recourse law, and the paper uses it for that; Appendix \ref{appendix:equity} reports the margin by score and income, the hazard by bin of the price change, and the model.
+
+\begin{table}[H]
+\centering
+\caption{The equity margin against the payment margin, first mortgages}
+\label{tab:equity_margin}
+\small
+\resizebox{\textwidth}{!}{\input{tables/tab_equity_margin}}
+\vspace{0.5em}
+\begin{minipage}{0.92\textwidth}
+\noindent \small \textit{Notes:} Linear probability coefficients ($\times 100$) of first 90-day delinquency in the quarter on the log house-price change since origination (Zillow index by five-digit zip, quarterly means) and the log origination payment, with the log origination balance, zip-by-quarter and origination-year fixed effects; standard errors clustered by three-digit zip; elasticities in brackets are the coefficient over the base hazard (percent per quarter). Thirty-year first mortgages originated 2000--12 in the one-percent panel, observed 2005--18, at risk from first sight to the first 90-day delinquency, payoff or last sight. Ratio: house-price coefficient over payment coefficient, delta-method standard error.
+\end{minipage}
+% replication: Code/extract/E15_mortgage_equity.R, Code/identification/I12_equity_margin.R, Code/exhibits/make_equity_table.R
+\end{table}

@@ -1,0 +1,98 @@
+% appendix_scf.tex: the Survey of Consumer Finances: the expectation questions, the construction of the groups and weights, the full tabulation of beliefs by group, the co-holding margin and the arithmetic of the belief corrections of Section beliefs. Exhibits and numbers: Code/scf/scf_beliefs.R (results/scf_beliefs_by_group.csv, results/scf_coholding_by_group.csv, results/scf_belief_corrections.csv).
+\section{Survey of Consumer Finances: Beliefs and Balance Sheets}\label{appendix:scf}
+
+Appendix \ref{appendix:beliefs} uses the 2022 Survey of Consumer Finances for the expectations that the paper's estimates hold at their objective values, and for the co-holding margin. This appendix lists the questions and their codes, the construction of the groups and of the standard errors, the full tabulation of the expectation questions by group, the co-holding margin, and the arithmetic of the belief corrections.
+
+\subsection{Data and weights}
+
+The public data set stacks five imputation replicates of each of the 4,595 households (22,975 records); the household is identified by \texttt{yy1} and the replicate by \texttt{y1}. The weight \texttt{x42001} sums to five times the number of U.S.\ households, so every record receives one fifth of it and every share and mean averages over the replicates. The Board's summary extract (\texttt{SCFP2022.csv}) is merged on (\texttt{yy1}, \texttt{y1}) for its constructed flags and totals: \texttt{TURNDOWN} (turned down for credit in the past twelve months, X407 = 1), \texttt{TURNFEAR} (did not apply for fear of being turned down, X409 and its follow-ups), \texttt{LATE60} (behind on a payment by two months or more in the past year, X3005 = 1), \texttt{HPAYDAY} (a payday loan in the past year, X7063 = 1), \texttt{INCOME} (total family income) and \texttt{LIQ} (checking, savings, money-market, call and prepaid accounts). Standard errors treat the five replicates of a household as one cluster; they include the correlation of the replicates but not the survey's design or imputation variance, since the replicate-weight file is not used. Households in a group are those with at least one replicate in it.
+
+\subsection{The questions}
+
+Every expectation variable is a question asked of the respondent about the household. The table gives the code, the question and the values used.
+
+\begin{table}[H]
+\centering
+\caption{Expectation and constraint questions in the 2022 Survey of Consumer Finances}
+\label{tab:scf_questions}
+% replication: the survey questions and codes (Code/scf/scf_beliefs.R uses them); no data
+\small
+\begin{tabular}{p{1.6cm} p{7.6cm} p{5.6cm}}
+\toprule
+Code & Question & Values used \\
+\midrule
+X7364 & Over the next year, do you expect your total family income to go up more than inflation, less than inflation, or about the same as inflation? & 1 up more; 2 up less; 3 about the same \\
+X304 & Over the past five years, did your total family income go up more than inflation, less than inflation, or about the same as inflation? & 1 up more; 2 up less; 3 about the same \\
+X7650 & Is this income unusually high or low compared to what you would expect in a normal year, or is it normal? & 1 high; 2 low; 3 normal \\
+X7362 & About what would your total income have been if it had been a normal year? & dollars; asked when X7650 is 1 or 2 \\
+X5729 & Total income received last year from all sources, before taxes & dollars \\
+X7586 & At this time, do you have a good idea of what your family's income for next year will be? & 1 yes; 5 no \\
+X7366 & Do you usually have a good idea of what your family's next year's income will be? & 1 yes; 5 no \\
+X301 & Over the next five years, do you expect the U.S.\ economy as a whole to perform better, worse, or about the same as it has over the past five years? & 1 better; 2 worse; 3 about the same \\
+X3008 & In planning or budgeting your family's saving and spending, which time period is most important to you? & 1 next few months; 2 next year; 3 next few years; 4 next five to ten years; 5 longer than ten years \\
+X7534 & Is the loan on the first vehicle being paid off ahead of schedule, behind schedule, or about on schedule? & 1 on schedule; 2 ahead; 3 behind; 0 no such loan \\
+X2217 & In what year do you expect this loan to be repaid? & year; asked when X7534 is 2 or 3 \\
+X413, X421, X427 & Balance owed on credit cards after the last payment & dollars; the revolving balance is the sum \\
+X7132 & Interest rate on the card with the largest balance & percent; $-1$ no interest; used only when the revolving balance is positive \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The reported reversion is $\log(y^{n}/y)$ with $y^{n}$ the normal-year income (X7362) and $y$ the actual income (X5729), defined when both are positive and the year is reported as unusually high or low, and zero when the year is reported as normal; it is the survey's one quantitative expectation about the household's own income. The survey has no question on the probability of losing a job, of defaulting, or of paying off a loan early; the expected repayment date of a vehicle loan is asked only when the loan is off schedule.
+
+\subsection{Groups}
+
+Income quintiles are weighted quintiles of the extract's total income across all records. A household is constrained if any of \texttt{TURNDOWN}, \texttt{TURNFEAR}, \texttt{LATE60} or \texttt{HPAYDAY} equals one; 21 percent of households are, and the three components are tabulated separately in Appendix \ref{appendix:beliefs}. A revolver holds a positive credit-card balance after the last payment.
+
+\subsection{Beliefs by group}
+
+\begin{table}[H]
+\centering
+\caption{Beliefs in the Survey of Consumer Finances, by group}
+\label{tab:scf_beliefs}
+\footnotesize
+\resizebox{\textwidth}{!}{\input{tables/tab_scf_beliefs}}
+\vspace{0.5em}
+\begin{minipage}{0.95\textwidth}
+\small \textit{Notes:} 2022 Survey of Consumer Finances, public data set, weighted; the five implicates of each household receive one fifth of the household weight. Income next year against inflation is question X7364; an unusually low year is X7650 = 2, with the normal-year income X7362 and actual income X5729 giving the reported reversion $\log(y^{n}/y)$, whose median is taken among households reporting a low year; the expected log change is the mean of the reversion with zero for a normal year, with its standard error in parentheses, from the Board's 999 replicate weights for the sampling variance plus the between-implicate variance for imputation; confidence is X7586 (a good idea of next year's income at this time); the horizon is X3008 = 1 (the next few months). Income quintiles are weighted quintiles of the extract's total income. Constrained households were turned down for credit or feared being turned down, were sixty days late, or took a payday loan within the year (the extract's TURNDOWN, TURNFEAR, LATE60, HPAYDAY). Households are those with at least one implicate in the group.
+\end{minipage}
+% replication: Code/scf/scf_beliefs.R; results/scf_beliefs_by_group.csv
+\end{table}
+
+
+Table \ref{tab:scf_beliefs_se} reports every expectation statistic by income quintile and by the constraint indicator with its standard error. Two patterns are not in the main-text table. First, the realized counterpart of the expectation question runs the other way from the expectation: 43 percent of the top quintile report that income rose more than inflation over the past five years against 11 percent of the bottom quintile, while the bottom quintile is the more likely to expect income to rise more than inflation next year (19 against 16 percent), so the expectation is a reversion rather than an extrapolation. Second, among households with a vehicle loan, 14 percent of the bottom quintile and 7 percent of the constrained are paying behind schedule, against under 1 percent of the top quintile and 2 percent of the unconstrained, and off-schedule loans in the bottom quintile have a reported repayment date three years out against about two for the rest; the vehicle-loan questions are the survey's only window on payoff expectations, and it is a narrow one.
+
+\begin{table}[H]
+\centering
+\caption{Beliefs by group, with standard errors}
+\label{tab:scf_beliefs_se}
+% replication: Code/scf/scf_beliefs.R; results/scf_beliefs_by_group.csv
+\footnotesize
+\resizebox{\textwidth}{!}{\input{tables/tab_scf_beliefs_se}}
+\vspace{0.5em}
+\begin{minipage}{0.95\textwidth}
+\small \textit{Notes:} Shares in percent, log changes in log points, years in years; standard errors in parentheses, from the Board's 999 replicate weights on the first implicate for the sampling variance plus the between-implicate variance for imputation. The vehicle-loan rows condition on holding a regular loan on the first vehicle, and the years-to-repayment row on the loan being off schedule. Source: \texttt{results/scf\_beliefs\_by\_group.csv}; replication: \texttt{Code/scf/scf\_beliefs.R}.
+\end{minipage}
+\end{table}
+
+\subsection{The co-holding margin}
+
+\begin{table}[H]
+\centering
+\caption{The co-holding margin in the Survey of Consumer Finances, by group}
+\label{tab:scf_coholding}
+\footnotesize
+\resizebox{\textwidth}{!}{\input{tables/tab_scf_coholding}}
+\vspace{0.5em}
+\begin{minipage}{0.95\textwidth}
+\small \textit{Notes:} A revolving balance is a positive balance on credit cards after the last payment (X413 + X421 + X427); liquid assets are the extract's LIQ (checking, savings, money-market, call and prepaid accounts); a co-holder is a revolver whose liquid assets are at least the balance, and the second column among revolvers is the share whose liquid assets are at least one month of income. The card rate is X7132, the rate on the card with the largest balance, taken only for households that hold a balance and report a positive rate; the median is among co-holders. The liquidity value is $(1 + r_{c}/12)/(1 + r_{a}/12) - 1$ at the group's median card rate with $r_{a} = 0$, in percent per month. Standard errors clustered by household. Groups as in Table \ref{tab:scf_beliefs}.
+\end{minipage}
+% replication: Code/scf/scf_beliefs.R; results/scf_coholding_by_group.csv
+\end{table}
+
+
+A co-holder revolves a card balance while holding liquid assets at least as large. For her, the saving margin holds with equality, $u'(c_{1}) = (1 + r_{a}/12)\,e^{-\rho/12}\,\mathbb{E}[u'(c_{2})]\,\nu$ with $\nu \ge 1$ the liquidity-service value of a dollar in the account, and the borrowing margin holds as an inequality at the card rate $r_{c}$; the ratio of the two eliminates $\rho$ and bounds $\nu$ from below by $(1 + r_{c}/12)/(1 + r_{a}/12)$. Table \ref{tab:scf_coholding} in Appendix \ref{appendix:beliefs} reports the margin by group: the share of households revolving, the share of revolvers co-holding and the share holding at least one month of income, the median card rate among co-holders, and the implied monthly liquidity value at a deposit rate of zero. Among revolvers as a whole the median card rate is 18 percent, and 8 percent of revolvers report no interest on the card with the largest balance (\texttt{results/scf\_coholding\_by\_group.csv}).
+
+\subsection{The arithmetic of the belief corrections}
+
+\texttt{results/scf\_belief\_corrections.csv} records, for each group, the mean reported expected log income change $g$ with its standard error, $\gamma = 1.543$, the first-year weight factor $e^{-\gamma g}$ of equation \eqref{eq:beliefpremium}, the implied first-year discount $1 - e^{-\gamma g}$, the factor relative to the unconstrained group, and the bureau's premium bracket in log units for scale; the variance term of equation \eqref{eq:beliefpremium} is set to zero, since the survey reports certainty only as yes or no. The same file records the inputs of equation \eqref{eq:beliefrate}: the annual default hazard by score decile from \texttt{results/exit\_hazards\_by\_group.csv}, whose largest value bounds the default-side correction; the exit hazard net of transfers used in the within-borrower estimates; the spread of the decile estimates from \texttt{results/rho\_within\_readings.csv}; and the exit-side illustration of a borrower who expects to leave at thirty months, which is not a measurement.

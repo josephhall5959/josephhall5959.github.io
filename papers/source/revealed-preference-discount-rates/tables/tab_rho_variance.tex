@@ -1,0 +1,36 @@
+\begin{tabular}{lrrrrrr}
+\toprule
+\multicolumn{7}{l}{\emph{Panel A. Default in the model on a grid of the discount rate, everything else common}} \\
+True annual rate $\rho$ & \multicolumn{2}{c}{default rate (\%)} & \multicolumn{2}{c}{log gap from $\rho = 0$} & \multicolumn{2}{c}{share of the tercile log variance} \\
+ & 12 months & lifetime & 12 months & lifetime & 12 months & lifetime \\
+\midrule
+0.00 & 3.308 & 3.50 & 0.00 & 0.00 & 0.000 & 0.000 \\
+0.02 & 3.582 & 3.77 & 0.08 & 0.07 & 0.000 & 0.000 \\
+0.05 & 4.005 & 4.20 & 0.19 & 0.18 & 0.002 & 0.002 \\
+0.09 & 4.592 & 4.80 & 0.33 & 0.32 & 0.007 & 0.006 \\
+0.15 & 5.458 & 5.72 & 0.50 & 0.49 & 0.016 & 0.016 \\
+0.20 & 6.140 & 6.47 & 0.62 & 0.61 & 0.024 & 0.024 \\
+0.30 & 7.333 & 7.89 & 0.80 & 0.81 & 0.040 & 0.043 \\
+0.40 & 8.282 & 9.17 & 0.92 & 0.96 & 0.053 & 0.060 \\
+0.55 & 9.318 & 10.82 & 1.04 & 1.13 & 0.068 & 0.082 \\
+0.80 & 10.505 & 13.19 & 1.16 & 1.33 & 0.085 & 0.114 \\
+1.20 & 12.014 & 16.75 & 1.29 & 1.57 & 0.105 & 0.159 \\
+2.00 & 15.263 & 24.83 & 1.53 & 1.96 & 0.148 & 0.248 \\
+3.00 & 20.332 & 36.98 & 1.82 & 2.36 & 0.209 & 0.360 \\
+\midrule
+\multicolumn{7}{l}{\emph{Panel B. The spread in each primitive that reproduces a share of the observed variance of log default across score deciles}} \\
+Primitive & \multicolumn{2}{c}{semi-elasticity of default} & \multicolumn{2}{c}{12-month: sd for 10\%, 50\%} & \multicolumn{2}{c}{lifetime: sd for 10\%, 50\%} \\
+ & 12 months & lifetime & 10\% & 50\% & 10\% & 50\% \\
+\midrule
+Discount rate $\rho$ (per unit of the annual rate) & 3.19 & 3.17 & 0.13 & 0.29 & 0.18 & 0.40 \\
+Payment-to-income ratio (per log unit) & 4.19 & 4.14 & 0.10 & 0.22 & 0.14 & 0.31 \\
+Penalty scale $\sigma$ (per log unit) & -3.17 & -2.98 & 0.13 & 0.29 & 0.19 & 0.42 \\
+Income dispersion $s$ (per log unit) & 1.81 & 2.10 & 0.23 & 0.50 & 0.27 & 0.60 \\
+$\rho$, penalty paid once at default (per unit of the annual rate) & -6.59 & -5.98 & 0.06 & 0.14 & 0.09 & 0.21 \\
+$\rho$, first-order formula, $\varepsilon_m = 0.45$ (data), $\lambda = 0.33$ & -0.78 & -0.78 & 0.53 & 1.18 & 0.73 & 1.63 \\
+$\rho$, first-order formula, $\varepsilon_m = 4.19$ (model), $\lambda = 0.33$ & -7.23 & -7.23 & 0.06 & 0.13 & 0.08 & 0.18 \\
+\midrule
+Observed: sd of log default across score deciles & & & \multicolumn{2}{c}{1.29 (7 deciles)} & \multicolumn{2}{c}{1.79 (10 deciles)} \\
+Observed: bottom over top score tercile & & & \multicolumn{2}{c}{53 (log gap 3.97)} & \multicolumn{2}{c}{51 (log gap 3.93)} \\
+\bottomrule
+\end{tabular}

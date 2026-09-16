@@ -1,0 +1,78 @@
+\begin{longtable}{@{}p{0.20\textwidth}p{0.30\textwidth}p{0.28\textwidth}p{0.20\textwidth}@{}}
+\caption{Replication of every exhibit: generator scripts and result files}\label{tab:replication_map}\\
+\toprule
+Exhibit & Caption & Scripts (\texttt{Code/}) & Data (\texttt{results/}, \texttt{external/}) \\
+\midrule
+\endfirsthead
+\toprule
+Exhibit & Caption & Scripts & Data \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Table \ref{tab:nonclassical} & Non-classical preferences: the weight on a payment at date s, what the & -- & \texttt{a theory table}; \texttt{no data} \\
+Table \ref{tab:mc_runoff_grid} & The structural model's hazard and payment elasticity by loan age, on a & \texttt{Code/local/mc\_runoff\_model\_grid.R, Code/exhibits/make\_mc\_tables.R} & -- \\
+Table \ref{tab:mc_runoff_grid2} & The model calibrated to the default rate and to the level of the payme & \texttt{Code/local/mc\_runoff\_model\_grid2.R (stage MC2), Code/exhibits/make\_mc\_tables.R} & -- \\
+Figure \ref{fig:runoff_profiles} & The payment margin over the life of the loan, 61--72 month contracts.  & \texttt{Code/type/T1i\_runoff\_panel.R, Code/local/mc\_runoff\_model\_grid.R, Code/exhibits/make\_runoff\_figures.R} & -- \\
+Figure \ref{fig:runoff_shape} & The ratio of the payment elasticity at 48--60 months to the elasticity & \texttt{Code/exhibits/make\_runoff\_figures.R} & -- \\
+Table \ref{tab:runoff_shape} & The decline of the payment elasticity by group at fixed contract lengt & \texttt{Code/local/runoff\_model\_inversion.R, Code/exhibits/make\_runoff\_figures.R} & -- \\
+Table \ref{tab:persistent_extract} & The two calibrations of the stopping model beside the data: what each  & \texttt{Code/exhibits/make\_persistent\_tables.R} & -- \\
+Table \ref{tab:rho_variance} & The variation in the discount rate, and in the other primitives, that  & \texttt{Code/local/mc\_rho\_variance.R} & -- \\
+Figure \ref{fig:origination_volume} & Auto loans by origination cohort & \texttt{Code/exhibits/make\_panel\_figures.R} & \texttt{results/panel\_windows\_auto.csv} \\
+Figure \ref{fig:design_map} & From designs to inputs to outputs. Left: each identification design an & -- & \texttt{Draft/figures/fig\_design\_map.tex (a diagram}; \texttt{no data)} \\
+Figure \ref{fig:ds_pvalue} & The Dobbie--Song pair against the model on the grid of the annual rate & \texttt{Code/local/experiments\_ledger.R, Code/exhibits/make\_ds\_pvalue\_figure.R} & -- \\
+Table \ref{tab:rho_within_states} & The rate from the within-borrower design, with the twelve largest stat & \texttt{Code/local/within\_reading.R} & -- \\
+Figure \ref{fig:rho_within} & The rate by score decile, income quartile, age, origination period and & \texttt{Code/local/within\_reading.R} & -- \\
+Table \ref{tab:liquidity} & Default as a portfolio choice, and the payment margin across local lab & \texttt{Code/extract/E3\_cross\_loan.R, Code/level/L3\_liquidity\_shocks.R, Code/exhibits/make\_summary\_tables.R} & -- \\
+Figure \ref{fig:exposure_groups} & The payment margin across people, places and cohorts. Elasticity of ch & \texttt{Code/type/T1l\_windows\_panel.R, Code/exhibits/make\_exposure\_figures.R} & -- \\
+Table \ref{tab:exposure} & The payment elasticity by group and exposure window & \texttt{Code/type/T1l\_windows\_panel.R, Code/exhibits/make\_exposure\_figures.R} & -- \\
+Figure \ref{fig:exposure_geo} & Power-preserving splits. Left: the payment elasticity within 24 months & \texttt{Code/type/T1l\_windows\_panel.R, Code/exhibits/make\_exposure\_figures.R} & -- \\
+Table \ref{tab:het_geo} & The population design beside the within-borrower design, by state and  & \texttt{Code/type/T1l\_windows\_panel.R, Code/local/heterogeneity\_population.R, Code/exhibits/make\_heterogeneity\_tables.R} & \texttt{results/heterogeneity\_population.csv} \\
+Figure \ref{fig:het_agreement} & The population rate, raw and selection-adjusted, and the within-borrow & \texttt{Code/local/heterogeneity\_population.R, Code/exhibits/make\_heterogeneity\_tables.R} & \texttt{results/heterogeneity\_population.csv} \\
+Figure \ref{fig:geo_politics} & The term-to-payment ratio and the payment elasticity by state against  & \texttt{Code/local/geo\_politics\_v2.R} & -- \\
+Figure \ref{fig:geo_correlates} & Exposure (upper row) and the population rate (lower row) by state agai & \texttt{Code/local/geo\_correlates\_v3.R, Code/exhibits/make\_geo\_figures.R} & \texttt{results/geo\_correlates\_v3\_units.csv} \\
+Table \ref{tab:comparison} & Discount Rate Estimates Across Studies & \texttt{Code/exhibits/make\_comparison\_table.R} & \texttt{results/rho\_within\_readings.csv, experiments\_rho\_summary.csv, panel\_windows\_auto.csv, prior\_estimates.csv} \\
+Table \ref{tab:loan_summary} & The auto-loan analysis sample: quartiles of the key variables & \texttt{Code/exhibits/make\_summary\_tables.R} & \texttt{results/level\_summary\_stats.csv, results/panel\_summary\_stats.csv} \\
+Figure \ref{fig:lambda_curve} & The present-payment premium as a function of the per-period default pr & \texttt{Code/local/lambda\_by\_default\_rate.R} & \texttt{results/lambda\_curve.csv, results/lambda\_by\_default\_rate.csv} \\
+Table \ref{tab:mucorrection} & The marginal-utility ratio in the two-period calibration ( = 2) & \texttt{Code/local/mucorrection\_calibration.R (results/mucorrection\_table.csv), Code/exhibits/make\_mucorrection\_table.R} & -- \\
+Table \ref{tab:ladder} & The correction ladder for the constant-weight estimate, applied cumula & \texttt{Code/level/L5\_ladder.R} & -- \\
+Figure \ref{fig:cdr_by_decile} & Conditional default rate and loan age at default, by credit-score deci & \texttt{Code/exhibits/make\_panel\_figures.R, results/default\_timing\_by\_group.csv} & -- \\
+Figure \ref{fig:rho_headline} & The rate. The within-borrower estimate of the annual discount rate by  & \texttt{Code/local/within\_reading.R, Code/exhibits/make\_rho\_headline\_figure.R} & -- \\
+Table \ref{tab:summary_families} & Summary statistics by loan family & \texttt{Code/extract/E19\_summary\_stats.R, Code/exhibits/make\_table1.R} & -- \\
+Figure \ref{fig:horizon_power} & The precision of the rate by horizon. Left: the standard error of the  & \texttt{Code/local/horizon\_power.R} & \texttt{results/horizon\_power.csv, results/rho\_within\_readings.csv} \\
+Table \ref{tab:main_margins} & The two margins of default by exposure window & \texttt{Code/type/T1l\_windows\_panel.R, Code/identification/I6\_within\_person.R, Code/exhibits/make\_main\_table.R} & -- \\
+Table \ref{tab:benchmark} & Published payment responses beside the bureau's, by margin & \texttt{Code/exhibits/make\_benchmark\_table.R} & \texttt{results/causal\_ledger\_literature.csv, identification\_within\_person.csv, identification\_within\_person\_by\_group\_logL.csv, spec\_search.csv, spec\_search\_v2.csv, panel\_windows\_auto.csv} \\
+Table \ref{tab:rho_within} & The rate across people from the within-borrower design & \texttt{Code/identification/I6f\_within\_person\_by\_group.R, Code/identification/I6i\_within\_person\_by\_period.R, Code/local/within\_reading.R} & -- \\
+Table \ref{tab:term_by_score} & The term margin by credit-score decile and horizon (auto loans) & \texttt{Code/identification/I6c\_profile\_by\_decile\_full.R, Code/identification/I6b\_horizon\_profile\_by\_group.R, Code/exhibits/make\_term\_margin\_tables.py} & -- \\
+Table \ref{tab:term_deficiency} & The early term effect where the balance cannot be pursued & \texttt{Code/identification/I3b\_deficiency\_powered.R, Code/exhibits/make\_term\_margin\_tables.py} & \texttt{external/state\_deficiency\_rules.csv} \\
+Table \ref{tab:equity_margin} & The equity margin against the payment margin, first mortgages & \texttt{Code/extract/E15\_mortgage\_equity.R, Code/identification/I12\_equity\_margin.R, Code/exhibits/make\_equity\_table.R} & -- \\
+Table \ref{tab:het_population} & The population design beside the within-borrower design, by group & \texttt{Code/type/T1l\_windows\_panel.R, Code/local/heterogeneity\_population.R, Code/exhibits/make\_heterogeneity\_tables.R} & \texttt{results/heterogeneity\_population.csv} \\
+Table \ref{tab:geo_correlates} & What the geography of exposure, default and the population rate is cor & \texttt{Code/local/geo\_correlates\_v3.R, Code/exhibits/make\_geo\_figures.R} & \texttt{results/geo\_correlates\_v3.csv, geo\_correlates\_v3\_units.csv} \\
+Table \ref{tab:person_place} & Person and place in auto-loan default: variance decomposition and move & \texttt{Code/identification/I7\_person\_place.R, Code/exhibits/make\_placeholder\_tables.R} & -- \\
+Table \ref{tab:persistent_calibration} & The stopping model with i.i.d.\ and with persistent income: parameters & \texttt{Code/local/mc\_persistent\_model.R, Code/exhibits/make\_persistent\_tables.R} & \texttt{results/mc\_persistent\_calibration.csv, results/mc\_persistent\_iid\_limit.csv, results/mc\_within\_grid\_v3.csv} \\
+Table \ref{tab:persistent_runoff} & The run-off of the payment elasticity: by discount rate and balance pe & \texttt{Code/local/mc\_persistent\_model.R, Code/exhibits/make\_persistent\_tables.R} & \texttt{results/mc\_persistent\_grid.csv, results/mc\_runoff\_model\_grid\_h0.22.csv, results/runoff\_model\_rho\_co\_h0.22.csv} \\
+Table \ref{tab:persistent_windows} & The term-to-payment ratios R\_{12}, R\_{24} and R\_{36} by discount rate  & \texttt{Code/local/mc\_persistent\_model.R, Code/exhibits/make\_persistent\_tables.R} & \texttt{results/mc\_persistent\_grid.csv, results/mc\_within\_grid\_v3.csv, results/identification\_within\_person\_by\_group.csv} \\
+Table \ref{tab:spec_search} & Candidate full-population specifications scored against the within-bor & \texttt{Code/identification/I6e\_spec\_search.R, Code/local/bridge\_spec\_score.R, Code/exhibits/make\_spec\_table.py} & -- \\
+Table \ref{tab:loan_types} & The loan types as parallel laboratories & -- & \texttt{hand-written (Draft/tables/tab\_loan\_types.tex)}; \texttt{numbers checked against results/summary\_stats\_families.csv} \\
+Table \ref{tab:data_four} & The four disclosures of the cited work for every exhibit type & -- & \texttt{hand-written from the cited survey}; \texttt{no data} \\
+Table \ref{tab:within_by_group} & The term margin across and within borrower, by score decile & \texttt{Code/identification/I6f\_within\_person\_by\_group.R, Code/exhibits/make\_within\_group\_table.R} & -- \\
+Table \ref{tab:bureau_ladder} & The across-borrower term margin adjusted for the penalty and selection & \texttt{Code/local/bureau\_rho\_ladder.R, Code/local/window\_formula.R, Code/exhibits/make\_ladder\_tables.R} & -- \\
+Table \ref{tab:bureau_rho_groups} & The adjusted across-borrower ratio by group & \texttt{Code/local/bureau\_rho\_ladder.R, Code/exhibits/make\_ladder\_tables.R} & -- \\
+Table \ref{tab:experiments} & Rule-based experiments as payment-path treatments, and the model's est & \texttt{Code/local/experiments\_ledger.R, Code/exhibits/make\_experiments\_table.py} & \texttt{external/experiments\_paths.csv, external/experiments\_estimates.csv, results/experiments\_rho\_summary.csv} \\
+Figure \ref{fig:rho_subgroups} & The discount rate by subgroup in the Dobbie--Song experiment. Each cur & \texttt{Code/local/experiments\_rho\_subgroups.R, Code/exhibits/make\_rho\_subgroups.R} & -- \\
+Table \ref{tab:rho_subgroups} & The discount rate by subgroup in the Dobbie--Song experiment & \texttt{Code/local/experiments\_rho\_subgroups.R, Code/exhibits/make\_rho\_subgroups.R} & \texttt{results/experiments\_rho\_subgroups.csv} \\
+Table \ref{tab:rho_posterior} & Posterior summaries of the rate under a flat prior, by pair and suppor & \texttt{Code/local/experiments\_rho\_posterior.R, Code/exhibits/make\_rho\_posterior\_table.R}; \texttt{results/experiments\_rho\_posterior.csv Code/local/experiments\_rho\_posterior.R, Code/exhibits/make\_rho\_posterior\_table.R} & \texttt{results/experiments\_rho\_posterior.csv} \\
+Figure \ref{fig:ledger_paths} & Rule-based experiments as payment-path treatments & \texttt{Code/exhibits/make\_ledger\_figures.R} & \texttt{external/experiments\_paths.csv, external/experiments\_estimates.csv} \\
+Figure \ref{fig:ledger_rho} & What each pair of arms says about the discount rate, and the near-hori & \texttt{Code/exhibits/make\_ledger\_figures.R, Code/exhibits/make\_lambda\_figure.R} & \texttt{results/experiments\_rho.csv, external/experiments\_estimates.csv} \\
+Table \ref{tab:strategies} & Identification strategies for the discount rate: the record & -- & \texttt{the record of the designs, written from the memos and results named in each row}; \texttt{no generator} \\
+Table \ref{tab:identification} & The payment margin: fixed effects, instruments, and the corrected esti & \texttt{Code/identification/I2c\_margins\_iv.R, I2d\_difference\_estimator.R} & -- \\
+Table \ref{tab:cards_probe} & Revolving trades in the archives: payment position, formula rate, and  & \texttt{Code/extract/E5\_cards\_probe.R, Code/exhibits/make\_placeholder\_tables.R} & \texttt{results/cards\_probe.csv} \\
+Table \ref{tab:equity_groups} & The equity margin and the payment margin by score and income & \texttt{Code/identification/I12\_equity\_margin.R, Code/exhibits/make\_equity\_groups\_table.R} & \texttt{results/equity\_margin.csv} \\
+Table \ref{tab:equity_bins} & The hazard by bin of the house-price change since origination & \texttt{Code/identification/I12\_equity\_margin.R, Code/exhibits/make\_equity\_groups\_table.R} & \texttt{results/equity\_margin\_bins.csv} \\
+Table \ref{tab:equity_model} & The model's equity margin on a grid of discount rates & \texttt{Code/local/mc\_equity\_model.R, Code/exhibits/make\_equity\_table.R} & -- \\
+Table \ref{tab:scf_questions} & Expectation and constraint questions in the 2022 Survey of Consumer Fi & \texttt{the survey questions and codes (Code/scf/scf\_beliefs.R uses them)} & \texttt{no data} \\
+Table \ref{tab:scf_beliefs} & Beliefs in the Survey of Consumer Finances, by group & \texttt{Code/scf/scf\_beliefs.R} & \texttt{results/scf\_beliefs\_by\_group.csv} \\
+Table \ref{tab:scf_beliefs_se} & Beliefs by group, with standard errors & \texttt{Code/scf/scf\_beliefs.R} & \texttt{results/scf\_beliefs\_by\_group.csv} \\
+Table \ref{tab:scf_coholding} & The co-holding margin in the Survey of Consumer Finances, by group & \texttt{Code/scf/scf\_beliefs.R} & \texttt{results/scf\_coholding\_by\_group.csv} \\
+Table \ref{tab:replication_map} & Replication of every exhibit: generator scripts and result files & -- & -- \\
+\end{longtable}

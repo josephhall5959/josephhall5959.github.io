@@ -1,0 +1,27 @@
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{2.8cm}}
+\toprule
+\textbf{Study} & \textbf{Method} & \textbf{Population} & \textbf{Object} & \textbf{Annual rate} \\
+\midrule
+\multicolumn{5}{l}{\emph{This paper}} \\
+Auto loans, within borrower (Section \ref{sec:rate_people}) & Ratio of the term response to the payment response at 24 months, mapped through equation \eqref{eq:window} & U.S.\ auto borrowers with two or more loans & exponential rate over the contract horizon; the paper's estimate & 0.11 [0.09, 0.13] (loan-weighted mean across score deciles); 0.02 [0.01, 0.04] from the pooled ratio \\
+Rule-based experiments, Dobbie--Song pair (Section \ref{sec:quasi}) & Proposition \ref{prop:sensT} on the pair's payment paths & Distressed borrowers & exponential rate, four years; a sign and horizon check & best fit 0; $[0, 1.20]$ at 5\%, $[0, 2.84]$ at 1\%: consistent with the estimate, uninformative about the level \\
+Auto loans & Payment elasticity by group (exposure) & U.S.\ auto borrowers & density at the default margin & 0.41--0.86 across income quartiles \\
+Bankruptcy filers \citep{indarte_moral_2023} & Cash-on-hand against seizable equity (Section \ref{sec:quasi}) & Homeowners at the filing margin & present-payment premium $\lambda$ & 0.2 (weight of a later dollar) \\
+\midrule
+\multicolumn{5}{l}{\emph{Rule-based experiments, through Proposition \ref{prop:sensT}}} \\
+\cite{dobbie_targeted_2020} & RCT, write-down vs.\ rescheduling & Debt-management enrollees & exponential rate, four years & $\le 1.20$ (5\%), $\le 2.84$ (1\%) \\
+\cite{ganong_liquidity_2020} & Two RDs (HAMP) & Distressed mortgagors & exponential rate, 26 years & best fit at the top of the grid; no rate on $[0, 3]$ rejected at 5\% or 1\% \\
+\cite{indarte_moral_2023} & RKD + ARM IV (bankruptcy) & Homeowners at risk & present-payment premium $\lambda$ & 0.2 \\
+\cite{ganong_consumer_2019} & Structural estimation & General consumers & annual discount rate (reported range of estimates) & 6--92\% \\
+\midrule
+\multicolumn{5}{l}{\emph{Laboratory and field elicitations}} \\
+\cite{harrison_estimating_2002} & Field experiment & Danish adults & elicited rate & 28\% \\
+\cite{coller_eliciting_1999} & Lab experiment & U.S.\ students & elicited rate & 20\% \\
+\cite{laibson_estimating_2024} & Structural estimation (lifecycle consumption and credit) & U.S.\ households & $(\beta, \delta)$ ranges & 18--100\% \\
+\cite{cohen_measuring_2020} & Survey of 112 studies & Various & elicited rate, median & 22\% \\
+\midrule
+\multicolumn{5}{l}{\emph{Asset market calibrations}} \\
+Standard macro calibration & Euler equation & Representative agent & long-run rate & 4\% \\
+\cite{di_tella_zero-beta_2024} & Zero-beta portfolio & Marginal investor & long-run rate & 8\% \\
+\bottomrule
+\end{tabular}
