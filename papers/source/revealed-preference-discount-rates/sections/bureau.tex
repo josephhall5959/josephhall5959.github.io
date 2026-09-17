@@ -22,6 +22,20 @@ with fixed effects for the lender by origination year, the three-digit zip code 
 
 \paragraph{The published benchmarks.} Table \ref{tab:benchmark} sets the payment responses of the published experiments and quasi-experiments beside the bureau's, in the units of an elasticity of default to an increase in the payment, at the two margins the literature distinguishes. Panel A is the paper's margin, a payment change with the balance moving, as when a larger loan or a longer contract is taken at the same rate. Panel B is the rate margin, a payment change at a fixed balance, as at an adjustable-rate reset or a modification that lowers the rate; there the bureau's comparable object is the within-borrower regression with the log balance added, and by the amortization identity that ties the payment, the term and the balance, its coefficients measure the response to the contract rate (Appendix \ref{appendix:ivvalidation}). \input{sections/benchmark_reading}
 
+\paragraph{What the contract's length measures.} The bureau's second margin is the contract's length at a fixed payment, which adds payments at the far end of the contract and is the bureau's source of variation in far payments. It is not a payment moved at a date, and three other things move with it. Let default at date $t$ cost, in addition to the flow $\sigma$, a one-time utility cost $\kappa_B\, b_t$ proportional to the balance then owed, $b_t = B_t/\bar y$ with $B_t = \sum_{s>t} m_s (1+r)^{-(s-t)}$ at the contract rate $r$. The default option is unchanged in form, and the response of default to a payment at $s \ge 2$ becomes the difference of two channels, the preference weight of equation \eqref{eq:weights}, discounted at the borrower's rate, and a penalty weight $\kappa_B(1+r)^{-(s-1)}/\bar y$, discounted at the contract's (Appendix \ref{appendix:balancepenalty}, equation \eqref{eq:twochannel}). Measured within a window of $K$ months after origination, with $\omega_t$ the share of the window's defaults that occur in month $t$, the response of default to the contract's length at a fixed payment is
+\begin{equation}\label{eq:threeterms}
+\underbrace{\sum_{t \le K}\omega_t\, D(T-t)\, Q_{T-t}\, \lambda}_{\text{preference channel}}
+\;-\;
+\underbrace{\sum_{t \le K}\omega_t\, \frac{\kappa_B}{\bar y}(1+r)^{-(T-t)}}_{\text{penalty channel}}
+\;+\;
+\underbrace{\mathbf{1}[K = T]\,(1 - D_T)\,\bar p_{T+}}_{\text{exposure}},
+\end{equation}
+in units of the response to the payment due now: the weight of the added far payment, minus the cost of the larger balance, plus, when default is measured over the whole life of the loan, the defaults that occur in the added months.
+
+\begin{proposition}[The term margin is three channels, and selection across borrowers]\label{prop:termmargin}
+Under the balance-scaled penalty of Appendix \ref{appendix:balancepenalty}, the response of default within a window $K$ to the contract's length at a fixed payment is the sum of the three terms of equation \eqref{eq:threeterms}. The preference channel is bounded above by one in units of the payment response, the penalty channel is negative and discounted at the contract rate, and the exposure term does not depend on preferences. A ratio of the term response to the payment response therefore identifies $D$ only with $\kappa_B$ and the exposure removed, and a measured ratio above one is outside the preference channel at every discount rate. Measured across borrowers who selected into different contract lengths, the response adds selection into contract length to the three terms (Remark \ref{rem:experimentsT}); measured within borrower, selection is removed by design, and the penalty channel and, for a lifetime outcome, the exposure remain.
+\end{proposition}
+
 \subsection{The Payment Margin}\label{sec:mainresults}
 
 Table \ref{tab:main_margins} reports both margins of equation \eqref{eq:main_reg} for exposure windows from six months to the life of the loan, and, below them, the same regression with borrower fixed effects on borrowers holding two or more auto loans; Appendix \ref{appendix:delta_method} states the inference for each object the paper reports with a standard error.
