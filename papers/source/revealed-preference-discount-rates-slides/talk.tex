@@ -21,7 +21,7 @@
 \begin{itemize}
 \m{A borrower who defaults trades the payment due now against penalties that arrive later. The theory shows that the responses of default to payments due at different dates identify the discount function, with no consumption data and no utility function beyond concavity.}
 \m{Applied within borrower to a credit-bureau panel of auto loans, the formula gives an annual discount rate of $0.11$ over the horizon of a contract, with a 95 percent set from $0.09$ to $0.13$.}
-\m{The rate has no gradient in credit score or income. Default rates fall fifty-fold across the same score deciles. The heterogeneity in default is exposure to the default margin.}
+\m{The rate varies non-monotonically with credit score and income. It is steepest near median credit scores and at the lowest incomes, and nowhere rises with the group's default rate, which falls fifty-fold across the same score deciles.}
 \m{The one gradient is age. Borrowers aged 18 to 30 reveal $0.32$, and every older group reveals zero.}
 \end{itemize}
 \end{frame}
@@ -37,11 +37,10 @@ Response of default to a payment due $s$ months ahead $=$ common scale $\times$ 
 \backup{bk-theory}{propositions}
 \end{frame}
 
-\begin{frame}{Three provisos, three results}
+\begin{frame}{Two provisos, two results}
 \begin{enumerate}
 \item \textbf{The present-payment premium.} The payment due now is valued at the marginal defaulter's marginal utility and later ones at a repayer's, so $\lambda_s < 1$. Present bias $\beta$ and $\lambda_s$ enter every response as the product $\beta\lambda_s$, and no experiment that moves payments across dates separates them (Theorem). A liquid dollar against an illiquid dollar at one date does, and Indarte's pair measures the level at $0.2$.
 \item \textbf{Beliefs.} Subjective survival multiplies $D$. The discount function is identified with beliefs fixed, and the panel fixes them at measured survival.
-\item \textbf{The contract's length.} A longer contract at a fixed payment adds far payments, raises a balance-scaled penalty, adds months of exposure, and across borrowers changes who selects which length. A rate comes from it only with the borrower held fixed and the penalty channel decayed.
 \end{enumerate}
 \backup{bk-limits}{the theorems}
 \end{frame}
@@ -76,7 +75,7 @@ Response of default to a payment due $s$ months ahead $=$ common scale $\times$ 
 \centering\includegraphics[width=0.9\textwidth,height=0.6\textheight,keepaspectratio]{figures/fig_rho_within.pdf}
 \begin{itemize}\small
 \m{Within borrower, on 13.5 million borrowers with two or more auto loans (65 million loans), the term response over the payment response at 24 months is mapped through the window formula with each group's own profile and exit hazard.}
-\m{No gradient in score or income, a hump in the middle deciles, and sets that include zero in the two top deciles, while default rates fall fifty-fold across the same deciles.}
+\m{Non-monotone in score and income, steepest near the median score and in the bottom income quartile, with sets that include zero in the two top deciles, while default rates fall fifty-fold across the same deciles.}
 \end{itemize}
 \end{frame}
 
@@ -93,6 +92,15 @@ Response of default to a payment due $s$ months ahead $=$ common scale $\times$ 
 
 \input{slide_laboratories}
 
+\begin{frame}{What the contract's length measures in the bureau}
+\[ \underbrace{\textstyle\sum_{t \le K}\omega_t\, D(T-t)\, Q_{T-t}\, \lambda}_{\text{preference channel}} \;-\; \underbrace{\textstyle\sum_{t \le K}\omega_t\, \tfrac{\kappa_B}{\bar y}(1+r)^{-(T-t)}}_{\text{penalty channel}} \;+\; \underbrace{\mathbf{1}[K = T]\,(1 - D_T)\,\bar p_{T+}}_{\text{exposure}} \]
+\begin{itemize}
+\m{A longer contract at a fixed payment adds far payments, raises the balance and with it a penalty that scales with the balance, and adds months of exposure. Across borrowers it also changes who selects which length.}
+\m{The preference channel is bounded by one in units of the payment response, so a measured ratio above one is outside it at any rate. The deficiency-judgment contrast measures the penalty channel, a fixed window removes exposure, and holding the borrower fixed removes selection.}
+\m{A rate comes from the contract's length only with the borrower held fixed and the penalty channel decayed, which is the within-borrower design at 24 months.}
+\end{itemize}
+\end{frame}
+
 \input{slide_ladder}
 
 \begin{frame}{The run-off of the payment margin validates the stopping model}
@@ -104,11 +112,11 @@ Response of default to a payment due $s$ months ahead $=$ common scale $\times$ 
 \backup{bk-runoff}{the model's run-off}
 \end{frame}
 
-\begin{frame}{The rate does not differ across groups}
-\centering\resizebox{0.72\textwidth}{!}{\input{tables/tab_rho_within_compact}}
+\begin{frame}{The rate varies non-monotonically across groups}
+\centering\resizebox{0.68\textwidth}{!}{\input{tables/tab_rho_within_compact}}
 \begin{itemize}\small
 \m{By score decile the rate runs from $0.01$ to $0.22$, with sets that contain the mean in eight deciles. By income quartile it is $0.24$, $0.06$, $0.08$ and $0.26$. The ratios themselves differ little, $0.53$ at the bottom decile and $0.49$ at the top.}
-\m{Heterogeneity in default is in the level of the margin, exposure, and not in how the horizon is discounted.}
+\m{Heterogeneity in default is in the level of the margin, exposure. The rate is steepest near the median score and in the bottom income quartile, and nowhere rises with the group's default rate.}
 \end{itemize}
 \end{frame}
 
@@ -143,7 +151,7 @@ Response of default to a payment due $s$ months ahead $=$ common scale $\times$ 
 \begin{frame}{Contributions}
 \begin{itemize}\small
 \m{\textbf{Theory.} A sufficient statistic for the discount function from default responses to payments at two dates. Three theorems on its limits (the premium, beliefs, the contract's length). A window formula that assigns each default to its own decision month, and a precision result that says at which horizon a rate can be estimated.}
-\m{\textbf{The rate.} $0.11$ over the horizon of a contract, from two loans of the same borrower, with no gradient in score or income and a gradient in age. The published experiments accept it and, run over windows of years at horizons of four to twenty-six years, fix its sign and not its level.}
+\m{\textbf{The rate.} $0.11$ over the horizon of a contract, from two loans of the same borrower, varying non-monotonically with score and income, steepest near median scores and at the lowest incomes, with a gradient in age. The published experiments accept it and, run over windows of years at horizons of four to twenty-six years, fix its sign and not its level.}
 \m{\textbf{Default is strategic.} The cost of default rises with the balance owed ($+0.36$ on the term response where the balance cannot be pursued, $+3.9$ on mortgages without recourse), and the equity response of mortgage default is a walk-away, stronger without recourse and convex in negative equity.}
 \m{\textbf{Exposure at population scale.} The payment elasticity runs from $0.41$ to $0.86$ across income quartiles and by a factor of two across places, follows income rather than the vote, and the population term margin is the Hertzberg et al.\ selection pattern at 46 points of the score distribution.}
 \end{itemize}
