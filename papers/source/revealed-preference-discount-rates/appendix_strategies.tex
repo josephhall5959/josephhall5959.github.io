@@ -7,7 +7,7 @@ The paper's estimate of the rate is the within-borrower one of Section \ref{sec:
 \begin{footnotesize}
 \begin{longtable}{@{}p{0.21\textwidth}p{0.18\textwidth}p{0.42\textwidth}p{0.13\textwidth}@{}}
 \caption{Identification strategies for the discount rate: the record}\label{tab:strategies}\\
-% replication: the record of the designs, written from the memos and results named in each row; no generator
+% replication: the record of the designs, written from the memos and results named in each row; no generator, Code/local/geo_rate_regime.R; results/geo_rate_regime.csv
 \toprule
 Strategy & Object it would identify & What happened & Status \\
 \midrule
@@ -47,6 +47,7 @@ The term margin corrected rung by rung (Appendix \ref{appendix:ladder}) & $\rho$
 \multicolumn{4}{@{}l}{\emph{Timing variation inside the bureau}} \\
 Deferred first payments and balloons & a rescheduling at a fixed balance & a few hundred auto loans; personal-installment deferrals are student-loan-like & unavailable \\
 Pandemic forbearance & a rescheduling at scale & visible on mortgages only (1.3 percent at the 2020 peak), borrower-elected, and reported as current while in effect & not rule-based \\
+The within-borrower ratio by state, net of the state's collection law (deficiency bar, mortgage recourse, homestead exemption) & a rate by place & the regime explains 39 percent of the cross-state variance of the ratio (69 with composition), almost all of it mortgage recourse at $+0.64$ (s.e.\ $0.13$), the sign the penalty channel does not predict; after the adjustment 22 of 50 states lie inside the formula's range against 16 before, and the large recourse states stay above the ceiling (\texttt{results/geo\_rate\_regime.csv}) & not a rate by place \\
 Movers (place versus person) & the share of default variation due to place & answers its own question (slope 0.075, s.e. 0.013); it is not a discount-rate instrument & supporting \\
 \midrule
 \multicolumn{4}{@{}l}{\emph{What identifies $\rho$}} \\
