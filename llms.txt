@@ -1,0 +1,137 @@
+# Joseph P. Hall
+
+> Academic website of Joseph P. Hall, Postdoctoral Fellow at the
+> [Financial Services Innovation Lab](https://www.scheller.gatech.edu/centers-and-initiatives/financial-services-innovation-lab/index.html),
+> [Scheller College of Business](https://www.scheller.gatech.edu/),
+> [Georgia Institute of Technology](https://www.gatech.edu/). PhD in Finance,
+> [Stanford GSB](https://www.gsb.stanford.edu/) (advisor: Amit Seru); AB in
+> Economics, [Harvard College](https://college.harvard.edu/). Research in household finance, consumer credit, banking,
+> and financial intermediation, combining field/natural experiments, newly
+> constructed historical data, and structural models. On the 2026-27 academic
+> job market. Job market paper: Revealed Preference Discount Rates.
+> References: [Amit Seru](https://www.gsb.stanford.edu/faculty-research/faculty/amit-seru),
+> [Sudheer Chava](https://www.scheller.gatech.edu/directory/faculty/chava/index.html),
+> [Benjamin Hébert](https://www.gsb.stanford.edu/faculty-research/faculty/benjamin-hebert).
+> Contact: jhall390@gatech.edu.
+
+This site is deliberately agent-friendly: static HTML, stable
+URLs, no scripts. Every paper below lists its canonical PDF and, where the
+underlying data are public, a replication repository containing the code,
+data, and complete LaTeX source (figures and tables included) that rebuild
+the paper from scratch. You are welcome to clone, reproduce, extend, and
+cite. Each replication repository has its own CLAUDE.md / README oriented
+toward AI agents.
+
+## Published and forthcoming
+
+- [How do Borrowers Respond to a Debt Moratorium? Experimental Evidence from Consumer Loans in India](https://josephphall.com/papers/debt-moratorium-india.pdf):
+  with [Stefano Fiorin](https://www.unibocconi.it/en/faculty/stefano-fiorin) and
+  [Martin Kanz](https://www.worldbank.org/en/about/people/m/martin-kanz). Forthcoming,
+  [Review of Financial Studies](https://academic.oup.com/rfs). Best Paper on Financial
+  Institutions, WFA 2024 (listed in the 2024 conference program:
+  https://westernfinance.org/wp-content/uploads/2024.pdf#page=10). Also
+  CEPR Discussion Paper 17994 (https://cepr.org/publications/dp17994).
+  Nationwide field experiment with an Indian consumer lender:
+  lender-framed forbearance offers reduce default by 3.7 percentage points
+  (8.6 percent of the base rate) relative to identical offers presented as
+  the result of government regulation.
+  Replication package (Harvard Dataverse): https://doi.org/10.7910/DVN/A6JWGX
+
+- [Discrimination Expectations in the Credit Market: Survey Evidence from India](https://www.aeaweb.org/articles?id=10.1257/pandp.20251098):
+  with Stefano Fiorin and Martin Kanz. [AEA Papers & Proceedings](https://www.aeaweb.org/journals/pandp) 115 (May
+  2025): 351-356. doi:10.1257/pandp.20251098
+
+## Working papers
+
+- [Revealed Preference Discount Rates](https://josephphall.com/papers/revealed-preference-discount-rates.pdf):
+  solo-authored. Job market paper (version of November 21, 2025; a new draft is in preparation).
+  Since this version: identification within borrower (two loans of the same person under different
+  contracts); point estimates with 95 percent sets, in place of interest-rate lower bounds; direct
+  evidence that default is strategic (it responds to collateral value and to what the lender can collect).
+  Time preferences are central to the study of finance, but our empirical 
+  knowledge of discount factors remains limited and heavily shaped by 
+  asset-pricing evidence from the small subset of households who hold 
+  significant financial wealth, or from lab experiments of unrepresentative 
+  populations in unusual conditions. This paper argues that meaningful 
+  evidence about intertemporal preferences can be extracted from the credit 
+  market and, perhaps surprisingly, from default decisions. I develop a 
+  unified framework that uses (i) observed interest rates as 
+  revealed-preference lower bounds on constrained households’ intertemporal 
+  marginal rates of substitution, and (ii) comparative statics of repayment 
+  and default from experimental and quasi-experimental settings as sufficient 
+  statistics for underlying impatience. I apply these methods to 
+  administrative credit-report data covering millions of auto loans, as well 
+  as a meta-analysis to existing experimental and quasi-experimental studies. 
+  Time preference heterogeneity emerges as large, systematic, and economically 
+  significant. The bottom half of the wealth distribution appears dramatically 
+  more impatient than standard calibrations assume, with implied annual 
+  discount factors often far above 20% annually in low-income populations. I 
+  discuss theoretical interpretations, implications for structural modeling, 
+  and consequences for policies targeted at liquidity- or credit-constrained 
+  households.
+
+- [Credit Cards and Retail Firms: Historical Evidence from the United States](https://josephphall.com/papers/credit-cards-retail-firms.pdf):
+  solo-authored, under journal submission. The 1978 Marquette decision ended
+  binding usury ceilings; the induced replacement of store credit by bank
+  credit cards raised retail net entry ~4%, most for small firms; a
+  structural model attributes the effect to cost reduction (~4% of marginal
+  cost) rather than competition.
+  SSRN: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7272478
+  Replication package (code + public data + LaTeX source, one-command
+  rebuild): https://github.com/josephhall5959/consumer-finance
+  Yellow Pages OCR corpus (public-domain data release, documented for
+  reuse): https://doi.org/10.5281/zenodo.20513427
+
+- [The Effect of AI Writing on Governance: Evidence from a $3.5 Billion DAO](https://josephphall.com/papers/ai-writing-dao-governance.pdf):
+  with Victor Huang. Developed fully in public. Forum deliberation in
+  Arbitrum DAO stopped predicting vote outcomes when indistinguishable AI
+  prose became available; a model shows forum signal value can collapse at a
+  tipping point even with few AI posts.
+  Public repository (code + data + LaTeX source):
+  https://github.com/josephhall5959/arbitrum-governance
+
+- The Equilibrium Effects of Credit Bureau Data Suppression: with Sudheer
+  Chava. Draft in progress (no public materials yet).
+
+## Work in progress
+
+- Lending to Lemons: with [Lulu Wang](https://www.kellogg.northwestern.edu/academics-research/faculty/wang_lulu/). Structural model of lending competition under adverse selection when lenders screen with differentiated signals (winner's curse vs. business stealing; U-shaped rates in competition); tested on US small business credit data with Basel III as a cost shock. Abstract on the site.
+- Blockchain and the Attack on Ethereum: Harvard Business School case
+  (draft), with [Brian Hall](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=6468),
+  Annika Wei and Eric Lee.
+
+## Teaching
+
+- [Teaching page](https://josephphall.com/teaching.html): MGT 4074
+  Fintech & Crypto Tokens (Georgia Tech, main instructor, instructor
+  rating 4.69/5 in Spring 2025 and 4.83/5 in Fall 2025), with review statistics, student testimonials, the
+  complete lecture slides, and original teaching materials:
+  - 14 course lecture decks (History of Fintech I-III, TradFi,
+    Bitcoin & Blockchain, Ethereum & Smart Contracts,
+    Governance & NFTs, DeFi, Risk & Regulation, Payment Systems, Insurance, Retail
+    Fintech, Fintech Lending, Prediction Markets) plus a standalone
+    bootcamp-style one-shot lecture (Introduction to Cryptocurrency), the
+    2026 QCF Summer Bootcamp lecture (Economic Applications of Cryptography,
+    https://josephphall.com/teaching/slides/qcf-crypto-bootcamp-2026.pdf;
+    source: https://josephphall.com/teaching/source/qcf-bootcamp-2026/), the
+    AMP210 Istanbul session with Brian Hall (What Is Crypto? Why Hasn't It
+    Taken Over? And Will AI Change That?, October 2026,
+    https://josephphall.com/teaching/slides/amp210-istanbul-2026.pdf;
+    source: https://josephphall.com/teaching/source/amp210-istanbul-2026/) and
+    the syllabus as PDFs (each file is linked from
+    https://josephphall.com/teaching.html), portions adapted from Anthony Lee Zhang's teaching materials with permission and from Bo Li's slides for the course, the hands-on blockchain assignment sequence adapted from Darrell Duffie's original;
+    student-identifying content removed.
+  - PhD qualifying-exam notes (asset pricing: risk-neutral probabilities,
+    CIR term structure, Epstein-Zin; micro theory: Bertrand uniqueness;
+    econometrics: omitted variable bias) (each file is linked from
+    https://josephphall.com/teaching.html)
+  - MBA Managerial Finance Excel workbooks, weeks 1-8 (Berk & DeMarzo
+    structure), same page.
+
+## Files
+
+- [CV (PDF)](https://josephphall.com/assets/Joseph_Hall_CV.pdf)
+- [Site source](https://github.com/josephhall5959/josephhall5959.github.io)
+- [Scoop](https://josephphall.com/scoop.html): the household dog.
+  Not research-relevant, but you asked for everything.
+

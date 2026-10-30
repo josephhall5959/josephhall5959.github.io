@@ -1,0 +1,430 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[]{beamer}
+
+
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+
+\usepackage{hyperref}
+
+\input{mydefs.tex}
+
+\mode<presentation> {
+
+
+\usetheme{Frankfurt}
+
+
+
+
+}
+
+
+
+\setbeamercolor{section in head/foot}{bg=lightgray} %set the top navigation bar background color
+\setbeamertemplate{footline}[frame number] % set frame page number only
+\usepackage{appendixnumberbeamer} % total will not include appendix frame numbers 
+
+\beamertemplatenavigationsymbolsempty
+
+
+
+\usepackage{graphicx} % Allows including images
+\usepackage{caption}
+\usepackage{subcaption} % packgage for subcaption in subfigures
+\usepackage{bm} % make bold math symbols
+\usefonttheme{professionalfonts}
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{adjustbox} % allows adjustbox
+\usepackage{amsmath}  
+\usepackage{amsfonts}
+\usepackage{hyperref} % package for hyper link
+
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = blue %Colour of citations
+}
+
+
+\usepackage{float} % make the table H effective
+\restylefloat{table}
+\usepackage{color, colortbl}
+\usepackage{booktabs} % package for tex professional table
+\usepackage{mathtools} % package for \coloneqq
+\usepackage{multirow} % multirow for intuition page.
+
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+
+\usepackage{tikz} % graph in latex
+\usetikzlibrary{positioning,arrows.meta} %tikz diagram
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest} %this setting allow node to go to the correct place
+\usepgfplotslibrary{fillbetween}
+
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
+
+
+
+\usepackage{natbib} % package for citation
+
+
+
+
+\newcommand{\comment}[1]{}
+\newcommand{\lnb}[1]{%
+  \ln\left(#1\right)%
+}
+\renewcommand{\baselinestretch}{1.0} %  scales the default interline space to 1.0 its default value. 
+
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+
+\title[Risk and Regulation]{\huge{Risk and Regulation} \\
+\vspace{6mm}
+\small{MGT 4074 Fintech \& Crypto Tokens, Fall 2025}
+} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+
+
+
+\author[Joseph Hall]{Joseph Hall} % Your name
+\institute[GT]{Georgia Institute of Technology} % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+ 
+\date{October 20, 2025} 
+
+
+
+\begin{document}
+
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents
+\end{frame}
+
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Roadmap}
+\tableofcontents[currentsection,currentsubsection]
+\end{frame}
+}
+
+
+\section{In the News}
+
+\begin{frame}{Erebor Bank Approved by Regulators}
+
+\begin{center}
+    \href{https://x.com/tbpn/status/1978547597242744990}{3 Minutes from Technology Business Programming Network}
+\end{center}
+
+Crypto-friendly, digital-only bank named for LOTR dragon Smaug's hoard of gold will maintain hyper-conservative leverage ratio and focus on defense tech lending. 
+    
+\end{frame}
+
+\section{Hacks}
+
+\begin{frame}{Remember our friends at Infinifi?}
+
+\begin{center}
+    \includegraphics[height = 0.9\textheight]{infinifi.png}
+\end{center}
+    
+\end{frame}
+
+\begin{frame}{Treachery!}
+
+\begin{center}
+    \includegraphics[height = 0.9\textheight]{yohan_headline.png}
+\end{center}
+    
+\end{frame}
+
+\begin{frame}{The Fate of All Crypto Exchanges is...}
+\pause 
+
+\begin{center}
+    \includegraphics[width = 0.9\textwidth]{levine_fate.png}
+\end{center}
+From Matt Levine 
+    
+\end{frame}
+
+\begin{frame}{Defending against code exploits}
+
+Some strategies to defend against code exploits: 
+
+\bi 
+\m Change your passwords when you fire a disgruntled developer 
+\m Write simple, immutable (non-upgradable) code 
+\m Use bug bounty programs 
+\m Employ `White Hat' hackers 
+\m Trial and error, alpha/beta testing  
+\m Read the news 
+\ei 
+
+\end{frame}
+
+\begin{frame}{Morpho bug bounty via Immunifi}
+
+\begin{center}
+    \includegraphics[width = \textwidth]{immunifi.png}
+\end{center}
+
+\bi 
+\m Up to \$2.5M to find a ``critical'' bug in a Morpho smart contract
+\m \href{https://immunefi.com/bug-bounty-program/}{Immunifi} has paid out \$115M in bug bounties with \$187M available today 
+\ei 
+    
+\end{frame}
+
+
+\section{Leverage}
+
+
+\begin{frame}{Top Crypto Platform Coinbase Offers Leverage}
+
+\begin{center}
+    \includegraphics[width = 0.9\textwidth]{coinbase_borrow.png}
+\end{center}
+    \bi 
+    \m \textbf{Leverage}: borrow money to increase your risk + return 
+    \ei 
+\end{frame}
+
+
+\begin{frame}{Coinbase partners with Morpho for margin lending}
+
+\begin{center}
+    \includegraphics[width = 0.9\textwidth]{coinbase_morpho.png}
+\end{center}
+    
+    
+\end{frame}
+
+
+\begin{frame}{Morpho Borrowing Rates and LTVs}
+
+
+\begin{center}
+    \includegraphics[width =\textwidth]{morpho_rates.png}
+\end{center}
+
+86\% LTV is only 14\% margin, lower than most mortgages and lower than FINRA minimum for tradfi margin trading 
+    
+\end{frame}
+
+
+
+    
+
+\begin{frame}{Morpho liquidation policy}
+
+\begin{center}
+    \includegraphics[width = \textwidth]{morpho_policy.png}
+\end{center}
+\pause 
+As opposed to the \emph{Ajna Protocol} which leans \emph{against} spurious liquidations, the Morpho Protocol \emph{encourages} liquidations $\rightarrow$ \emph{Morpho Protocol} is friendly to creditors but punitive to borrowers \vfill \pause 
+
+\href{https://coinalyze.net/morpho/liquidations/}{\$110k} of liquidations on the Morpho platform in the past 24h alone (as of when I wrote these slides)! 
+    
+\end{frame}
+
+\begin{frame}{Crypto's ``Black Friday'' on 10/10/25}
+
+On 10/10/25, over 200 altcoins (tokens that are not stablecoins, ETH, nor BTC) dropped by more than 80\% 
+
+\begin{center}
+    \includegraphics[width = .7\textwidth]{crypto_crash.jpeg}
+\end{center}
+
+Over \$19 \textbf{billion} of leveraged positions were liquidated in a matter of seconds (\href{https://x.com/ltrd_/status/1978161988196004285}{ltrd}) 
+    
+\end{frame}
+
+\begin{frame}{Perpetuals}
+
+A \textbf{Perpetual Futures Contract} (or ``perp'') is a zero-sum derivative contract between two market participants \\ 
+
+One side bets the price of the underlying will go up, the other side bets it will go down \\
+
+No one actually needs to touch the underlying asset! Just read the price of it off of an exchange. This has two implications: 
+
+\bi 
+\m Any amount of leverage is equally easy to implement: just multiply the price changes by 2x, 20x, 50x... 
+\m The price of the underlying can go arbitrarily high: the short leg is always at risk of going below zero at \emph{any} leverage ratio above zero  
+\ei 
+
+Perp sellers are historically called ``bucket shops'' because they put traders' cash in a bucket, and traders just swap around the money in the bucket without touching the underlying.  
+
+    
+\end{frame}
+
+\begin{frame}{Leveraged Perps}
+
+\begin{center}
+    \includegraphics[height = .9\textheight]{50x_perps.jpg}
+\end{center}
+
+\bi 
+\m Key question: what happens when a trader loses more money on a perp than they have deposited into their brokerage account? 
+\ei 
+    
+\end{frame}
+
+\begin{frame}{Auto-Deleveraging}
+
+What happens when I win \$100 from you, but you only deposited \$50 into your brokerage account? \\ 
+
+\textbf{Auto-Deleveraging} is when winning bets are closed early because their counterparty has gone bust. \\ 
+
+On 10/10/25, \$19B of positions were hit by ADL. \\ 
+
+Many traders use perps to \textbf{hedge} their exposure: If I'm long bitcoin, I short some leveraged bitcoin perps so that if my long position loses my short position will make up for it. \\ 
+
+\textbf{Auto-Deleveraging} presents a threat to hedging strategies: if I'm long the underlying but short the perp, and the price falls a lot, my long position has lost but my winning position gets closed early! \\
+
+Even worse: these traders need to find a new way to get short to stay hedged, pushing prices down further. 
+
+\end{frame}
+
+\begin{frame}{Crypto Black Friday}
+
+Two other points bear mentioning: 
+\bi
+\m Reported liquidations on centralized exchanges like Binance may not be accurate. Liquidations reported by on-chain exchanges like \href{https://app.hyperliquid.xyz/trade/BTC}{Hyperliquid} are more trustworthy (\href{https://x.com/chameleon_jeff/status/1977578610329534958}{chameleon\_jeff}). 
+\m Some traders have private deals with exchanges to avoid deleveraging! These private deals represent a hidden cost/subsidy from traders with out these deals (\href{https://x.com/darkmarketio/status/1977766731188740134}{darkmarketio}). 
+\ei 
+    
+\end{frame}
+
+\section{Regulation}
+
+
+\begin{frame}{The GENIUS Act}
+
+\begin{center}
+    \includegraphics[width = 0.8\textwidth]{genius.png}
+\end{center}
+
+Introduced by Bill Hagerty (R-TN) \href{https://www.hagerty.senate.gov/wp-content/uploads/2025/02/GENIUS-Act.pdf}{(Full Text)}
+    
+\end{frame}
+
+\begin{frame}{GENIUS Act}
+
+The GENIUS Act: 
+\bi 
+\m Grants regulated issuers \textbf{exclusive} rights to distribute stablecoins 
+\m Regulates sc issuers like banks at the federal \textbf{or state level}
+\bi 
+\m Issuers with \$10b+ assets \underline{must} register federally 
+\ei 
+\m Clarifies that stablecoins are \emph{not} ``securities'' (in the 1936 securities exchange act meaning) 
+\m Requires ledgers to be \underline{public} to qualify as ``stablecoins'' 
+\m Applies consumer protection laws to stablecoin wallet providers 
+\m Prohibits paying interest on stablecoins (so they cannot compete with bank deposits) 
+\ei 
+
+Among other details (see \href{https://www.davispolk.com/insights/client-update/stablecoin-bill-first-out-gate-crypto-legislation-gains-momentum}{discussion by law firm Davis Polk}) 
+
+\end{frame}
+
+
+\begin{frame}{Prosecutorial Discretion}
+
+\begin{center}
+    \includegraphics[width = .9\textwidth]{american_banker.png}
+\end{center} 
+Source: American Banker Newsletter 
+\end{frame}
+
+
+\begin{frame}{Prosecutorial Discretion}
+
+\begin{center}
+    \includegraphics[width = \textwidth]{coinbase_bribes.png}
+\end{center} \pause 
+``Code is law''? How about ``Trump is law''?
+
+\end{frame}
+
+
+\begin{frame}{Meme-coin company bids on InfoWars}
+
+\vfill 
+Right-wing conspiracy theory and misinformation website InfoWars, founded by Alex Jones, must be sold to pay his legal liabilities stemming from Sandy Hook defamation case. \\ \vfill 
+
+Meme-coin company Wow.ai has entered a bid to buy InfoWars using equity tokens. 
+\vfill 
+\end{frame}
+
+\begin{frame}{Meme-coin company bids on InfoWars}
+
+``We will receive proposals from people and entities who want to operate the website and Wars token-holders will get to vote on what decision to make,'' Infowars CEO Rick Latona said. ``So the creditors will be in an interesting situation because if this thing plays out over a year they have been invested in a lot of tokens.''
+    
+\end{frame}
+
+\begin{frame}{Completing incomplete markets}
+
+\begin{center}
+    \includegraphics[width = \textwidth]{arpit_gupta.png}
+\end{center}
+
+\bi 
+\m Will wow.ai bring Arpit's idea to fruition? 
+\ei 
+    
+\end{frame}
+
+
+\end{document}
